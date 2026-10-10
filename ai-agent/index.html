@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHAKTIX AI Sales Desk & Lead Engine</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #090d16; }
+        .font-syne { font-family: 'Syne', sans-serif; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        .card-glow {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+        }
+    </style>
+</head>
+<body class="text-slate-100 min-h-screen p-4 sm:p-8">
+
+    <!-- Header -->
+    <header class="max-w-6xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between pb-6 border-b border-slate-800 gap-4">
+        <div class="flex items-center space-x-3">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-purple-600 to-indigo-600 flex items-center justify-center text-white text-xl font-black shadow-lg shadow-purple-600/30">
+                🤖
+            </div>
+            <div>
+                <div class="flex items-center space-x-3">
+                    <h1 class="text-2xl font-bold font-syne text-white">SHAKTIX AI SALES DESK</h1>
+                    <span class="px-2.5 py-0.5 rounded-full bg-purple-950 border border-purple-700 text-purple-300 font-mono text-[10px] font-bold">CHIEF SALES OFFICER</span>
+                </div>
+                <p class="text-xs text-slate-400">Generate high-converting WhatsApp pitches, handle objections & close deals in 60 seconds.</p>
+            </div>
+        </div>
+        <div class="flex items-center space-x-3">
+            <a href="../antigravity-engine/dashboard.html" class="px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-purple-400 border border-slate-800 text-xs font-bold transition flex items-center space-x-2">
+                <i class="fas fa-arrow-left"></i>
+                <span>Engine Dashboard</span>
+            </a>
+            <a href="../index.html" class="px-3.5 py-2 rounded-xl bg-purple-600 hover:bg-purple-500 text-white text-xs font-bold transition flex items-center space-x-2">
+                <i class="fas fa-globe"></i>
+                <span>Main Agency</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto py-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+        <!-- Left Column: Input Form (5 Cols) -->
+        <div class="lg:col-span-5 space-y-6">
+            <div class="card-glow p-6 rounded-2xl space-y-4">
+                <h2 class="text-base font-bold font-syne text-white flex items-center space-x-2 border-b border-slate-800 pb-3">
+                    <i class="fas fa-crosshairs text-purple-400"></i>
+                    <span>Target Prospect Details</span>
+                </h2>
+
+                <div class="space-y-3 text-xs">
+                    <div>
+                        <label class="block text-slate-400 font-semibold mb-1">Business Name *</label>
+                        <input id="bizName" type="text" placeholder="e.g. Apollo Dental Care / Iron Gym" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-purple-500">
+                    </div>
+
+                    <div>
+                        <label class="block text-slate-400 font-semibold mb-1">Owner / Doctor Name (Optional)</label>
+                        <input id="ownerName" type="text" placeholder="e.g. Dr. Rajesh Sharma / Rohit Ji" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-purple-500">
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-slate-400 font-semibold mb-1">Category *</label>
+                            <select id="bizCategory" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-purple-500">
+                                <option value="clinic">Clinic / Hospital</option>
+                                <option value="gym">Gym / Fitness Center</option>
+                                <option value="restaurant">Cafe / Restaurant</option>
+                                <option value="corporate">Corporate / Real Estate</option>
+                                <option value="coaching">Coaching / School</option>
+                                <option value="salon">Salon / Spa</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-slate-400 font-semibold mb-1">City / Locality *</label>
+                            <input id="bizCity" type="text" placeholder="e.g. Patna / Delhi" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-purple-500">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-slate-400 font-semibold mb-1">Client WhatsApp Number (with country code)</label>
+                        <input id="bizPhone" type="text" placeholder="e.g. 919876543210" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-purple-500 font-mono">
+                    </div>
+
+                    <div>
+                        <label class="block text-slate-400 font-semibold mb-1">Pitch Strategy</label>
+                        <select id="pitchType" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-purple-500">
+                            <option value="cold">High-Impact Cold Pitch (No Website Gap)</option>
+                            <option value="audit">Free 2-Minute Digital Audit Pitch</option>
+                            <option value="demo">Direct Demo Showcase Pitch</option>
+                        </select>
+                    </div>
+
+                    <!-- AI Generation Engine Selection -->
+                    <div class="p-3.5 rounded-xl bg-slate-950/80 border border-purple-900/40 space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="text-slate-300 font-semibold flex items-center space-x-1.5 text-[11px]">
+                                <i class="fas fa-brain text-purple-400"></i>
+                                <span>AI Brain Engine:</span>
+                            </span>
+                            <span id="engineBadge" class="text-[9px] font-bold px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-800">SMART BUILT-IN</span>
+                        </div>
+                        <select id="engineMode" onchange="toggleEngineMode()" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-1.5 text-white text-xs">
+                            <option value="template">⚡ Smart Built-in Engine (Free & No API Key Needed)</option>
+                            <option value="gemini">🤖 Real Live Google Gemini AI (Original Type - Free API Key)</option>
+                        </select>
+                        <div id="geminiKeyBox" class="hidden space-y-1 pt-1 border-t border-slate-800/80">
+                            <div class="flex justify-between items-center text-[10px]">
+                                <span class="text-slate-400">Google Gemini API Key:</span>
+                                <a href="https://aistudio.google.com/app/apikey" target="_blank" class="text-purple-400 hover:text-purple-300 underline font-semibold">Get 100% Free Key &nearr;</a>
+                            </div>
+                            <input id="geminiApiKey" type="password" oninput="saveGeminiKey()" placeholder="Paste your AIzaSy... key here" class="w-full bg-slate-900 border border-purple-800/50 rounded-lg px-2.5 py-1.5 text-white text-xs font-mono">
+                            <p class="text-[9px] text-slate-500">Key is saved securely in your browser's localStorage only.</p>
+                        </div>
+                    </div>
+
+                    <button id="btnGenerate" onclick="generatePitch()" class="w-full py-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-purple-600/30 transition transform hover:-translate-y-0.5 flex items-center justify-center space-x-2">
+                        <i class="fas fa-wand-magic-sparkles"></i>
+                        <span id="btnGenText">Generate AI WhatsApp Pitch</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Objection Rebuttal Tool -->
+            <div class="card-glow p-6 rounded-2xl space-y-3">
+                <h3 class="text-sm font-bold font-syne text-white flex items-center space-x-2">
+                    <i class="fas fa-shield-alt text-amber-400"></i>
+                    <span>Instant Objection Solver</span>
+                </h3>
+                <p class="text-[11px] text-slate-400">Client objection select karein, AI rebuttal turant mil jayega:</p>
+                <select id="objSelect" onchange="solveObjection()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-white text-xs focus:outline-none focus:border-purple-500">
+                    <option value="price">"Bohot mehenga hai / Budget nahi hai"</option>
+                    <option value="instagram">"Hamara Instagram page kaafi hai"</option>
+                    <option value="later">"Hum agle mahine sochenge"</option>
+                    <option value="trust">"Aap par trust kaise karein?"</option>
+                </select>
+                <div id="objOutput" class="bg-slate-950 p-3.5 rounded-xl border border-slate-800 text-xs text-slate-300 leading-relaxed font-mono">
+                    Select objection to view rebuttal.
+                </div>
+                <button onclick="copyObjection()" class="w-full py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold rounded-lg transition">
+                    <i class="far fa-copy mr-1"></i> Copy Rebuttal Message
+                </button>
+            </div>
+        </div>
+
+        <!-- Right Column: Pitch Output & Live Action (7 Cols) -->
+        <div class="lg:col-span-7 space-y-6">
+
+            <!-- Pitch Display -->
+            <div class="card-glow p-6 rounded-2xl space-y-4">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                    <h2 class="text-base font-bold font-syne text-white flex items-center space-x-2">
+                        <i class="fab fa-whatsapp text-emerald-400 text-lg"></i>
+                        <span>Generated Personalized Pitch</span>
+                    </h2>
+                    <span id="pitchBadge" class="px-2.5 py-0.5 rounded-full bg-emerald-950 border border-emerald-700 text-emerald-300 text-[10px] font-bold">READY TO SEND</span>
+                </div>
+
+                <div class="relative">
+                    <textarea id="pitchOutput" rows="12" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-xs font-mono text-slate-200 focus:outline-none focus:border-purple-500 leading-relaxed"></textarea>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-3 pt-2">
+                    <button onclick="copyPitch()" class="flex-1 py-3 bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs rounded-xl transition flex items-center justify-center space-x-2">
+                        <i class="far fa-copy"></i>
+                        <span>Copy Pitch Text</span>
+                    </button>
+                    <button onclick="openWhatsApp()" class="flex-1 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-xl shadow-lg shadow-emerald-600/30 transition flex items-center justify-center space-x-2">
+                        <i class="fab fa-whatsapp text-base"></i>
+                        <span>Open In WhatsApp Web</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quick Lead Tracker (LocalStorage) -->
+            <div class="card-glow p-6 rounded-2xl space-y-4">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                    <h3 class="text-sm font-bold font-syne text-white flex items-center space-x-2">
+                        <i class="fas fa-database text-purple-400"></i>
+                        <span>Lead Pipeline Tracker (Saved in Browser)</span>
+                    </h3>
+                    <button onclick="saveCurrentLead()" class="px-3 py-1 bg-purple-600/30 hover:bg-purple-600 text-purple-300 hover:text-white rounded-lg text-xs font-bold transition">
+                        + Save This Lead
+                    </button>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs">
+                        <thead class="text-slate-400 border-b border-slate-800">
+                            <tr>
+                                <th class="pb-2">Business</th>
+                                <th class="pb-2">Category</th>
+                                <th class="pb-2">Phone</th>
+                                <th class="pb-2">Status</th>
+                                <th class="pb-2">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leadTableBody" class="divide-y divide-slate-800/60 font-mono text-[11px]">
+                            <!-- Leads injected here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <script>
+        // Pre-fill initial objection & restore engine config
+        window.onload = function() {
+            solveObjection();
+            renderLeads();
+            
+            // Restore saved API Key
+            const savedKey = localStorage.getItem('shaktix_gemini_key') || '';
+            const savedMode = localStorage.getItem('shaktix_engine_mode') || 'template';
+            if (savedKey) {
+                document.getElementById('geminiApiKey').value = savedKey;
+            }
+            document.getElementById('engineMode').value = savedMode;
+            toggleEngineMode();
+        };
+
+        function toggleEngineMode() {
+            const mode = document.getElementById('engineMode').value;
+            const keyBox = document.getElementById('geminiKeyBox');
+            const badge = document.getElementById('engineBadge');
+            const btnText = document.getElementById('btnGenText');
+
+            localStorage.setItem('shaktix_engine_mode', mode);
+
+            if (mode === 'gemini') {
+                keyBox.classList.remove('hidden');
+                badge.innerText = 'ORIGINAL GEN-AI';
+                badge.className = 'text-[9px] font-bold px-2 py-0.5 rounded bg-purple-950 text-purple-300 border border-purple-700';
+                btnText.innerText = 'Generate with Live Gemini AI 🤖';
+            } else {
+                keyBox.classList.add('hidden');
+                badge.innerText = 'SMART BUILT-IN';
+                badge.className = 'text-[9px] font-bold px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-800';
+                btnText.innerText = 'Generate AI WhatsApp Pitch';
+            }
+        }
+
+        function saveGeminiKey() {
+            const key = document.getElementById('geminiApiKey').value.trim();
+            localStorage.setItem('shaktix_gemini_key', key);
+        }
+
+        async function generatePitch() {
+            const biz = document.getElementById('bizName').value.trim() || "Aapka Business";
+            const owner = document.getElementById('ownerName').value.trim();
+            const category = document.getElementById('bizCategory').value;
+            const city = document.getElementById('bizCity').value.trim() || "aapke shehar";
+            const pitchType = document.getElementById('pitchType').value;
+            const engine = document.getElementById('engineMode').value;
+            const apiKey = document.getElementById('geminiApiKey').value.trim();
+
+            const pitchBadge = document.getElementById('pitchBadge');
+            const outputBox = document.getElementById('pitchOutput');
+
+            // --- MODE 1: LIVE GEMINI API (ORIGINAL TYPE) ---
+            if (engine === 'gemini') {
+                if (!apiKey) {
+                    alert("⚠️ Real Gemini AI use karne ke liye Google Gemini API key paste karein!\nFree key lene ke liye 'Get 100% Free Key' link par click karein.");
+                    document.getElementById('geminiApiKey').focus();
+                    return;
+                }
+
+                pitchBadge.innerText = "GEMINI THINKING...";
+                pitchBadge.className = "px-2.5 py-0.5 rounded-full bg-purple-900 border border-purple-500 text-purple-200 text-[10px] font-bold animate-pulse";
+                outputBox.value = "🤖 Contacting Google Gemini 2.0 Flash AI...\nAnalyzing business niche, customer psychology, and formulating custom conversion pitch...";
+
+                const prompt = `You are the Chief Sales Officer (CSO) of SHAKTIX Web Studio (Founder & CEO: Shubham Kumar, WhatsApp: +91 8298136441).
+Write a high-converting, natural Hinglish WhatsApp cold pitch for a local business with these details:
+- Business Name: ${biz}
+- Owner/Doctor Name: ${owner || 'Owner/Team'}
+- Category: ${category}
+- City/Area: ${city}
+- Pitch Strategy: ${pitchType}
+- Live Demo Link to mention: H:/shaktix/demos/${category === "clinic" ? "clinic" : category === "gym" ? "gym" : "corporate"}/index.html
+
+Core Directives:
+1. Speak natural, respectful Hinglish (using Namaste, respectful tone, emojis).
+2. Point out where they are losing leads on Google Maps (missing direct WhatsApp 1-click booking / outdated presence).
+3. Offer our live demo preview link and mention 48-hour delivery + 1 Year Free Hosting.
+4. Risk reversal: 50% advance to start, 50% only after full satisfaction.
+5. End with a polite, low-friction question asking for a 2-minute walkthrough.
+6. Sign off with Shubham Kumar, Founder & CEO, SHAKTIX Web Technologies (+91 8298136441).
+Output ONLY the final WhatsApp message text ready to copy.`;
+
+                try {
+                    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            contents: [{ parts: [{ text: prompt }] }]
+                        })
+                    });
+
+                    const data = await response.json();
+
+                    if (data.error) {
+                        throw new Error(data.error.message || 'Gemini API Error');
+                    }
+
+                    const aiText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+                    if (aiText) {
+                        outputBox.value = aiText.trim();
+                        pitchBadge.innerText = "GEMINI AI GENERATED ✨";
+                        pitchBadge.className = "px-2.5 py-0.5 rounded-full bg-purple-950 border border-purple-600 text-purple-300 text-[10px] font-bold";
+                        return;
+                    } else {
+                        throw new Error("No response generated from Gemini.");
+                    }
+                } catch (err) {
+                    console.error("Gemini API Error:", err);
+                    alert("Gemini API Call failed: " + err.message + "\nFalling back to Smart Built-in Engine.");
+                    // Fall back to template below
+                }
+            }
+
+            // --- MODE 2: BUILT-IN SMART ENGINE (NO API KEY) ---
+            pitchBadge.innerText = "READY TO SEND";
+            pitchBadge.className = "px-2.5 py-0.5 rounded-full bg-emerald-950 border border-emerald-700 text-emerald-300 text-[10px] font-bold";
+
+            let salutation = owner ? `Namaste ${owner} Sir 🙏` : `Namaste ${biz} Team 🙏`;
+            let demoLink = "H:/shaktix/demos/" + (category === "clinic" ? "clinic" : category === "gym" ? "gym" : "corporate") + "/index.html";
+
+            let pitch = "";
+
+            if (category === "clinic") {
+                pitch = `${salutation}\n\nMaine abhi Google Maps par ${biz} (${city}) dekha. Aapki clinic aur patient care ki ratings bohot shaandar hain! ⭐\n\nLekin notice kiya ki Google par koi official website linked nahi hai jahan se patients direct doctor appointment book kar sakein.\n\nHumari agency SHAKTIX ne doctors ke liye ek ultra-fast 24/7 appointment-booking portal banaya hai:\n🔗 Live Preview: ${demoLink}\n\nIs website se:\n✅ Patients phone line busy hue bina direct slot book kar sakte hain.\n✅ Google Map aur clinic timings 100% visible rehti hain.\n✅ 48 ghante me live delivery + 1 Year Free Hosting.\n\nKya main aaj shaam ko iska 2-minute ka quick walkthrough share kar sakta hoon?\n\nRegards,\nShubham Kumar\nFounder & CEO, SHAKTIX Web Technologies\n📲 +91 8298136441`;
+            } else if (category === "gym") {
+                pitch = `${salutation}\n\nMaine Google par ${biz} (${city}) check kiya, gym ka workout setup aur ambiance bohot solid lag raha hai! 🔥\n\nPar notice kiya ki jo log Google par "Best Gym in ${city}" search karte hain, unhe direct membership plans aur 1-Day Free Trial pass book karne ka option nahi milta.\n\nSHAKTIX ne fitness centers ke liye ek beast-mode website tayar ki hai:\n🔗 Live Gym Demo: ${demoLink}\n\nIsse casual enquiries 3x fast paid membership me convert hoti hain.\n\nHum ise agle 48 ghante me live kar sakte hain (special 20% launch offer chal raha hai).\n\nKya main details share karoon?\n\nRegards,\nShubham Kumar\nFounder & CEO, SHAKTIX Web Technologies\n📲 +91 8298136441`;
+            } else {
+                pitch = `${salutation}\n\nMaine abhi ${biz} (${city}) ki Google profile dekhi. Aapka kaam bohot badhiya hai! ⭐\n\nLekin maine dekha ki aapki koi official modern website nahi hai, jiski wajah se high-ticket clients competitors ke paas chale jaate hain.\n\nHumari agency SHAKTIX aapke brand ke liye ek high-speed, modern website 48 ghante me ready kar sakti hai:\n🔗 Live Demo: ${demoLink}\n\n✅ 100% Mobile & Tablet responsive\n✅ Direct WhatsApp & Call lead engine\n✅ Free Domain + 1 Year Hosting included\n\nStart karne ke liye sirf 50% advance dena hota hai, baki 50% satisfaction ke baad.\n\nKya hum kal subah 10 baje ek quick 5-minute call par baat kar sakte hain?\n\nRegards,\nShubham Kumar\nFounder & CEO, SHAKTIX Web Technologies\n📲 +91 8298136441`;
+            }
+
+            outputBox.value = pitch;
+        }
+
+        function copyPitch() {
+            const text = document.getElementById('pitchOutput').value;
+            if(!text) return alert("Pehle pitch generate karein!");
+            navigator.clipboard.writeText(text).then(() => {
+                alert("Pitch copied to clipboard! ✅");
+            });
+        }
+
+        function openWhatsApp() {
+            const phone = document.getElementById('bizPhone').value.trim();
+            const text = encodeURIComponent(document.getElementById('pitchOutput').value);
+            if (!text) return alert("Pehle pitch generate karein!");
+            
+            let url = phone ? `https://wa.me/${phone}?text=${text}` : `https://web.whatsapp.com/send?text=${text}`;
+            window.open(url, '_blank');
+        }
+
+        function solveObjection() {
+            const val = document.getElementById('objSelect').value;
+            let ans = "";
+            if (val === "price") {
+                ans = `"Sir, yeh kharcha nahi balki investment hai. Agar is website se pure saal me sirf 2 se 3 naye clients bhi mil gaye, toh aapka poora ₹9,999 nikal aayega. Baaki saal bhar ka profit 100% aapka bonus hai!"`;
+            } else if (val === "instagram") {
+                ans = `"Sir, Instagram unke liye hai jo already aapko follow karte hain. Par jo customer Google par 'Best service near me' search karta hai, wo direct website dekhta hai. Google ke customers 4x zyada paying aur serious hote hain!"`;
+            } else if (val === "later") {
+                ans = `"Bilkul sir! Bas hum har area me ek hi niche ke top business ko showcase partner banate hain aur unko 20% launch discount dete hain. Kya main aapke liye discount slot kal tak hold rakhu?"`;
+            } else if (val === "trust") {
+                ans = `"Sir, risk 0% hai! Hum 50% advance lekar kaam shuru karte hain aur baki 50% tab lete hain jab website ban kar poori tarah aapko pasand aa jaye aur live ho jaye."`;
+            }
+            document.getElementById('objOutput').innerText = ans;
+        }
+
+        function copyObjection() {
+            const text = document.getElementById('objOutput').innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                alert("Rebuttal message copied! ✅");
+            });
+        }
+
+        function saveCurrentLead() {
+            const name = document.getElementById('bizName').value.trim();
+            if (!name) return alert("Business Name likhiye save karne ke liye!");
+            const category = document.getElementById('bizCategory').value;
+            const phone = document.getElementById('bizPhone').value.trim() || "N/A";
+
+            let leads = JSON.parse(localStorage.getItem('shaktix_leads') || "[]");
+            leads.unshift({ name, category, phone, status: "Pitch Sent", date: new Date().toLocaleDateString() });
+            localStorage.setItem('shaktix_leads', JSON.stringify(leads));
+            renderLeads();
+            alert("Lead saved in Local Storage! ✅");
+        }
+
+        function renderLeads() {
+            let leads = JSON.parse(localStorage.getItem('shaktix_leads') || "[]");
+            const tbody = document.getElementById('leadTableBody');
+            if (leads.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="5" class="py-4 text-center text-slate-500">No leads saved yet. Start pitching!</td></tr>`;
+                return;
+            }
+            tbody.innerHTML = leads.map((l, idx) => `
+                <tr class="hover:bg-slate-900/50">
+                    <td class="py-2.5 font-bold text-white">${l.name}</td>
+                    <td class="py-2.5 text-purple-400">${l.category}</td>
+                    <td class="py-2.5 text-slate-300">${l.phone}</td>
+                    <td class="py-2.5"><span class="px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 text-[10px]">${l.status}</span></td>
+                    <td class="py-2.5"><button onclick="deleteLead(${idx})" class="text-rose-400 hover:text-rose-300"><i class="fas fa-trash"></i></button></td>
+                </tr>
+            `).join('');
+        }
+
+        function deleteLead(idx) {
+            let leads = JSON.parse(localStorage.getItem('shaktix_leads') || "[]");
+            leads.splice(idx, 1);
+            localStorage.setItem('shaktix_leads', JSON.stringify(leads));
+            renderLeads();
+        }
+    </script>
+</body>
+</html>
