@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CarePoint Multispeciality Clinic — Demo Template | Built by SHAKTIX</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --secondary: #10b981;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --gray: #64748b;
+      --border: #e2e8f0;
+      --radius: 12px;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Plus Jakarta Sans',sans-serif; }
+    body { background-color:#f8fafc; color:#1e293b; line-height:1.6; }
+    .demo-bar { background:#0f172a; color:#fff; padding:8px 20px; font-size:13px; display:flex; justify-content:space-between; align-items:center; }
+    .demo-bar a { color:#38bdf8; text-decoration:none; font-weight:600; }
+    .container { max-width:1150px; margin:0 auto; padding:0 20px; }
+    .nav { background:#fff; padding:18px 0; border-bottom:1px solid var(--border); position:sticky; top:0; z-index:50; }
+    .nav-flex { display:flex; justify-content:space-between; align-items:center; }
+    .logo { font-size:22px; font-weight:800; color:var(--dark); text-decoration:none; display:flex; align-items:center; gap:8px; }
+    .logo span { color:var(--primary); }
+    .btn { display:inline-flex; align-items:center; gap:8px; padding:10px 22px; border-radius:8px; font-weight:600; text-decoration:none; font-size:14px; transition:0.3s; cursor:pointer; border:none; }
+    .btn-primary { background:var(--primary); color:#fff; }
+    .btn-primary:hover { background:var(--primary-dark); }
+    .btn-wa { background:#25d366; color:#fff; }
+    .btn-wa:hover { background:#22bf5b; }
+    
+    /* Hero */
+    .hero { padding:70px 0; background:linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); }
+    .hero-grid { display:grid; grid-template-columns:1.2fr 0.8fr; gap:40px; align-items:center; }
+    .badge { display:inline-block; background:#e0f2fe; color:var(--primary); padding:6px 14px; border-radius:50px; font-size:12px; font-weight:700; margin-bottom:16px; border:1px solid #bae6fd; }
+    .hero h1 { font-size:42px; font-weight:800; line-height:1.2; color:var(--dark); margin-bottom:16px; font-family:'Syne',sans-serif; }
+    .hero p { font-size:16px; color:var(--gray); margin-bottom:24px; }
+    .hero-box { background:#fff; padding:30px; border-radius:var(--radius); box-shadow:0 15px 35px rgba(0,0,0,0.06); border:1px solid var(--border); }
+    .form-group { margin-bottom:14px; }
+    .form-group label { display:block; font-size:13px; font-weight:600; margin-bottom:6px; }
+    .form-group input, .form-group select { width:100%; padding:10px 14px; border:1px solid var(--border); border-radius:8px; font-size:14px; outline:none; }
+    .form-group input:focus, .form-group select:focus { border-color:var(--primary); }
+
+    /* Features */
+    .section { padding:70px 0; }
+    .section-title { text-align:center; font-size:32px; font-weight:800; color:var(--dark); margin-bottom:12px; font-family:'Syne',sans-serif; }
+    .section-sub { text-align:center; color:var(--gray); margin-bottom:45px; }
+    .grid-3 { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px; }
+    .card { background:#fff; padding:28px; border-radius:var(--radius); border:1px solid var(--border); transition:0.3s; }
+    .card:hover { transform:translateY(-6px); box-shadow:0 12px 30px rgba(0,0,0,0.06); }
+    .card-icon { width:52px; height:52px; border-radius:10px; background:#e0f2fe; color:var(--primary); display:flex; align-items:center; justify-content:center; font-size:22px; margin-bottom:16px; }
+    .card h3 { font-size:18px; margin-bottom:10px; color:var(--dark); }
+    .card p { font-size:14px; color:var(--gray); }
+
+    /* Doctors */
+    .doc-card { text-align:center; background:#fff; padding:24px; border-radius:var(--radius); border:1px solid var(--border); }
+    .doc-avatar { width:90px; height:90px; border-radius:50%; background:#e2e8f0; margin:0 auto 16px; display:flex; align-items:center; justify-content:center; font-size:36px; color:var(--primary); }
+    .doc-card h4 { font-size:18px; color:var(--dark); }
+    .doc-card .spec { color:var(--primary); font-size:13px; font-weight:600; margin-bottom:8px; }
+    .doc-card p { font-size:13px; color:var(--gray); margin-bottom:16px; }
+
+    /* Footer */
+    footer { background:var(--dark); color:#94a3b8; padding:40px 0; text-align:center; font-size:14px; }
+    footer a { color:#38bdf8; text-decoration:none; }
+
+    @media (max-width:768px) {
+      .hero-grid { grid-template-columns:1fr; }
+      .hero h1 { font-size:32px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-bar">
+    <span>⚡ <strong>SHAKTIX Demo Template</strong> — Designed for Clinics, Dentists & Doctors</span>
+    <a href="../../index.html">← Back to SHAKTIX Agency</a>
+  </div>
+
+  <nav class="nav">
+    <div class="container nav-flex">
+      <a href="#" class="logo">
+        <i class="fa-solid fa-heart-pulse" style="color:#0284c7;"></i>
+        CarePoint <span>Clinic</span>
+      </a>
+      <a href="https://wa.me/918298136441?text=Namaste%20Doctor!%20I%20want%20to%20book%20an%20appointment." target="_blank" class="btn btn-wa">
+        <i class="fa-brands fa-whatsapp"></i> Instant WhatsApp Booking
+      </a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="badge"><i class="fa-solid fa-award"></i> Rated 4.9/5 by 3,500+ Patients</span>
+        <h1>Comprehensive Healthcare You Can Trust</h1>
+        <p>Book expert consultations with senior specialists in minutes. Zero waiting line with digital priority appointments.</p>
+        <div style="display:flex; gap:16px; align-items:center;">
+          <a href="#book" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Book OPD Consultation</a>
+          <span style="font-size:13px; color:var(--gray);"><i class="fa-solid fa-phone" style="color:var(--secondary)"></i> Call Emergency: +91 98765 43210</span>
+        </div>
+      </div>
+
+      <div class="hero-box" id="book">
+        <h3 style="font-size:20px; font-weight:700; margin-bottom:6px;">Quick Patient Appointment</h3>
+        <p style="font-size:13px; color:var(--gray); margin-bottom:18px;">Guaranteed confirmation within 15 minutes.</p>
+        <form onsubmit="event.preventDefault(); alert('Appointment confirmed! In a live website, this automatically alerts the Doctor via WhatsApp.');">
+          <div class="form-group">
+            <label>Patient Full Name</label>
+            <input type="text" placeholder="e.g. Ramesh Verma" required>
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" placeholder="e.g. 9876543210" required>
+          </div>
+          <div class="form-group">
+            <label>Select Department</label>
+            <select required>
+              <option value="">Choose Specialist</option>
+              <option>General Medicine</option>
+              <option>Dentistry & Orthodontics</option>
+              <option>Orthopedics & Joint Care</option>
+              <option>Pediatrics (Child Specialist)</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; padding:12px;">
+            <i class="fa-solid fa-check"></i> Confirm Appointment
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Specialized Clinical Services</h2>
+      <p class="section-sub">State of the art technology combined with experienced physicians.</p>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-icon"><i class="fa-solid fa-stethoscope"></i></div>
+          <h3>General Physician</h3>
+          <p>Complete family medical checkups, fever diagnoses, seasonal illnesses and chronic health management.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><i class="fa-solid fa-tooth"></i></div>
+          <h3>Dental & Oral Care</h3>
+          <p>Root canal, laser teeth whitening, braces, invisible aligners and painless tooth extractions.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><i class="fa-solid fa-flask"></i></div>
+          <h3>In-House Pathology Lab</h3>
+          <p>Instant blood tests, digital X-Rays, ultrasound reports delivered directly to your WhatsApp.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:#fff; border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+    <div class="container">
+      <h2 class="section-title">Meet Our Lead Specialists</h2>
+      <p class="section-sub">Over 20+ years of cumulative clinical excellence.</p>
+      <div class="grid-3">
+        <div class="doc-card">
+          <div class="doc-avatar"><i class="fa-solid fa-user-doctor"></i></div>
+          <h4>Dr. Rajesh Sharma</h4>
+          <p class="spec">MD, General Medicine</p>
+          <p>15+ years experience at AIIMS & Apollo. Specialist in diabetes and cardiovascular health.</p>
+          <a href="https://wa.me/918298136441?text=I%20want%20to%20consult%20Dr.%20Rajesh%20Sharma" class="btn btn-wa" style="width:100%; justify-content:center; font-size:13px;">
+            <i class="fa-brands fa-whatsapp"></i> Chat with Doctor
+          </a>
+        </div>
+        <div class="doc-card">
+          <div class="doc-avatar"><i class="fa-solid fa-user-doctor"></i></div>
+          <h4>Dr. Priya Malhotra</h4>
+          <p class="spec">BDS, MDS Orthodontics</p>
+          <p>Certified cosmetic dentist specializing in painless aligners and smile restorations.</p>
+          <a href="https://wa.me/918298136441?text=I%20want%20to%20consult%20Dr.%20Priya%20Malhotra" class="btn btn-wa" style="width:100%; justify-content:center; font-size:13px;">
+            <i class="fa-brands fa-whatsapp"></i> Chat with Doctor
+          </a>
+        </div>
+        <div class="doc-card">
+          <div class="doc-avatar"><i class="fa-solid fa-user-doctor"></i></div>
+          <h4>Dr. Amit Sengupta</h4>
+          <p class="spec">MS Orthopedics</p>
+          <p>Joint replacement and sports injury rehabilitation specialist with 12+ years experience.</p>
+          <a href="https://wa.me/918298136441?text=I%20want%20to%20consult%20Dr.%20Amit%20Sengupta" class="btn btn-wa" style="width:100%; justify-content:center; font-size:13px;">
+            <i class="fa-brands fa-whatsapp"></i> Chat with Doctor
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>CarePoint Clinic Demo Template • Crafted with high-converting precision by <a href="../../index.html"><strong>SHAKTIX Web Studio</strong></a></p>
+      <p style="margin-top:6px; font-size:12px;">To purchase this exact template for your clinic, message SHAKTIX leadership on WhatsApp.</p>
+    </div>
+  </footer>
+</body>
+</html>
