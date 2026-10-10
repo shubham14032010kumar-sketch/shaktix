@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SHAKTIX HQ — Autonomous AI Workforce Command Center</title>
+  <meta name="description" content="Executive Admin Panel & AI Workforce Command Center for SHAKTIX Web Studio. Manage Sales, Delivery, Leads, Invoices, and Cloud DB.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Styling -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Ambient Light & Grid Background -->
+  <div class="ambient-glow glow-top"></div>
+  <div class="ambient-glow glow-bottom"></div>
+  <div class="bg-mesh"></div>
+
+  <!-- Main Admin Layout -->
+  <div class="admin-layout">
+    
+    <!-- LEFT SIDEBAR: DEPARTMENTS -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <a href="../index.html" class="logo-box">
+          <span class="logo-text">SHAKTI<span class="brand-x">X</span></span>
+          <span class="logo-tag">AI HQ</span>
+        </a>
+        <div class="ceo-badge">
+          <i class="fa-solid fa-crown text-amber"></i>
+          <span>CEO Executive Terminal</span>
+        </div>
+      </div>
+
+      <!-- Department Navigation -->
+      <nav class="dept-nav">
+        <div class="nav-section-label">AI WORKFORCE DEPARTMENTS</div>
+
+        <button class="nav-item active" data-dept="dept-overview">
+          <div class="icon-wrap icon-cyan"><i class="fa-solid fa-gauge-high"></i></div>
+          <div class="nav-text">
+            <strong>Command Overview</strong>
+            <span>Agency Health & KPIs</span>
+          </div>
+        </button>
+
+        <button class="nav-item" data-dept="dept-sales">
+          <div class="icon-wrap icon-purple"><i class="fa-solid fa-headset"></i></div>
+          <div class="nav-text">
+            <strong>Sales & Closer AI</strong>
+            <span>Pitches & Rebuttals</span>
+          </div>
+          <span class="worker-pill">CSO Worker</span>
+        </button>
+
+        <button class="nav-item" data-dept="dept-audit">
+          <div class="icon-wrap icon-blue"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+          <div class="nav-text">
+            <strong>Lead Scout & Audit</strong>
+            <span>2-Min Website Audits</span>
+          </div>
+          <span class="worker-pill">Scout AI</span>
+        </button>
+
+        <button class="nav-item" data-dept="dept-crm">
+          <div class="icon-wrap icon-emerald"><i class="fa-solid fa-users-gear"></i></div>
+          <div class="nav-text">
+            <strong>CRM & Cloud DB</strong>
+            <span>Supabase Sync Active</span>
+          </div>
+          <span class="badge-count" id="sidebar-lead-count">0</span>
+        </button>
+
+        <button class="nav-item" data-dept="dept-delivery">
+          <div class="icon-wrap icon-amber"><i class="fa-solid fa-code"></i></div>
+          <div class="nav-text">
+            <strong>Dev & Delivery Dept</strong>
+            <span>Project Milestones</span>
+          </div>
+          <span class="worker-pill">Tech Lead</span>
+        </button>
+
+        <button class="nav-item" data-dept="dept-finance">
+          <div class="icon-wrap icon-rose"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+          <div class="nav-text">
+            <strong>Finance & Invoicing</strong>
+            <span>Quotes & AMC Contracts</span>
+          </div>
+        </button>
+
+        <div class="nav-section-label" style="margin-top:20px;">SYSTEM & CONNECTIONS</div>
+
+        <div class="system-status-box">
+          <div class="status-row">
+            <span class="status-indicator online"></span>
+            <span>Vercel Cloud: <strong>Live</strong></span>
+          </div>
+          <div class="status-row">
+            <span class="status-indicator online"></span>
+            <span>GitHub Sync: <strong>Connected</strong></span>
+          </div>
+          <div class="status-row">
+            <span class="status-indicator online" id="supabase-status-dot"></span>
+            <span>Supabase DB: <strong>Connected</strong></span>
+          </div>
+        </div>
+
+        <div class="sidebar-links">
+          <a href="../index.html" class="quick-link" target="_blank"><i class="fa-solid fa-globe"></i> Live Agency Site &nearr;</a>
+          <a href="../ai-agent/index.html" class="quick-link" target="_blank"><i class="fa-solid fa-robot"></i> Sales Desk &nearr;</a>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- RIGHT MAIN CONTENT AREA -->
+    <main class="main-content">
+      
+      <!-- TOP STATUS BAR -->
+      <header class="top-bar">
+        <div class="top-title">
+          <h1 id="page-dept-title">Command Overview</h1>
+          <p id="page-dept-sub">Real-time telemetry and autonomous AI workforce operations for SHAKTIX.</p>
+        </div>
+        <div class="top-actions">
+          <button class="btn btn-outline btn-sm" id="btn-refresh-all">
+            <i class="fa-solid fa-arrows-rotate"></i> Sync Cloud
+          </button>
+          <a href="https://wa.me/918298136441" target="_blank" class="btn btn-whatsapp btn-sm">
+            <i class="fa-brands fa-whatsapp"></i> CEO WhatsApp
+          </a>
+        </div>
+      </header>
+
+      <!-- =================================================================== -->
+      <!-- 1. DEPT: COMMAND OVERVIEW & KPI DASHBOARD -->
+      <!-- =================================================================== -->
+      <section class="dept-panel active" id="dept-overview">
+        <!-- KPI Metrics Grid -->
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-top">
+              <span class="metric-title">Monthly Revenue Run Rate</span>
+              <div class="metric-icon icon-emerald"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+            </div>
+            <div class="metric-value">₹1,00,000<span class="metric-target">/ ₹2.5L Target</span></div>
+            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 40%;"></div></div>
+            <span class="metric-sub text-emerald"><i class="fa-solid fa-arrow-trend-up"></i> 4 Clients in Closing Pipeline</span>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-top">
+              <span class="metric-title">Total Leads Managed</span>
+              <div class="metric-icon icon-cyan"><i class="fa-solid fa-users"></i></div>
+            </div>
+            <div class="metric-value" id="kpi-total-leads">0</div>
+            <div class="metric-sub text-cyan"><i class="fa-solid fa-database"></i> Synced with Supabase & Local DB</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-top">
+              <span class="metric-title">Active AI Workers</span>
+              <div class="metric-icon icon-purple"><i class="fa-solid fa-microchip"></i></div>
+            </div>
+            <div class="metric-value">5 Workers</div>
+            <div class="metric-sub text-purple"><i class="fa-solid fa-bolt"></i> CSO, Scout, Tech Lead, Accountant, CRM</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-top">
+              <span class="metric-title">Live Portfolio Assets</span>
+              <div class="metric-icon icon-amber"><i class="fa-solid fa-laptop-code"></i></div>
+            </div>
+            <div class="metric-value">3 Demos</div>
+            <div class="metric-sub text-amber"><i class="fa-solid fa-check"></i> Clinic, Gym, Corporate Live</div>
+          </div>
+        </div>
+
+        <!-- AI Workforce Status Cards -->
+        <h2 class="section-heading"><i class="fa-solid fa-robot text-purple"></i> Active AI Workforce Roster</h2>
+        <div class="workers-grid">
+          <div class="worker-card">
+            <div class="worker-header">
+              <div class="worker-avatar bg-purple-glow">💼</div>
+              <div>
+                <h3>Agent Vikram (CSO Worker)</h3>
+                <span class="worker-role">Lead Closer & High-Ticket Pitch Specialist</span>
+              </div>
+              <span class="status-pill status-active">Active</span>
+            </div>
+            <p class="worker-desc">Spearheads conversion copywriting, ROI reframing, and overcoming price hesitation for doctors, fitness owners, and B2B founders.</p>
+            <div class="worker-actions">
+              <button class="btn btn-sm btn-outline switch-dept-btn" data-target="dept-sales"><i class="fa-solid fa-bolt"></i> Deploy Pitch</button>
+            </div>
+          </div>
+
+          <div class="worker-card">
+            <div class="worker-header">
+              <div class="worker-avatar bg-cyan-glow">🔍</div>
+              <div>
+                <h3>Agent Riya (Scout Worker)</h3>
+                <span class="worker-role">Google Maps Digital Gap Analyst</span>
+              </div>
+              <span class="status-pill status-active">Active</span>
+            </div>
+            <p class="worker-desc">Audits local businesses in 60 seconds, detecting missing WhatsApp booking buttons and slow mobile performance for Trojan Horse outreach.</p>
+            <div class="worker-actions">
+              <button class="btn btn-sm btn-outline switch-dept-btn" data-target="dept-audit"><i class="fa-solid fa-magnifying-glass"></i> Run Audit</button>
+            </div>
+          </div>
+
+          <div class="worker-card">
+            <div class="worker-header">
+              <div class="worker-avatar bg-amber-glow">🛠️</div>
+              <div>
+                <h3>Agent Aryan (Tech Lead Worker)</h3>
+                <span class="worker-role">48-Hour Rapid Delivery Supervisor</span>
+              </div>
+              <span class="status-pill status-active">Active</span>
+            </div>
+            <p class="worker-desc">Manages project milestones, deployment pipelines to Vercel, SSL security, and live demo templates for instantaneous client onboarding.</p>
+            <div class="worker-actions">
+              <button class="btn btn-sm btn-outline switch-dept-btn" data-target="dept-delivery"><i class="fa-solid fa-list-check"></i> View Tasks</button>
+            </div>
+          </div>
+
+          <div class="worker-card">
+            <div class="worker-header">
+              <div class="worker-avatar bg-rose-glow">📊</div>
+              <div>
+                <h3>Agent Pooja (Finance Worker)</h3>
+                <span class="worker-role">Invoicing & Retainer Manager</span>
+              </div>
+              <span class="status-pill status-active">Active</span>
+            </div>
+            <p class="worker-desc">Generates formatted proposals, calculates 50% milestone deposits, and tracks annual maintenance retainer contracts (AMCs).</p>
+            <div class="worker-actions">
+              <button class="btn btn-sm btn-outline switch-dept-btn" data-target="dept-finance"><i class="fa-solid fa-file-invoice"></i> Create Invoice</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================== -->
+      <!-- 2. DEPT: SALES & CLOSER AI WORKER -->
+      <!-- =================================================================== -->
+      <section class="dept-panel" id="dept-sales">
+        <div class="grid-2col">
+          <div class="panel-box">
+            <div class="panel-head">
+              <h2><i class="fa-solid fa-wand-magic-sparkles text-purple"></i> AI Closer: Real-Time Pitch Generator</h2>
+              <p>Calibrated for high-ticket closures with live demo attachments.</p>
+            </div>
+            <form id="admin-pitch-form" class="form-grid">
+              <div class="form-group">
+                <label>Prospect Business Name *</label>
+                <input type="text" id="sales-biz-name" placeholder="e.g. CarePoint Multispeciality Clinic" required>
+              </div>
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label>Owner / Doctor Name</label>
+                  <input type="text" id="sales-owner-name" placeholder="e.g. Dr. Rajesh Sharma">
+                </div>
+                <div class="form-group">
+                  <label>WhatsApp Number</label>
+                  <input type="tel" id="sales-phone" placeholder="919876543210" value="91">
+                </div>
+              </div>
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label>Business Niche *</label>
+                  <select id="sales-niche">
+                    <option value="clinic">🏥 Doctor / Clinic / Hospital</option>
+                    <option value="gym">🏋️ Gym / Fitness / CrossFit</option>
+                    <option value="corporate">🏢 Corporate / Real Estate / Agency</option>
+                    <option value="restaurant">🍕 Restaurant / Cafe / Bakery</option>
+                    <option value="coaching">📚 Coaching / School / Institute</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>City / Area</label>
+                  <input type="text" id="sales-city" placeholder="e.g. Patna, Delhi, Bangalore">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Observed Digital Gap</label>
+                <select id="sales-gap">
+                  <option value="no-website">❌ No official website on Google Maps profile</option>
+                  <option value="no-booking">⚠️ Has site, but NO 1-Click WhatsApp appointment booking</option>
+                  <option value="slow-outdated">🐌 Outdated, slow site with broken mobile layout</option>
+                  <option value="justdial">📋 Listed only on JustDial/IndiaMart (Splitting leads)</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">
+                <i class="fa-solid fa-bolt"></i> Generate Closing Pitch
+              </button>
+            </form>
+          </div>
+
+          <div class="panel-box">
+            <div class="panel-head flex-between">
+              <div>
+                <h2><i class="fa-brands fa-whatsapp text-emerald"></i> Ready WhatsApp Output</h2>
+                <p>Equipped with verified live Vercel demonstration links.</p>
+              </div>
+              <div class="head-btns">
+                <button class="btn btn-sm btn-outline" id="btn-copy-sales-pitch"><i class="fa-solid fa-copy"></i> Copy</button>
+                <a href="#" class="btn btn-sm btn-whatsapp" id="btn-send-sales-pitch" target="_blank"><i class="fa-brands fa-whatsapp"></i> Send</a>
+              </div>
+            </div>
+            <textarea id="sales-pitch-output" rows="12" class="output-textarea" placeholder="Generated sales pitch will appear here..."></textarea>
+            
+            <div class="helper-box">
+              <i class="fa-solid fa-circle-check text-emerald"></i>
+              <span><strong>Live Demo Injected:</strong> Generates real clickable link <code>shaktix-...vercel.app/demos/...</code></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Psychological Objection Matrix -->
+        <div class="panel-box" style="margin-top:24px;">
+          <div class="panel-head">
+            <h2><i class="fa-solid fa-shield-halved text-amber"></i> AI Objection Crusher Desk</h2>
+            <p>Immediate psychological counter-scripts for client resistance.</p>
+          </div>
+          <div class="objection-grid">
+            <div class="obj-selector-col">
+              <button class="obj-tab-btn active" data-rebuttal="price">
+                <i class="fa-solid fa-coins"></i> "Bohot mehenga hai / Budget nahi hai"
+              </button>
+              <button class="obj-tab-btn" data-rebuttal="instagram">
+                <i class="fa-brands fa-instagram"></i> "Instagram page kaafi hai"
+              </button>
+              <button class="obj-tab-btn" data-rebuttal="later">
+                <i class="fa-solid fa-clock"></i> "Hum baad me sochenge"
+              </button>
+              <button class="obj-tab-btn" data-rebuttal="relative">
+                <i class="fa-solid fa-user-group"></i> "Relative free me bana dega"
+              </button>
+              <button class="obj-tab-btn" data-rebuttal="trust">
+                <i class="fa-solid fa-handshake-slash"></i> "Advance nahi denge / Vishwas kaise karein"
+              </button>
+            </div>
+            <div class="obj-display-col">
+              <div class="rebuttal-header">
+                <span class="badge badge-success">Recommended Rebuttal Script</span>
+                <button class="btn btn-sm btn-outline" id="btn-copy-rebuttal"><i class="fa-solid fa-copy"></i> Copy Script</button>
+              </div>
+              <div class="rebuttal-body" id="rebuttal-text-content">
+                Loading objection script...
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================== -->
+      <!-- 3. DEPT: LEAD SCOUT & AUDIT AI WORKER -->
+      <!-- =================================================================== -->
+      <section class="dept-panel" id="dept-audit">
+        <div class="panel-box">
+          <div class="panel-head">
+            <h2><i class="fa-solid fa-magnifying-glass-chart text-cyan"></i> 2-Minute Digital Gap Audit Generator</h2>
+            <p>Generate a professional 3-point digital report card for any local business. Sends value first, leading to a 40%+ reply rate.</p>
+          </div>
+
+          <div class="grid-2col">
+            <div class="form-grid">
+              <div class="form-group">
+                <label>Business Name *</label>
+                <input type="text" id="audit-biz-name" placeholder="e.g. Apex Multispeciality Hospital">
+              </div>
+              <div class="form-group">
+                <label>Current Google Maps Rating & Reviews</label>
+                <input type="text" id="audit-rating" placeholder="e.g. 4.8 Stars (124 Google Reviews)">
+              </div>
+              <div class="form-group">
+                <label>Critical Digital Flaws Detected (Select all that apply)</label>
+                <div class="checkbox-list">
+                  <label class="cb-item"><input type="checkbox" id="audit-f1" checked> No direct 1-click WhatsApp booking button</label>
+                  <label class="cb-item"><input type="checkbox" id="audit-f2" checked> Official website missing on Google Profile</label>
+                  <label class="cb-item"><input type="checkbox" id="audit-f3"> Page takes over 4 seconds to load on mobile</label>
+                  <label class="cb-item"><input type="checkbox" id="audit-f4" checked> Relying on third-party portals (competitors get leads)</label>
+                </div>
+              </div>
+              <button type="button" class="btn btn-primary btn-block" id="btn-generate-audit">
+                <i class="fa-solid fa-file-waveform"></i> Synthesize 60-Second Audit
+              </button>
+            </div>
+
+            <div>
+              <div class="panel-head flex-between">
+                <h3><i class="fa-solid fa-file-lines text-cyan"></i> Formatted Audit Report</h3>
+                <button class="btn btn-sm btn-outline" id="btn-copy-audit"><i class="fa-solid fa-copy"></i> Copy Audit</button>
+              </div>
+              <textarea id="audit-output" rows="12" class="output-textarea" placeholder="Generated audit will appear here..."></textarea>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================== -->
+      <!-- 4. DEPT: CRM & SUPABASE CLOUD DATABASE -->
+      <!-- =================================================================== -->
+      <section class="dept-panel" id="dept-crm">
+        <div class="panel-box">
+          <div class="panel-head flex-between">
+            <div>
+              <h2><i class="fa-solid fa-database text-emerald"></i> Central Agency Lead Database</h2>
+              <p>Synced with Supabase Cloud DB (<code>wdgtapmrhzjseihivuoj.supabase.co</code>) & Local Storage.</p>
+            </div>
+            <div class="head-btns">
+              <button class="btn btn-sm btn-outline" id="btn-add-lead-modal"><i class="fa-solid fa-plus"></i> Add New Lead</button>
+              <button class="btn btn-sm btn-outline" id="btn-export-leads"><i class="fa-solid fa-download"></i> Export CSV</button>
+            </div>
+          </div>
+
+          <!-- Quick Stats Filter -->
+          <div class="crm-filters">
+            <button class="filter-pill active" data-filter="all">All Leads (<span id="count-all">0</span>)</button>
+            <button class="filter-pill" data-filter="Pitch Sent">Pitch Sent (<span id="count-pitched">0</span>)</button>
+            <button class="filter-pill" data-filter="Interested">Interested / In Talks (<span id="count-interested">0</span>)</button>
+            <button class="filter-pill" data-filter="Closed">Closed Deals 🎉 (<span id="count-closed">0</span>)</button>
+          </div>
+
+          <!-- Leads Table -->
+          <div class="table-container">
+            <table class="crm-table">
+              <thead>
+                <tr>
+                  <th>Client / Brand Name</th>
+                  <th>Niche</th>
+                  <th>WhatsApp Phone</th>
+                  <th>Source</th>
+                  <th>Pipeline Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="crm-table-body">
+                <tr>
+                  <td colspan="6" class="text-center text-muted" style="padding: 30px;">Loading leads from cloud database...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================== -->
+      <!-- 5. DEPT: DEV & DELIVERY (48-HR RAPID BUILD) -->
+      <!-- =================================================================== -->
+      <section class="dept-panel" id="dept-delivery">
+        <div class="panel-box">
+          <div class="panel-head">
+            <h2><i class="fa-solid fa-code text-amber"></i> Project Delivery & Milestone Tracker</h2>
+            <p>Standard SHAKTIX 48-Hour Rapid Build Protocol (50% Advance ➔ Build ➔ Live Approval ➔ 50% Final).</p>
+          </div>
+
+          <div class="delivery-board">
+            <!-- Stage 1 -->
+            <div class="board-col">
+              <div class="board-head">
+                <span class="stage-tag bg-cyan">Stage 1: Onboarding</span>
+                <span class="stage-count">24 Hours</span>
+              </div>
+              <div class="task-card">
+                <h4>50% Deposit & Details Capture</h4>
+                <p>Collect logo, phone number, clinic/gym photos, timings & doctor credentials via Client Onboarding Form.</p>
+                <div class="task-footer">
+                  <a href="../sales-kit/client-onboarding-form.md" target="_blank" class="task-link"><i class="fa-solid fa-file-lines"></i> Open Form</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Stage 2 -->
+            <div class="board-col">
+              <div class="board-head">
+                <span class="stage-tag bg-purple">Stage 2: Rapid Assembly</span>
+                <span class="stage-count">48 Hours</span>
+              </div>
+              <div class="task-card">
+                <h4>Template Customization</h4>
+                <p>Deploy Clinic, Gym, or Corporate demo codebase with client branding, Google Maps API & WhatsApp direct routing.</p>
+                <div class="task-footer">
+                  <span class="text-purple"><i class="fa-solid fa-bolt"></i> Antigravity IDE Engine</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Stage 3 -->
+            <div class="board-col">
+              <div class="board-head">
+                <span class="stage-tag bg-emerald">Stage 3: Launch & 50% Balance</span>
+                <span class="stage-count">72 Hours</span>
+              </div>
+              <div class="task-card">
+                <h4>Client Live Approval & Final Pay</h4>
+                <p>Send staging Vercel link. Client approves, transfers remaining 50% balance, and custom domain is connected.</p>
+                <div class="task-footer">
+                  <span class="text-emerald"><i class="fa-solid fa-circle-check"></i> 100% Satisfaction</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Live Portfolio Quick View -->
+          <h3 class="section-heading" style="margin-top:30px;"><i class="fa-solid fa-laptop-code text-cyan"></i> Live Portfolio Demo Hub</h3>
+          <div class="demo-links-grid">
+            <div class="demo-card-item">
+              <div class="demo-info">
+                <h4>CarePoint Multispeciality Clinic</h4>
+                <span>Doctor OPD, Appointments, Emergency dial</span>
+              </div>
+              <a href="../demos/clinic/index.html" target="_blank" class="btn btn-sm btn-outline">Preview Demo &nearr;</a>
+            </div>
+            <div class="demo-card-item">
+              <div class="demo-info">
+                <h4>IronFit Elite Fitness Arena</h4>
+                <span>Gym memberships, Free Trial pass, Beast mode UI</span>
+              </div>
+              <a href="../demos/gym/index.html" target="_blank" class="btn btn-sm btn-outline">Preview Demo &nearr;</a>
+            </div>
+            <div class="demo-card-item">
+              <div class="demo-info">
+                <h4>Nexus Enterprise Studio</h4>
+                <span>Corporate authority, Real Estate, RFQ engine</span>
+              </div>
+              <a href="../demos/corporate/index.html" target="_blank" class="btn btn-sm btn-outline">Preview Demo &nearr;</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================== -->
+      <!-- 6. DEPT: FINANCE & INVOICING -->
+      <!-- =================================================================== -->
+      <section class="dept-panel" id="dept-finance">
+        <div class="grid-2col">
+          <div class="panel-box">
+            <div class="panel-head">
+              <h2><i class="fa-solid fa-calculator text-rose"></i> Dynamic Quotation & Invoice Builder</h2>
+              <p>Select required modules to auto-calculate price, milestones, and client contract.</p>
+            </div>
+
+            <div class="invoice-options">
+              <div class="form-group">
+                <label>Client Name / Brand</label>
+                <input type="text" id="inv-client-name" placeholder="e.g. Dr. Rajesh Sharma (CarePoint Clinic)">
+              </div>
+
+              <div class="checkbox-list">
+                <label class="cb-item"><input type="checkbox" id="inv-item-web" value="4999" checked disabled> Modern Ultra-Fast Responsive Website (Core) <span>₹4,999</span></label>
+                <label class="cb-item"><input type="checkbox" id="inv-item-wa" value="1500" checked> 1-Click WhatsApp Lead & Booking Engine <span>+₹1,500</span></label>
+                <label class="cb-item"><input type="checkbox" id="inv-item-host" value="2000" checked> 1 Year Managed Cloud Hosting & Free SSL <span>+₹2,000</span></label>
+                <label class="cb-item"><input type="checkbox" id="inv-item-seo" value="2500"> Google Maps Profile & Search Console SEO <span>+₹2,500</span></label>
+                <label class="cb-item"><input type="checkbox" id="inv-item-domain" value="1000"> Custom Domain (.com / .in) 1-Year Registration <span>+₹1,000</span></label>
+                <label class="cb-item"><input type="checkbox" id="inv-item-amc" value="3000"> Annual Maintenance Contract (AMC) Support <span>+₹3,000</span></label>
+              </div>
+
+              <div class="quote-summary-card">
+                <div>
+                  <span class="text-muted text-xs">Total Project Value:</span>
+                  <div class="quote-total" id="inv-total-price">₹8,499</div>
+                </div>
+                <div class="milestones-pill">
+                  <span>50% Advance: <strong id="inv-adv-price">₹4,250</strong></span>
+                  <span>50% on Delivery: <strong id="inv-bal-price">₹4,249</strong></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel-box">
+            <div class="panel-head flex-between">
+              <div>
+                <h2><i class="fa-solid fa-file-invoice text-rose"></i> Official WhatsApp Proposal</h2>
+                <p>Ready to copy and transmit to client.</p>
+              </div>
+              <button class="btn btn-sm btn-outline" id="btn-copy-invoice"><i class="fa-solid fa-copy"></i> Copy Proposal</button>
+            </div>
+            <textarea id="invoice-output" rows="15" class="output-textarea" placeholder="Generated proposal will appear here..."></textarea>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Notification Toast -->
+  <div class="toast" id="admin-toast">
+    <i class="fa-solid fa-circle-check"></i> <span id="toast-text">Operation completed!</span>
+  </div>
+
+  <!-- Supabase Connector & Core Admin JS -->
+  <script src="../supabase-connector.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
