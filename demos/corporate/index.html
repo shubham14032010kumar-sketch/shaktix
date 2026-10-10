@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aura Prime Living & Realty — Demo Template | Built by SHAKTIX</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #c59b27;
+      --primary-hover: #b0881d;
+      --bg-dark: #0a0c10;
+      --card-bg: #12151d;
+      --border: rgba(255, 255, 255, 0.08);
+      --text: #f8fafc;
+      --muted: #94a3b8;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Plus Jakarta Sans',sans-serif; }
+    body { background:var(--bg-dark); color:var(--text); line-height:1.6; }
+    .demo-bar { background:#000; color:#fff; padding:8px 20px; font-size:13px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #1f2430; }
+    .demo-bar a { color:#c59b27; text-decoration:none; font-weight:700; }
+    .container { max-width:1150px; margin:0 auto; padding:0 20px; }
+    
+    .nav { background:rgba(10, 12, 16, 0.95); padding:18px 0; border-bottom:1px solid var(--border); position:sticky; top:0; z-index:50; backdrop-filter:blur(10px); }
+    .nav-flex { display:flex; justify-content:space-between; align-items:center; }
+    .logo { font-size:24px; font-weight:800; color:#fff; text-decoration:none; font-family:'Playfair Display',serif; letter-spacing:1px; }
+    .logo span { color:var(--primary); }
+    .btn { display:inline-flex; align-items:center; gap:8px; padding:10px 22px; border-radius:6px; font-weight:600; text-decoration:none; font-size:14px; transition:0.3s; cursor:pointer; border:none; }
+    .btn-gold { background:var(--primary); color:#000; font-weight:700; }
+    .btn-gold:hover { background:var(--primary-hover); }
+    .btn-outline { background:transparent; border:1px solid var(--border); color:#fff; }
+    .btn-outline:hover { background:rgba(255,255,255,0.05); }
+
+    /* Hero */
+    .hero { padding:90px 0; background:linear-gradient(180deg, rgba(197,155,39,0.08) 0%, transparent 100%); text-align:center; }
+    .hero-badge { display:inline-block; font-size:12px; letter-spacing:2px; color:var(--primary); border:1px solid rgba(197,155,39,0.3); padding:4px 14px; border-radius:30px; margin-bottom:18px; text-transform:uppercase; }
+    .hero h1 { font-size:52px; font-weight:700; font-family:'Playfair Display',serif; margin-bottom:18px; line-height:1.2; }
+    .hero p { font-size:17px; color:var(--muted); max-width:680px; margin:0 auto 30px; }
+
+    /* Showcase */
+    .section { padding:70px 0; }
+    .section-title { text-align:center; font-size:36px; font-family:'Playfair Display',serif; margin-bottom:12px; }
+    .section-sub { text-align:center; color:var(--muted); margin-bottom:45px; }
+    .grid-3 { display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:26px; }
+
+    .property-card { background:var(--card-bg); border:1px solid var(--border); border-radius:12px; overflow:hidden; transition:0.3s; }
+    .property-card:hover { transform:translateY(-6px); border-color:rgba(197,155,39,0.4); }
+    .property-img { height:200px; background:linear-gradient(135deg, #1e2638, #101522); display:flex; align-items:center; justify-content:center; color:var(--primary); font-size:42px; position:relative; }
+    .prop-status { position:absolute; top:12px; right:12px; background:#000; color:var(--primary); font-size:11px; font-weight:800; padding:4px 10px; border-radius:4px; border:1px solid rgba(197,155,39,0.3); }
+    .property-body { padding:24px; }
+    .property-body h3 { font-size:20px; font-weight:700; font-family:'Playfair Display',serif; margin-bottom:6px; }
+    .prop-loc { font-size:13px; color:var(--muted); margin-bottom:14px; }
+    .prop-specs { display:flex; justify-content:space-between; border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:10px 0; margin-bottom:18px; font-size:13px; color:var(--muted); }
+    .prop-specs span { display:flex; align-items:center; gap:6px; }
+    .prop-price { font-size:22px; font-weight:800; color:var(--primary); }
+    .prop-footer { display:flex; justify-content:space-between; align-items:center; }
+
+    /* Form */
+    .inquiry-box { background:linear-gradient(135deg, #141824 0%, #0d1017 100%); border:1px solid rgba(197,155,39,0.25); border-radius:14px; padding:40px; margin-top:50px; text-align:center; }
+    .inquiry-box h3 { font-size:28px; font-family:'Playfair Display',serif; margin-bottom:10px; }
+    .inquiry-box p { color:var(--muted); margin-bottom:24px; }
+    .inquiry-form { display:flex; gap:12px; max-width:600px; margin:0 auto; flex-wrap:wrap; }
+    .inquiry-form input { flex:1; min-width:220px; padding:12px 16px; background:#07090d; border:1px solid var(--border); border-radius:6px; color:#fff; outline:none; }
+    .inquiry-form input:focus { border-color:var(--primary); }
+
+    footer { background:#05070a; border-top:1px solid var(--border); padding:40px 0; text-align:center; font-size:14px; color:var(--muted); }
+    footer a { color:var(--primary); text-decoration:none; }
+  </style>
+</head>
+<body>
+  <div class="demo-bar">
+    <span>🏛️ <strong>SHAKTIX Demo Template</strong> — Designed for Real Estate, Builders & Corporate Firms</span>
+    <a href="../../index.html">← Back to SHAKTIX Agency</a>
+  </div>
+
+  <nav class="nav">
+    <div class="container nav-flex">
+      <a href="#" class="logo">AURA <span>PRIME</span></a>
+      <a href="https://wa.me/918298136441?text=Hello%20Aura%20Prime,%20I%20want%20to%20inquire%20about%20properties." target="_blank" class="btn btn-gold">
+        <i class="fa-brands fa-whatsapp"></i> Speak With Property Advisor
+      </a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <span class="hero-badge">Curated Ultra-Luxury Residences</span>
+      <h1>Architecting Spaces Where Legacies Flourish</h1>
+      <p>Explore exclusive high-rise penthouses, gated golf villa communities, and prime commercial investments in prime metropolitan hubs.</p>
+      <div style="display:flex; justify-content:center; gap:16px;">
+        <a href="#projects" class="btn btn-gold">Explore Active Listings</a>
+        <a href="#brochure" class="btn btn-outline"><i class="fa-solid fa-download"></i> Download Master Brochure</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="projects">
+    <div class="container">
+      <h2 class="section-title">Featured Luxury Developments</h2>
+      <p class="section-sub">Handcrafted architecture designed for modern discernment.</p>
+
+      <div class="grid-3">
+        <div class="property-card">
+          <div class="property-img">
+            <i class="fa-solid fa-building"></i>
+            <span class="prop-status">READY TO MOVE</span>
+          </div>
+          <div class="property-body">
+            <h3>The Grand Solitaire Towers</h3>
+            <p class="prop-loc"><i class="fa-solid fa-location-dot"></i> Golf Course Extension Road, Sector 65</p>
+            <div class="prop-specs">
+              <span><i class="fa-solid fa-bed"></i> 4 BHK Penthouse</span>
+              <span><i class="fa-solid fa-ruler-combined"></i> 3,850 Sq.Ft</span>
+              <span><i class="fa-solid fa-shield"></i> 3-Tier Security</span>
+            </div>
+            <div class="prop-footer">
+              <div class="prop-price">₹4.25 Cr*</div>
+              <a href="https://wa.me/918298136441?text=Inquiring%20about%20Grand%20Solitaire%20Towers" target="_blank" class="btn btn-gold" style="padding:8px 14px; font-size:12px;">Inquire</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="property-card">
+          <div class="property-img">
+            <i class="fa-solid fa-tree-city"></i>
+            <span class="prop-status">UNDER CONSTRUCTION</span>
+          </div>
+          <div class="property-body">
+            <h3>Emerald Meadow Estate</h3>
+            <p class="prop-loc"><i class="fa-solid fa-location-dot"></i> Express Highway, Green Belt Enclave</p>
+            <div class="prop-specs">
+              <span><i class="fa-solid fa-house"></i> 5 BHK Luxury Villa</span>
+              <span><i class="fa-solid fa-ruler-combined"></i> 5,200 Sq.Ft</span>
+              <span><i class="fa-solid fa-water-ladder"></i> Private Pool</span>
+            </div>
+            <div class="prop-footer">
+              <div class="prop-price">₹6.80 Cr*</div>
+              <a href="https://wa.me/918298136441?text=Inquiring%20about%20Emerald%20Meadow%20Estate" target="_blank" class="btn btn-gold" style="padding:8px 14px; font-size:12px;">Inquire</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="property-card">
+          <div class="property-img">
+            <i class="fa-solid fa-city"></i>
+            <span class="prop-status">NEW LAUNCH</span>
+          </div>
+          <div class="property-body">
+            <h3>Aura Signature Suites</h3>
+            <p class="prop-loc"><i class="fa-solid fa-location-dot"></i> Central Business District (CBD)</p>
+            <div class="prop-specs">
+              <span><i class="fa-solid fa-briefcase"></i> Grade-A Office</span>
+              <span><i class="fa-solid fa-ruler-combined"></i> 1,600 Sq.Ft</span>
+              <span><i class="fa-solid fa-chart-line"></i> 8.5% ROI</span>
+            </div>
+            <div class="prop-footer">
+              <div class="prop-price">₹2.10 Cr*</div>
+              <a href="https://wa.me/918298136441?text=Inquiring%20about%20Aura%20Signature%20Suites" target="_blank" class="btn btn-gold" style="padding:8px 14px; font-size:12px;">Inquire</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="inquiry-box" id="brochure">
+        <h3>Request Project Floor Plans & Pricing Sheet</h3>
+        <p>Receive complete architectural blueprints, legal approvals and cost sheets directly on WhatsApp.</p>
+        <form class="inquiry-form" onsubmit="event.preventDefault(); alert('Brochure request received! Live website forwards this lead directly to the sales director.');">
+          <input type="text" placeholder="Your Name" required>
+          <input type="tel" placeholder="WhatsApp Number" required>
+          <button type="submit" class="btn btn-gold"><i class="fa-solid fa-file-pdf"></i> Download Brochure</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>Aura Prime Living Demo Template • Precision Engineered by <a href="../../index.html"><strong>SHAKTIX Web Studio</strong></a></p>
+      <p style="margin-top:6px; font-size:12px;">Equip your real estate agency or firm with an authority-building digital portal.</p>
+    </div>
+  </footer>
+</body>
+</html>
