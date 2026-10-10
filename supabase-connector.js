@@ -5,9 +5,10 @@
 
 window.SHAKTIX_SUPABASE = {
   key: 'sb_publishable_BOVcJBPy2_NAoJxA_ffDLA_yctC2frr',
+  url: 'https://wdgtapmrhzjseihivuoj.supabase.co',
   
   getUrl: function() {
-    return localStorage.getItem('shaktix_supabase_url') || '';
+    return localStorage.getItem('shaktix_supabase_url') || this.url;
   },
 
   setUrl: function(url) {
