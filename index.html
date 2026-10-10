@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SHAKTIX — Premium Web Studio & Digital Growth Agency</title>
+  <meta name="description" content="SHAKTIX builds lightning-fast, high-converting websites for businesses, doctors, gyms, and modern brands. Get your digital power today.">
+  <meta name="keywords" content="web development agency, website designer, ecommerce, business website, SHAKTIX">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background Glow & Grid Effects -->
+  <div class="bg-glow glow-1"></div>
+  <div class="bg-glow glow-2"></div>
+  <div class="bg-grid"></div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#" class="brand-logo">
+        <span class="logo-text">SHAKTI<span class="highlight-x">X</span></span>
+        <span class="logo-badge">STUDIO</span>
+      </a>
+
+      <nav class="nav-menu" id="nav-menu">
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#portfolio" class="nav-link">Live Demos</a>
+        <a href="#pricing" class="nav-link">Pricing</a>
+        <a href="#calculator" class="nav-link">Cost Estimator</a>
+        <a href="#why-us" class="nav-link">Why Us</a>
+        <a href="ai-agent/index.html" class="nav-link" style="color: #00f0ff; font-weight: 700;"><i class="fa-solid fa-robot"></i> AI Sales Desk</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="https://wa.me/918298136441?text=Hello%20SHAKTIX!%20I%20want%20a%20website%20for%20my%20business." target="_blank" class="btn btn-outline nav-btn" id="nav-whatsapp-btn">
+          <i class="fa-brands fa-whatsapp"></i> Chat Now
+        </a>
+        <a href="#contact" class="btn btn-primary nav-btn-primary" id="nav-quote-btn">Get Free Quote</a>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-container">
+        <div class="hero-badge">
+          <span class="pulse-dot"></span>
+          <span>⚡ High-Performance Digital Solutions For Growth</span>
+        </div>
+
+        <h1 class="hero-title">
+          We Build Websites That Turn <span class="gradient-text">Visitors Into Paying Customers</span>
+        </h1>
+
+        <p class="hero-description">
+          Stop losing clients to competitors with outdated websites. <strong>SHAKTIX</strong> engineers blazing-fast, mobile-optimized, and sales-focused websites with <strong>1-Year Free Hosting & Support</strong>.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#portfolio" class="btn btn-primary btn-large" id="hero-explore-btn">
+            <i class="fa-solid fa-eye"></i> View Live Demos
+          </a>
+          <a href="https://wa.me/918298136441?text=Namaste%20SHAKTIX!%20I%20need%20a%20website%20consultation." target="_blank" class="btn btn-glass btn-large" id="hero-wa-btn">
+            <i class="fa-brands fa-whatsapp color-wa"></i> Talk to CEO on WhatsApp
+          </a>
+        </div>
+
+        <!-- Trust Metric Bar -->
+        <div class="hero-metrics">
+          <div class="metric-item">
+            <h3 class="metric-num"><span class="counter" data-target="99.9">0</span>%</h3>
+            <p class="metric-label">Uptime & Speed</p>
+          </div>
+          <div class="metric-divider"></div>
+          <div class="metric-item">
+            <h3 class="metric-num"><span class="counter" data-target="48">0</span> Hrs</h3>
+            <p class="metric-label">Rapid Delivery</p>
+          </div>
+          <div class="metric-divider"></div>
+          <div class="metric-item">
+            <h3 class="metric-num"><span class="counter" data-target="100">0</span>%</h3>
+            <p class="metric-label">Mobile Friendly</p>
+          </div>
+          <div class="metric-divider"></div>
+          <div class="metric-item">
+            <h3 class="metric-num">FREE</h3>
+            <p class="metric-label">1-Yr AMC & Hosting</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">WHAT WE DELIVER</span>
+          <h2 class="section-title">Built For Results, Not Just Show</h2>
+          <p class="section-subtitle">Every website crafted by SHAKTIX is engineered to attract search engines and convert visitors into active leads.</p>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-bolt"></i></div>
+            <h3 class="service-title">Lightning Business Websites</h3>
+            <p class="service-desc">Tailored for clinics, gyms, consultants & real estate. Instant load speeds, mobile responsiveness, and clean modern aesthetics.</p>
+            <ul class="service-features">
+              <li><i class="fa-solid fa-check"></i> Google SEO Optimized</li>
+              <li><i class="fa-solid fa-check"></i> Instant Click-to-WhatsApp</li>
+              <li><i class="fa-solid fa-check"></i> Lead Capture Forms</li>
+            </ul>
+          </div>
+
+          <div class="service-card featured-service">
+            <div class="card-badge">POPULAR</div>
+            <div class="service-icon"><i class="fa-solid fa-bag-shopping"></i></div>
+            <h3 class="service-title">E-Commerce & Online Stores</h3>
+            <p class="service-desc">Sell your products 24/7 across India. Integrated with UPI, Razorpay, automated WhatsApp order receipts & customer checkout.</p>
+            <ul class="service-features">
+              <li><i class="fa-solid fa-check"></i> UPI & Credit Card Gateway</li>
+              <li><i class="fa-solid fa-check"></i> Product & Inventory Dashboard</li>
+              <li><i class="fa-solid fa-check"></i> WhatsApp Order Notifications</li>
+            </ul>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-arrow-rotate-forward"></i></div>
+            <h3 class="service-title">Modern Website Redesign</h3>
+            <p class="service-desc">Have an ugly or slow website from 2015? We transform your outdated site into a world-class, premium digital experience.</p>
+            <ul class="service-features">
+              <li><i class="fa-solid fa-check"></i> 3x Faster Page Loading</li>
+              <li><i class="fa-solid fa-check"></i> Modern UI/UX Architecture</li>
+              <li><i class="fa-solid fa-check"></i> Zero Downtime Migration</li>
+            </ul>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <h3 class="service-title">Managed Hosting & AMC</h3>
+            <p class="service-desc">You run your business; we handle the tech. Cloud hosting, daily backups, SSL security certificates, and on-demand monthly updates.</p>
+            <ul class="service-features">
+              <li><i class="fa-solid fa-check"></i> High-Speed NVMe Cloud Server</li>
+              <li><i class="fa-solid fa-check"></i> Free SSL & Malware Protection</li>
+              <li><i class="fa-solid fa-check"></i> 24/7 Monitoring & Support</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio / Live Demos Showcase -->
+    <section class="portfolio-section" id="portfolio">
+      <div class="container">
+        <div class="section-header">
+          <div class="header-split">
+            <div>
+              <span class="section-tag">PROOF OF EXCELLENCE</span>
+              <h2 class="section-title">Ready-Made Industry Demos</h2>
+              <p class="section-subtitle">Don't guess how your website will look. Explore our live interactive templates designed specifically for your industry.</p>
+            </div>
+            <div class="portfolio-filters" id="portfolio-filters">
+              <button class="filter-btn active" data-filter="all">All</button>
+              <button class="filter-btn" data-filter="health">Healthcare</button>
+              <button class="filter-btn" data-filter="fitness">Fitness/Gym</button>
+              <button class="filter-btn" data-filter="business">Corporate</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-grid">
+          <!-- Demo 1: Doctor / Clinic -->
+          <div class="portfolio-card" data-category="health">
+            <div class="portfolio-preview mock-health">
+              <div class="mock-browser-bar">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                <span class="mock-url">shaktix.com/demo/carepoint-clinic</span>
+              </div>
+              <div class="preview-content">
+                <div class="preview-badge"><i class="fa-solid fa-stethoscope"></i> Clinic & Doctor</div>
+                <h4>CarePoint Multispeciality Clinic</h4>
+                <p>Instant Patient Appointment Booking + Doctor Schedules</p>
+                <div class="preview-tags">
+                  <span>Appointment API</span>
+                  <span>Google Maps</span>
+                  <span>Fast Mobile</span>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio-info">
+              <h3>CarePoint Clinic & Health Center</h3>
+              <p>Designed for Doctors, Dentists & Diagnostic Centers with WhatsApp booking.</p>
+              <div class="portfolio-actions">
+                <button class="btn btn-sm btn-outline preview-trigger" data-demo="clinic">Interactive Preview</button>
+                <a href="https://wa.me/918298136441?text=I%20want%20a%20website%20like%20the%20Clinic%20Demo!" target="_blank" class="btn btn-sm btn-primary">Book This Design</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Demo 2: Gym / Fitness -->
+          <div class="portfolio-card" data-category="fitness">
+            <div class="portfolio-preview mock-gym">
+              <div class="mock-browser-bar">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                <span class="mock-url">shaktix.com/demo/ironpulse-fitness</span>
+              </div>
+              <div class="preview-content">
+                <div class="preview-badge"><i class="fa-solid fa-dumbbell"></i> Gym & Fitness</div>
+                <h4>IronPulse Elite Fitness Club</h4>
+                <p>Membership Plans Showcase, Trainer Profiles & Free Trial Pass Form</p>
+                <div class="preview-tags">
+                  <span>Membership Table</span>
+                  <span>Trial Pass Form</span>
+                  <span>Dark Aesthetic</span>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio-info">
+              <h3>IronPulse Gym & CrossFit Studio</h3>
+              <p>High-energy visual layout designed to sell memberships and trial passes.</p>
+              <div class="portfolio-actions">
+                <button class="btn btn-sm btn-outline preview-trigger" data-demo="gym">Interactive Preview</button>
+                <a href="https://wa.me/918298136441?text=I%20want%20a%20website%20like%20the%20Gym%20Demo!" target="_blank" class="btn btn-sm btn-primary">Book This Design</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Demo 3: Corporate / Real Estate -->
+          <div class="portfolio-card" data-category="business">
+            <div class="portfolio-preview mock-corporate">
+              <div class="mock-browser-bar">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                <span class="mock-url">shaktix.com/demo/apex-properties</span>
+              </div>
+              <div class="preview-content">
+                <div class="preview-badge"><i class="fa-solid fa-building"></i> Real Estate & Luxury</div>
+                <h4>Aura Prime Living & Realty</h4>
+                <p>Property Showcase, Virtual Tour Integration & Direct Inquiry Form</p>
+                <div class="preview-tags">
+                  <span>Filter Gallery</span>
+                  <span>Brochure Download</span>
+                  <span>High Trust</span>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio-info">
+              <h3>Aura Prime Realty & Consultants</h3>
+              <p>Corporate authority design for builders, consultants, and law firms.</p>
+              <div class="portfolio-actions">
+                <button class="btn btn-sm btn-outline preview-trigger" data-demo="corporate">Interactive Preview</button>
+                <a href="https://wa.me/918298136441?text=I%20want%20a%20website%20like%20the%20Realty%20Demo!" target="_blank" class="btn btn-sm btn-primary">Book This Design</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Cost Estimator Calculator -->
+    <section class="calculator-section" id="calculator">
+      <div class="container">
+        <div class="calc-wrapper">
+          <div class="calc-header">
+            <span class="section-tag">TRANSPARENT ESTIMATOR</span>
+            <h2 class="section-title">Calculate Your Website Cost in 30 Seconds</h2>
+            <p>No hidden charges. Select your needs and get an instant accurate estimate.</p>
+          </div>
+
+          <div class="calc-body">
+            <div class="calc-options">
+              <div class="calc-group">
+                <label class="calc-label">1. Website Type</label>
+                <div class="option-buttons" id="site-type-options">
+                  <button type="button" class="opt-btn active" data-cost="5999" data-val="1-Page Express">1-Page Express (Landing Page)</button>
+                  <button type="button" class="opt-btn" data-cost="9999" data-val="Multi-Page Business">Multi-Page Business (Up to 5 Pages)</button>
+                  <button type="button" class="opt-btn" data-cost="17999" data-val="Full E-Commerce">Full E-Commerce / Store</button>
+                </div>
+              </div>
+
+              <div class="calc-group">
+                <label class="calc-label">2. Add-On Power Features</label>
+                <div class="checkbox-grid">
+                  <label class="check-box-item">
+                    <input type="checkbox" class="feature-check" value="1500" data-name="WhatsApp Live Chat Sync">
+                    <span class="custom-check"></span>
+                    <span>Instant WhatsApp Chat & Automation (+₹1,500)</span>
+                  </label>
+                  <label class="check-box-item">
+                    <input type="checkbox" class="feature-check" value="2500" data-name="Online Payment Gateway (UPI/Cards)">
+                    <span class="custom-check"></span>
+                    <span>UPI / Payment Gateway Integration (+₹2,500)</span>
+                  </label>
+                  <label class="check-box-item">
+                    <input type="checkbox" class="feature-check" value="2000" data-name="Google Maps & Local SEO Setup" checked>
+                    <span class="custom-check"></span>
+                    <span>Google Maps & Local SEO Setup (+₹2,000)</span>
+                  </label>
+                  <label class="check-box-item">
+                    <input type="checkbox" class="feature-check" value="3000" data-name="Superfast Cloud Hosting + Free Domain">
+                    <span class="custom-check"></span>
+                    <span>High-Speed Cloud Hosting + Free .in/.com Domain (+₹3,000)</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="calc-summary">
+              <div class="summary-card">
+                <span class="summary-tag">ESTIMATED INVESTMENT</span>
+                <div class="summary-price">
+                  <span class="currency">₹</span>
+                  <span id="calculated-total">7,999</span>
+                </div>
+                <p class="summary-note">Includes 1-Year Technical Support & Mobile Testing Guarantee.</p>
+                
+                <div class="summary-perks">
+                  <div><i class="fa-solid fa-check-circle"></i> Ready in 48 to 72 Hours</div>
+                  <div><i class="fa-solid fa-check-circle"></i> 100% Source Code Ownership</div>
+                  <div><i class="fa-solid fa-check-circle"></i> 50% Advance, 50% on Delivery</div>
+                </div>
+
+                <button class="btn btn-primary btn-block" id="claim-estimate-btn">
+                  <i class="fa-brands fa-whatsapp"></i> Lock This Price On WhatsApp
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Packages -->
+    <section class="pricing-section" id="pricing">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">CLEAR PACKAGES</span>
+          <h2 class="section-title">Zero Hidden Fees. Complete Value.</h2>
+          <p class="section-subtitle">Pick the plan that fits your business scale today. Upgrade anytime as you grow.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <!-- Starter Plan -->
+          <div class="pricing-card">
+            <div class="plan-header">
+              <h3 class="plan-title">Express Launch</h3>
+              <p class="plan-subtitle">Ideal for Doctors, Local Shops & Personal Brands.</p>
+              <div class="plan-price">
+                <span class="currency">₹</span>
+                <span class="amount">6,999</span>
+                <span class="term">One-time</span>
+              </div>
+            </div>
+            <ul class="plan-features">
+              <li><i class="fa-solid fa-circle-check"></i> High-Converting Single Page Website</li>
+              <li><i class="fa-solid fa-circle-check"></i> Click-to-WhatsApp Contact Button</li>
+              <li><i class="fa-solid fa-circle-check"></i> Fast Mobile-Responsive Design</li>
+              <li><i class="fa-solid fa-circle-check"></i> Google Map Location Embed</li>
+              <li><i class="fa-solid fa-circle-check"></i> Delivery in 48 Hours</li>
+              <li><i class="fa-solid fa-circle-check"></i> 6 Months Free Maintenance</li>
+            </ul>
+            <a href="https://wa.me/918298136441?text=Hello%20SHAKTIX,%20I%20want%20to%20book%20the%20Express%20Launch%20Package%20(Rs%206,999)." target="_blank" class="btn btn-outline btn-block">Get Started</a>
+          </div>
+
+          <!-- Growth Plan (Featured) -->
+          <div class="pricing-card popular-plan">
+            <div class="plan-badge">MOST POPULAR FOR BUSINESS</div>
+            <div class="plan-header">
+              <h3 class="plan-title">Business Growth</h3>
+              <p class="plan-subtitle">Complete package for Clinics, Gyms, Institutes & Agencies.</p>
+              <div class="plan-price">
+                <span class="currency">₹</span>
+                <span class="amount">12,999</span>
+                <span class="term">One-time</span>
+              </div>
+            </div>
+            <ul class="plan-features">
+              <li><i class="fa-solid fa-circle-check"></i> Up to 5 Custom High-End Pages</li>
+              <li><i class="fa-solid fa-circle-check"></i> <strong>Free Domain (.com/.in) & Cloud Hosting</strong></li>
+              <li><i class="fa-solid fa-circle-check"></i> Lead Generation Contact & Quote Forms</li>
+              <li><i class="fa-solid fa-circle-check"></i> Google Search Engine SEO Setup</li>
+              <li><i class="fa-solid fa-circle-check"></i> Professional Business Email (info@yourbrand.com)</li>
+              <li><i class="fa-solid fa-circle-check"></i> <strong>1 Full Year Complete Maintenance (AMC)</strong></li>
+            </ul>
+            <a href="https://wa.me/918298136441?text=Hello%20SHAKTIX,%20I%20want%20to%20book%20the%20Business%20Growth%20Package%20(Rs%2012,999)." target="_blank" class="btn btn-primary btn-block">Choose Business Growth</a>
+          </div>
+
+          <!-- E-Commerce Plan -->
+          <div class="pricing-card">
+            <div class="plan-header">
+              <h3 class="plan-title">E-Commerce Power</h3>
+              <p class="plan-subtitle">For retail brands, clothing lines & product sellers.</p>
+              <div class="plan-price">
+                <span class="currency">₹</span>
+                <span class="amount">21,999</span>
+                <span class="term">One-time</span>
+              </div>
+            </div>
+            <ul class="plan-features">
+              <li><i class="fa-solid fa-circle-check"></i> Unlimited Products Showcase & Store</li>
+              <li><i class="fa-solid fa-circle-check"></i> Payment Gateway (UPI, Debit/Credit Card)</li>
+              <li><i class="fa-solid fa-circle-check"></i> Automated WhatsApp Order Alert System</li>
+              <li><i class="fa-solid fa-circle-check"></i> Customer Account & Order Tracking</li>
+              <li><i class="fa-solid fa-circle-check"></i> Free High-Performance Cloud Hosting</li>
+              <li><i class="fa-solid fa-circle-check"></i> 1 Full Year Complete AMC & Security</li>
+            </ul>
+            <a href="https://wa.me/918298136441?text=Hello%20SHAKTIX,%20I%20want%20to%20book%20the%20Ecommerce%20Power%20Package%20(Rs%2021,999)." target="_blank" class="btn btn-outline btn-block">Launch Store</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose SHAKTIX -->
+    <section class="why-section" id="why-us">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">THE SHAKTIX ADVANTAGE</span>
+          <h2 class="section-title">Why Smart Businesses Hire Us</h2>
+        </div>
+
+        <div class="advantages-grid">
+          <div class="adv-card">
+            <div class="adv-icon"><i class="fa-solid fa-stopwatch-20"></i></div>
+            <h4>48-Hour Rapid Delivery</h4>
+            <p>We don't make you wait for 2 months. We build, review and push your site live in record time.</p>
+          </div>
+          <div class="adv-card">
+            <div class="adv-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+            <h4>100% Mobile First</h4>
+            <p>85% of your customers visit from smartphones. We craft pixel-perfect mobile layouts that feel like apps.</p>
+          </div>
+          <div class="adv-card">
+            <div class="adv-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+            <h4>Zero Risk Milestone Pay</h4>
+            <p>Pay 50% advance to start, and the remaining 50% only after you approve the completed live design.</p>
+          </div>
+          <div class="adv-card">
+            <div class="adv-icon"><i class="fa-solid fa-headset"></i></div>
+            <h4>Direct Founder Support</h4>
+            <p>No frustrating ticket queues. Get direct access to our tech team whenever you need modifications.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Client Lead / Contact Section -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="contact-wrapper">
+          <div class="contact-info">
+            <span class="section-tag">LET'S BUILD TOGETHER</span>
+            <h2 class="section-title">Ready to Elevate Your Business?</h2>
+            <p>Fill out this quick form or reach out directly via WhatsApp. We typically respond within 15 minutes with a custom proposal and sample preview.</p>
+
+            <div class="contact-direct-items">
+              <div class="direct-item">
+                <div class="direct-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                <div>
+                  <h4>WhatsApp Direct</h4>
+                  <p>+91 82981 36441 (Instant Chat)</p>
+                </div>
+              </div>
+              <div class="direct-item">
+                <div class="direct-icon"><i class="fa-solid fa-envelope"></i></div>
+                <div>
+                  <h4>Official Email</h4>
+                  <p>growth@shaktix.com</p>
+                </div>
+              </div>
+              <div class="direct-item">
+                <div class="direct-icon"><i class="fa-solid fa-location-dot"></i></div>
+                <div>
+                  <h4>Headquarters</h4>
+                  <p>SHAKTIX Digital Studio, India</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form-container">
+            <form id="lead-form" class="shaktix-form">
+              <h3>Start Your Project</h3>
+              <p class="form-sub">Tell us a bit about your business:</p>
+
+              <div class="form-group">
+                <label for="client-name">Your Full Name / Business Name *</label>
+                <input type="text" id="client-name" required placeholder="e.g. Dr. Rajesh Sharma / FitGym Club">
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="client-phone">WhatsApp Number *</label>
+                  <input type="tel" id="client-phone" required placeholder="e.g. 98765 43210">
+                </div>
+                <div class="form-group">
+                  <label for="client-business-type">Business Industry *</label>
+                  <select id="client-business-type" required>
+                    <option value="" disabled selected>Select Industry</option>
+                    <option value="Clinic/Doctor">Healthcare / Clinic</option>
+                    <option value="Gym/Fitness">Gym / Fitness Studio</option>
+                    <option value="Restaurant/Cafe">Restaurant / Food / Cafe</option>
+                    <option value="Real Estate">Real Estate / Architect</option>
+                    <option value="Coaching/Education">Coaching / Education</option>
+                    <option value="Ecommerce/Store">Online Retail / Store</option>
+                    <option value="Other">Other Business</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="client-notes">What features do you need? (Optional)</label>
+                <textarea id="client-notes" rows="3" placeholder="e.g. Need WhatsApp booking button, gallery, and Google maps location..."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block btn-submit" id="submit-lead-btn">
+                <i class="fa-solid fa-paper-plane"></i> Send Request & Get Sample Demo
+              </button>
+              
+              <p class="form-guarantee"><i class="fa-solid fa-lock"></i> 100% Privacy. We never spam your phone number.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Interactive Demo Preview Modal -->
+  <div class="modal-backdrop" id="demo-modal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-title-area">
+          <span class="modal-badge" id="modal-badge-type">DEMO</span>
+          <h3 id="modal-title">Template Preview</h3>
+        </div>
+        <button class="modal-close" id="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-content">
+        <!-- Dynamic Preview Content Injected Here -->
+      </div>
+      <div class="modal-footer">
+        <span class="modal-price-tag" id="modal-price-tag">Starting at ₹6,999</span>
+        <a href="#" target="_blank" class="btn btn-primary" id="modal-order-btn">
+          <i class="fa-brands fa-whatsapp"></i> Book This Exact Design
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-col">
+        <a href="#" class="brand-logo">
+          <span class="logo-text">SHAKTI<span class="highlight-x">X</span></span>
+          <span class="logo-badge">STUDIO</span>
+        </a>
+        <p class="footer-tagline">Powering ambitious businesses with high-converting websites, robust digital infrastructure, and reliable technical growth.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Live Demos</a></li>
+          <li><a href="#pricing">Pricing Plans</a></li>
+          <li><a href="#calculator">Cost Calculator</a></li>
+          <li><a href="ai-agent/index.html" style="color: #00f0ff; font-weight: 600;"><i class="fa-solid fa-robot"></i> AI Sales Agent Desk</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Demo Niches</h4>
+        <ul class="footer-links">
+          <li><a href="#portfolio">Doctor & Clinic Websites</a></li>
+          <li><a href="#portfolio">Gym & Fitness Centers</a></li>
+          <li><a href="#portfolio">Real Estate Portals</a></li>
+          <li><a href="#portfolio">Restaurant QR Landing Pages</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Direct Connect</h4>
+        <p class="footer-sub">Have a custom requirement? Message our leadership team directly:</p>
+        <a href="https://wa.me/918298136441?text=Hello%20SHAKTIX%20Team!" class="btn btn-sm btn-outline footer-wa-btn">
+          <i class="fa-brands fa-whatsapp"></i> Connect on WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container bottom-flex">
+        <p>&copy; 2026 SHAKTIX Digital Studio. All rights reserved.</p>
+        <p class="ceo-credit">Engineered by CEO & SHAKTIX AI Tech Foundry</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
