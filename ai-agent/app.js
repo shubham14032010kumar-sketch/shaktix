@@ -43,14 +43,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const pitchInsightsList = document.getElementById('pitch-insights-list');
 
   const demoLinks = {
-    clinic: 'https://shaktix.com/demos/clinic (CarePoint Multispeciality Clinic)',
-    gym: 'https://shaktix.com/demos/gym (IronFit Elite Fitness Arena)',
-    corporate: 'https://shaktix.com/demos/corporate (Nexus Enterprise Studio)',
-    restaurant: 'https://shaktix.com/demos/restaurant (Bella Vista Bistro & Cafe)',
-    coaching: 'https://shaktix.com/demos/corporate (Pinnacle Learning Hub)',
-    salon: 'https://shaktix.com/demos/clinic (Glow & Grace Luxury Spa)',
-    realestate: 'https://shaktix.com/demos/corporate (Skyline Estates)',
-    ecommerce: 'https://shaktix.com/demos/corporate (UrbanStore Direct)'
+    clinic: 'https://shaktix-anandkumar41110-8790s-projects.vercel.app/demos/clinic/ (CarePoint Multispeciality Clinic)',
+    gym: 'https://shaktix-anandkumar41110-8790s-projects.vercel.app/demos/gym/ (IronFit Elite Fitness Arena)',
+    corporate: 'https://shaktix-anandkumar41110-8790s-projects.vercel.app/demos/corporate/ (Nexus Enterprise Studio)',
+    restaurant: 'https://shaktix-anandkumar41110-8790s-projects.vercel.app/demos/corporate/ (Bella Vista Bistro & Cafe)',
+    coaching: 'https://shaktix-anandkumar41110-8790s-projects.vercel.app/demos/corporate/ (Pinnacle Learning Hub)',
+    salon: 'https://shaktix-anandkumar41110-8790s-projects.vercel.app/demos/clinic/ (Glow & Grace Luxury Spa)',
+    realestate: 'https://shaktix-anandkumar41110-8790s-projects.vercel.app/demos/corporate/ (Skyline Estates)',
+    ecommerce: 'https://shaktix-anandkumar41110-8790s-projects.vercel.app/demos/corporate/ (UrbanStore Direct)'
   };
 
   const gapDescriptions = {
