@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHAKTIX | Antigravity IDE Command & Intelligence Center</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #07090e; }
+        .font-syne { font-family: 'Syne', sans-serif; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        .glow-border {
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            box-shadow: 0 0 25px -5px rgba(124, 58, 237, 0.15);
+        }
+        .glow-border:hover {
+            border-color: rgba(139, 92, 246, 0.5);
+            box-shadow: 0 0 35px -5px rgba(124, 58, 237, 0.3);
+        }
+    </style>
+</head>
+<body class="text-slate-100 min-h-screen p-4 sm:p-8 selection:bg-purple-600 selection:text-white">
+
+    <!-- Header -->
+    <header class="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between pb-8 border-b border-slate-800 gap-4">
+        <div class="flex items-center space-x-4">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-purple-600 to-indigo-600 flex items-center justify-center text-white text-2xl font-black shadow-lg shadow-purple-600/30">
+                ⚡
+            </div>
+            <div>
+                <div class="flex items-center space-x-3">
+                    <h1 class="text-3xl font-black font-syne tracking-tight text-white">SHAKTIX</h1>
+                    <span class="px-3 py-1 rounded-full bg-purple-950/80 border border-purple-700/60 text-purple-300 font-mono text-xs font-bold">ANTIGRAVITY ENGINE v2.0</span>
+                </div>
+                <p class="text-xs text-slate-400 mt-1">Autonomous Web Agency Operating System & Operations Hub</p>
+            </div>
+        </div>
+
+        <!-- System Status Bar -->
+        <div class="flex items-center space-x-6 text-xs font-mono bg-slate-900/80 border border-slate-800 px-4 py-2.5 rounded-xl">
+            <div class="flex items-center space-x-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+                <span class="text-emerald-400 font-bold">SYSTEM ACTIVE</span>
+            </div>
+            <span class="text-slate-700">|</span>
+            <div class="text-slate-300">
+                <span class="text-slate-500">CEO:</span> <span class="font-bold text-white">Shubham Kumar</span>
+            </div>
+            <span class="text-slate-700">|</span>
+            <div class="text-slate-300">
+                <span class="text-slate-500">WORKSPACE:</span> <span class="font-bold text-purple-400">H:\shaktix</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto py-8 space-y-8">
+
+        <!-- Top Metrics Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 glow-border">
+                <div class="flex justify-between items-center text-slate-400 mb-2">
+                    <span class="text-xs uppercase font-bold tracking-wider">Live Portfolio Demos</span>
+                    <i class="fas fa-layer-group text-purple-400"></i>
+                </div>
+                <div class="text-3xl font-black font-syne text-white">3 Active</div>
+                <div class="text-xs text-emerald-400 mt-2 font-medium flex items-center space-x-1">
+                    <i class="fas fa-check-circle"></i><span>Clinic, Gym, Corporate</span>
+                </div>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 glow-border">
+                <div class="flex justify-between items-center text-slate-400 mb-2">
+                    <span class="text-xs uppercase font-bold tracking-wider">Target Monthly Run Rate</span>
+                    <i class="fas fa-chart-line text-emerald-400"></i>
+                </div>
+                <div class="text-3xl font-black font-syne text-emerald-400">₹1,00,000+</div>
+                <div class="text-xs text-slate-400 mt-2 font-medium">8-10 Closed Projects / mo</div>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 glow-border">
+                <div class="flex justify-between items-center text-slate-400 mb-2">
+                    <span class="text-xs uppercase font-bold tracking-wider">AI Sales Automation</span>
+                    <i class="fas fa-robot text-cyan-400"></i>
+                </div>
+                <div class="text-3xl font-black font-syne text-white">Active (CSO)</div>
+                <div class="text-xs text-cyan-400 mt-2 font-medium">Auto-WhatsApp Lead Pitcher</div>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 glow-border">
+                <div class="flex justify-between items-center text-slate-400 mb-2">
+                    <span class="text-xs uppercase font-bold tracking-wider">Turnaround SLA</span>
+                    <i class="fas fa-bolt text-amber-400"></i>
+                </div>
+                <div class="text-3xl font-black font-syne text-white">48 Hours</div>
+                <div class="text-xs text-amber-400 mt-2 font-medium">Rapid Deployment Engine</div>
+            </div>
+        </div>
+
+        <!-- Quick Launch Pad -->
+        <section class="space-y-4">
+            <h2 class="text-xl font-bold font-syne text-white flex items-center space-x-2">
+                <i class="fas fa-rocket text-purple-400"></i>
+                <span>One-Click Launchpad</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                <!-- 1. AI Sales Desk -->
+                <div class="p-6 rounded-2xl bg-gradient-to-b from-purple-950/40 to-slate-900/80 border border-purple-800/40 glow-border flex flex-col justify-between space-y-4">
+                    <div class="space-y-2">
+                        <div class="w-10 h-10 rounded-xl bg-purple-600/20 text-purple-400 flex items-center justify-center text-lg">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">AI Sales Desk & Pitch Generator</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">Input prospect business info & generate customized WhatsApp pitches and objection handlers in seconds.</p>
+                    </div>
+                    <a href="../ai-agent/index.html" class="w-full py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs uppercase tracking-wider text-center transition flex items-center justify-center space-x-2">
+                        <span>Launch Sales Desk</span>
+                        <i class="fas fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- 2. Main Agency Website -->
+                <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 glow-border flex flex-col justify-between space-y-4">
+                    <div class="space-y-2">
+                        <div class="w-10 h-10 rounded-xl bg-cyan-600/20 text-cyan-400 flex items-center justify-center text-lg">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Official Agency Portal</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">The main client-facing website showcasing SHAKTIX services, live pricing calculator, and booking funnel.</p>
+                    </div>
+                    <a href="../index.html" class="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-cyan-400 font-bold text-xs uppercase tracking-wider text-center transition flex items-center justify-center space-x-2 border border-slate-700">
+                        <span>Open Main Website</span>
+                        <i class="fas fa-external-link-alt text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- 3. Invoice & Quotation Engine -->
+                <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 glow-border flex flex-col justify-between space-y-4">
+                    <div class="space-y-2">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-600/20 text-emerald-400 flex items-center justify-center text-lg">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Instant Invoice Generator</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">Generate sleek, branded client invoices and project quotations with 50% advance payment terms in 1-click.</p>
+                    </div>
+                    <a href="../sales-kit/invoice-generator.html" class="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-emerald-400 font-bold text-xs uppercase tracking-wider text-center transition flex items-center justify-center space-x-2 border border-slate-700">
+                        <span>Generate Invoice</span>
+                        <i class="fas fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Live Demos Showcase -->
+        <section class="space-y-4">
+            <h2 class="text-xl font-bold font-syne text-white flex items-center space-x-2">
+                <i class="fas fa-laptop-code text-cyan-400"></i>
+                <span>Live Client Demos (Ready to Share)</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                <!-- Clinic Demo -->
+                <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800 flex items-center justify-between">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-xl">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-white">Apex Care Clinic</h4>
+                            <p class="text-xs text-slate-400">Doctor & Health Portal</p>
+                        </div>
+                    </div>
+                    <a href="../demos/clinic/index.html" class="px-4 py-2 rounded-lg bg-blue-600/20 hover:bg-blue-600 text-blue-300 hover:text-white text-xs font-bold transition">
+                        View Demo
+                    </a>
+                </div>
+
+                <!-- Gym Demo -->
+                <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800 flex items-center justify-between">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 rounded-xl bg-red-500/10 text-red-400 flex items-center justify-center text-xl">
+                            <i class="fas fa-dumbbell"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-white">IronForge Fitness</h4>
+                            <p class="text-xs text-slate-400">Gym Membership Portal</p>
+                        </div>
+                    </div>
+                    <a href="../demos/gym/index.html" class="px-4 py-2 rounded-lg bg-red-600/20 hover:bg-red-600 text-red-300 hover:text-white text-xs font-bold transition">
+                        View Demo
+                    </a>
+                </div>
+
+                <!-- Corporate Demo -->
+                <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800 flex items-center justify-between">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-xl">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-white">Nexora Global</h4>
+                            <p class="text-xs text-slate-400">Corporate & B2B Portal</p>
+                        </div>
+                    </div>
+                    <a href="../demos/corporate/index.html" class="px-4 py-2 rounded-lg bg-indigo-600/20 hover:bg-indigo-600 text-indigo-300 hover:text-white text-xs font-bold transition">
+                        View Demo
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- System Architecture Diagnostics Table -->
+        <section class="space-y-4">
+            <h2 class="text-xl font-bold font-syne text-white flex items-center space-x-2">
+                <i class="fas fa-microchip text-emerald-400"></i>
+                <span>Folder Diagnostics & Asset Audit</span>
+            </h2>
+            <div class="bg-slate-900/60 border border-slate-800 rounded-2xl overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs font-mono">
+                        <thead class="bg-slate-950/80 text-slate-400 uppercase border-b border-slate-800">
+                            <tr>
+                                <th class="p-4">Module / Path</th>
+                                <th class="p-4">Core Function</th>
+                                <th class="p-4">Health Status</th>
+                                <th class="p-4">Lead Value</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800/60">
+                            <tr class="hover:bg-slate-800/30">
+                                <td class="p-4 font-bold text-purple-400">/index.html</td>
+                                <td class="p-4 text-slate-300">Official SHAKTIX Agency Main Funnel</td>
+                                <td class="p-4 text-emerald-400 font-bold">● Operational</td>
+                                <td class="p-4 text-white">High (Agency Front)</td>
+                            </tr>
+                            <tr class="hover:bg-slate-800/30">
+                                <td class="p-4 font-bold text-purple-400">/demos/clinic/</td>
+                                <td class="p-4 text-slate-300">Appointment Engine Demo</td>
+                                <td class="p-4 text-emerald-400 font-bold">● Operational</td>
+                                <td class="p-4 text-white">₹10,000 - ₹20,000 / deal</td>
+                            </tr>
+                            <tr class="hover:bg-slate-800/30">
+                                <td class="p-4 font-bold text-purple-400">/demos/gym/</td>
+                                <td class="p-4 text-slate-300">Fitness Membership Lead Demo</td>
+                                <td class="p-4 text-emerald-400 font-bold">● Operational</td>
+                                <td class="p-4 text-white">₹8,000 - ₹15,000 / deal</td>
+                            </tr>
+                            <tr class="hover:bg-slate-800/30">
+                                <td class="p-4 font-bold text-purple-400">/demos/corporate/</td>
+                                <td class="p-4 text-slate-300">B2B Institutional Credibility Demo</td>
+                                <td class="p-4 text-emerald-400 font-bold">● Operational</td>
+                                <td class="p-4 text-white">₹15,000 - ₹35,000 / deal</td>
+                            </tr>
+                            <tr class="hover:bg-slate-800/30">
+                                <td class="p-4 font-bold text-purple-400">/ai-agent/</td>
+                                <td class="p-4 text-slate-300">AI Sales Agent & Cold Pitch Generator</td>
+                                <td class="p-4 text-emerald-400 font-bold">● Operational</td>
+                                <td class="p-4 text-white">Scales Outreach 10x</td>
+                            </tr>
+                            <tr class="hover:bg-slate-800/30">
+                                <td class="p-4 font-bold text-purple-400">/sales-kit/</td>
+                                <td class="p-4 text-slate-300">Proposals, Onboarding Forms & Invoices</td>
+                                <td class="p-4 text-emerald-400 font-bold">● Operational</td>
+                                <td class="p-4 text-white">Closes & Collects 50% Upfront</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="max-w-7xl mx-auto pt-8 border-t border-slate-900 text-center text-xs text-slate-600">
+        SHAKTIX Web Technologies • Antigravity Engine Architecture • Confidential
+    </footer>
+
+</body>
+</html>
