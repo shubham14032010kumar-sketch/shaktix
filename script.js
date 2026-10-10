@@ -406,6 +406,17 @@ document.addEventListener('DOMContentLoaded', () => {
         `📝 *Requirement Notes:* ${notes ? notes : 'Standard Website Consultation'}\n\n` +
         `Please send me demo samples and quotation!`;
 
+      // Sync lead with Supabase & Local DB
+      if (window.SHAKTIX_SUPABASE) {
+        window.SHAKTIX_SUPABASE.saveLead({
+          name: name,
+          phone: phone,
+          industry: industry,
+          notes: notes,
+          source: 'Website Lead Form'
+        });
+      }
+
       showToast(`Thank you ${name}! Connecting with our leadership team... 🚀`);
 
       setTimeout(() => {
