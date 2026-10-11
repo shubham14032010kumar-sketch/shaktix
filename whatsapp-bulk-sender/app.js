@@ -1153,7 +1153,19 @@ function setupModals() {
     renderAll();
     addModal.classList.remove('active');
     document.getElementById('form-new-contact').reset();
-    showToast(`Lead ${name} saved to CRM!`);
+
+    // Sync to Supabase Cloud Database
+    if (window.SHAKTIX_SUPABASE && typeof window.SHAKTIX_SUPABASE.saveLead === 'function') {
+      window.SHAKTIX_SUPABASE.saveLead({
+        name: name,
+        phone: phone,
+        category: tag || 'General',
+        notes: `${company || 'Lead'} • Deal: Rs ${dealValue} • Stage: ${stage}`,
+        source: `CRM (${source})`
+      });
+    }
+
+    showToast(`Lead ${name} saved to CRM & Supabase Cloud!`);
   });
 
   // CSV Import Modal
