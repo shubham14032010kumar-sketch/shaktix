@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SHAKTIX Enterprise CRM & WhatsApp Engine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-layout">
+    
+    <!-- ==============================================================
+         SIDEBAR NAVIGATION (Exact 14-Module Structure)
+         ============================================================== -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-logo">
+          <i class="fa-brands fa-whatsapp"></i>
+        </div>
+        <div class="brand-text">
+          <h2>SHAKTIX<span>.CRM</span></h2>
+          <span class="badge-pill">ENTERPRISE OS</span>
+        </div>
+      </div>
+
+      <div class="nav-scroll-container">
+        <!-- Core CRM Group -->
+        <div class="nav-group-title">CORE CRM</div>
+        <nav class="nav-menu">
+          <a href="#dashboard" class="nav-item active" data-tab="dashboard">
+            <i class="fa-solid fa-chart-pie"></i>
+            <span>Dashboard</span>
+          </a>
+          <a href="#contacts" class="nav-item" data-tab="contacts">
+            <i class="fa-solid fa-address-book"></i>
+            <span>Contacts</span>
+            <span class="nav-badge" id="badge-total-contacts">4</span>
+          </a>
+          <a href="#leads" class="nav-item" data-tab="leads">
+            <i class="fa-solid fa-filter-circle-dollar"></i>
+            <span>Leads & Sales</span>
+            <span class="nav-badge text-gold" id="badge-pipeline-value">₹1.8L</span>
+          </a>
+          <a href="#inbox" class="nav-item" data-tab="inbox">
+            <i class="fa-solid fa-comments"></i>
+            <span>WhatsApp Inbox</span>
+            <span class="nav-badge pulse-badge" id="badge-unanswered">2</span>
+          </a>
+          <a href="#tasks" class="nav-item" data-tab="tasks">
+            <i class="fa-solid fa-list-check"></i>
+            <span>Tasks & Follow-ups</span>
+            <span class="nav-badge" id="badge-due-today">2</span>
+          </a>
+        </nav>
+
+        <!-- Marketing & WhatsApp Group -->
+        <div class="nav-group-title">MESSAGING & CAMPAIGNS</div>
+        <nav class="nav-menu">
+          <a href="#campaigns" class="nav-item" data-tab="campaigns">
+            <i class="fa-solid fa-paper-plane"></i>
+            <span>Campaigns</span>
+          </a>
+          <a href="#scheduler" class="nav-item" data-tab="scheduler">
+            <i class="fa-solid fa-clock"></i>
+            <span>Scheduler</span>
+          </a>
+          <a href="#templates" class="nav-item" data-tab="templates">
+            <i class="fa-solid fa-layer-group"></i>
+            <span>Templates</span>
+          </a>
+          <a href="#automation" class="nav-item" data-tab="automation">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <span>Automation</span>
+          </a>
+        </nav>
+
+        <!-- Commerce & Operations Group -->
+        <div class="nav-group-title">COMMERCE & ADMIN</div>
+        <nav class="nav-menu">
+          <a href="#orders" class="nav-item" data-tab="orders">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span>Orders</span>
+          </a>
+          <a href="#analytics" class="nav-item" data-tab="analytics">
+            <i class="fa-solid fa-chart-line"></i>
+            <span>Analytics & Reports</span>
+          </a>
+          <a href="#team" class="nav-item" data-tab="team">
+            <i class="fa-solid fa-user-group"></i>
+            <span>Team & Permissions</span>
+          </a>
+          <a href="#integrations" class="nav-item" data-tab="integrations">
+            <i class="fa-solid fa-plug"></i>
+            <span>Integrations</span>
+          </a>
+          <a href="#settings" class="nav-item" data-tab="settings">
+            <i class="fa-solid fa-sliders"></i>
+            <span>Settings</span>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Sidebar Footer -->
+      <div class="sidebar-footer">
+        <div class="system-status">
+          <div class="status-indicator online"></div>
+          <div>
+            <div class="status-title">Meta Cloud API</div>
+            <div class="status-subtitle">Graph API v21.0 Active</div>
+          </div>
+        </div>
+        <a href="../index.html" class="back-link">
+          <i class="fa-solid fa-arrow-left"></i> Exit to SHAKTIX Home
+        </a>
+      </div>
+    </aside>
+
+    <!-- ==============================================================
+         MAIN CONTENT AREA
+         ============================================================== -->
+    <main class="main-content">
+      
+      <!-- Topbar -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <h1 id="page-title">Overview Dashboard</h1>
+          <p id="page-subtitle">Real-time revenue, leads pipeline, WhatsApp conversations and pending follow-ups.</p>
+        </div>
+        <div class="topbar-right">
+          <div class="quick-stats">
+            <span class="pill-stat"><i class="fa-solid fa-wallet text-gold"></i> Monthly Target: <strong>₹1,00,000+</strong></span>
+            <span class="pill-stat"><i class="fa-solid fa-shield-check text-emerald"></i> Opt-in Guard: <strong>Active</strong></span>
+          </div>
+          <button class="btn btn-outline" id="btn-top-add-lead">
+            <i class="fa-solid fa-user-plus"></i> Add Lead
+          </button>
+          <button class="btn btn-primary" id="btn-top-new-campaign">
+            <i class="fa-solid fa-paper-plane"></i> Launch Campaign
+          </button>
+        </div>
+      </header>
+
+      <!-- ==============================================================
+           MODULE 1: OVERVIEW DASHBOARD
+           ============================================================== -->
+      <section id="tab-dashboard" class="tab-pane active">
+        
+        <!-- Top 5 Core Metrics Cards -->
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-header">
+              <span class="metric-label">Total Customers & Leads</span>
+              <div class="metric-icon icon-emerald"><i class="fa-solid fa-users"></i></div>
+            </div>
+            <div class="metric-value" id="kpi-total-customers">8</div>
+            <div class="metric-trend text-emerald">
+              <i class="fa-solid fa-arrow-up"></i> <span id="kpi-new-leads-count">4</span> New Leads This Week
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-header">
+              <span class="metric-label">Total Sales & Orders</span>
+              <div class="metric-icon icon-gold"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+            </div>
+            <div class="metric-value" id="kpi-sales-revenue">₹1,85,000</div>
+            <div class="metric-trend text-gold">
+              <i class="fa-solid fa-cart-shopping"></i> 5 Active Orders Closed
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-header">
+              <span class="metric-label">WhatsApp Dispatched</span>
+              <div class="metric-icon icon-blue"><i class="fa-solid fa-paper-plane"></i></div>
+            </div>
+            <div class="metric-value" id="kpi-messages-sent">1,480</div>
+            <div class="metric-trend text-emerald">
+              <i class="fa-solid fa-circle-check"></i> 98.6% Delivered • 78% Read
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-header">
+              <span class="metric-label">Follow-ups Due Today</span>
+              <div class="metric-icon icon-rose"><i class="fa-solid fa-calendar-check"></i></div>
+            </div>
+            <div class="metric-value" id="kpi-due-today">2</div>
+            <div class="metric-trend text-rose">
+              <i class="fa-solid fa-clock"></i> Action Required Today
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-header">
+              <span class="metric-label">Active Campaigns</span>
+              <div class="metric-icon icon-purple"><i class="fa-solid fa-bullhorn"></i></div>
+            </div>
+            <div class="metric-value" id="kpi-active-campaigns">3</div>
+            <div class="metric-trend text-purple">
+              <i class="fa-solid fa-bolt"></i> Throttled Safe Pace
+            </div>
+          </div>
+        </div>
+
+        <!-- Dashboard Split Rows -->
+        <div class="dashboard-grid">
+          
+          <!-- Recent Leads & Deals -->
+          <div class="card col-span-2">
+            <div class="card-header">
+              <h3><i class="fa-solid fa-fire text-gold"></i> High-Intent Leads Pipeline</h3>
+              <button class="btn btn-sm btn-outline" onclick="navigateToTab('leads')">View Full Pipeline</button>
+            </div>
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Prospect</th>
+                    <th>Business / Niche</th>
+                    <th>Deal Value</th>
+                    <th>Pipeline Stage</th>
+                    <th>Next Action</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="overview-leads-table">
+                  <!-- Populated by JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Pending Follow-ups Due Today -->
+          <div class="card">
+            <div class="card-header">
+              <h3><i class="fa-solid fa-bell text-rose"></i> Tasks Due Today</h3>
+              <button class="btn btn-sm btn-outline" id="btn-quick-add-task">+ Task</button>
+            </div>
+            <div class="task-quick-list" id="overview-tasks-list">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- ==============================================================
+           MODULE 2: CONTACT & CUSTOMER MANAGEMENT
+           ============================================================== -->
+      <section id="tab-contacts" class="tab-pane">
+        
+        <!-- CRM Action & Filter Bar -->
+        <div class="crm-toolbar">
+          <div class="toolbar-left">
+            <div class="search-box">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" id="contacts-search" placeholder="Search name, phone, company, city...">
+            </div>
+            
+            <select id="contacts-tag-filter" class="form-select">
+              <option value="all">All Tags</option>
+              <option value="clinic">Clinics (Healthcare)</option>
+              <option value="gym">Gyms (Fitness)</option>
+              <option value="restaurant">Restaurants (F&B)</option>
+              <option value="institute">Institutes (Coaching)</option>
+              <option value="corporate">Corporate Brands</option>
+              <option value="vip">VIP Leads</option>
+            </select>
+
+            <select id="contacts-stage-filter" class="form-select">
+              <option value="all">All Stages</option>
+              <option value="new_lead">New Lead</option>
+              <option value="contacted">Contacted</option>
+              <option value="qualified">Qualified</option>
+              <option value="proposal_sent">Proposal Sent</option>
+              <option value="closed_won">Closed Won</option>
+              <option value="closed_lost">Closed Lost</option>
+            </select>
+          </div>
+
+          <div class="toolbar-right">
+            <button class="btn btn-outline" id="btn-export-contacts-csv">
+              <i class="fa-solid fa-file-export"></i> Export CSV
+            </button>
+            <button class="btn btn-outline" id="btn-open-contacts-import">
+              <i class="fa-solid fa-file-import"></i> Import CSV
+            </button>
+            <button class="btn btn-primary" id="btn-open-add-contact">
+              <i class="fa-solid fa-user-plus"></i> Add Contact
+            </button>
+          </div>
+        </div>
+
+        <!-- Contacts Table -->
+        <div class="card">
+          <div class="card-header">
+            <div class="split-info">
+              <h3><i class="fa-solid fa-users text-emerald"></i> All Contacts & Customers (<span id="contacts-count-label">0</span>)</h3>
+              <p class="card-sub-hint"><i class="fa-solid fa-mouse-pointer"></i> Click any customer row to open full <strong>360° Profile Drawer</strong></p>
+            </div>
+            <div class="duplicate-indicator" id="duplicate-warning-badge" style="display: none;">
+              <i class="fa-solid fa-triangle-exclamation text-rose"></i> Duplicate Phone Detected
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Customer Name</th>
+                  <th>WhatsApp Phone</th>
+                  <th>Company / Business</th>
+                  <th>City</th>
+                  <th>Tags</th>
+                  <th>Assigned Agent</th>
+                  <th>Pipeline Stage</th>
+                  <th>Opt-in</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="contacts-table-body">
+                <!-- Populated dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ==============================================================
+           MODULE 3: LEADS & SALES PIPELINE (KANBAN)
+           ============================================================== -->
+      <section id="tab-leads" class="tab-pane">
+        
+        <div class="pipeline-header-bar">
+          <div class="pipeline-metrics">
+            <div class="pipeline-metric-box">
+              <span class="label">Total Pipeline Value:</span>
+              <span class="val text-gold" id="kanban-total-value">₹2,85,000</span>
+            </div>
+            <div class="pipeline-metric-box">
+              <span class="label">Active Opportunities:</span>
+              <span class="val" id="kanban-total-deals">8 Deals</span>
+            </div>
+            <div class="pipeline-metric-box">
+              <span class="label">Conversion Rate:</span>
+              <span class="val text-emerald">62.5%</span>
+            </div>
+          </div>
+
+          <button class="btn btn-primary" id="btn-kanban-add-deal">
+            <i class="fa-solid fa-plus"></i> New Deal Opportunity
+          </button>
+        </div>
+
+        <!-- Kanban Board -->
+        <div class="kanban-board">
+          
+          <!-- Column 1: New Lead -->
+          <div class="kanban-column" data-stage="new_lead">
+            <div class="kanban-column-header">
+              <div class="stage-tag stage-blue"></div>
+              <h4>New Lead</h4>
+              <span class="count-badge" id="kanban-count-new_lead">0</span>
+            </div>
+            <div class="kanban-col-sum" id="kanban-sum-new_lead">₹0</div>
+            <div class="kanban-cards" id="kanban-cards-new_lead"></div>
+          </div>
+
+          <!-- Column 2: Contacted -->
+          <div class="kanban-column" data-stage="contacted">
+            <div class="kanban-column-header">
+              <div class="stage-tag stage-gold"></div>
+              <h4>Contacted / Pitch Sent</h4>
+              <span class="count-badge" id="kanban-count-contacted">0</span>
+            </div>
+            <div class="kanban-col-sum" id="kanban-sum-contacted">₹0</div>
+            <div class="kanban-cards" id="kanban-cards-contacted"></div>
+          </div>
+
+          <!-- Column 3: Qualified -->
+          <div class="kanban-column" data-stage="qualified">
+            <div class="kanban-column-header">
+              <div class="stage-tag stage-cyan"></div>
+              <h4>Qualified</h4>
+              <span class="count-badge" id="kanban-count-qualified">0</span>
+            </div>
+            <div class="kanban-col-sum" id="kanban-sum-qualified">₹0</div>
+            <div class="kanban-cards" id="kanban-cards-qualified"></div>
+          </div>
+
+          <!-- Column 4: Proposal Sent -->
+          <div class="kanban-column" data-stage="proposal_sent">
+            <div class="kanban-column-header">
+              <div class="stage-tag stage-purple"></div>
+              <h4>Proposal Sent</h4>
+              <span class="count-badge" id="kanban-count-proposal_sent">0</span>
+            </div>
+            <div class="kanban-col-sum" id="kanban-sum-proposal_sent">₹0</div>
+            <div class="kanban-cards" id="kanban-cards-proposal_sent"></div>
+          </div>
+
+          <!-- Column 5: Closed Won -->
+          <div class="kanban-column" data-stage="closed_won">
+            <div class="kanban-column-header">
+              <div class="stage-tag stage-emerald"></div>
+              <h4>Closed Won 🏆</h4>
+              <span class="count-badge" id="kanban-count-closed_won">0</span>
+            </div>
+            <div class="kanban-col-sum text-emerald" id="kanban-sum-closed_won">₹0</div>
+            <div class="kanban-cards" id="kanban-cards-closed_won"></div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- ==============================================================
+           MODULE 4: WHATSAPP 2-WAY INBOX
+           ============================================================== -->
+      <section id="tab-inbox" class="tab-pane">
+        
+        <div class="inbox-container">
+          
+          <!-- Left Pane: Conversations List -->
+          <div class="inbox-sidebar">
+            <div class="inbox-search-box">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" id="inbox-search" placeholder="Search conversations...">
+            </div>
+
+            <!-- Inbox Tabs -->
+            <div class="inbox-filters">
+              <button class="inbox-filter-tab active" data-filter="all">All Chats (<span id="inbox-all-count">4</span>)</button>
+              <button class="inbox-filter-tab" data-filter="unanswered">Unanswered (<span id="inbox-unanswered-count">2</span>)</button>
+              <button class="inbox-filter-tab" data-filter="priority">Priority</button>
+            </div>
+
+            <!-- Thread List -->
+            <div class="inbox-thread-list" id="inbox-threads-list">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+
+          <!-- Right Pane: Active Conversation Window -->
+          <div class="inbox-chat-area" id="inbox-active-chat-area">
+            
+            <!-- Chat Header -->
+            <div class="chat-header">
+              <div class="chat-header-user">
+                <div class="chat-avatar" id="active-chat-avatar">RS</div>
+                <div>
+                  <h4 id="active-chat-name">Dr. Rajiv Sharma</h4>
+                  <div class="chat-subtitle font-mono" id="active-chat-phone">+91 98765 43210 • <span class="text-emerald">Online</span></div>
+                </div>
+              </div>
+
+              <div class="chat-header-actions">
+                <div class="agent-assign-box">
+                  <span class="text-muted">Agent:</span>
+                  <select id="chat-agent-select" class="form-select-sm">
+                    <option value="Shubham (CSO)">Shubham (CSO)</option>
+                    <option value="Pooja (Growth)">Pooja (Growth)</option>
+                    <option value="Amit (Sales)">Amit (Sales)</option>
+                  </select>
+                </div>
+                <button class="btn btn-sm btn-outline" id="btn-chat-view-profile">
+                  <i class="fa-solid fa-user"></i> View Profile
+                </button>
+              </div>
+            </div>
+
+            <!-- Chat Messages Stream -->
+            <div class="chat-messages-stream" id="chat-messages-container">
+              <!-- Populated by JS -->
+            </div>
+
+            <!-- Chat Input & Quick Replies Bar -->
+            <div class="chat-footer">
+              <div class="chat-shortcuts-bar">
+                <select id="quick-reply-select" class="form-select-sm">
+                  <option value="">⚡ Quick Reply Templates...</option>
+                  <option value="demo_invite">Send Demo Link</option>
+                  <option value="pricing_breakdown">Send Standard Pricing (₹15,000)</option>
+                  <option value="follow_up_nudge">Follow-up check-in</option>
+                  <option value="payment_link">Send UPI Payment QR</option>
+                </select>
+
+                <label class="internal-note-toggle">
+                  <input type="checkbox" id="toggle-internal-note">
+                  <span><i class="fa-solid fa-lock"></i> Post as Internal Team Note (Hidden from Customer)</span>
+                </label>
+              </div>
+
+              <form id="chat-send-form" class="chat-input-row">
+                <input type="text" id="chat-input-text" placeholder="Type WhatsApp reply or approved template..." required>
+                <button type="submit" class="btn btn-primary" id="btn-chat-send">
+                  <i class="fa-solid fa-paper-plane"></i> Send
+                </button>
+              </form>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- ==============================================================
+           MODULE 5: BULK CAMPAIGNS & LIVE SIMULATOR
+           ============================================================== -->
+      <section id="tab-campaigns" class="tab-pane">
+        <div class="campaign-builder-grid">
+          
+          <!-- Campaign Configurator -->
+          <div class="card campaign-form-card">
+            <div class="card-header">
+              <h3><i class="fa-solid fa-bullhorn text-emerald"></i> Create & Launch Campaign</h3>
+            </div>
+            <form id="campaign-form" class="form-body">
+              
+              <div class="form-group">
+                <label for="campaign-name-input">Campaign Name</label>
+                <input type="text" id="campaign-name-input" class="form-input" value="Healthcare Patient Growth Outreach Blast" required>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="campaign-target-tag">Target Audience Segment</label>
+                  <select id="campaign-target-tag" class="form-select">
+                    <option value="all">All Opted-in Contacts (Broad)</option>
+                    <option value="clinic">Clinics & Doctors Only</option>
+                    <option value="gym">Gyms & Fitness Centers</option>
+                    <option value="restaurant">Restaurants & Hospitality</option>
+                    <option value="institute">Institutes & Coaching</option>
+                    <option value="corporate">Corporate Brands</option>
+                    <option value="vip">VIP Leads Only</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="campaign-template-select">WhatsApp Template</label>
+                  <select id="campaign-template-select" class="form-select">
+                    <option value="clinic_growth_pitch">🏥 Clinic Growth & Booking Pitch</option>
+                    <option value="gym_member_offer">💪 Gym Member Reactivation</option>
+                    <option value="festival_promo">🎉 Festive Discount (30% Off)</option>
+                    <option value="payment_reminder">💳 Payment & Invoicing Followup</option>
+                    <option value="otp_auth">🔐 OTP Verification Alert</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Personalization Variables -->
+              <div class="variable-box">
+                <div class="variable-title">
+                  <i class="fa-solid fa-code"></i> Dynamic Template Variables (Personalization)
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Variable {{1}} (Contact Name)</label>
+                    <input type="text" class="form-input" value="[Auto-Filled from CRM Contact Name]" disabled>
+                  </div>
+                  <div class="form-group">
+                    <label for="var-custom-offer">Variable {{2}} (Custom Offer / Value Prop)</label>
+                    <input type="text" id="var-custom-offer" class="form-input" value="25+ New Patient Inquiries This Month">
+                  </div>
+                </div>
+              </div>
+
+              <!-- Speed & Rate Limiter Control -->
+              <div class="form-group">
+                <div class="slider-label-row">
+                  <label for="throttle-slider">Dispatch Speed (Anti-Ban Throttling)</label>
+                  <span id="throttle-value-badge" class="badge-emerald">15 msgs/sec (Recommended)</span>
+                </div>
+                <input type="range" id="throttle-slider" min="1" max="50" value="15" class="range-slider">
+                <p class="form-help-text">Guarantees safe pacing to prevent Meta Cloud API rate limit violations.</p>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-lg" id="btn-start-dispatch">
+                <i class="fa-solid fa-paper-plane"></i> Launch WhatsApp Campaign Now
+              </button>
+
+            </form>
+
+            <!-- Real-Time Dispatch Progress -->
+            <div id="campaign-progress-box" class="progress-box" style="display: none;">
+              <div class="progress-header">
+                <div class="progress-title">
+                  <i class="fa-solid fa-spinner fa-spin text-emerald"></i>
+                  <span id="progress-status-text">Dispatching messages in real-time...</span>
+                </div>
+                <span id="progress-percent" class="font-mono">0%</span>
+              </div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" id="progress-bar-fill" style="width: 0%;"></div>
+              </div>
+              <div class="progress-stats">
+                <span>Sent: <strong id="progress-sent-count">0</strong></span>
+                <span>Delivered: <strong id="progress-delivered-count">0</strong></span>
+                <span>Failed: <strong id="progress-failed-count">0</strong></span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Live WhatsApp Mobile Simulator -->
+          <div class="simulator-wrapper">
+            <div class="phone-frame">
+              <div class="phone-speaker"></div>
+              
+              <div class="wa-screen-header">
+                <div class="wa-header-back"><i class="fa-solid fa-arrow-left"></i></div>
+                <div class="wa-header-avatar"><i class="fa-solid fa-briefcase"></i></div>
+                <div class="wa-header-info">
+                  <div class="wa-header-name">SHAKTIX Web Studio <i class="fa-solid fa-circle-check text-emerald"></i></div>
+                  <div class="wa-header-status">Official Business Account</div>
+                </div>
+                <div class="wa-header-icons">
+                  <i class="fa-solid fa-video"></i>
+                  <i class="fa-solid fa-phone"></i>
+                </div>
+              </div>
+
+              <div class="wa-chat-body">
+                <div class="wa-date-pill">TODAY</div>
+                <div class="wa-bubble">
+                  <div class="wa-bubble-header" id="preview-header">
+                    <span class="badge-tag">EXCLUSIVE INVITATION</span>
+                  </div>
+                  <div class="wa-bubble-text" id="preview-body">
+                    Loading preview...
+                  </div>
+                  <div class="wa-bubble-footer">
+                    <span class="wa-time">10:45 AM</span>
+                    <span class="wa-ticks"><i class="fa-solid fa-check-double text-blue"></i></span>
+                  </div>
+                  <div class="wa-buttons-container" id="preview-buttons">
+                    <!-- Populated by JS -->
+                  </div>
+                </div>
+              </div>
+
+              <div class="wa-input-bar">
+                <i class="fa-regular fa-face-smile"></i>
+                <div class="wa-input-fake">Message</div>
+                <i class="fa-solid fa-paperclip"></i>
+                <div class="wa-mic-btn"><i class="fa-solid fa-microphone"></i></div>
+              </div>
+            </div>
+            <div class="phone-hint">
+              <i class="fa-solid fa-mobile-screen"></i> Live Meta Cloud API Simulation
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ==============================================================
+           MODULE 6: ORDERS & PAYMENTS
+           ============================================================== -->
+      <section id="tab-orders" class="tab-pane">
+        
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h3><i class="fa-solid fa-bag-shopping text-gold"></i> Client Orders & Payment Invoices</h3>
+              <p class="card-sub-hint">Track website contracts, milestones, and send automated WhatsApp payment receipts.</p>
+            </div>
+            <button class="btn btn-primary" id="btn-create-order">
+              <i class="fa-solid fa-plus"></i> Create New Order
+            </button>
+          </div>
+
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Client Name</th>
+                  <th>Service Package</th>
+                  <th>Amount</th>
+                  <th>Payment Status</th>
+                  <th>Fulfillment</th>
+                  <th>Date</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="orders-table-body">
+                <!-- Populated by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ==============================================================
+           MODULE 7: TASKS & FOLLOW-UPS
+           ============================================================== -->
+      <section id="tab-tasks" class="tab-pane">
+        
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h3><i class="fa-solid fa-list-check text-rose"></i> Tasks & Prospect Follow-ups</h3>
+              <p class="card-sub-hint">Never lose a high-ticket client due to a missed follow-up call or WhatsApp reminder.</p>
+            </div>
+            <button class="btn btn-primary" id="btn-add-new-task">
+              <i class="fa-solid fa-plus"></i> Add New Follow-up
+            </button>
+          </div>
+
+          <div class="task-tabs-row">
+            <button class="btn-toggle active" data-task-filter="all">All Tasks (<span id="count-tasks-all">3</span>)</button>
+            <button class="btn-toggle" data-task-filter="due_today">Due Today (<span id="count-tasks-today">2</span>)</button>
+            <button class="btn-toggle" data-task-filter="completed">Completed</button>
+          </div>
+
+          <div class="task-list-full" id="tasks-full-container">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ==============================================================
+           MODULE 8: SCHEDULER & AUTOMATION
+           ============================================================== -->
+      <section id="tab-scheduler" class="tab-pane">
+        <div class="card">
+          <div class="card-header">
+            <h3><i class="fa-solid fa-clock text-blue"></i> Scheduled Broadcasts & Time-Zone Pacing</h3>
+          </div>
+          <div class="card-body">
+            <div class="scheduler-grid">
+              <div class="scheduler-card">
+                <h4><i class="fa-solid fa-calendar-days text-gold"></i> Diwali Festival Broadcast</h4>
+                <p>Audience: <strong>All Retail & Clinic Leads (142 contacts)</strong></p>
+                <div class="sched-time font-mono"><i class="fa-solid fa-bell"></i> Scheduled: Tomorrow, 11:00 AM IST</div>
+                <div class="sched-status badge-emerald">ACTIVE & QUEUED</div>
+              </div>
+              <div class="scheduler-card">
+                <h4><i class="fa-solid fa-calendar-days text-blue"></i> Gym Reactivation Blast</h4>
+                <p>Audience: <strong>Gym & Fitness Leads (38 contacts)</strong></p>
+                <div class="sched-time font-mono"><i class="fa-solid fa-bell"></i> Scheduled: Friday, 05:30 PM IST</div>
+                <div class="sched-status badge-emerald">ACTIVE & QUEUED</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MODULE 9: TEMPLATES -->
+      <section id="tab-templates" class="tab-pane">
+        <div class="card">
+          <div class="card-header">
+            <h3><i class="fa-solid fa-layer-group text-blue"></i> Approved Meta WhatsApp Templates</h3>
+            <span class="badge-emerald"><i class="fa-solid fa-circle-check"></i> 5 Verified Templates</span>
+          </div>
+          <div class="templates-grid" id="templates-cards-grid">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- MODULE 10: AUTOMATION WORKFLOWS -->
+      <section id="tab-automation" class="tab-pane">
+        <div class="card">
+          <div class="card-header">
+            <h3><i class="fa-solid fa-wand-magic-sparkles text-purple"></i> Event-Driven CRM Automation</h3>
+          </div>
+          <div class="card-body">
+            <div class="automation-list">
+              <div class="auto-item">
+                <div class="auto-icon text-emerald"><i class="fa-solid fa-robot"></i></div>
+                <div class="auto-info">
+                  <h4>New Lead Auto-Greeting</h4>
+                  <p>When a lead is added via website form or CSV, automatically trigger <code>clinic_growth_pitch</code> WhatsApp template after 60 seconds.</p>
+                </div>
+                <label class="switch"><input type="checkbox" checked><span class="slider round"></span></label>
+              </div>
+
+              <div class="auto-item">
+                <div class="auto-icon text-gold"><i class="fa-solid fa-receipt"></i></div>
+                <div class="auto-info">
+                  <h4>Payment Confirmation Alert</h4>
+                  <p>When an order status changes to "Paid", instantly send invoice receipt and onboarding checklist on WhatsApp.</p>
+                </div>
+                <label class="switch"><input type="checkbox" checked><span class="slider round"></span></label>
+              </div>
+
+              <div class="auto-item">
+                <div class="auto-icon text-rose"><i class="fa-solid fa-ban"></i></div>
+                <div class="auto-info">
+                  <h4>Auto Suppression on "STOP" Keyword</h4>
+                  <p>Instantly add any customer replying "STOP" or "UNSUBSCRIBE" to suppression list and notify the account manager.</p>
+                </div>
+                <label class="switch"><input type="checkbox" checked><span class="slider round"></span></label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MODULE 11: ANALYTICS & REPORTS -->
+      <section id="tab-analytics" class="tab-pane">
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-label">Lead-to-Client Conversion</div>
+            <div class="metric-value text-emerald">62.5%</div>
+            <div class="metric-trend">Benchmark: 25%</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Average Deal Size</div>
+            <div class="metric-value text-gold">₹37,000</div>
+            <div class="metric-trend">Per Closed Client</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">WhatsApp Delivery Rate</div>
+            <div class="metric-value text-blue">98.6%</div>
+            <div class="metric-trend">1,480 / 1,501 Sent</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Unsubscribe Rate</div>
+            <div class="metric-value text-muted">0.14%</div>
+            <div class="metric-trend">2 Opt-outs total</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MODULE 12: TEAM & PERMISSIONS -->
+      <section id="tab-team" class="tab-pane">
+        <div class="card">
+          <div class="card-header">
+            <h3><i class="fa-solid fa-user-group text-purple"></i> Team Members & Sales Agents</h3>
+          </div>
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Role</th>
+                  <th>Email</th>
+                  <th>Assigned Leads</th>
+                  <th>Active Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Shubham Kumar</strong></td>
+                  <td><span class="badge-tag">FOUNDER / CSO</span></td>
+                  <td>shubham@shaktix.com</td>
+                  <td>5 Leads</td>
+                  <td><span class="badge-emerald">Active</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Pooja Singh</strong></td>
+                  <td><span class="badge-tag">GROWTH ARCHITECT</span></td>
+                  <td>pooja@shaktix.com</td>
+                  <td>3 Leads</td>
+                  <td><span class="badge-emerald">Active</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- MODULE 13: INTEGRATIONS -->
+      <section id="tab-integrations" class="tab-pane">
+        <div class="card">
+          <div class="card-header">
+            <h3><i class="fa-solid fa-plug text-gold"></i> Connected Integrations</h3>
+          </div>
+          <div class="card-body">
+            <div class="integrations-grid">
+              <div class="integration-box connected">
+                <i class="fa-brands fa-whatsapp icon-large text-emerald"></i>
+                <h4>Meta WhatsApp Cloud API</h4>
+                <p>Official Graph API v21.0 Connected</p>
+                <span class="badge-emerald">CONNECTED</span>
+              </div>
+              <div class="integration-box connected">
+                <i class="fa-solid fa-database icon-large text-blue"></i>
+                <h4>PostgreSQL / Supabase</h4>
+                <p>Contacts & Inbound Message Store</p>
+                <span class="badge-emerald">CONNECTED</span>
+              </div>
+              <div class="integration-box">
+                <i class="fa-solid fa-credit-card icon-large text-gold"></i>
+                <h4>Razorpay / UPI Gateway</h4>
+                <p>Automate Payment Links & Invoices</p>
+                <button class="btn btn-sm btn-outline">Configure</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MODULE 14: SETTINGS -->
+      <section id="tab-settings" class="tab-pane">
+        <div class="card">
+          <div class="card-header">
+            <h3><i class="fa-solid fa-sliders text-gold"></i> CRM & Meta API Credentials</h3>
+          </div>
+          <div class="card-body">
+            <form id="settings-form" class="form-body">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="cfg-phone-id">WhatsApp Phone Number ID</label>
+                  <input type="text" id="cfg-phone-id" class="form-input" placeholder="e.g. 109823485729103">
+                </div>
+                <div class="form-group">
+                  <label for="cfg-waba-id">WhatsApp Business Account (WABA) ID</label>
+                  <input type="text" id="cfg-waba-id" class="form-input" placeholder="e.g. 293847291029384">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="cfg-token">Permanent System User Access Token</label>
+                <input type="password" id="cfg-token" class="form-input" placeholder="EAABwzL9...">
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="cfg-webhook-token">Webhook Verify Token</label>
+                  <input type="text" id="cfg-webhook-token" class="form-input" value="shaktix_secure_verify_token_2026">
+                </div>
+                <div class="form-group">
+                  <label>Webhook Callback URL</label>
+                  <input type="text" class="form-input" value="https://your-domain.com/api/webhook" readonly>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary"><i class="fa-solid fa-save"></i> Save Settings</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ==============================================================
+       CUSTOMER 360° PROFILE DRAWER (Slide-Over Panel)
+       ============================================================== -->
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+  <aside class="customer-drawer" id="customer-drawer">
+    <div class="drawer-header">
+      <div class="drawer-user-meta">
+        <div class="drawer-avatar" id="d-avatar">RS</div>
+        <div>
+          <h2 id="d-name">Dr. Rajiv Sharma</h2>
+          <div class="d-company" id="d-company">Apex Dental Care • Delhi</div>
+        </div>
+      </div>
+      <button class="drawer-close" id="btn-close-drawer">&times;</button>
+    </div>
+
+    <!-- Quick Info Strip -->
+    <div class="drawer-quick-strip">
+      <div class="d-metric">
+        <span class="d-lbl">Stage</span>
+        <span class="d-val badge-tag" id="d-stage">QUALIFIED</span>
+      </div>
+      <div class="d-metric">
+        <span class="d-lbl">Deal Value</span>
+        <span class="d-val text-gold" id="d-deal-value">₹35,000</span>
+      </div>
+      <div class="d-metric">
+        <span class="d-lbl">Assigned To</span>
+        <span class="d-val" id="d-assigned">Shubham (CSO)</span>
+      </div>
+      <div class="d-metric">
+        <span class="d-lbl">Lead Source</span>
+        <span class="d-val text-blue" id="d-source">Website</span>
+      </div>
+    </div>
+
+    <!-- Contact Quick Action Bar -->
+    <div class="drawer-action-strip">
+      <a href="#" class="btn btn-sm btn-primary" id="d-wa-action-btn" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+      </a>
+      <a href="#" class="btn btn-sm btn-outline" id="d-call-action-btn">
+        <i class="fa-solid fa-phone"></i> Call
+      </a>
+      <button class="btn btn-sm btn-outline text-gold" id="d-add-task-btn">
+        <i class="fa-solid fa-plus"></i> Add Follow-up
+      </button>
+    </div>
+
+    <!-- Drawer Navigation Tabs -->
+    <div class="drawer-tabs">
+      <button class="d-tab-btn active" data-dtab="timeline"><i class="fa-solid fa-timeline"></i> Timeline History</button>
+      <button class="d-tab-btn" data-dtab="notes"><i class="fa-solid fa-note-sticky"></i> Notes (<span id="d-notes-count">1</span>)</button>
+      <button class="d-tab-btn" data-dtab="orders"><i class="fa-solid fa-receipt"></i> Orders (<span id="d-orders-count">1</span>)</button>
+    </div>
+
+    <!-- Drawer Tab Contents -->
+    <div class="drawer-body">
+      
+      <!-- TAB A: TIMELINE HISTORY -->
+      <div class="d-tab-pane active" id="dtab-timeline">
+        <div class="timeline-stream" id="d-timeline-list">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- TAB B: NOTES -->
+      <div class="d-tab-pane" id="dtab-notes">
+        <form id="d-form-add-note" class="add-note-box">
+          <textarea id="d-note-input" placeholder="Type internal call summary, prospect concerns, or follow-up notes..." required></textarea>
+          <button type="submit" class="btn btn-sm btn-primary"><i class="fa-solid fa-plus"></i> Save Note</button>
+        </form>
+        <div class="notes-list" id="d-notes-list">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- TAB C: ORDERS -->
+      <div class="d-tab-pane" id="dtab-orders">
+        <div class="d-orders-list" id="d-orders-list">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+    </div>
+  </aside>
+
+  <!-- ==============================================================
+       MODALS: ADD CONTACT, CSV IMPORT, ADD TASK
+       ============================================================== -->
+  
+  <!-- MODAL: ADD CONTACT / LEAD -->
+  <div class="modal" id="modal-add-contact">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Add New Customer / Lead to CRM</h3>
+          <button class="modal-close" id="modal-close-contact">&times;</button>
+        </div>
+        <form id="form-new-contact" class="form-body">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="new-contact-name">Full Name *</label>
+              <input type="text" id="new-contact-name" class="form-input" placeholder="e.g. Dr. Pooja Singhal" required>
+            </div>
+            <div class="form-group">
+              <label for="new-contact-phone">WhatsApp Number (with Country Code) *</label>
+              <input type="text" id="new-contact-phone" class="form-input" placeholder="919876543210" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="new-contact-email">Email Address</label>
+              <input type="email" id="new-contact-email" class="form-input" placeholder="doctor@clinic.com">
+            </div>
+            <div class="form-group">
+              <label for="new-contact-business">Company / Clinic Name</label>
+              <input type="text" id="new-contact-business" class="form-input" placeholder="Singhal Dental Hospital">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="new-contact-city">City</label>
+              <input type="text" id="new-contact-city" class="form-input" placeholder="Delhi NCR">
+            </div>
+            <div class="form-group">
+              <label for="new-contact-deal">Estimated Deal Value (₹)</label>
+              <input type="number" id="new-contact-deal" class="form-input" placeholder="25000" value="25000">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="new-contact-tag">Category Tag</label>
+              <select id="new-contact-tag" class="form-select">
+                <option value="clinic">Clinic (Healthcare)</option>
+                <option value="gym">Gym (Fitness)</option>
+                <option value="restaurant">Restaurant (F&B)</option>
+                <option value="institute">Institute (Coaching)</option>
+                <option value="corporate">Corporate Brand</option>
+                <option value="vip">VIP High-Ticket</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="new-contact-stage">Pipeline Stage</label>
+              <select id="new-contact-stage" class="form-select">
+                <option value="new_lead">New Lead</option>
+                <option value="contacted">Contacted</option>
+                <option value="qualified">Qualified</option>
+                <option value="proposal_sent">Proposal Sent</option>
+                <option value="closed_won">Closed Won 🏆</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="new-contact-source">Lead Source</label>
+              <select id="new-contact-source" class="form-select">
+                <option value="website">Website Form</option>
+                <option value="whatsapp">Direct WhatsApp</option>
+                <option value="cold_outreach">Cold Outreach</option>
+                <option value="referral">Client Referral</option>
+                <option value="instagram">Instagram / Social</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="new-contact-agent">Assigned Sales Agent</label>
+              <select id="new-contact-agent" class="form-select">
+                <option value="Shubham (CSO)">Shubham (CSO)</option>
+                <option value="Pooja (Growth)">Pooja (Growth)</option>
+                <option value="Amit (Sales)">Amit (Sales)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline" id="btn-cancel-contact">Cancel</button>
+            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-save"></i> Save Lead to CRM</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: CSV / EXCEL BULK IMPORT -->
+  <div class="modal" id="modal-import-csv">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Bulk Import Contacts via CSV / Excel</h3>
+          <button class="modal-close" id="modal-close-import">&times;</button>
+        </div>
+        <div class="form-body">
+          <div class="dropzone" id="csv-dropzone">
+            <i class="fa-solid fa-cloud-arrow-up dropzone-icon"></i>
+            <h4>Drag & Drop your CSV file here</h4>
+            <p>Columns supported: <code>Name</code>, <code>Phone</code>, <code>Business</code>, <code>City</code>, <code>Tag</code>, <code>DealValue</code></p>
+            <input type="file" id="csv-file-input" accept=".csv" style="display: none;">
+            <button class="btn btn-outline" type="button" onclick="document.getElementById('csv-file-input').click()">
+              Browse CSV File
+            </button>
+          </div>
+
+          <div class="sample-csv-note">
+            <span>Want to test quickly?</span>
+            <button class="btn btn-sm btn-gold" id="btn-load-sample-csv">
+              <i class="fa-solid fa-magic"></i> Load 8 Verified Local Business Leads
+            </button>
+          </div>
+
+          <div id="import-preview-container" style="display: none; margin-top: 20px;">
+            <div class="preview-header">
+              <h4>Preview Parsed Records (<span id="parsed-count">0</span> leads detected)</h4>
+            </div>
+            <div class="table-responsive" style="max-height: 180px;">
+              <table class="data-table" id="import-preview-table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Business</th>
+                    <th>Tag</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline" id="btn-cancel-import">Cancel</button>
+            <button type="button" class="btn btn-primary" id="btn-confirm-import" disabled>
+              <i class="fa-solid fa-file-import"></i> Confirm & Import to CRM
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: ADD TASK / FOLLOW-UP -->
+  <div class="modal" id="modal-add-task">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Schedule Follow-up Task</h3>
+          <button class="modal-close" id="modal-close-task">&times;</button>
+        </div>
+        <form id="form-new-task" class="form-body">
+          <div class="form-group">
+            <label for="task-title-input">Task Title *</label>
+            <input type="text" id="task-title-input" class="form-input" placeholder="Call client regarding 50% advance invoice" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="task-contact-select">Linked Contact / Client</label>
+              <select id="task-contact-select" class="form-select">
+                <!-- Populated dynamically -->
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="task-due-date">Due Date *</label>
+              <input type="date" id="task-due-date" class="form-input" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="task-priority-select">Priority</label>
+              <select id="task-priority-select" class="form-select">
+                <option value="high">High (Urgent Closing)</option>
+                <option value="medium" selected>Medium</option>
+                <option value="low">Low</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="task-assignee">Assigned Agent</label>
+              <select id="task-assignee" class="form-select">
+                <option value="Shubham (CSO)">Shubham (CSO)</option>
+                <option value="Pooja (Growth)">Pooja (Growth)</option>
+              </select>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline" id="btn-cancel-task">Cancel</button>
+            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-calendar-plus"></i> Save Follow-up</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toast-container"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
