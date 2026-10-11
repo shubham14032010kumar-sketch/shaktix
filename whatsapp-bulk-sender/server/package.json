@@ -1,0 +1,22 @@
+{
+  "name": "shaktix-whatsapp-bulk-sender",
+  "version": "1.0.0",
+  "description": "Enterprise-grade WhatsApp Bulk Messaging Engine & Custom CRM for SHAKTIX Web Studio",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  },
+  "keywords": ["whatsapp", "bulk-sender", "crm", "meta-cloud-api", "marketing", "shaktix"],
+  "author": "SHAKTIX Web Studio",
+  "license": "ISC"
+}
