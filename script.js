@@ -1,14 +1,30 @@
 /**
- * SHAKTIX Digital Studio — Interactive Engine & Client Conversion System
- * Handles calculator logic, interactive demo previews, lead dispatch to WhatsApp, and animations.
+ * SHAKTIX WEB — Master Interactive Engine & Animation Controller
+ * Handles mouse spotlight tracking, FAQ accordion, calculator, demo modals,
+ * portfolio filtering, lead capture sync, and mobile navigation.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Config: CEO WhatsApp number
+  // Config: Leadership WhatsApp Line
   const CEO_WHATSAPP_NUMBER = '918298136441';
 
   /* -------------------------------------------------------------------------
-   * 1. Navbar Sticky & Mobile Menu Toggle
+   * 1. Mouse Ambient Spotlight Follower (Desktop only)
+   * ------------------------------------------------------------------------- */
+  const mouseSpotlight = document.getElementById('mouse-spotlight');
+  if (mouseSpotlight && window.matchMedia('(pointer: fine)').matches) {
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+
+    window.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      mouseSpotlight.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
+    });
+  }
+
+  /* -------------------------------------------------------------------------
+   * 2. Navbar Sticky & Mobile Menu Toggle
    * ------------------------------------------------------------------------- */
   const navbar = document.getElementById('navbar');
   const mobileToggle = document.getElementById('mobile-toggle');
@@ -51,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* -------------------------------------------------------------------------
-   * 2. Counter Animation for Trust Metrics
+   * 3. Number Counter Animation for Trust Metrics
    * ------------------------------------------------------------------------- */
   const counters = document.querySelectorAll('.counter');
   let countersTriggered = false;
@@ -59,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const startCounters = () => {
     counters.forEach(counter => {
       const target = parseFloat(counter.getAttribute('data-target'));
-      const duration = 1500;
+      const duration = 1400;
       const stepTime = 30;
       const steps = duration / stepTime;
       const increment = target / steps;
@@ -84,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
         startCounters();
       }
     });
-  }, { threshold: 0.3 });
+  }, { threshold: 0.25 });
 
   const metricsSection = document.querySelector('.hero-metrics');
   if (metricsSection) {
@@ -92,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* -------------------------------------------------------------------------
-   * 3. Portfolio Category Filtering
+   * 4. Portfolio Category Filtering
    * ------------------------------------------------------------------------- */
   const filterBtns = document.querySelectorAll('.filter-btn');
   const portfolioCards = document.querySelectorAll('.portfolio-card');
@@ -111,20 +127,20 @@ document.addEventListener('DOMContentLoaded', () => {
           setTimeout(() => {
             card.style.opacity = '1';
             card.style.transform = 'translateY(0)';
-          }, 50);
+          }, 40);
         } else {
           card.style.opacity = '0';
-          card.style.transform = 'translateY(20px)';
+          card.style.transform = 'translateY(16px)';
           setTimeout(() => {
             card.style.display = 'none';
-          }, 250);
+          }, 240);
         }
       });
     });
   });
 
   /* -------------------------------------------------------------------------
-   * 4. Interactive Cost Estimator Calculator
+   * 5. Interactive Cost Estimator Calculator
    * ------------------------------------------------------------------------- */
   const typeBtns = document.querySelectorAll('#site-type-options .opt-btn');
   const featureChecks = document.querySelectorAll('.feature-check');
@@ -149,11 +165,10 @@ document.addEventListener('DOMContentLoaded', () => {
       totalDisplay.textContent = total.toLocaleString('en-IN');
     }
 
-    // Update WhatsApp link on estimate button
     if (claimEstimateBtn) {
       const featureListText = selectedFeatures.length > 0 
         ? selectedFeatures.join(', ') 
-        : 'Standard inclusions';
+        : 'Standard Inclusions';
       
       const message = `Namaste SHAKTIX Team! I used your Website Cost Estimator.\n\n` +
         `📦 Plan: ${selectedTypeName}\n` +
@@ -164,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
       claimEstimateBtn.onclick = (e) => {
         e.preventDefault();
         window.open(`https://wa.me/${CEO_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
-        showToast('Redirecting to WhatsApp to lock your quote! 🚀');
+        showToast('Connecting with our team on WhatsApp... 🚀');
       };
     }
   };
@@ -183,11 +198,29 @@ document.addEventListener('DOMContentLoaded', () => {
     check.addEventListener('change', calculateTotal);
   });
 
-  // Initial calculation run
+  // Run initial calculation
   calculateTotal();
 
   /* -------------------------------------------------------------------------
-   * 5. Interactive Demo Preview Modal
+   * 6. Interactive FAQ Accordion
+   * ------------------------------------------------------------------------- */
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(item => {
+    const header = item.querySelector('.faq-header');
+    if (header) {
+      header.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        // Close others
+        faqItems.forEach(other => other.classList.remove('active'));
+        if (!isActive) {
+          item.classList.add('active');
+        }
+      });
+    }
+  });
+
+  /* -------------------------------------------------------------------------
+   * 7. Interactive Demo Preview Modal
    * ------------------------------------------------------------------------- */
   const demoModal = document.getElementById('demo-modal');
   const modalCloseBtn = document.getElementById('modal-close-btn');
@@ -197,7 +230,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalPriceTag = document.getElementById('modal-price-tag');
   const modalOrderBtn = document.getElementById('modal-order-btn');
 
-  // Rich Demo Content Templates
   const demoData = {
     clinic: {
       title: 'CarePoint Multispeciality Clinic Demo',
@@ -206,33 +238,27 @@ document.addEventListener('DOMContentLoaded', () => {
       url: 'demos/clinic/index.html',
       html: `
         <div class="demo-preview-card">
-          <p style="color:#00d2ff; font-weight:700; margin-bottom:0.5rem;"><i class="fa-solid fa-stethoscope"></i> High-Converting Patient Acquisition Engine</p>
-          <p style="font-size:0.92rem; color:#94a3b8;">
-            Clinics lose over 60% of potential patients because of slow websites and difficult appointment systems. This template is designed for single-click appointment bookings directly on WhatsApp.
+          <p style="color:#FF6B00; font-weight:700; margin-bottom:0.6rem;"><i class="fa-solid fa-stethoscope"></i> High-Converting Patient Acquisition Engine</p>
+          <p style="font-size:0.92rem; color:#A1A1AA; line-height:1.6;">
+            Clinics lose over 60% of potential patients because of slow websites and confusing phone booking. This template allows 1-click patient WhatsApp booking and doctor OPD schedule lookup.
           </p>
-          
-          <div class="demo-feature-pills">
-            <span><i class="fa-solid fa-check"></i> WhatsApp Direct Booking</span>
-            <span><i class="fa-solid fa-check"></i> Doctor Profiles & OPD Timings</span>
-            <span><i class="fa-solid fa-check"></i> Google Maps 1-Click Directions</span>
-            <span><i class="fa-solid fa-check"></i> Patient Testimonial Sliders</span>
-            <span><i class="fa-solid fa-check"></i> Free SSL & Medical Compliance</span>
+          <div style="display:flex; flex-wrap:wrap; gap:8px; margin: 16px 0;">
+            <span style="background:rgba(255,107,0,0.1); border:1px solid rgba(255,107,0,0.25); color:#FF8533; font-size:12px; padding:4px 10px; border-radius:20px;"><i class="fa-solid fa-check"></i> 1-Click WhatsApp Booking</span>
+            <span style="background:rgba(255,107,0,0.1); border:1px solid rgba(255,107,0,0.25); color:#FF8533; font-size:12px; padding:4px 10px; border-radius:20px;"><i class="fa-solid fa-check"></i> Doctor Profiles & OPD</span>
+            <span style="background:rgba(255,107,0,0.1); border:1px solid rgba(255,107,0,0.25); color:#FF8533; font-size:12px; padding:4px 10px; border-radius:20px;"><i class="fa-solid fa-check"></i> Google Maps Directions</span>
           </div>
-
-          <div class="demo-simulator">
-            <div class="simulator-header">
-              <i class="fa-solid fa-calendar-check"></i> Try Patient Booking Simulator:
-            </div>
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.8rem; margin-bottom:0.8rem;">
-              <input type="text" id="sim-patient-name" placeholder="Patient Name" style="padding:0.6rem; background:#101726; border:1px solid rgba(255,255,255,0.1); border-radius:6px; color:#fff;">
-              <select id="sim-department" style="padding:0.6rem; background:#101726; border:1px solid rgba(255,255,255,0.1); border-radius:6px; color:#fff;">
+          <div style="background:#0d0d0d; border:1px solid #262626; border-radius:12px; padding:16px; margin-top:14px;">
+            <p style="font-size:13px; font-weight:700; color:#fff; margin-bottom:10px;"><i class="fa-solid fa-calendar-check" style="color:#FF6B00;"></i> Test Patient Booking Simulator:</p>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:10px;">
+              <input type="text" id="sim-patient-name" placeholder="Patient Name" style="padding:8px 12px; background:#141414; border:1px solid #262626; border-radius:6px; color:#fff; font-size:13px;">
+              <select id="sim-department" style="padding:8px 12px; background:#141414; border:1px solid #262626; border-radius:6px; color:#fff; font-size:13px;">
                 <option value="General Physician">General Physician</option>
-                <option value="Dentistry & Oral">Dentistry & Orthodontics</option>
+                <option value="Dentistry & Orthodontics">Dentistry & Orthodontics</option>
                 <option value="Cardiology">Cardiology</option>
-                <option value="Dermatology & Skin">Dermatology & Skin</option>
+                <option value="Dermatology">Dermatology</option>
               </select>
             </div>
-            <button id="sim-book-test" class="btn btn-sm btn-glass" style="width:100%; justify-content:center;">
+            <button id="sim-book-test" class="btn btn-sm btn-primary" style="width:100%; justify-content:center;">
               <i class="fa-brands fa-whatsapp"></i> Test Patient WhatsApp Alert
             </button>
           </div>
@@ -247,28 +273,22 @@ document.addEventListener('DOMContentLoaded', () => {
       url: 'demos/gym/index.html',
       html: `
         <div class="demo-preview-card">
-          <p style="color:#ff5722; font-weight:700; margin-bottom:0.5rem;"><i class="fa-solid fa-dumbbell"></i> High-Energy Member Conversion Layout</p>
-          <p style="font-size:0.92rem; color:#94a3b8;">
-            Turn everyday gym-goers into paid monthly and yearly members. Includes eye-catching pricing tables, trainer bio cards, and instant Free Day-Pass lead generation.
+          <p style="color:#FF6B00; font-weight:700; margin-bottom:0.6rem;"><i class="fa-solid fa-dumbbell"></i> High-Energy Member Conversion Layout</p>
+          <p style="font-size:0.92rem; color:#A1A1AA; line-height:1.6;">
+            Turn everyday gym visitors into paid monthly and yearly members. Includes eye-catching membership tier matrix, trainer cards, and instant Free Trial Pass capture.
           </p>
-
-          <div class="demo-feature-pills">
-            <span><i class="fa-solid fa-check"></i> Free 1-Day Trial Pass Form</span>
-            <span><i class="fa-solid fa-check"></i> Membership Tier Matrix (Monthly / Quarterly / Annual)</span>
-            <span><i class="fa-solid fa-check"></i> Instagram Feed Integration</span>
-            <span><i class="fa-solid fa-check"></i> Transformation Stories Showcase</span>
-            <span><i class="fa-solid fa-check"></i> Fast Video Background Header</span>
+          <div style="display:flex; flex-wrap:wrap; gap:8px; margin: 16px 0;">
+            <span style="background:rgba(255,107,0,0.1); border:1px solid rgba(255,107,0,0.25); color:#FF8533; font-size:12px; padding:4px 10px; border-radius:20px;"><i class="fa-solid fa-check"></i> Free Trial Pass Capture</span>
+            <span style="background:rgba(255,107,0,0.1); border:1px solid rgba(255,107,0,0.25); color:#FF8533; font-size:12px; padding:4px 10px; border-radius:20px;"><i class="fa-solid fa-check"></i> Membership Tier Matrix</span>
+            <span style="background:rgba(255,107,0,0.1); border:1px solid rgba(255,107,0,0.25); color:#FF8533; font-size:12px; padding:4px 10px; border-radius:20px;"><i class="fa-solid fa-check"></i> Transformation Stories</span>
           </div>
-
-          <div class="demo-simulator">
-            <div class="simulator-header">
-              <i class="fa-solid fa-bolt"></i> Live Free Pass Claim Simulator:
-            </div>
-            <div style="display:flex; gap:0.8rem; margin-bottom:0.8rem;">
-              <input type="tel" id="sim-gym-phone" placeholder="Enter Mobile for Trial Pass" style="flex:1; padding:0.6rem; background:#101726; border:1px solid rgba(255,255,255,0.1); border-radius:6px; color:#fff;">
+          <div style="background:#0d0d0d; border:1px solid #262626; border-radius:12px; padding:16px; margin-top:14px;">
+            <p style="font-size:13px; font-weight:700; color:#fff; margin-bottom:10px;"><i class="fa-solid fa-bolt" style="color:#FF6B00;"></i> Live Free Pass Claim Simulator:</p>
+            <div style="display:flex; gap:10px; margin-bottom:10px;">
+              <input type="tel" id="sim-gym-phone" placeholder="Enter Mobile for Trial Pass" style="flex:1; padding:8px 12px; background:#141414; border:1px solid #262626; border-radius:6px; color:#fff; font-size:13px;">
               <button id="sim-gym-test" class="btn btn-sm btn-primary">Claim Pass</button>
             </div>
-            <p style="font-size:0.75rem; color:#64748b;">Instant SMS/WhatsApp notification delivered to the Gym Owner dashboard.</p>
+            <p style="font-size:12px; color:#71717A;">Instant notification delivered to Gym Owner dashboard.</p>
           </div>
         </div>
       `,
@@ -281,23 +301,17 @@ document.addEventListener('DOMContentLoaded', () => {
       url: 'demos/corporate/index.html',
       html: `
         <div class="demo-preview-card">
-          <p style="color:#a855f7; font-weight:700; margin-bottom:0.5rem;"><i class="fa-solid fa-building"></i> Authority & Luxury Trust Architect</p>
-          <p style="font-size:0.92rem; color:#94a3b8;">
+          <p style="color:#FF6B00; font-weight:700; margin-bottom:0.6rem;"><i class="fa-solid fa-building"></i> Authority & Luxury Trust Architect</p>
+          <p style="font-size:0.92rem; color:#A1A1AA; line-height:1.6;">
             High-ticket clients demand trust, speed, and clean corporate aesthetics. Built for Real Estate developers, Architects, CA firms, and Corporate Agencies.
           </p>
-
-          <div class="demo-feature-pills">
-            <span><i class="fa-solid fa-check"></i> Property & Portfolio Showcase Grid</span>
-            <span><i class="fa-solid fa-check"></i> Download Brochure in 1-Click</span>
-            <span><i class="fa-solid fa-check"></i> Virtual Video Tour Player</span>
-            <span><i class="fa-solid fa-check"></i> Lead Capture with WhatsApp notification</span>
-            <span><i class="fa-solid fa-check"></i> Corporate Domain & Custom Business Mail</span>
+          <div style="display:flex; flex-wrap:wrap; gap:8px; margin: 16px 0;">
+            <span style="background:rgba(255,107,0,0.1); border:1px solid rgba(255,107,0,0.25); color:#FF8533; font-size:12px; padding:4px 10px; border-radius:20px;"><i class="fa-solid fa-check"></i> Property Showcase Grid</span>
+            <span style="background:rgba(255,107,0,0.1); border:1px solid rgba(255,107,0,0.25); color:#FF8533; font-size:12px; padding:4px 10px; border-radius:20px;"><i class="fa-solid fa-check"></i> Download Brochure in 1-Click</span>
+            <span style="background:rgba(255,107,0,0.1); border:1px solid rgba(255,107,0,0.25); color:#FF8533; font-size:12px; padding:4px 10px; border-radius:20px;"><i class="fa-solid fa-check"></i> Instant WhatsApp Routing</span>
           </div>
-
-          <div class="demo-simulator">
-            <div class="simulator-header">
-              <i class="fa-solid fa-file-pdf"></i> Brochure Download Trigger Test:
-            </div>
+          <div style="background:#0d0d0d; border:1px solid #262626; border-radius:12px; padding:16px; margin-top:14px;">
+            <p style="font-size:13px; font-weight:700; color:#fff; margin-bottom:10px;"><i class="fa-solid fa-file-pdf" style="color:#FF6B00;"></i> Brochure Download Trigger Test:</p>
             <button id="sim-corp-test" class="btn btn-sm btn-outline" style="width:100%; justify-content:center;">
               <i class="fa-solid fa-download"></i> Simulate Instant Property Brochure Download
             </button>
@@ -314,12 +328,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     modalTitle.textContent = data.title;
     modalBadge.textContent = data.badge;
-    modalPriceTag.innerHTML = `${data.price} &bull; <a href="${data.url}" target="_blank" style="color:#00d2ff; text-decoration:underline; font-size:0.9rem; margin-left:8px;"><i class="fa-solid fa-arrow-up-right-from-square"></i> Open Full Demo Page</a>`;
+    modalPriceTag.innerHTML = `${data.price} &bull; <a href="${data.url}" target="_blank" style="color:#FF8533; text-decoration:underline; font-size:0.9rem; margin-left:8px;"><i class="fa-solid fa-arrow-up-right-from-square"></i> Open Full Demo</a>`;
     modalContent.innerHTML = data.html;
-
     modalOrderBtn.href = `https://wa.me/${CEO_WHATSAPP_NUMBER}?text=${encodeURIComponent(data.waText)}`;
 
-    // Setup simulator triggers inside modal
+    // Set simulator triggers
     if (demoKey === 'clinic') {
       const simBtn = document.getElementById('sim-book-test');
       if (simBtn) {
@@ -345,7 +358,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const simCorpBtn = document.getElementById('sim-corp-test');
       if (simCorpBtn) {
         simCorpBtn.onclick = () => {
-          showToast('📄 Brochure Download Simulation successful!');
+          showToast('📄 Property Brochure Download Simulation successful!');
         };
       }
     }
@@ -379,7 +392,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Close on Escape key
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && demoModal.classList.contains('open')) {
       closeDemoModal();
@@ -387,7 +399,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* -------------------------------------------------------------------------
-   * 6. Client Lead Capture Form
+   * 8. Client Lead Capture Form
    * ------------------------------------------------------------------------- */
   const leadForm = document.getElementById('lead-form');
   if (leadForm) {
@@ -404,25 +416,25 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      const waMessage = `🚀 *NEW CLIENT INQUIRY FOR SHAKTIX*\n\n` +
-        `👤 *Client / Brand Name:* ${name}\n` +
+      const waMessage = `🚀 *NEW CLIENT INQUIRY FOR SHAKTIX WEB*\n\n` +
+        `👤 *Client / Brand:* ${name}\n` +
         `📱 *WhatsApp:* ${phone}\n` +
         `🏢 *Industry:* ${industry}\n` +
         `📝 *Requirement Notes:* ${notes ? notes : 'Standard Website Consultation'}\n\n` +
-        `Please send me demo samples and quotation!`;
+        `Please share demo preview link and quotation!`;
 
       // Sync lead with Supabase & Local DB
       if (window.SHAKTIX_SUPABASE) {
         window.SHAKTIX_SUPABASE.saveLead({
           name: name,
           phone: phone,
-          industry: industry,
+          category: industry,
           notes: notes,
           source: 'Website Lead Form'
         });
       }
 
-      showToast(`Thank you ${name}! Connecting with our leadership team... 🚀`);
+      showToast(`Thank you ${name}! Connecting with our team... 🚀`);
 
       setTimeout(() => {
         window.open(`https://wa.me/${CEO_WHATSAPP_NUMBER}?text=${encodeURIComponent(waMessage)}`, '_blank');
@@ -432,7 +444,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* -------------------------------------------------------------------------
-   * 7. Toast Notification Utility
+   * 9. Toast Notification Utility
    * ------------------------------------------------------------------------- */
   function showToast(message) {
     let toast = document.querySelector('.toast');
@@ -450,85 +462,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setTimeout(() => {
       toast.classList.add('show');
-    }, 50);
+    }, 40);
 
     setTimeout(() => {
       toast.classList.remove('show');
-    }, 4000);
+    }, 3800);
   }
 
   /* -------------------------------------------------------------------------
-   * 8. Floating Instant WhatsApp Button
+   * 10. Secret CEO Shortcut (Ctrl + Shift + A opens Staff Portal)
    * ------------------------------------------------------------------------- */
-  const floatingWaBtn = document.createElement('a');
-  floatingWaBtn.href = `https://wa.me/${CEO_WHATSAPP_NUMBER}?text=${encodeURIComponent('Hello SHAKTIX, I want a quick quote for my website.')}`;
-  floatingWaBtn.target = '_blank';
-  floatingWaBtn.className = 'floating-wa-btn';
-  floatingWaBtn.setAttribute('aria-label', 'Chat on WhatsApp');
-  floatingWaBtn.innerHTML = `
-    <i class="fa-brands fa-whatsapp"></i>
-    <span class="floating-tooltip">Chat with CEO</span>
-  `;
-  document.body.appendChild(floatingWaBtn);
-
-  // Add styles for the floating button
-  const floatingStyle = document.createElement('style');
-  floatingStyle.textContent = `
-    .floating-wa-btn {
-      position: fixed;
-      bottom: 25px;
-      left: 25px;
-      width: 54px;
-      height: 54px;
-      background: #25d366;
-      color: #ffffff;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 28px;
-      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.45);
-      z-index: 9999;
-      text-decoration: none;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .floating-wa-btn:hover {
-      transform: scale(1.1) translateY(-4px);
-      box-shadow: 0 12px 35px rgba(37, 211, 102, 0.65);
-    }
-    .floating-tooltip {
-      position: absolute;
-      left: 65px;
-      background: #0d121e;
-      color: #ffffff;
-      padding: 6px 12px;
-      border-radius: 6px;
-      font-size: 12px;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-weight: 600;
-      white-space: nowrap;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s;
-    }
-    .floating-wa-btn:hover .floating-tooltip {
-      opacity: 1;
-    }
-    @media (max-width: 768px) {
-      .floating-wa-btn {
-        bottom: 20px;
-        left: 20px;
-        width: 48px;
-        height: 48px;
-        font-size: 24px;
-      }
-    }
-  `;
-  document.head.appendChild(floatingStyle);
-
-  // 🔐 Secret CEO Shortcut (Ctrl + Shift + A opens Admin HQ)
   document.addEventListener('keydown', (e) => {
     if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
       e.preventDefault();
