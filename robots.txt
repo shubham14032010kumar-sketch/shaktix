@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /antigravity-engine/
+Disallow: /api/
+
+Sitemap: https://shaktix-studio.vercel.app/sitemap.xml
