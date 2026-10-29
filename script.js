@@ -23,19 +23,24 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   if (mobileToggle && navMenu) {
+    mobileToggle.setAttribute('aria-expanded', 'false');
+    mobileToggle.setAttribute('aria-controls', 'nav-menu');
+
     mobileToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('open');
+      const isOpen = navMenu.classList.toggle('open');
+      mobileToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       const icon = mobileToggle.querySelector('i');
       if (icon) {
-        icon.classList.toggle('fa-bars');
-        icon.classList.toggle('fa-xmark');
+        icon.classList.toggle('fa-bars', !isOpen);
+        icon.classList.toggle('fa-xmark', isOpen);
       }
     });
 
-    // Close menu when clicking any nav link
-    document.querySelectorAll('.nav-link').forEach(link => {
+    // Close menu when clicking any nav link or mobile CTA
+    document.querySelectorAll('.nav-link, .nav-menu-mobile-cta a').forEach(link => {
       link.addEventListener('click', () => {
         navMenu.classList.remove('open');
+        mobileToggle.setAttribute('aria-expanded', 'false');
         const icon = mobileToggle.querySelector('i');
         if (icon) {
           icon.classList.add('fa-bars');
@@ -126,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const totalDisplay = document.getElementById('calculated-total');
   const claimEstimateBtn = document.getElementById('claim-estimate-btn');
 
-  let baseCost = 5999;
+  let baseCost = 6999;
   let selectedTypeName = '1-Page Express';
 
   const calculateTotal = () => {
@@ -238,7 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
     gym: {
       title: 'IronPulse Elite Fitness Studio Demo',
       badge: 'GYM & CROSSFIT',
-      price: 'Starting at ₹7,999 (Express) or ₹14,999 (Full)',
+      price: 'Starting at ₹6,999 (Express) or ₹12,999 (Full)',
       url: 'demos/gym/index.html',
       html: `
         <div class="demo-preview-card">
@@ -472,18 +477,18 @@ document.addEventListener('DOMContentLoaded', () => {
     .floating-wa-btn {
       position: fixed;
       bottom: 25px;
-      right: 25px;
-      width: 58px;
-      height: 58px;
+      left: 25px;
+      width: 54px;
+      height: 54px;
       background: #25d366;
       color: #ffffff;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 30px;
+      font-size: 28px;
       box-shadow: 0 8px 25px rgba(37, 211, 102, 0.45);
-      z-index: 999;
+      z-index: 9999;
       text-decoration: none;
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
@@ -493,7 +498,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     .floating-tooltip {
       position: absolute;
-      right: 70px;
+      left: 65px;
       background: #0d121e;
       color: #ffffff;
       padding: 6px 12px;
@@ -514,12 +519,20 @@ document.addEventListener('DOMContentLoaded', () => {
     @media (max-width: 768px) {
       .floating-wa-btn {
         bottom: 20px;
-        right: 20px;
-        width: 52px;
-        height: 52px;
-        font-size: 26px;
+        left: 20px;
+        width: 48px;
+        height: 48px;
+        font-size: 24px;
       }
     }
   `;
   document.head.appendChild(floatingStyle);
+
+  // 🔐 Secret CEO Shortcut (Ctrl + Shift + A opens Admin HQ)
+  document.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
+      e.preventDefault();
+      window.location.href = 'admin/index.html';
+    }
+  });
 });
