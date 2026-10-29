@@ -5,6 +5,9 @@
 
 const express = require('express');
 const router = express.Router();
+const { generateWhatsAppAIReply } = require('../services/geminiAiService');
+const WhatsAppCloudApiService = require('../services/whatsappCloudApi');
+const waService = new WhatsAppCloudApiService();
 
 // Memory store for recent events (can be swapped with DB / Redis)
 const webhookEventsLog = [];
@@ -67,9 +70,10 @@ router.post('/', (req, res) => {
 
           // B. Inbound Customer Replies & Opt-Out Processing
           if (value.messages && value.messages.length > 0) {
-            value.messages.forEach(incomingMsg => {
+            value.messages.forEach(async incomingMsg => {
               const fromPhone = incomingMsg.from;
-              const textBody = (incomingMsg.text?.body || '').trim().toLowerCase();
+              const rawText = incomingMsg.text?.body || '';
+              const textBody = rawText.trim().toLowerCase();
 
               // Auto-Opt Out Detection (Compliance requirement)
               const optOutKeywords = ['stop', 'unsubscribe', 'donotmessage', 'cancel', 'no'];
@@ -81,11 +85,33 @@ router.post('/', (req, res) => {
               const msgRecord = {
                 type: 'inbound_message',
                 from: fromPhone,
-                text: incomingMsg.text?.body || '[Media/Button Response]',
+                text: rawText || '[Media/Button Response]',
                 timestamp: new Date().toISOString()
               };
 
               webhookEventsLog.unshift(msgRecord);
+
+              // 🚀 AUTONOMOUS GEMINI AI REPLY DISPATCHER
+              if (!suppressionList.has(fromPhone) && rawText) {
+                try {
+                  const aiReply = await generateWhatsAppAIReply(rawText, fromPhone);
+                  console.log(`🤖 [Gemini AI Reply to ${fromPhone}]: ${aiReply}`);
+
+                  // If Meta credentials are live, dispatch via WhatsApp Cloud API
+                  if (process.env.WHATSAPP_ACCESS_TOKEN && process.env.WHATSAPP_PHONE_NUMBER_ID) {
+                    await waService.sendTextMessage({ to: fromPhone, body: aiReply });
+                  }
+
+                  webhookEventsLog.unshift({
+                    type: 'outbound_ai_reply',
+                    to: fromPhone,
+                    text: aiReply,
+                    timestamp: new Date().toISOString()
+                  });
+                } catch (aiErr) {
+                  console.error('Error generating/sending AI WhatsApp reply:', aiErr.message);
+                }
+              }
             });
           }
         });
