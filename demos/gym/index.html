@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../../shaktix-ai-widget.css">
   <style>
     :root {
       --primary: #ff4500;
@@ -20,7 +21,7 @@
     }
     * { margin:0; padding:0; box-sizing:border-box; font-family:'Plus Jakarta Sans',sans-serif; }
     body { background:var(--bg); color:var(--text); line-height:1.6; }
-    .demo-bar { background:#000; color:#fff; padding:8px 20px; font-size:13px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #222; }
+    .demo-bar { background:#000; color:#fff; padding:8px 20px; font-size:13px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; border-bottom:1px solid #222; }
     .demo-bar a { color:#ff4500; text-decoration:none; font-weight:700; }
     .container { max-width:1150px; margin:0 auto; padding:0 20px; }
     .nav { background:rgba(10, 11, 14, 0.95); padding:18px 0; border-bottom:1px solid var(--border); position:sticky; top:0; z-index:50; backdrop-filter:blur(10px); }
@@ -170,5 +171,7 @@
       <p style="margin-top:6px; font-size:12px;">Get this exact high-converting template branded for your Gym or Fitness Studio today.</p>
     </div>
   </footer>
+  <script src="../../supabase-connector.js"></script>
+  <script src="../../shaktix-ai-widget.js"></script>
 </body>
 </html>
