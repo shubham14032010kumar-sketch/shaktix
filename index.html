@@ -2,27 +2,97 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SHAKTIX — Premium Web Studio & Digital Growth Agency</title>
-  <meta name="description" content="SHAKTIX builds lightning-fast, high-converting websites for businesses, doctors, gyms, and modern brands. Get your digital power today.">
-  <meta name="keywords" content="web development agency, website designer, ecommerce, business website, SHAKTIX">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="theme-color" content="#07090e">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>SHAKTIX — High-Performance Digital Studio & AI Web Agency</title>
+  <meta name="description" content="SHAKTIX engineers lightning-fast, high-converting websites for doctors, clinics, gyms, and businesses in 48 hours. 1-Year Free Hosting & Support.">
+  <meta name="keywords" content="web development agency, website designer, ecommerce, business website, clinic website, SHAKTIX, website designer near me, best website design agency">
+  <link rel="canonical" href="https://shaktix-studio.vercel.app/">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="author" content="Shubham Kumar">
+
+  <!-- Schema.org JSON-LD Structured Data for Google Rich Snippets -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "SHAKTIX Digital Studio",
+    "alternateName": "SHAKTIX AI Web Agency",
+    "url": "https://shaktix-studio.vercel.app",
+    "description": "SHAKTIX engineers lightning-fast, high-converting websites for clinics, gyms, and businesses in 48 hours with 1-Year Free NVMe Hosting.",
+    "founder": {
+      "@type": "Person",
+      "name": "Shubham Kumar"
+    },
+    "telephone": "+918298136441",
+    "priceRange": "₹6,999 - ₹21,999",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "IN"
+    },
+    "openingHours": "Mo-Su 09:00-21:00",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Website Development Packages",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Express Launch Website (1-Page)"
+          },
+          "price": "6999",
+          "priceCurrency": "INR"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Business Growth Website (5 Pages + Free Hosting)"
+          },
+          "price": "12999",
+          "priceCurrency": "INR"
+        }
+      ]
+    }
+  }
+  </script>
+
+  <!-- OpenGraph / WhatsApp Social Share Card -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://shaktix-studio.vercel.app">
+  <meta property="og:title" content="SHAKTIX Digital Studio — Websites That Turn Visitors Into Revenue">
+  <meta property="og:description" content="48-Hour Rapid Delivery • 1-Year Free Hosting & AMC • 100% Mobile First. Explore our live interactive demos.">
+  <meta property="og:site_name" content="SHAKTIX Studio">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SHAKTIX Digital Studio — High-Performance Web Architecture">
+  <meta name="twitter:description" content="Stop losing clients to slow templates. We engineer high-converting digital platforms for businesses.">
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" href="favicon.svg">
+
   <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="shaktix-ai-widget.css">
 </head>
 <body>
+  <!-- Accessible Skip Link -->
+  <a href="#hero" class="skip-to-content">Skip to main content</a>
 
-  <!-- Background Glow & Grid Effects -->
-  <div class="bg-glow glow-1"></div>
-  <div class="bg-glow glow-2"></div>
+  <!-- Aesthetic Atmospheric Canvas & Blueprint Grid -->
+  <div class="bg-atmosphere"></div>
   <div class="bg-grid"></div>
 
   <!-- Navigation Bar -->
@@ -39,9 +109,13 @@
         <a href="#pricing" class="nav-link">Pricing</a>
         <a href="#calculator" class="nav-link">Cost Estimator</a>
         <a href="#why-us" class="nav-link">Why Us</a>
-        <a href="ai-agent/index.html" class="nav-link" style="color: #00f0ff; font-weight: 700;"><i class="fa-solid fa-robot"></i> AI Sales Desk</a>
-        <a href="admin/index.html" class="nav-link" style="color: #a855f7; font-weight: 700;"><i class="fa-solid fa-crown"></i> Admin HQ</a>
-        <a href="whatsapp-bulk-sender/index.html" class="nav-link" style="color: #25d366; font-weight: 700;"><i class="fa-brands fa-whatsapp"></i> Bulk WA & CRM</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <div class="nav-menu-mobile-cta">
+          <a href="#contact" class="btn btn-primary btn-block">Get Free Quote</a>
+          <a href="https://wa.me/918298136441?text=Namaste%20SHAKTIX!%20I%20want%20a%20website%20consultation." target="_blank" class="btn btn-glass btn-block">
+            <i class="fa-brands fa-whatsapp color-wa"></i> Talk on WhatsApp
+          </a>
+        </div>
       </nav>
 
       <div class="nav-actions">
@@ -49,7 +123,7 @@
           <i class="fa-brands fa-whatsapp"></i> Chat Now
         </a>
         <a href="#contact" class="btn btn-primary nav-btn-primary" id="nav-quote-btn">Get Free Quote</a>
-        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation">
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation" aria-expanded="false" aria-controls="nav-menu">
           <i class="fa-solid fa-bars"></i>
         </button>
       </div>
@@ -57,51 +131,118 @@
   </header>
 
   <main>
-    <!-- Hero Section -->
+    <!-- Hero Section: Human-Crafted Asymmetric Architecture -->
     <section class="hero-section" id="hero">
-      <div class="container hero-container">
-        <div class="hero-badge">
-          <span class="pulse-dot"></span>
-          <span>⚡ High-Performance Digital Solutions For Growth</span>
+      <div class="container hero-asymmetric-wrapper">
+        <!-- Left Editorial Column -->
+        <div class="hero-editorial">
+          <div class="hero-badge">
+            <span class="pulse-dot"></span>
+            <span class="badge-text"><i class="fa-solid fa-code-commit"></i> High-Performance Digital Studio</span>
+          </div>
+
+          <h1 class="hero-title">
+            We Engineer Websites That Turn <span class="hero-title-accent">Visitors Into Active Revenue</span>
+          </h1>
+
+          <p class="hero-description">
+            Stop losing high-value clients to slow, generic templates. <strong>SHAKTIX</strong> builds custom conversion-focused web architecture with <strong>sub-second load speeds</strong>, Google SEO dominance, and <strong>1-Year Free Managed Support</strong>.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#portfolio" class="btn btn-primary btn-large" id="hero-explore-btn">
+              <i class="fa-solid fa-arrow-right"></i> Explore Live Demos
+            </a>
+            <a href="https://wa.me/918298136441?text=Namaste%20SHAKTIX!%20I%20need%20a%20website%20consultation." target="_blank" class="btn btn-glass btn-large" id="hero-wa-btn">
+              <i class="fa-brands fa-whatsapp color-wa"></i> WhatsApp Direct
+            </a>
+          </div>
+
+          <!-- Trust Metric Bar -->
+          <div class="hero-metrics">
+            <div class="metric-item">
+              <h3 class="metric-num"><span class="counter" data-target="99.9">0</span>%</h3>
+              <p class="metric-label">Uptime & Speed</p>
+            </div>
+            <div class="metric-divider"></div>
+            <div class="metric-item">
+              <h3 class="metric-num"><span class="counter" data-target="48">0</span>h</h3>
+              <p class="metric-label">Rapid Delivery</p>
+            </div>
+            <div class="metric-divider"></div>
+            <div class="metric-item">
+              <h3 class="metric-num"><span class="counter" data-target="100">0</span>%</h3>
+              <p class="metric-label">Mobile First</p>
+            </div>
+            <div class="metric-divider"></div>
+            <div class="metric-item">
+              <h3 class="metric-num">FREE</h3>
+              <p class="metric-label">1-Yr AMC & Cloud</p>
+            </div>
+          </div>
         </div>
 
-        <h1 class="hero-title">
-          We Build Websites That Turn <span class="gradient-text">Visitors Into Paying Customers</span>
-        </h1>
+        <!-- Right Live Showcase Card -->
+        <div class="hero-showcase">
+          <div class="showcase-card">
+            <!-- Browser Header -->
+            <div class="showcase-browser-bar">
+              <div class="browser-dots">
+                <span class="b-dot b-red"></span>
+                <span class="b-dot b-yellow"></span>
+                <span class="b-dot b-green"></span>
+              </div>
+              <div class="browser-url">
+                <i class="fa-solid fa-lock"></i> shaktix.com/demos/clinic
+              </div>
+              <span class="live-pill"><span class="live-dot"></span> LIVE</span>
+            </div>
 
-        <p class="hero-description">
-          Stop losing clients to competitors with outdated websites. <strong>SHAKTIX</strong> engineers blazing-fast, mobile-optimized, and sales-focused websites with <strong>1-Year Free Hosting & Support</strong>.
-        </p>
+            <!-- Showcase Preview Body -->
+            <div class="showcase-content">
+              <div class="showcase-top-meta">
+                <div class="showcase-client-tag">
+                  <i class="fa-solid fa-stethoscope"></i> Apex Care Health
+                </div>
+                <span class="showcase-speed-badge"><i class="fa-solid fa-gauge-high"></i> 99/100 Core Vitals</span>
+              </div>
 
-        <div class="hero-cta-group">
-          <a href="#portfolio" class="btn btn-primary btn-large" id="hero-explore-btn">
-            <i class="fa-solid fa-eye"></i> View Live Demos
-          </a>
-          <a href="https://wa.me/918298136441?text=Namaste%20SHAKTIX!%20I%20need%20a%20website%20consultation." target="_blank" class="btn btn-glass btn-large" id="hero-wa-btn">
-            <i class="fa-brands fa-whatsapp color-wa"></i> Talk to CEO on WhatsApp
-          </a>
-        </div>
+              <h4 class="showcase-heading">Modern Multispeciality Clinic & WhatsApp Booking</h4>
+              <p class="showcase-summary">Engineered with doctor schedule grids, instant WhatsApp appointment routing, and patient consultation intake.</p>
 
-        <!-- Trust Metric Bar -->
-        <div class="hero-metrics">
-          <div class="metric-item">
-            <h3 class="metric-num"><span class="counter" data-target="99.9">0</span>%</h3>
-            <p class="metric-label">Uptime & Speed</p>
-          </div>
-          <div class="metric-divider"></div>
-          <div class="metric-item">
-            <h3 class="metric-num"><span class="counter" data-target="48">0</span> Hrs</h3>
-            <p class="metric-label">Rapid Delivery</p>
-          </div>
-          <div class="metric-divider"></div>
-          <div class="metric-item">
-            <h3 class="metric-num"><span class="counter" data-target="100">0</span>%</h3>
-            <p class="metric-label">Mobile Friendly</p>
-          </div>
-          <div class="metric-divider"></div>
-          <div class="metric-item">
-            <h3 class="metric-num">FREE</h3>
-            <p class="metric-label">1-Yr AMC & Hosting</p>
+              <div class="showcase-vitals-grid">
+                <div class="vital-item">
+                  <span class="vital-val">0.38s</span>
+                  <span class="vital-lbl">FCP Load</span>
+                </div>
+                <div class="vital-item">
+                  <span class="vital-val">+340%</span>
+                  <span class="vital-lbl">Conversion</span>
+                </div>
+                <div class="vital-item">
+                  <span class="vital-val">100%</span>
+                  <span class="vital-lbl">SEO Score</span>
+                </div>
+              </div>
+
+              <div class="showcase-actions">
+                <button class="btn btn-sm btn-primary preview-trigger" data-demo="clinic">
+                  <i class="fa-solid fa-eye"></i> Launch Interactive Preview
+                </button>
+                <a href="demos/clinic/index.html" target="_blank" class="btn btn-sm btn-outline showcase-link-btn" title="Open full demo">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Floating Micro Trust Card -->
+            <div class="showcase-floater">
+              <div class="floater-icon"><i class="fa-solid fa-shield-halved"></i></div>
+              <div class="floater-info">
+                <strong>Zero Template Slop</strong>
+                <span>Custom Next-Gen Code Architecture</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -287,9 +428,9 @@
               <div class="calc-group">
                 <label class="calc-label">1. Website Type</label>
                 <div class="option-buttons" id="site-type-options">
-                  <button type="button" class="opt-btn active" data-cost="5999" data-val="1-Page Express">1-Page Express (Landing Page)</button>
-                  <button type="button" class="opt-btn" data-cost="9999" data-val="Multi-Page Business">Multi-Page Business (Up to 5 Pages)</button>
-                  <button type="button" class="opt-btn" data-cost="17999" data-val="Full E-Commerce">Full E-Commerce / Store</button>
+                  <button type="button" class="opt-btn active" data-cost="6999" data-val="1-Page Express">1-Page Express (Landing Page)</button>
+                  <button type="button" class="opt-btn" data-cost="12999" data-val="Multi-Page Business">Multi-Page Business (Up to 5 Pages)</button>
+                  <button type="button" class="opt-btn" data-cost="21999" data-val="Full E-Commerce">Full E-Commerce / Store</button>
                 </div>
               </div>
 
@@ -325,7 +466,7 @@
                 <span class="summary-tag">ESTIMATED INVESTMENT</span>
                 <div class="summary-price">
                   <span class="currency">₹</span>
-                  <span id="calculated-total">7,999</span>
+                  <span id="calculated-total">8,999</span>
                 </div>
                 <p class="summary-note">Includes 1-Year Technical Support & Mobile Testing Guarantee.</p>
                 
@@ -540,14 +681,14 @@
   </main>
 
   <!-- Interactive Demo Preview Modal -->
-  <div class="modal-backdrop" id="demo-modal">
+  <div class="modal-backdrop" id="demo-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
     <div class="modal-box">
       <div class="modal-header">
         <div class="modal-title-area">
           <span class="modal-badge" id="modal-badge-type">DEMO</span>
           <h3 id="modal-title">Template Preview</h3>
         </div>
-        <button class="modal-close" id="modal-close-btn">&times;</button>
+        <button class="modal-close" id="modal-close-btn" aria-label="Close dialog">&times;</button>
       </div>
       <div class="modal-body" id="modal-content">
         <!-- Dynamic Preview Content Injected Here -->
@@ -579,8 +720,8 @@
           <li><a href="#portfolio">Live Demos</a></li>
           <li><a href="#pricing">Pricing Plans</a></li>
           <li><a href="#calculator">Cost Calculator</a></li>
-          <li><a href="ai-agent/index.html" style="color: #00f0ff; font-weight: 600;"><i class="fa-solid fa-robot"></i> AI Sales Agent Desk</a></li>
-          <li><a href="admin/index.html" style="color: #a855f7; font-weight: 600;"><i class="fa-solid fa-crown"></i> CEO Admin Command Center</a></li>
+          <li><a href="#why-us">Why SHAKTIX</a></li>
+          <li><a href="#contact">Free Consultation</a></li>
         </ul>
       </div>
 
@@ -606,13 +747,19 @@
     <div class="footer-bottom">
       <div class="container bottom-flex">
         <p>&copy; 2026 SHAKTIX Digital Studio. All rights reserved.</p>
-        <p class="ceo-credit">Engineered by CEO & SHAKTIX AI Tech Foundry</p>
+        <div style="display:flex; align-items:center; gap:16px;">
+          <p class="ceo-credit">Engineered by CEO & SHAKTIX AI Tech Foundry</p>
+          <a href="admin/index.html" class="ceo-discreet-lock" title="CEO Executive Access" style="color:#475569; font-size:12px; text-decoration:none; display:inline-flex; align-items:center; gap:5px; transition:color 0.2s;" onmouseover="this.style.color='#a855f7'" onmouseout="this.style.color='#475569'">
+            <i class="fa-solid fa-lock" style="font-size:11px;"></i> Staff Portal
+          </a>
+        </div>
       </div>
     </div>
   </footer>
 
   <!-- Scripts -->
-  <script src="supabase-connector.js"></script>
-  <script src="script.js"></script>
+  <script defer src="supabase-connector.js"></script>
+  <script defer src="script.js"></script>
+  <script defer src="shaktix-ai-widget.js"></script>
 </body>
 </html>
