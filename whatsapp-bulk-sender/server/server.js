@@ -63,6 +63,13 @@ app.get('/api/health', (req, res) => {
     suppressedNumbersCount: suppressionList.size
   });
 });
+// Test message endpoint (development only)
+app.post('/api/test/message', async (req, res) => {
+  const { phone, text } = req.body;
+  if (!phone || !text) return res.status(400).json({ success: false, error: 'phone and text required' });
+  const result = await waService.sendTextMessage({ to: phone, body: text });
+  res.json({ success: result.success, details: result });
+});
 
 // WhatsApp API Config / Health
 app.get('/api/whatsapp/status', async (req, res) => {
