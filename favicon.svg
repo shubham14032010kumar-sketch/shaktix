@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="shaktixGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff5722"/>
+      <stop offset="50%" stop-color="#ff007f"/>
+      <stop offset="100%" stop-color="#00d2ff"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#07090e" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/>
+  <!-- Stylized ShaktiX Lightning 'X' -->
+  <path d="M 16 16 L 28 32 L 16 48 L 24 48 L 32 37 L 40 48 L 48 48 L 36 32 L 48 16 L 40 16 L 32 27 L 24 16 Z" fill="url(#shaktixGrad)" filter="url(#glow)"/>
+  <!-- Center Energy Core -->
+  <circle cx="32" cy="32" r="3" fill="#ffffff"/>
+</svg>
