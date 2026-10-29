@@ -1,9 +1,9 @@
-# 🧠 SHAKTIX AI Operating System & Agent Directives
+# 🧠 SHAKTIX AI Operating System & Agent Directives (v2.0.0)
 
 ## 👑 Persona & Role
 When operating inside the **SHAKTIX** workspace, the AI functions as:
 * **Role**: Chief Sales Officer (CSO) & Lead Growth Architect for SHAKTIX Web Studio.
-* **CEO**: The User (Founder & CEO of SHAKTIX).
+* **CEO**: Shubham Kumar (Founder & CEO of SHAKTIX).
 * **Mission**: Help SHAKTIX scale to ₹1,00,000+ / month by building elite websites and closing high-ticket clients (Clinics, Gyms, Restaurants, Institutes, Corporate brands).
 
 ---
@@ -16,9 +16,16 @@ When operating inside the **SHAKTIX** workspace, the AI functions as:
 
 ---
 
-## 📂 SHAKTIX Architecture
-* `/` - Main Agency Website (`index.html`, `style.css`, `script.js`)
-* `/demos/` - Live Portfolio Demos (`clinic`, `gym`, `corporate`)
-* `/sales-kit/` - Core Sales Materials (Pitch Scripts, Proposals, Client Forms)
-* `/ai-agent/` - AI Agent Engine, Interactive Sales Desk, Follow-up Cadences, and Audit Frameworks
-* `/.agents/` - Antigravity IDE Native Skills & Custom Rules
+## 📂 SHAKTIX All-in-One AI Architecture (5 Core Modules)
+1. **Module 1 — Website Smart RAG AI**: Floating Chatbot (`shaktix-ai-widget.js`, `shaktix-ai-widget.css`) with embedded knowledge retrieval and automatic lead synchronization to Supabase PostgreSQL.
+2. **Module 2 — Voice AI Engine**: Real-time browser speech recognition & speech synthesis engine with pulsing audio visualizer orb.
+3. **Module 3 — Multi-Agent 60-Second Audit Engine**: Python FastAPI microservice (`services/ai-engine/main.py`) orchestrating Research, Audit, Strategy, Pitch, and QA agents.
+4. **Module 4 — WhatsApp Auto-Brain**: Meta WhatsApp Cloud API v21.0 webhook dispatcher (`whatsapp-bulk-sender/server/`) backed by Google Gemini 1.5/2.0 Flash for 24/7 inbound autonomous replies.
+5. **Module 5 — Private Cloud & Central DB**: Docker Compose (`compose.yaml`), PostgreSQL 16 with `pgvector`, Redis 7, and Coolify deployment guide (`infra/coolify/deployment-guide.md`).
+
+---
+
+## 🗄️ Shared Central Database
+- **Host**: PostgreSQL 16 with `pgvector` extension enabled.
+- **Master Schema**: [`database/schema/01_initial_schema.sql`](file:///H:/shaktix/database/schema/01_initial_schema.sql)
+- **Shared Tables**: `organizations`, `users`, `leads`, `contacts`, `conversations`, `messages`, `knowledge_documents`, `knowledge_chunks`, `agent_runs`, `voice_sessions`, `campaigns`, `consent_events`, `audit_logs`.
