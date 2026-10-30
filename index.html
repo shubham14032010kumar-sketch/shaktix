@@ -178,8 +178,8 @@
   <link rel="apple-touch-icon" href="favicon.svg">
 
   <!-- Master Stylesheet & Floating AI Widget Styles (Versioned Cache-Bust) -->
-  <link rel="stylesheet" href="style.css?v=20261030_v7">
-  <link rel="stylesheet" href="shaktix-ai-widget.css?v=20261030_v7">
+  <link rel="stylesheet" href="style.css?v=20261030_v8">
+  <link rel="stylesheet" href="shaktix-ai-widget.css?v=20261030_v8">
 </head>
 <body>
   <!-- Accessible Skip Link -->
@@ -513,10 +513,10 @@
         </div>
 
         <div class="portfolio-filter">
-          <button class="filter-btn active" data-filter="all">All Demos</button>
-          <button class="filter-btn" data-filter="clinic">Healthcare / Doctors</button>
-          <button class="filter-btn" data-filter="gym">Fitness / Gyms</button>
-          <button class="filter-btn" data-filter="corporate">Corporate / Realty</button>
+          <button class="filter-btn active" data-filter="all" aria-label="Show All Working Demos">All Demos</button>
+          <button class="filter-btn" data-filter="clinic" aria-label="Show Healthcare and Doctor Demos">Healthcare / Doctors</button>
+          <button class="filter-btn" data-filter="gym" aria-label="Show Fitness and Gym Demos">Fitness / Gyms</button>
+          <button class="filter-btn" data-filter="corporate" aria-label="Show Corporate and Realty Demos">Corporate / Realty</button>
         </div>
 
         <div class="portfolio-grid">
@@ -535,7 +535,7 @@
               </div>
               <!-- Rich Visual Mockup Image -->
               <div class="portfolio-img-wrap">
-                <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80" alt="CarePoint Multispeciality Clinic Web Portal" class="portfolio-img" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80" alt="CarePoint Multispeciality Clinic Web Portal" class="portfolio-img" width="800" height="500" loading="lazy">
                 <div class="portfolio-logo-overlay">
                   <div class="brand-chip">
                     <i class="fa-solid fa-hospital" style="color:#0EA5E9;"></i>
@@ -552,7 +552,7 @@
               <h3 class="portfolio-title">CarePoint Multispeciality Clinic</h3>
               <p class="portfolio-desc">High-trust patient portal featuring 1-click WhatsApp doctor appointments, OPD schedule tables, and Google Maps direction routing.</p>
               <div class="portfolio-actions">
-                <button class="btn btn-sm btn-outline preview-trigger" data-demo="clinic">
+                <button class="btn btn-sm btn-outline preview-trigger" data-demo="clinic" aria-label="Quick Preview CarePoint Clinic Demo">
                   <i class="fa-solid fa-eye"></i> Quick Preview
                 </button>
                 <a href="demos/clinic/index.html" target="_blank" class="btn btn-sm btn-primary">
@@ -578,7 +578,7 @@
               </div>
               <!-- Rich Visual Mockup Image -->
               <div class="portfolio-img-wrap">
-                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80" alt="IronPulse Elite Fitness Arena Web Platform" class="portfolio-img" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80" alt="IronPulse Elite Fitness Arena Web Platform" class="portfolio-img" width="800" height="500" loading="lazy">
                 <div class="portfolio-logo-overlay">
                   <div class="brand-chip">
                     <i class="fa-solid fa-dumbbell" style="color:#FF5722;"></i>
@@ -595,7 +595,7 @@
               <h3 class="portfolio-title">IronPulse Elite Fitness Arena</h3>
               <p class="portfolio-desc">High-energy fitness portal featuring membership tier tables, free 1-day pass lead capture, trainer bios, and transformation showcases.</p>
               <div class="portfolio-actions">
-                <button class="btn btn-sm btn-outline preview-trigger" data-demo="gym">
+                <button class="btn btn-sm btn-outline preview-trigger" data-demo="gym" aria-label="Quick Preview IronPulse Fitness Arena Demo">
                   <i class="fa-solid fa-eye"></i> Quick Preview
                 </button>
                 <a href="demos/gym/index.html" target="_blank" class="btn btn-sm btn-primary">
@@ -621,7 +621,7 @@
               </div>
               <!-- Rich Visual Mockup Image -->
               <div class="portfolio-img-wrap">
-                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Aura Prime Realty & Consultants Luxury Website" class="portfolio-img" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Aura Prime Realty & Consultants Luxury Website" class="portfolio-img" width="800" height="500" loading="lazy">
                 <div class="portfolio-logo-overlay">
                   <div class="brand-chip">
                     <i class="fa-solid fa-city" style="color:#7C3AED;"></i>
@@ -638,7 +638,7 @@
               <h3 class="portfolio-title">Aura Prime Realty & Consultants</h3>
               <p class="portfolio-desc">High-end luxury corporate layout engineered for real estate developers, consulting firms, and commercial enterprises with brochure downloads.</p>
               <div class="portfolio-actions">
-                <button class="btn btn-sm btn-outline preview-trigger" data-demo="corporate">
+                <button class="btn btn-sm btn-outline preview-trigger" data-demo="corporate" aria-label="Quick Preview Aura Prime Realty Demo">
                   <i class="fa-solid fa-eye"></i> Quick Preview
                 </button>
                 <a href="demos/corporate/index.html" target="_blank" class="btn btn-sm btn-primary">
@@ -664,25 +664,25 @@
         <div class="advantages-grid">
           <div class="adv-card">
             <div class="adv-icon"><i class="fa-solid fa-stopwatch-20"></i></div>
-            <h4>48-Hour Rapid Delivery</h4>
+            <h3>48-Hour Rapid Delivery</h3>
             <p>We build, refine, and deploy your complete high-performance website in record time without cutting corners.</p>
             <span class="adv-tag">Guaranteed On-Time</span>
           </div>
           <div class="adv-card">
             <div class="adv-icon"><i class="fa-solid fa-mobile-screen"></i></div>
-            <h4>100% Mobile & Conversion First</h4>
+            <h3>100% Mobile & Conversion First</h3>
             <p>Over 85% of traffic comes from smartphones. We engineer touch-friendly layouts that feel like native apps.</p>
             <span class="adv-tag">Touch-Optimized</span>
           </div>
           <div class="adv-card">
             <div class="adv-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
-            <h4>Zero-Risk Milestone Pay</h4>
+            <h3>Zero-Risk Milestone Pay</h3>
             <p>Start with a 50% advance; pay the remaining 50% only when you are 100% satisfied with the live site.</p>
             <span class="adv-tag">100% Risk Free</span>
           </div>
           <div class="adv-card">
             <div class="adv-icon"><i class="fa-solid fa-headset"></i></div>
-            <h4>1-Year Free AMC & Support</h4>
+            <h3>1-Year Free AMC & Support</h3>
             <p>Includes free NVMe cloud hosting, free SSL, ongoing security monitoring, and direct founder tech assistance.</p>
             <span class="adv-tag">₹15,000 Annual Value</span>
           </div>
@@ -713,7 +713,7 @@
                 </div>
               </div>
               <span class="step-time-pill"><i class="fa-regular fa-clock"></i> Hour 0-6</span>
-              <h4 class="step-title">Discovery & Strategy</h4>
+              <h3 class="step-title">Discovery & Strategy</h3>
               <p class="step-desc">We analyze your business goals, target clients, and digital gaps to outline the perfect conversion plan.</p>
             </div>
 
@@ -726,7 +726,7 @@
                 </div>
               </div>
               <span class="step-time-pill"><i class="fa-regular fa-clock"></i> Hour 6-18</span>
-              <h4 class="step-title">UI/UX Prototyping</h4>
+              <h3 class="step-title">UI/UX Prototyping</h3>
               <p class="step-desc">We design high-fidelity visual layouts with clean typography, luminous aesthetics, and persuasive call-to-actions.</p>
             </div>
 
@@ -739,7 +739,7 @@
                 </div>
               </div>
               <span class="step-time-pill"><i class="fa-regular fa-clock"></i> Hour 18-36</span>
-              <h4 class="step-title">High-Performance Build</h4>
+              <h3 class="step-title">High-Performance Build</h3>
               <p class="step-desc">We write clean, lightweight code ensuring sub-second load speeds and responsive mobile rendering.</p>
             </div>
 
@@ -752,7 +752,7 @@
                 </div>
               </div>
               <span class="step-time-pill"><i class="fa-regular fa-clock"></i> Hour 36-44</span>
-              <h4 class="step-title">Rigorous QA & SEO</h4>
+              <h3 class="step-title">Rigorous QA & SEO</h3>
               <p class="step-desc">Full testing across devices, Google Core Web Vitals checks, and rich schema search engine optimization.</p>
             </div>
 
@@ -765,7 +765,7 @@
                 </div>
               </div>
               <span class="step-time-pill"><i class="fa-regular fa-clock"></i> Hour 48</span>
-              <h4 class="step-title">Launch & 1-Yr Support</h4>
+              <h3 class="step-title">Launch & 1-Yr Support</h3>
               <p class="step-desc">Instant production deployment with 1-Year free cloud hosting, SSL, and ongoing dedicated maintenance.</p>
             </div>
           </div>
@@ -813,7 +813,7 @@
             </div>
             <p class="testimonial-text">"SHAKTIX delivered our multispeciality dental clinic portal in just 48 hours. Patients now book appointments directly over WhatsApp, and our monthly consultations jumped 3x. Truly world-class quality!"</p>
             <div class="testimonial-author">
-              <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=150&q=80" alt="Dr. Rajesh K. Sharma" class="author-avatar-img" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=150&q=80" alt="Dr. Rajesh K. Sharma" class="author-avatar-img" width="50" height="50" loading="lazy">
               <div class="author-info">
                 <div class="author-name">
                   <span>Dr. Rajesh K. Sharma</span>
@@ -835,7 +835,7 @@
             </div>
             <p class="testimonial-text">"Our gym membership inquiries exploded within the first week. The 1-day trial pass simulator captures phone numbers automatically and alerts our front desk instantly on WhatsApp. Worth every rupee!"</p>
             <div class="testimonial-author">
-              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Vikram Singh" class="author-avatar-img" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Vikram Singh" class="author-avatar-img" width="50" height="50" loading="lazy">
               <div class="author-info">
                 <div class="author-name">
                   <span>Vikram Singh</span>
@@ -857,7 +857,7 @@
             </div>
             <p class="testimonial-text">"Sub-second load speeds and an ultra-luxurious corporate layout. SHAKTIX gave our real estate consultancy the exact high-trust presence required to close multi-crore property deals."</p>
             <div class="testimonial-author">
-              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80" alt="Ananya Roy" class="author-avatar-img" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80" alt="Ananya Roy" class="author-avatar-img" width="50" height="50" loading="lazy">
               <div class="author-info">
                 <div class="author-name">
                   <span>Ananya Roy</span>
@@ -936,9 +936,9 @@
               <div class="calc-group">
                 <label class="calc-label">1. Select Website Type</label>
                 <div class="option-buttons" id="site-type-options">
-                  <button type="button" class="opt-btn active" data-cost="6999" data-val="1-Page Express">1-Page Express (Landing Page)</button>
-                  <button type="button" class="opt-btn" data-cost="12999" data-val="Multi-Page Business">Multi-Page Business (Up to 5 Pages)</button>
-                  <button type="button" class="opt-btn" data-cost="21999" data-val="Full E-Commerce">Full E-Commerce / Store</button>
+                  <button type="button" class="opt-btn active" data-cost="6999" data-val="1-Page Express" aria-label="Select 1-Page Express Landing Page">1-Page Express (Landing Page)</button>
+                  <button type="button" class="opt-btn" data-cost="12999" data-val="Multi-Page Business" aria-label="Select Multi-Page Business Website">Multi-Page Business (Up to 5 Pages)</button>
+                  <button type="button" class="opt-btn" data-cost="21999" data-val="Full E-Commerce" aria-label="Select Full E-Commerce Online Store">Full E-Commerce / Store</button>
                 </div>
               </div>
 
@@ -1182,21 +1182,21 @@
               <div class="direct-item">
                 <div class="direct-icon"><i class="fa-brands fa-whatsapp"></i></div>
                 <div>
-                  <h4>Direct WhatsApp & Call</h4>
+                  <h3>Direct WhatsApp & Call</h3>
                   <p>+91 88252 08568 / +91 82981 36441</p>
                 </div>
               </div>
               <div class="direct-item">
                 <div class="direct-icon"><i class="fa-solid fa-envelope"></i></div>
                 <div>
-                  <h4>Official Email</h4>
+                  <h3>Official Email</h3>
                   <p>growth@shaktix.com</p>
                 </div>
               </div>
               <div class="direct-item">
                 <div class="direct-icon"><i class="fa-solid fa-location-dot"></i></div>
                 <div>
-                  <h4>Headquarters</h4>
+                  <h3>Headquarters</h3>
                   <p>SHAKTIX WEB Digital Studio, India</p>
                 </div>
               </div>
@@ -1290,7 +1290,7 @@
       </div>
 
       <div class="footer-col">
-        <h4>Navigation</h4>
+        <h3 class="footer-heading">Navigation</h3>
         <ul class="footer-links">
           <li><a href="#services">Capabilities</a></li>
           <li><a href="#portfolio">Live Demos</a></li>
@@ -1302,7 +1302,7 @@
       </div>
 
       <div class="footer-col">
-        <h4>Demo Niches</h4>
+        <h3 class="footer-heading">Demo Niches</h3>
         <ul class="footer-links">
           <li><a href="demos/clinic/index.html" target="_blank">Doctor & Clinic Websites</a></li>
           <li><a href="demos/gym/index.html" target="_blank">Gym & Fitness Centers</a></li>
@@ -1312,7 +1312,7 @@
       </div>
 
       <div class="footer-col">
-        <h4>Direct Connect</h4>
+        <h3 class="footer-heading">Direct Connect</h3>
         <p class="footer-tagline" style="margin-top:0; margin-bottom:1rem;">Discuss your requirements directly with our leadership team:</p>
         <a href="https://wa.me/918298136441?text=Hello%20SHAKTIX%20Team!" target="_blank" class="btn btn-sm btn-outline">
           <i class="fa-brands fa-whatsapp color-wa"></i> WhatsApp Direct
@@ -1334,8 +1334,8 @@
   </footer>
 
   <!-- Scripts -->
-  <script defer src="supabase-connector.js?v=20261030_v5"></script>
-  <script defer src="script.js?v=20261030_v5"></script>
-  <script defer src="shaktix-ai-widget.js?v=20261030_v5"></script>
+  <script defer src="supabase-connector.js?v=20261030_v8"></script>
+  <script defer src="script.js?v=20261030_v8"></script>
+  <script defer src="shaktix-ai-widget.js?v=20261030_v8"></script>
 </body>
 </html>
