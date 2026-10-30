@@ -29,13 +29,13 @@
   --accent-violet: #8B5CF6;
   --accent-cyan: #0EA5E9;
 
-  /* WhatsApp Green */
-  --whatsapp: #10B981;
-  --whatsapp-glow: rgba(16, 185, 129, 0.25);
+  /* WhatsApp Green - High Contrast WCAG AA */
+  --whatsapp: #059669;
+  --whatsapp-glow: rgba(5, 150, 105, 0.25);
 
   /* High-Contrast Crisp Typography */
   --text-main: #0F172A;       /* Slate 900 - Crisp, Deep, Ultra-readable */
-  --text-muted: #475569;      /* Slate 600 - High Contrast WCAG AA */
+  --text-muted: #334155;      /* Slate 700 - Ultra High Contrast WCAG AA */
   --text-subtle: #475569;     /* Slate 600 - High Contrast WCAG AA */
   --text-on-accent: #FFFFFF;
 
@@ -92,6 +92,19 @@ body {
   overflow-x: hidden;
   position: relative;
   -webkit-font-smoothing: antialiased;
+}
+
+/* Accessible Screen Reader Only Text */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
 }
 
 /* Accessible Skip Link */
@@ -711,7 +724,7 @@ body {
   font-size: 11px;
   font-weight: 700;
   background: #FEF3C7;
-  color: #B45309;
+  color: #92400E;
   border: 1px solid #FDE68A;
   padding: 3px 10px;
   border-radius: 20px;
@@ -1103,7 +1116,7 @@ body {
 .mini-status-pill {
   font-size: 10px;
   font-weight: 700;
-  color: #10B981;
+  color: #047857;
   display: flex;
   align-items: center;
   gap: 4px;
@@ -1175,14 +1188,14 @@ body {
   text-transform: uppercase;
 }
 
-.badge-blue { background: #E0F2FE; color: #0284C7; border: 1px solid #BAE6FD; }
-.badge-orange { background: #FFEDD5; color: #EA580C; border: 1px solid #FED7AA; }
-.badge-purple { background: #F3E8FF; color: #9333EA; border: 1px solid #E9D5FF; }
+.badge-blue { background: #E0F2FE; color: #0369A1; border: 1px solid #BAE6FD; }
+.badge-orange { background: #FFEDD5; color: #C2410C; border: 1px solid #FED7AA; }
+.badge-purple { background: #F3E8FF; color: #7E22CE; border: 1px solid #E9D5FF; }
 
 .portfolio-sla {
   font-size: 11px;
   font-weight: 800;
-  color: #10B981;
+  color: #047857;
   display: inline-flex;
   align-items: center;
   gap: 4px;
@@ -1249,7 +1262,7 @@ body {
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--primary);
+  color: #3730A3;
   background: #EEF2FF;
   border: 1px solid #C7D2FE;
   padding: 3px 8px;
@@ -1504,7 +1517,7 @@ body {
 .google-badge {
   font-size: 11px;
   font-weight: 700;
-  color: #4285F4;
+  color: #174EA6;
   background: #EFF6FF;
   border: 1px solid #BFDBFE;
   padding: 3px 9px;
@@ -1563,7 +1576,7 @@ body {
 }
 
 .author-verified {
-  color: #10B981;
+  color: #047857;
   font-size: 12.5px;
 }
 
