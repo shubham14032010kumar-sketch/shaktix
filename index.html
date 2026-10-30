@@ -14,59 +14,106 @@
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <meta name="author" content="Shubham Kumar">
 
-  <!-- Schema.org JSON-LD Structured Data for Google Rich Snippets -->
+  <!-- Schema.org JSON-LD Structured Data for Google Rich Snippets & Knowledge Graph -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "SHAKTIX WEB Studio",
-    "alternateName": "SHAKTIX Digital Agency",
-    "url": "https://shaktix-studio.vercel.app",
-    "description": "SHAKTIX builds digital experiences that grow your business: custom websites, web applications, and AI automation.",
-    "founder": {
-      "@type": "Person",
-      "name": "Shubham Kumar"
-    },
-    "telephone": "+918298136441",
-    "priceRange": "₹6,999 - ₹21,999",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "IN"
-    },
-    "openingHours": "Mo-Su 09:00-21:00",
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Digital Web Solutions",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Express Launch Website (1-Page)"
+    "@graph": [
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://shaktix-studio.vercel.app/#organization",
+        "name": "SHAKTIX Web Studio",
+        "alternateName": ["SHAKTIX WEB", "ShaktiX Studio", "ShaktiX Digital Agency"],
+        "url": "https://shaktix-studio.vercel.app",
+        "logo": "https://shaktix-studio.vercel.app/favicon.svg",
+        "image": "https://shaktix-studio.vercel.app/favicon.svg",
+        "founder": {
+          "@type": "Person",
+          "@id": "https://shaktix-studio.vercel.app/#founder",
+          "name": "Shubham Kumar",
+          "jobTitle": "Founder & Principal Web Architect",
+          "worksFor": {
+            "@id": "https://shaktix-studio.vercel.app/#organization"
           },
-          "price": "6999",
-          "priceCurrency": "INR"
+          "description": "Shubham Kumar is the Founder & Lead Web Architect at SHAKTIX Web Studio, engineering custom high-converting websites, e-commerce stores, and AI automation."
         },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Business Growth Website (5 Pages + Free Hosting)"
-          },
-          "price": "12999",
-          "priceCurrency": "INR"
+        "telephone": ["+918825208568", "+918298136441"],
+        "priceRange": "₹6,999 - ₹21,999",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "IN"
         },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "E-Commerce Power Store"
-          },
-          "price": "21999",
-          "priceCurrency": "INR"
+        "geo": {
+          "@type": "GeoCoordinates",
+          "addressCountry": "IN"
+        },
+        "openingHours": "Mo-Su 09:00-21:00",
+        "description": "SHAKTIX Web Studio founded by Shubham Kumar is a premier digital agency building high-converting websites, web applications, and AI automation in 48 hours.",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Digital Web Solutions",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Express Launch Website (1-Page)"
+              },
+              "price": "6999",
+              "priceCurrency": "INR"
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Business Growth Website (5 Pages + Free Hosting)"
+              },
+              "price": "12999",
+              "priceCurrency": "INR"
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "E-Commerce Power Store"
+              },
+              "price": "21999",
+              "priceCurrency": "INR"
+            }
+          ]
         }
-      ]
-    }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://shaktix-studio.vercel.app/#founder",
+        "name": "Shubham Kumar",
+        "jobTitle": "Founder & Principal Web Architect",
+        "worksFor": {
+          "@id": "https://shaktix-studio.vercel.app/#organization"
+        },
+        "url": "https://shaktix-studio.vercel.app/#about-founder",
+        "knowsAbout": [
+          "Web Design",
+          "Full-Stack Web Development",
+          "Next.js",
+          "React",
+          "AI Automation",
+          "E-Commerce Solutions",
+          "Search Engine Optimization (SEO)",
+          "Google Core Web Vitals"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://shaktix-studio.vercel.app/#website",
+        "url": "https://shaktix-studio.vercel.app",
+        "name": "SHAKTIX Web Studio",
+        "description": "High-End Websites, Web Applications & AI Automation in 48 Hours by Shubham Kumar.",
+        "publisher": {
+          "@id": "https://shaktix-studio.vercel.app/#organization"
+        }
+      }
+    ]
   }
   </script>
 
@@ -93,8 +140,8 @@
   <link rel="apple-touch-icon" href="favicon.svg">
 
   <!-- Master Stylesheet & Floating AI Widget Styles (Versioned Cache-Bust) -->
-  <link rel="stylesheet" href="style.css?v=20261030_v5">
-  <link rel="stylesheet" href="shaktix-ai-widget.css?v=20261030_v5">
+  <link rel="stylesheet" href="style.css?v=20261030_v6">
+  <link rel="stylesheet" href="shaktix-ai-widget.css?v=20261030_v6">
 </head>
 <body>
   <!-- Accessible Skip Link -->
@@ -787,6 +834,55 @@
       </div>
     </section>
 
+    <!-- 8.5 About Founder & Leadership Section (Google Knowledge Graph & Trust) -->
+    <section class="about-founder-section" id="about-founder">
+      <div class="container">
+        <div class="founder-card-box">
+          <div class="founder-grid">
+            <div class="founder-visual">
+              <div class="founder-avatar-frame">
+                <div class="founder-initials">SK</div>
+                <div class="founder-badge-pill">
+                  <i class="fa-solid fa-circle-check" style="color:#10B981;"></i>
+                  <span>Founder & Lead Architect</span>
+                </div>
+              </div>
+            </div>
+            <div class="founder-details">
+              <span class="section-tag"><i class="fa-solid fa-user-shield"></i> LEADERSHIP & VISION</span>
+              <h2 class="founder-name">Shubham Kumar</h2>
+              <p class="founder-title">Founder, CEO & Principal Web Architect at SHAKTIX Web Studio</p>
+              <p class="founder-bio">
+                "At SHAKTIX Web Studio, our mission is to eliminate slow agency bureaucracy and engineer modern, ultra-fast digital platforms that directly turn visitors into paying clients for businesses across India. From single-page high-converting funnels to enterprise web apps and intelligent AI automation, we guarantee <strong>48-Hour Rapid Delivery</strong> and <strong>1-Year Free NVMe Hosting</strong> on every build."
+              </p>
+              
+              <div class="founder-credentials-row">
+                <div class="f-cred-item">
+                  <i class="fa-solid fa-bolt" style="color:#4F46E5;"></i>
+                  <span>48H Turnaround SLA</span>
+                </div>
+                <div class="f-cred-item">
+                  <i class="fa-solid fa-shield-check" style="color:#10B981;"></i>
+                  <span>Zero-Risk Milestone Pay</span>
+                </div>
+                <div class="f-cred-item">
+                  <i class="fa-solid fa-server" style="color:#7C3AED;"></i>
+                  <span>1-Year Free NVMe Hosting</span>
+                </div>
+              </div>
+
+              <div class="founder-cta-row">
+                <a href="https://wa.me/918825208568?text=Hello%20Shubham!%20I%20want%20to%20discuss%20a%20project%20with%20SHAKTIX." target="_blank" class="btn btn-primary">
+                  <i class="fa-brands fa-whatsapp"></i> Chat With Founder (WhatsApp)
+                </a>
+                <a href="#portfolio" class="btn btn-outline">Explore Live Work</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- 9. Cost Estimator & Transparent Pricing -->
     <section class="calculator-section" id="calculator">
       <div class="container">
@@ -1018,8 +1114,8 @@
               <div class="direct-item">
                 <div class="direct-icon"><i class="fa-brands fa-whatsapp"></i></div>
                 <div>
-                  <h4>WhatsApp Direct</h4>
-                  <p>+91 82981 36441 (Instant Response)</p>
+                  <h4>Direct WhatsApp & Call</h4>
+                  <p>+91 88252 08568 / +91 82981 36441</p>
                 </div>
               </div>
               <div class="direct-item">
