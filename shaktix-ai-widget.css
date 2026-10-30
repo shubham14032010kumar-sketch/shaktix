@@ -15,6 +15,18 @@
   --ai-glow: rgba(79, 70, 229, 0.25);
 }
 
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
 /* Floating Trigger Container */
 .shaktix-floating-dock {
   position: fixed;
@@ -116,6 +128,7 @@
   overflow: hidden;
   z-index: 99999;
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
   transform: translateY(20px) scale(0.96);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -124,6 +137,7 @@
 
 .shaktix-ai-modal.active {
   opacity: 1;
+  visibility: visible;
   pointer-events: all;
   transform: translateY(0) scale(1);
 }
@@ -455,6 +469,7 @@
   box-shadow: 0 25px 60px rgba(15, 23, 42, 0.2), 0 0 35px rgba(124, 58, 237, 0.15);
   z-index: 100000;
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-family: 'Plus Jakarta Sans', sans-serif;
@@ -462,6 +477,7 @@
 
 .shaktix-voice-modal.active {
   opacity: 1;
+  visibility: visible;
   pointer-events: all;
   transform: translate(-50%, -50%) scale(1);
 }
