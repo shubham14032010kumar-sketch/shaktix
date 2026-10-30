@@ -35,8 +35,8 @@
 
   /* High-Contrast Crisp Typography */
   --text-main: #0F172A;       /* Slate 900 - Crisp, Deep, Ultra-readable */
-  --text-muted: #475569;      /* Slate 600 */
-  --text-subtle: #94A3B8;     /* Slate 400 */
+  --text-muted: #475569;      /* Slate 600 - High Contrast WCAG AA */
+  --text-subtle: #475569;     /* Slate 600 - High Contrast WCAG AA */
   --text-on-accent: #FFFFFF;
 
   /* Borders & Dividers */
@@ -1112,6 +1112,7 @@ body {
 .portfolio-img-wrap {
   position: relative;
   height: 200px;
+  aspect-ratio: 16 / 10;
   overflow: hidden;
   background: #F8FAFC;
 }
@@ -1119,6 +1120,7 @@ body {
 .portfolio-img {
   width: 100%;
   height: 100%;
+  aspect-ratio: 16 / 10;
   object-fit: cover;
   transition: transform 0.5s ease;
   display: block;
@@ -1275,6 +1277,7 @@ body {
   margin-bottom: 1.2rem;
 }
 
+.adv-card h3,
 .adv-card h4 {
   font-family: var(--font-display);
   font-size: 1.15rem;
@@ -1537,6 +1540,7 @@ body {
 .author-avatar-img {
   width: 50px;
   height: 50px;
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid #FFFFFF;
@@ -2163,10 +2167,12 @@ body {
   color: var(--primary);
 }
 
+.direct-item h3,
 .direct-item h4 {
   font-size: 0.95rem;
   font-weight: 700;
   color: var(--text-main);
+  margin-bottom: 2px;
 }
 
 .direct-item p {
@@ -2338,7 +2344,9 @@ body {
   margin-bottom: 50px;
 }
 
-.footer-col h4 {
+.footer-col h3,
+.footer-col h4,
+.footer-heading {
   font-family: var(--font-display);
   font-size: 1.05rem;
   font-weight: 700;
