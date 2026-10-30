@@ -56,20 +56,22 @@
     const chatModal = document.createElement('div');
     chatModal.id = 'shaktix-chat-modal';
     chatModal.className = 'shaktix-ai-modal';
+    chatModal.setAttribute('aria-hidden', 'true');
+    chatModal.setAttribute('role', 'dialog');
     chatModal.innerHTML = `
       <div class="ai-modal-header">
         <div class="ai-header-left">
-          <div class="ai-avatar"><i class="fa-solid fa-bolt"></i></div>
+          <div class="ai-avatar"><i class="fa-solid fa-bolt" aria-hidden="true"></i></div>
           <div class="ai-meta">
-            <h4>Vikram AI <span style="font-size: 11px; background: rgba(0,240,255,0.15); color: #00f0ff; padding: 2px 6px; border-radius: 4px; font-weight:700;"><i class="fa-solid fa-bolt"></i> Gemini Realtime</span></h4>
-            <span class="ai-status-text"><span class="pulse-badge"></span> High-Speed AI Consultant</span>
+            <div class="ai-meta-name" style="font-size:15px; font-weight:700; color:#0F172A; display:flex; align-items:center; gap:6px;">Vikram AI <span style="font-size: 11px; background: rgba(79,70,229,0.12); color: #4F46E5; padding: 2px 6px; border-radius: 4px; font-weight:700;"><i class="fa-solid fa-bolt" aria-hidden="true"></i> Gemini Realtime</span></div>
+            <span class="ai-status-text"><span class="pulse-badge" aria-hidden="true"></span> High-Speed AI Consultant</span>
           </div>
         </div>
         <div class="ai-header-actions" style="display:flex; align-items:center; gap:8px;">
-          <button id="ai-quote-trigger" title="Request Official Quote" aria-label="Request Official Quote" style="background:rgba(0,240,255,0.12); color:#00f0ff; border:1px solid rgba(0,240,255,0.3); border-radius:12px; font-size:11px; font-weight:700; padding:4px 8px; cursor:pointer;">
+          <button id="ai-quote-trigger" title="Request Official Quote" aria-label="Request Official Quote" style="background:#EEF2FF; color:#4F46E5; border:1px solid #C7D2FE; border-radius:12px; font-size:11px; font-weight:700; padding:4px 8px; cursor:pointer;">
             <i class="fa-solid fa-file-invoice" aria-hidden="true"></i> Get Quote
           </button>
-          <button id="ai-chat-close" aria-label="Close Chat Window"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+          <button id="ai-chat-close" aria-label="Close Chat Window" title="Close Chat Window"><span class="visually-hidden">Close Chat Window</span><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
         </div>
       </div>
       <div class="ai-modal-body" id="ai-chat-messages">
@@ -98,6 +100,8 @@
     const voiceModal = document.createElement('div');
     voiceModal.id = 'shaktix-voice-modal';
     voiceModal.className = 'shaktix-voice-modal';
+    voiceModal.setAttribute('aria-hidden', 'true');
+    voiceModal.setAttribute('role', 'dialog');
     voiceModal.innerHTML = `
       <div class="voice-orb" id="voice-orb"><i class="fa-solid fa-waveform-lines" aria-hidden="true"></i></div>
       <div class="voice-title">SHAKTIX Voice AI</div>
@@ -107,7 +111,7 @@
         <button class="btn btn-primary" id="voice-toggle-btn" aria-label="Toggle voice input" style="border-radius: 50px; padding: 10px 24px;">
           <i class="fa-solid fa-microphone" aria-hidden="true"></i> Start Speaking
         </button>
-        <button class="voice-hangup-btn" id="voice-close-btn" title="End call" aria-label="End voice call"><i class="fa-solid fa-phone-slash" aria-hidden="true"></i></button>
+        <button class="voice-hangup-btn" id="voice-close-btn" title="End call" aria-label="End voice call"><span class="visually-hidden">End voice call</span><i class="fa-solid fa-phone-slash" aria-hidden="true"></i></button>
       </div>
     `;
     document.body.appendChild(voiceModal);
@@ -132,14 +136,23 @@
     // Open/Close Chat
     chatBtn.addEventListener('click', () => {
       chatModal.classList.toggle('active');
-      if (chatModal.classList.contains('active')) chatInput.focus();
+      const isActive = chatModal.classList.contains('active');
+      chatModal.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+      if (isActive) chatInput.focus();
     });
-    chatClose.addEventListener('click', () => chatModal.classList.remove('active'));
+    chatClose.addEventListener('click', () => {
+      chatModal.classList.remove('active');
+      chatModal.setAttribute('aria-hidden', 'true');
+    });
 
     // Open/Close Voice
-    voiceBtn.addEventListener('click', () => voiceModal.classList.add('active'));
+    voiceBtn.addEventListener('click', () => {
+      voiceModal.classList.add('active');
+      voiceModal.setAttribute('aria-hidden', 'false');
+    });
     voiceClose.addEventListener('click', () => {
       voiceModal.classList.remove('active');
+      voiceModal.setAttribute('aria-hidden', 'true');
       stopVoiceEngine();
     });
 
