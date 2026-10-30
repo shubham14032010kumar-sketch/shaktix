@@ -40,12 +40,12 @@
     dock.id = 'shaktix-ai-dock';
     dock.className = 'shaktix-floating-dock';
     dock.innerHTML = `
-      <button class="shaktix-dock-btn voice-btn" id="shaktix-voice-btn" title="Speak with AI Assistant">
-        <span class="btn-icon"><i class="fa-solid fa-microphone-lines"></i></span>
+      <button class="shaktix-dock-btn voice-btn" id="shaktix-voice-btn" title="Speak with AI Assistant" aria-label="Speak with AI Assistant">
+        <span class="btn-icon"><i class="fa-solid fa-microphone-lines" aria-hidden="true"></i></span>
         <span>Voice AI Demo</span>
       </button>
-      <button class="shaktix-dock-btn chat-btn" id="shaktix-chat-btn" title="Chat with ShaktiX AI">
-        <span class="btn-icon"><i class="fa-solid fa-robot"></i></span>
+      <button class="shaktix-dock-btn chat-btn" id="shaktix-chat-btn" title="Chat with ShaktiX AI" aria-label="Chat with ShaktiX AI Assistant">
+        <span class="btn-icon"><i class="fa-solid fa-robot" aria-hidden="true"></i></span>
         <span>Ask AI Assistant</span>
         <span class="pulse-badge"></span>
       </button>
@@ -66,10 +66,10 @@
           </div>
         </div>
         <div class="ai-header-actions" style="display:flex; align-items:center; gap:8px;">
-          <button id="ai-quote-trigger" title="Request Official Quote" style="background:rgba(0,240,255,0.12); color:#00f0ff; border:1px solid rgba(0,240,255,0.3); border-radius:12px; font-size:11px; font-weight:700; padding:4px 8px; cursor:pointer;">
-            <i class="fa-solid fa-file-invoice"></i> Get Quote
+          <button id="ai-quote-trigger" title="Request Official Quote" aria-label="Request Official Quote" style="background:rgba(0,240,255,0.12); color:#00f0ff; border:1px solid rgba(0,240,255,0.3); border-radius:12px; font-size:11px; font-weight:700; padding:4px 8px; cursor:pointer;">
+            <i class="fa-solid fa-file-invoice" aria-hidden="true"></i> Get Quote
           </button>
-          <button id="ai-chat-close"><i class="fa-solid fa-xmark"></i></button>
+          <button id="ai-chat-close" aria-label="Close Chat Window"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
         </div>
       </div>
       <div class="ai-modal-body" id="ai-chat-messages">
@@ -87,9 +87,9 @@
         </div>
       </div>
       <div class="ai-modal-footer">
-        <button class="ai-voice-input-btn" id="ai-mic-input-btn" title="Speak to type"><i class="fa-solid fa-microphone"></i></button>
-        <input type="text" class="ai-chat-input" id="ai-chat-input" placeholder="Type naturally in Hindi, Hinglish or English..." />
-        <button class="ai-send-btn" id="ai-chat-send" title="Send message"><i class="fa-solid fa-paper-plane"></i></button>
+        <button class="ai-voice-input-btn" id="ai-mic-input-btn" title="Speak to type" aria-label="Speech to text input"><i class="fa-solid fa-microphone" aria-hidden="true"></i></button>
+        <input type="text" class="ai-chat-input" id="ai-chat-input" aria-label="Type message for AI Consultant" placeholder="Type naturally in Hindi, Hinglish or English..." />
+        <button class="ai-send-btn" id="ai-chat-send" title="Send message" aria-label="Send message to AI Assistant"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i></button>
       </div>
     `;
     document.body.appendChild(chatModal);
@@ -99,15 +99,15 @@
     voiceModal.id = 'shaktix-voice-modal';
     voiceModal.className = 'shaktix-voice-modal';
     voiceModal.innerHTML = `
-      <div class="voice-orb" id="voice-orb"><i class="fa-solid fa-waveform-lines"></i></div>
+      <div class="voice-orb" id="voice-orb"><i class="fa-solid fa-waveform-lines" aria-hidden="true"></i></div>
       <div class="voice-title">SHAKTIX Voice AI</div>
       <div class="voice-subtitle">Realtime Interactive Speech Engine</div>
       <div class="voice-transcript-box" id="voice-transcript">Click "Start Speaking" and talk to Vikram...</div>
       <div class="voice-controls">
-        <button class="btn btn-primary" id="voice-toggle-btn" style="border-radius: 50px; padding: 10px 24px;">
-          <i class="fa-solid fa-microphone"></i> Start Speaking
+        <button class="btn btn-primary" id="voice-toggle-btn" aria-label="Toggle voice input" style="border-radius: 50px; padding: 10px 24px;">
+          <i class="fa-solid fa-microphone" aria-hidden="true"></i> Start Speaking
         </button>
-        <button class="voice-hangup-btn" id="voice-close-btn" title="End call"><i class="fa-solid fa-phone-slash"></i></button>
+        <button class="voice-hangup-btn" id="voice-close-btn" title="End call" aria-label="End voice call"><i class="fa-solid fa-phone-slash" aria-hidden="true"></i></button>
       </div>
     `;
     document.body.appendChild(voiceModal);
@@ -400,16 +400,16 @@
       <div style="font-weight: 700; font-size: 12.5px; color: #00f0ff; display:flex; align-items:center; gap:6px;">
         <i class="fa-solid fa-bolt"></i> Get Free 60-Sec Preview & Quote
       </div>
-      <input type="text" id="lead-name-input" placeholder="Aapka Name..." />
-      <input type="tel" id="lead-phone-input" placeholder="WhatsApp Number (e.g. 9876543210)..." />
-      <select id="lead-biz-input">
+      <input type="text" id="lead-name-input" aria-label="Aapka Name" placeholder="Aapka Name..." />
+      <input type="tel" id="lead-phone-input" aria-label="WhatsApp Number" placeholder="WhatsApp Number (e.g. 9876543210)..." />
+      <select id="lead-biz-input" aria-label="Select Business Type">
         <option value="Clinic">Clinic / Doctor Portal (From ₹6,999)</option>
         <option value="Gym">Gym / Fitness Portal (From ₹6,999)</option>
         <option value="Corporate">Corporate / B2B Website (From ₹12,999)</option>
         <option value="Store">E-Commerce / Store (From ₹21,999)</option>
         <option value="Other">Other Business</option>
       </select>
-      <button class="submit-lead-btn" id="lead-submit-btn">Send My Free Demo Link</button>
+      <button class="submit-lead-btn" id="lead-submit-btn" aria-label="Send Free Demo Link on WhatsApp">Send My Free Demo Link</button>
     `;
     box.appendChild(leadCard);
     box.scrollTop = box.scrollHeight;
