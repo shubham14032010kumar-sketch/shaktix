@@ -92,9 +92,9 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="apple-touch-icon" href="favicon.svg">
 
-  <!-- Master Stylesheet & Floating AI Widget Styles -->
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="shaktix-ai-widget.css">
+  <!-- Master Stylesheet & Floating AI Widget Styles (Versioned Cache-Bust) -->
+  <link rel="stylesheet" href="style.css?v=20261030_v5">
+  <link rel="stylesheet" href="shaktix-ai-widget.css?v=20261030_v5">
 </head>
 <body>
   <!-- Accessible Skip Link -->
@@ -111,8 +111,22 @@
   <header class="navbar" id="navbar">
     <div class="container nav-container">
       <a href="#" class="brand-logo" aria-label="SHAKTIX WEB Home">
+        <div class="logo-icon-wrap">
+          <svg width="34" height="34" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#4F46E5"/>
+                <stop offset="50%" stop-color="#7C3AED"/>
+                <stop offset="100%" stop-color="#FF5722"/>
+              </linearGradient>
+            </defs>
+            <rect width="36" height="36" rx="10" fill="url(#logoGrad)"/>
+            <path d="M11 11L18 25L25 11" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="18" cy="14" r="2.5" fill="#FFFFFF"/>
+          </svg>
+        </div>
         <span class="logo-text">SHAKTI<span class="highlight-x">X</span></span>
-        <span class="logo-badge">WEB</span>
+        <span class="logo-badge"><i class="fa-solid fa-sparkles"></i> STUDIO</span>
       </a>
 
       <nav class="nav-menu" id="nav-menu">
@@ -209,39 +223,81 @@
                 <span class="dot green"></span>
               </div>
               <div class="browser-url-bar">
-                <i class="fa-solid fa-lock" style="font-size:10px; color:#22c55e;"></i>
+                <i class="fa-solid fa-lock" style="font-size:11px; color:#10B981;"></i>
                 <span>https://shaktix-studio.vercel.app</span>
+              </div>
+              <div class="browser-badge-live">
+                <span class="live-ping"></span>
+                <span>PRODUCTION LIVE</span>
               </div>
             </div>
             <div class="browser-body">
+              <!-- Mini Header -->
+              <div class="preview-mini-header">
+                <div class="preview-brand">
+                  <span class="preview-logo-dot"></span>
+                  <span style="font-weight:800; font-size:13px; color:#0F172A;">SHAKTIX WEB ENGINE</span>
+                </div>
+                <span class="preview-pill"><i class="fa-solid fa-bolt" style="color:#F59E0B;"></i> Next.js 15 Ready</span>
+              </div>
+
               <!-- Card 1: Lighthouse Score -->
               <div class="floating-status-card">
                 <div class="status-left">
-                  <div class="score-circle">99</div>
+                  <div class="score-circle">100</div>
                   <div>
                     <div class="status-title">Google Core Web Vitals</div>
-                    <div class="status-sub">LCP 0.6s • FID 12ms • CLS 0.00</div>
+                    <div class="status-sub">LCP 0.5s • FID 8ms • CLS 0.00 • SEO 100</div>
                   </div>
                 </div>
-                <i class="fa-solid fa-circle-check" style="color:#22c55e; font-size:1.2rem;"></i>
+                <div class="score-badge-perfect">
+                  <i class="fa-solid fa-circle-check" style="color:#10B981; font-size:1.3rem;"></i>
+                  <span>PERFECT</span>
+                </div>
               </div>
 
               <!-- Card 2: Live Code Preview -->
               <div class="code-snippet-box">
-                <div><span class="code-keyword">const</span> <span class="code-fn">shaktixStudio</span> = <span class="code-keyword">new</span> <span class="code-fn">Agency</span>({</div>
-                <div style="padding-left:14px;">deliveryTime: <span class="code-str">'48-Hours'</span>,</div>
-                <div style="padding-left:14px;">hosting: <span class="code-str">'1-Year Free NVMe'</span>,</div>
-                <div style="padding-left:14px;">conversionOptimized: <span class="code-keyword">true</span></div>
-                <div>});</div>
-                <div class="code-comment">// Output: 100% Client Satisfaction Guaranteed</div>
+                <div class="code-header">
+                  <span class="code-file"><i class="fa-brands fa-js" style="color:#F59E0B;"></i> shaktix.config.ts</span>
+                  <span class="code-badge">TypeScript ES6</span>
+                </div>
+                <pre><code><span class="token-keyword">import</span> { createDigitalEngine } <span class="token-keyword">from</span> <span class="token-string">'@shaktix/core'</span>;
+
+<span class="token-keyword">export default</span> createDigitalEngine({
+  <span class="token-prop">deliverySLA</span>: <span class="token-string">'48-Hours Guaranteed'</span>,
+  <span class="token-prop">hosting</span>: <span class="token-string">'1-Year Free NVMe Cloud'</span>,
+  <span class="token-prop">whatsappAutomation</span>: <span class="token-boolean">true</span>,
+  <span class="token-prop">satisfactionGuaranteed</span>: <span class="token-string">'100%'</span>
+});</code></pre>
               </div>
 
-              <!-- Card 3: 48-Hour Guarantee Alert -->
-              <div class="sla-alert-card">
-                <i class="fa-solid fa-shield-halved"></i>
-                <span><strong>Zero-Risk Milestone:</strong> 50% start, 50% upon 100% satisfaction.</span>
+              <!-- Card 3: Preview Metric Row -->
+              <div class="preview-metric-row">
+                <div class="p-metric-item">
+                  <span class="p-metric-val">48H</span>
+                  <span class="p-metric-lbl">Launch SLA</span>
+                </div>
+                <div class="p-metric-item">
+                  <span class="p-metric-val">100%</span>
+                  <span class="p-metric-lbl">Responsive</span>
+                </div>
+                <div class="p-metric-item">
+                  <span class="p-metric-val">₹0</span>
+                  <span class="p-metric-lbl">Hosting Year 1</span>
+                </div>
               </div>
             </div>
+          </div>
+
+          <!-- Floating 3D Trust Badges -->
+          <div class="floating-pill-badge badge-top-right">
+            <i class="fa-solid fa-shield-halved" style="color:#10B981;"></i>
+            <span>50% Milestone Pay • Zero Risk</span>
+          </div>
+          <div class="floating-pill-badge badge-bottom-left">
+            <i class="fa-solid fa-headset" style="color:#4F46E5;"></i>
+            <span>Direct Founder WhatsApp Support</span>
           </div>
         </div>
       </div>
@@ -259,92 +315,110 @@
         <div class="services-grid">
           <!-- 1. Website Development -->
           <div class="service-card">
-            <div class="service-icon-box">
-              <i class="fa-solid fa-code"></i>
+            <div class="service-header-row">
+              <div class="service-icon-box grad-indigo">
+                <i class="fa-solid fa-code"></i>
+              </div>
+              <span class="service-pill">High-Speed SLA</span>
             </div>
             <h3 class="service-title">Website Development</h3>
             <p class="service-desc">Ultra-fast, responsive, and SEO-optimized business websites engineered to establish authority and turn casual visitors into loyal clients.</p>
             <ul class="service-perks">
-              <li><i class="fa-solid fa-check"></i> Sub-second loading speeds</li>
-              <li><i class="fa-solid fa-check"></i> 100% Mobile-first responsive</li>
-              <li><i class="fa-solid fa-check"></i> Complete Google SEO foundation</li>
+              <li><i class="fa-solid fa-check"></i> Sub-second loading speeds (LCP &lt; 0.8s)</li>
+              <li><i class="fa-solid fa-check"></i> 100% Mobile-first responsive touch design</li>
+              <li><i class="fa-solid fa-check"></i> Complete Google SEO rich schema foundation</li>
             </ul>
           </div>
 
           <!-- 2. E-Commerce Development -->
           <div class="service-card">
-            <div class="service-icon-box">
-              <i class="fa-solid fa-cart-shopping"></i>
+            <div class="service-header-row">
+              <div class="service-icon-box grad-sunset">
+                <i class="fa-solid fa-cart-shopping"></i>
+              </div>
+              <span class="service-pill">Instant UPI Ready</span>
             </div>
             <h3 class="service-title">E-Commerce Development</h3>
             <p class="service-desc">High-converting online storefronts with seamless UPI & card payment gateways, automated inventory tracking, and WhatsApp order alerts.</p>
             <ul class="service-perks">
-              <li><i class="fa-solid fa-check"></i> Instant UPI / QR payment checkout</li>
-              <li><i class="fa-solid fa-check"></i> Automated WhatsApp order receipts</li>
+              <li><i class="fa-solid fa-check"></i> Instant UPI / QR payment zero-friction checkout</li>
+              <li><i class="fa-solid fa-check"></i> Automated WhatsApp order dispatch receipts</li>
               <li><i class="fa-solid fa-check"></i> Smooth product catalog management</li>
             </ul>
           </div>
 
           <!-- 3. Web Applications -->
           <div class="service-card">
-            <div class="service-icon-box">
-              <i class="fa-solid fa-layer-group"></i>
+            <div class="service-header-row">
+              <div class="service-icon-box grad-violet">
+                <i class="fa-solid fa-layer-group"></i>
+              </div>
+              <span class="service-pill">Next.js 15 Full-Stack</span>
             </div>
             <h3 class="service-title">Web Applications</h3>
             <p class="service-desc">Scalable, custom SaaS web applications, real-time dashboards, and secure customer portals built with robust modern architecture.</p>
             <ul class="service-perks">
-              <li><i class="fa-solid fa-check"></i> Custom admin management panels</li>
-              <li><i class="fa-solid fa-check"></i> Role-based authentication & RBAC</li>
-              <li><i class="fa-solid fa-check"></i> REST & Real-time API integrations</li>
+              <li><i class="fa-solid fa-check"></i> Custom admin management analytics panels</li>
+              <li><i class="fa-solid fa-check"></i> Role-based authentication & RBAC security</li>
+              <li><i class="fa-solid fa-check"></i> REST & Real-time Supabase integrations</li>
             </ul>
           </div>
 
           <!-- 4. AI Automation -->
           <div class="service-card">
-            <div class="service-icon-box">
-              <i class="fa-solid fa-robot"></i>
+            <div class="service-header-row">
+              <div class="service-icon-box grad-cyan">
+                <i class="fa-solid fa-robot"></i>
+              </div>
+              <span class="service-pill">Gemini 3.5 Powered</span>
             </div>
             <h3 class="service-title">AI Automation</h3>
             <p class="service-desc">Intelligent AI sales assistants, automated WhatsApp auto-responders, and custom workflow automations powered by Google Gemini.</p>
             <ul class="service-perks">
-              <li><i class="fa-solid fa-check"></i> 24/7 autonomous lead qualification</li>
+              <li><i class="fa-solid fa-check"></i> 24/7 autonomous lead qualification chatbots</li>
               <li><i class="fa-solid fa-check"></i> Instant WhatsApp dispatch pipelines</li>
-              <li><i class="fa-solid fa-check"></i> Natural multi-language dialogue</li>
+              <li><i class="fa-solid fa-check"></i> Natural multi-language dialogue handling</li>
             </ul>
           </div>
 
           <!-- 5. UI/UX Design -->
           <div class="service-card">
-            <div class="service-icon-box">
-              <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <div class="service-header-row">
+              <div class="service-icon-box grad-rose">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+              </div>
+              <span class="service-pill">Figma to Code</span>
             </div>
             <h3 class="service-title">UI/UX Design</h3>
             <p class="service-desc">Modern, aesthetic visual design systems, intuitive wireframes, and engaging micro-interactions that leave an unforgettable impression.</p>
             <ul class="service-perks">
-              <li><i class="fa-solid fa-check"></i> Clean typography & dark aesthetics</li>
-              <li><i class="fa-solid fa-check"></i> High-converting visual hierarchy</li>
-              <li><i class="fa-solid fa-check"></i> Fluid 60fps micro-animations</li>
+              <li><i class="fa-solid fa-check"></i> Clean typography & luminous aesthetics</li>
+              <li><i class="fa-solid fa-check"></i> High-converting visual persuasion hierarchy</li>
+              <li><i class="fa-solid fa-check"></i> Fluid 60fps micro-animations & transitions</li>
             </ul>
           </div>
 
           <!-- 6. Website Maintenance -->
           <div class="service-card">
-            <div class="service-icon-box">
-              <i class="fa-solid fa-shield-halved"></i>
+            <div class="service-header-row">
+              <div class="service-icon-box grad-emerald">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <span class="service-pill">1-Yr AMC Free</span>
             </div>
             <h3 class="service-title">Website Maintenance</h3>
             <p class="service-desc">Comprehensive 1-Year Annual Maintenance (AMC), continuous security monitoring, daily backups, and instant technical support.</p>
             <ul class="service-perks">
-              <li><i class="fa-solid fa-check"></i> 1-Year Free High-Speed NVMe Hosting</li>
-              <li><i class="fa-solid fa-check"></i> Free SSL certificates & renewals</li>
-              <li><i class="fa-solid fa-check"></i> Direct priority founder support</li>
+              <li><i class="fa-solid fa-check"></i> 1-Year Free High-Speed NVMe Hosting Included</li>
+              <li><i class="fa-solid fa-check"></i> Free SSL certificates & automated renewals</li>
+              <li><i class="fa-solid fa-check"></i> Direct priority founder WhatsApp assistance</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 4. Selected Projects & Live Interactive Demos -->
+    <!-- 4. Selected Projects & Live Interactive Demos (Rich Visual Mockups & Brand Logos) -->
     <section class="projects-section" id="portfolio">
       <div class="container">
         <div class="section-header text-center">
@@ -364,18 +438,42 @@
           <!-- Demo 1: Clinic -->
           <div class="portfolio-card" data-category="clinic">
             <div class="portfolio-media">
-              <span class="portfolio-badge">Clinic & Doctors</span>
-              <div class="portfolio-preview-art">
-                <i class="fa-solid fa-hospital-user"></i>
-                <span style="font-weight:700; color:#fff;">CarePoint Clinic System</span>
+              <!-- Mini Browser Frame -->
+              <div class="mini-browser-bar">
+                <div class="mini-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <span class="mini-url">carepoint-clinic.vercel.app</span>
+                <span class="mini-status-pill"><i class="fa-solid fa-circle color-wa" style="font-size:7px;"></i> LIVE</span>
+              </div>
+              <!-- Rich Visual Mockup Image -->
+              <div class="portfolio-img-wrap">
+                <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80" alt="CarePoint Multispeciality Clinic Web Portal" class="portfolio-img" loading="lazy">
+                <div class="portfolio-logo-overlay">
+                  <div class="brand-chip">
+                    <i class="fa-solid fa-hospital" style="color:#0EA5E9;"></i>
+                    <span>CarePoint Health</span>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="portfolio-body">
+              <div class="portfolio-meta-row">
+                <span class="portfolio-badge badge-blue">Clinic & Doctors</span>
+                <span class="portfolio-sla"><i class="fa-solid fa-bolt"></i> 48H SLA</span>
+              </div>
               <h3 class="portfolio-title">CarePoint Multispeciality Clinic</h3>
               <p class="portfolio-desc">High-trust patient portal featuring 1-click WhatsApp doctor appointments, OPD schedule tables, and Google Maps direction routing.</p>
               <div class="portfolio-actions">
-                <button class="btn btn-sm btn-outline preview-trigger" data-demo="clinic">Interactive Preview</button>
-                <a href="demos/clinic/index.html" target="_blank" class="btn btn-sm btn-primary">Open Live Site</a>
+                <button class="btn btn-sm btn-outline preview-trigger" data-demo="clinic">
+                  <i class="fa-solid fa-eye"></i> Quick Preview
+                </button>
+                <a href="demos/clinic/index.html" target="_blank" class="btn btn-sm btn-primary">
+                  <span>Open Live Site</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
               </div>
             </div>
           </div>
@@ -383,18 +481,42 @@
           <!-- Demo 2: Gym -->
           <div class="portfolio-card" data-category="gym">
             <div class="portfolio-media">
-              <span class="portfolio-badge">Gym & Fitness</span>
-              <div class="portfolio-preview-art">
-                <i class="fa-solid fa-dumbbell"></i>
-                <span style="font-weight:700; color:#fff;">IronPulse Fitness Studio</span>
+              <!-- Mini Browser Frame -->
+              <div class="mini-browser-bar">
+                <div class="mini-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <span class="mini-url">ironpulse-fitness.vercel.app</span>
+                <span class="mini-status-pill"><i class="fa-solid fa-circle color-wa" style="font-size:7px;"></i> LIVE</span>
+              </div>
+              <!-- Rich Visual Mockup Image -->
+              <div class="portfolio-img-wrap">
+                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80" alt="IronPulse Elite Fitness Arena Web Platform" class="portfolio-img" loading="lazy">
+                <div class="portfolio-logo-overlay">
+                  <div class="brand-chip">
+                    <i class="fa-solid fa-dumbbell" style="color:#FF5722;"></i>
+                    <span>IronPulse Arena</span>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="portfolio-body">
+              <div class="portfolio-meta-row">
+                <span class="portfolio-badge badge-orange">Gym & Fitness</span>
+                <span class="portfolio-sla"><i class="fa-solid fa-bolt"></i> 48H SLA</span>
+              </div>
               <h3 class="portfolio-title">IronPulse Elite Fitness Arena</h3>
               <p class="portfolio-desc">High-energy fitness portal featuring membership tier tables, free 1-day pass lead capture, trainer bios, and transformation showcases.</p>
               <div class="portfolio-actions">
-                <button class="btn btn-sm btn-outline preview-trigger" data-demo="gym">Interactive Preview</button>
-                <a href="demos/gym/index.html" target="_blank" class="btn btn-sm btn-primary">Open Live Site</a>
+                <button class="btn btn-sm btn-outline preview-trigger" data-demo="gym">
+                  <i class="fa-solid fa-eye"></i> Quick Preview
+                </button>
+                <a href="demos/gym/index.html" target="_blank" class="btn btn-sm btn-primary">
+                  <span>Open Live Site</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
               </div>
             </div>
           </div>
@@ -402,18 +524,42 @@
           <!-- Demo 3: Corporate -->
           <div class="portfolio-card" data-category="corporate">
             <div class="portfolio-media">
-              <span class="portfolio-badge">Corporate & Realty</span>
-              <div class="portfolio-preview-art">
-                <i class="fa-solid fa-city"></i>
-                <span style="font-weight:700; color:#fff;">Aura Prime Realty</span>
+              <!-- Mini Browser Frame -->
+              <div class="mini-browser-bar">
+                <div class="mini-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <span class="mini-url">auraprime-realty.vercel.app</span>
+                <span class="mini-status-pill"><i class="fa-solid fa-circle color-wa" style="font-size:7px;"></i> LIVE</span>
+              </div>
+              <!-- Rich Visual Mockup Image -->
+              <div class="portfolio-img-wrap">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Aura Prime Realty & Consultants Luxury Website" class="portfolio-img" loading="lazy">
+                <div class="portfolio-logo-overlay">
+                  <div class="brand-chip">
+                    <i class="fa-solid fa-city" style="color:#7C3AED;"></i>
+                    <span>Aura Prime Realty</span>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="portfolio-body">
+              <div class="portfolio-meta-row">
+                <span class="portfolio-badge badge-purple">Corporate & Realty</span>
+                <span class="portfolio-sla"><i class="fa-solid fa-bolt"></i> 48H SLA</span>
+              </div>
               <h3 class="portfolio-title">Aura Prime Realty & Consultants</h3>
               <p class="portfolio-desc">High-end luxury corporate layout engineered for real estate developers, consulting firms, and commercial enterprises with brochure downloads.</p>
               <div class="portfolio-actions">
-                <button class="btn btn-sm btn-outline preview-trigger" data-demo="corporate">Interactive Preview</button>
-                <a href="demos/corporate/index.html" target="_blank" class="btn btn-sm btn-primary">Open Live Site</a>
+                <button class="btn btn-sm btn-outline preview-trigger" data-demo="corporate">
+                  <i class="fa-solid fa-eye"></i> Quick Preview
+                </button>
+                <a href="demos/corporate/index.html" target="_blank" class="btn btn-sm btn-primary">
+                  <span>Open Live Site</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
               </div>
             </div>
           </div>
@@ -435,60 +581,108 @@
             <div class="adv-icon"><i class="fa-solid fa-stopwatch-20"></i></div>
             <h4>48-Hour Rapid Delivery</h4>
             <p>We build, refine, and deploy your complete high-performance website in record time without cutting corners.</p>
+            <span class="adv-tag">Guaranteed On-Time</span>
           </div>
           <div class="adv-card">
             <div class="adv-icon"><i class="fa-solid fa-mobile-screen"></i></div>
             <h4>100% Mobile & Conversion First</h4>
             <p>Over 85% of traffic comes from smartphones. We engineer touch-friendly layouts that feel like native apps.</p>
+            <span class="adv-tag">Touch-Optimized</span>
           </div>
           <div class="adv-card">
             <div class="adv-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
             <h4>Zero-Risk Milestone Pay</h4>
             <p>Start with a 50% advance; pay the remaining 50% only when you are 100% satisfied with the live site.</p>
+            <span class="adv-tag">100% Risk Free</span>
           </div>
           <div class="adv-card">
             <div class="adv-icon"><i class="fa-solid fa-headset"></i></div>
             <h4>1-Year Free AMC & Support</h4>
             <p>Includes free NVMe cloud hosting, free SSL, ongoing security monitoring, and direct founder tech assistance.</p>
+            <span class="adv-tag">₹15,000 Annual Value</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 6. Development Process Animated Timeline -->
+    <!-- 6. Development Process Animated Timeline (Visual 5-Step Journey) -->
     <section class="process-section" id="process">
       <div class="container">
         <div class="section-header text-center">
           <span class="section-tag"><i class="fa-solid fa-timeline"></i> HOW WE WORK</span>
           <h2 class="section-title">From Concept to Live Deployment in 5 Steps</h2>
-          <p class="section-subtitle">A seamless, disciplined development process engineered for speed and precision.</p>
+          <p class="section-subtitle">A seamless, disciplined development process engineered for speed, quality, and precision.</p>
         </div>
 
-        <div class="timeline-grid">
-          <div class="timeline-step">
-            <div class="step-num">01</div>
-            <h4 class="step-title">Discovery & Strategy</h4>
-            <p class="step-desc">We analyze your business goals, target clients, and digital gaps to outline the perfect conversion plan.</p>
-          </div>
-          <div class="timeline-step">
-            <div class="step-num">02</div>
-            <h4 class="step-title">UI/UX Prototyping</h4>
-            <p class="step-desc">We design high-fidelity visual layouts with clean typography, dark aesthetics, and persuasive call-to-actions.</p>
-          </div>
-          <div class="timeline-step">
-            <div class="step-num">03</div>
-            <h4 class="step-title">High-Performance Build</h4>
-            <p class="step-desc">We write clean, lightweight code ensuring sub-second load speeds and responsive mobile rendering.</p>
-          </div>
-          <div class="timeline-step">
-            <div class="step-num">04</div>
-            <h4 class="step-title">Rigorous QA & SEO</h4>
-            <p class="step-desc">Full testing across devices, Google Core Web Vitals checks, and rich schema search engine optimization.</p>
-          </div>
-          <div class="timeline-step">
-            <div class="step-num">05</div>
-            <h4 class="step-title">Launch & 1-Yr Support</h4>
-            <p class="step-desc">Instant production deployment with 1-Year free cloud hosting, SSL, and ongoing dedicated maintenance.</p>
+        <div class="timeline-container">
+          <!-- Connecting Progress Track -->
+          <div class="timeline-line"></div>
+
+          <div class="timeline-grid">
+            <!-- Step 1 -->
+            <div class="timeline-step">
+              <div class="step-top-row">
+                <span class="step-num">01</span>
+                <div class="step-icon-badge">
+                  <i class="fa-solid fa-compass-drafting"></i>
+                </div>
+              </div>
+              <span class="step-time-pill"><i class="fa-regular fa-clock"></i> Hour 0-6</span>
+              <h4 class="step-title">Discovery & Strategy</h4>
+              <p class="step-desc">We analyze your business goals, target clients, and digital gaps to outline the perfect conversion plan.</p>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="timeline-step">
+              <div class="step-top-row">
+                <span class="step-num">02</span>
+                <div class="step-icon-badge">
+                  <i class="fa-solid fa-wand-magic-sparkles"></i>
+                </div>
+              </div>
+              <span class="step-time-pill"><i class="fa-regular fa-clock"></i> Hour 6-18</span>
+              <h4 class="step-title">UI/UX Prototyping</h4>
+              <p class="step-desc">We design high-fidelity visual layouts with clean typography, luminous aesthetics, and persuasive call-to-actions.</p>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="timeline-step">
+              <div class="step-top-row">
+                <span class="step-num">03</span>
+                <div class="step-icon-badge">
+                  <i class="fa-solid fa-code"></i>
+                </div>
+              </div>
+              <span class="step-time-pill"><i class="fa-regular fa-clock"></i> Hour 18-36</span>
+              <h4 class="step-title">High-Performance Build</h4>
+              <p class="step-desc">We write clean, lightweight code ensuring sub-second load speeds and responsive mobile rendering.</p>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="timeline-step">
+              <div class="step-top-row">
+                <span class="step-num">04</span>
+                <div class="step-icon-badge">
+                  <i class="fa-solid fa-shield-halved"></i>
+                </div>
+              </div>
+              <span class="step-time-pill"><i class="fa-regular fa-clock"></i> Hour 36-44</span>
+              <h4 class="step-title">Rigorous QA & SEO</h4>
+              <p class="step-desc">Full testing across devices, Google Core Web Vitals checks, and rich schema search engine optimization.</p>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="timeline-step">
+              <div class="step-top-row">
+                <span class="step-num">05</span>
+                <div class="step-icon-badge">
+                  <i class="fa-solid fa-rocket"></i>
+                </div>
+              </div>
+              <span class="step-time-pill"><i class="fa-regular fa-clock"></i> Hour 48</span>
+              <h4 class="step-title">Launch & 1-Yr Support</h4>
+              <p class="step-desc">Instant production deployment with 1-Year free cloud hosting, SSL, and ongoing dedicated maintenance.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -501,20 +695,20 @@
           <span class="section-tag"><i class="fa-solid fa-microchip"></i> CUTTING-EDGE TECH STACK</span>
         </div>
         <div class="tech-grid">
-          <div class="tech-pill"><i class="fa-brands fa-react"></i> React & Next.js</div>
-          <div class="tech-pill"><i class="fa-brands fa-js"></i> TypeScript & Modern ES6</div>
-          <div class="tech-pill"><i class="fa-brands fa-node"></i> Node.js & Serverless</div>
-          <div class="tech-pill"><i class="fa-brands fa-python"></i> Python & FastAPI</div>
-          <div class="tech-pill"><i class="fa-solid fa-database"></i> PostgreSQL & Supabase</div>
-          <div class="tech-pill"><i class="fa-solid fa-bolt"></i> Google Gemini AI</div>
-          <div class="tech-pill"><i class="fa-brands fa-css3-alt"></i> Tailwind CSS</div>
-          <div class="tech-pill"><i class="fa-brands fa-docker"></i> Docker & Cloud</div>
-          <div class="tech-pill"><i class="fa-solid fa-cloud-arrow-up"></i> Vercel Edge Network</div>
+          <div class="tech-pill"><i class="fa-brands fa-react color-react"></i> React & Next.js 15</div>
+          <div class="tech-pill"><i class="fa-brands fa-js color-js"></i> TypeScript & Modern ES6</div>
+          <div class="tech-pill"><i class="fa-brands fa-node color-node"></i> Node.js & Serverless</div>
+          <div class="tech-pill"><i class="fa-brands fa-python color-python"></i> Python & FastAPI</div>
+          <div class="tech-pill"><i class="fa-solid fa-database color-db"></i> PostgreSQL & Supabase</div>
+          <div class="tech-pill"><i class="fa-solid fa-bolt color-gemini"></i> Google Gemini 3.5 Flash</div>
+          <div class="tech-pill"><i class="fa-brands fa-css3-alt color-tailwind"></i> Tailwind CSS</div>
+          <div class="tech-pill"><i class="fa-brands fa-docker color-docker"></i> Docker & Cloud</div>
+          <div class="tech-pill"><i class="fa-solid fa-cloud-arrow-up color-vercel"></i> Vercel Edge CDN</div>
         </div>
       </div>
     </section>
 
-    <!-- 8. Client Testimonials -->
+    <!-- 8. Client Testimonials (Luxury Verified Reviews) -->
     <section class="testimonials-section">
       <div class="container">
         <div class="section-header text-center">
@@ -524,44 +718,68 @@
         </div>
 
         <div class="testimonials-grid">
+          <!-- Testimonial 1 -->
           <div class="testimonial-card">
-            <div class="testimonial-stars">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            <div class="testimonial-top">
+              <div class="testimonial-stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <span class="google-badge"><i class="fa-brands fa-google"></i> Google 5.0</span>
             </div>
-            <p class="testimonial-text">"SHAKTIX delivered our dental clinic website within 48 hours. Patients now book appointments directly on WhatsApp, and our Google search presence has doubled."</p>
+            <p class="testimonial-text">"SHAKTIX delivered our multispeciality dental clinic portal in just 48 hours. Patients now book appointments directly over WhatsApp, and our monthly consultations jumped 3x. Truly world-class quality!"</p>
             <div class="testimonial-author">
-              <div class="author-avatar">DR</div>
-              <div>
-                <div class="author-name">Dr. Rajesh K. Sharma</div>
+              <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=150&q=80" alt="Dr. Rajesh K. Sharma" class="author-avatar-img" loading="lazy">
+              <div class="author-info">
+                <div class="author-name">
+                  <span>Dr. Rajesh K. Sharma</span>
+                  <i class="fa-solid fa-circle-check author-verified" title="Verified Founder"></i>
+                </div>
                 <div class="author-role">CarePoint Dental & Multispeciality</div>
+                <span class="client-niche-pill">Healthcare Clinic</span>
               </div>
             </div>
           </div>
 
+          <!-- Testimonial 2 -->
           <div class="testimonial-card">
-            <div class="testimonial-stars">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            <div class="testimonial-top">
+              <div class="testimonial-stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <span class="google-badge"><i class="fa-brands fa-google"></i> Google 5.0</span>
             </div>
-            <p class="testimonial-text">"Our gym membership inquiries increased significantly. The 1-day trial pass simulator captures phone numbers instantly and alerts us on WhatsApp. Incredible work!"</p>
+            <p class="testimonial-text">"Our gym membership inquiries exploded within the first week. The 1-day trial pass simulator captures phone numbers automatically and alerts our front desk instantly on WhatsApp. Worth every rupee!"</p>
             <div class="testimonial-author">
-              <div class="author-avatar">VS</div>
-              <div>
-                <div class="author-name">Vikram Singh</div>
-                <div class="author-role">Founder, IronPulse Arena</div>
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Vikram Singh" class="author-avatar-img" loading="lazy">
+              <div class="author-info">
+                <div class="author-name">
+                  <span>Vikram Singh</span>
+                  <i class="fa-solid fa-circle-check author-verified" title="Verified Founder"></i>
+                </div>
+                <div class="author-role">Managing Director, IronPulse Arena</div>
+                <span class="client-niche-pill">Fitness & Wellness</span>
               </div>
             </div>
           </div>
 
+          <!-- Testimonial 3 -->
           <div class="testimonial-card">
-            <div class="testimonial-stars">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            <div class="testimonial-top">
+              <div class="testimonial-stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <span class="google-badge"><i class="fa-brands fa-google"></i> Google 5.0</span>
             </div>
-            <p class="testimonial-text">"Sub-second load speeds and a clean luxury dark theme. SHAKTIX gave our real estate consultancy the exact high-trust look needed to close premium property buyers."</p>
+            <p class="testimonial-text">"Sub-second load speeds and an ultra-luxurious corporate layout. SHAKTIX gave our real estate consultancy the exact high-trust presence required to close multi-crore property deals."</p>
             <div class="testimonial-author">
-              <div class="author-avatar">AR</div>
-              <div>
-                <div class="author-name">Ananya Roy</div>
-                <div class="author-role">Director, Aura Prime Realty</div>
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80" alt="Ananya Roy" class="author-avatar-img" loading="lazy">
+              <div class="author-info">
+                <div class="author-name">
+                  <span>Ananya Roy</span>
+                  <i class="fa-solid fa-circle-check author-verified" title="Verified Director"></i>
+                </div>
+                <div class="author-role">Director, Aura Prime Realty & Consultants</div>
+                <span class="client-niche-pill">Luxury Real Estate</span>
               </div>
             </div>
           </div>
@@ -629,9 +847,9 @@
                 </div>
                 
                 <div class="summary-perks">
-                  <div><i class="fa-solid fa-check-circle"></i> Ready in 48 to 72 Hours</div>
-                  <div><i class="fa-solid fa-check-circle"></i> 100% Source Code Ownership</div>
-                  <div><i class="fa-solid fa-check-circle"></i> 50% Advance, 50% on Delivery</div>
+                  <div><i class="fa-solid fa-check-circle color-wa"></i> Ready in 48 to 72 Hours</div>
+                  <div><i class="fa-solid fa-check-circle color-wa"></i> 100% Source Code Ownership</div>
+                  <div><i class="fa-solid fa-check-circle color-wa"></i> 50% Advance, 50% on Delivery</div>
                 </div>
 
                 <button class="btn btn-primary btn-block" id="claim-estimate-btn">
@@ -666,12 +884,12 @@
               </div>
             </div>
             <ul class="plan-features">
-              <li><i class="fa-solid fa-circle-check"></i> High-Converting Single Page Website</li>
-              <li><i class="fa-solid fa-circle-check"></i> Click-to-WhatsApp Contact Button</li>
-              <li><i class="fa-solid fa-circle-check"></i> Fast Mobile-Responsive Layout</li>
-              <li><i class="fa-solid fa-circle-check"></i> Google Map Location Embed</li>
-              <li><i class="fa-solid fa-circle-check"></i> <strong>Delivery in 48 Hours</strong></li>
-              <li><i class="fa-solid fa-circle-check"></i> 6 Months Free Maintenance</li>
+              <li><i class="fa-solid fa-circle-check color-wa"></i> High-Converting Single Page Website</li>
+              <li><i class="fa-solid fa-circle-check color-wa"></i> Click-to-WhatsApp Contact Button</li>
+              <li><i class="fa-solid fa-circle-check color-wa"></i> Fast Mobile-Responsive Layout</li>
+              <li><i class="fa-solid fa-circle-check color-wa"></i> Google Map Location Embed</li>
+              <li><i class="fa-solid fa-circle-check color-wa"></i> <strong>Delivery in 48 Hours</strong></li>
+              <li><i class="fa-solid fa-circle-check color-wa"></i> 6 Months Free Maintenance</li>
             </ul>
             <a href="https://wa.me/918298136441?text=Hello%20SHAKTIX,%20I%20want%20to%20book%20the%20Express%20Launch%20Package%20(Rs%206,999)." target="_blank" class="btn btn-outline btn-block">Get Started</a>
           </div>
@@ -689,12 +907,12 @@
               </div>
             </div>
             <ul class="plan-features">
-              <li><i class="fa-solid fa-circle-check"></i> Up to 5 Custom High-End Pages</li>
-              <li><i class="fa-solid fa-circle-check"></i> <strong>Free Domain (.com/.in) & NVMe Cloud Hosting</strong></li>
-              <li><i class="fa-solid fa-circle-check"></i> Lead Generation Contact & Quote Forms</li>
-              <li><i class="fa-solid fa-circle-check"></i> Google Search Engine SEO Setup</li>
-              <li><i class="fa-solid fa-circle-check"></i> Professional Business Email</li>
-              <li><i class="fa-solid fa-circle-check"></i> <strong>1 Full Year Complete AMC Support</strong></li>
+              <li><i class="fa-solid fa-circle-check color-wa"></i> Up to 5 Custom High-End Pages</li>
+              <li><i class="fa-solid fa-circle-check color-wa"></i> <strong>Free Domain (.com/.in) & NVMe Cloud Hosting</strong></li>
+              <li><i class="fa-solid fa-circle-check color-wa"></i> Lead Generation Contact & Quote Forms</li>
+              <li><i class="fa-solid fa-circle-check color-wa"></i> Google Search Engine SEO Setup</li>
+              <li><i class="fa-solid fa-circle-check color-wa"></i> Professional Business Email</li>
+              <li><i class="fa-solid fa-circle-check color-wa"></i> <strong>1 Full Year Complete AMC Support</strong></li>
             </ul>
             <a href="https://wa.me/918298136441?text=Hello%20SHAKTIX,%20I%20want%20to%20book%20the%20Business%20Growth%20Package%20(Rs%2012,999)." target="_blank" class="btn btn-primary btn-block">Choose Business Growth</a>
           </div>
@@ -711,12 +929,12 @@
               </div>
             </div>
             <ul class="plan-features">
-              <li><i class="fa-solid fa-circle-check"></i> Unlimited Products Showcase & Store</li>
-              <li><i class="fa-solid fa-circle-check"></i> Payment Gateway (UPI, Cards, NetBanking)</li>
-              <li><i class="fa-solid fa-circle-check"></i> Automated WhatsApp Order Alert System</li>
-              <li><i class="fa-solid fa-circle-check"></i> Customer Account & Order Tracking</li>
-              <li><i class="fa-solid fa-circle-check"></i> Free High-Performance Cloud Hosting</li>
-              <li><i class="fa-solid fa-circle-check"></i> 1 Full Year Complete AMC & Security</li>
+              <li><i class="fa-solid fa-circle-check color-wa"></i> Unlimited Products Showcase & Store</li>
+              <li><i class="fa-solid fa-circle-check color-wa"></i> Payment Gateway (UPI, Cards, NetBanking)</li>
+              <li><i class="fa-solid fa-circle-check color-wa"></i> Automated WhatsApp Order Alert System</li>
+              <li><i class="fa-solid fa-circle-check color-wa"></i> Customer Account & Order Tracking</li>
+              <li><i class="fa-solid fa-circle-check color-wa"></i> Free High-Performance Cloud Hosting</li>
+              <li><i class="fa-solid fa-circle-check color-wa"></i> 1 Full Year Complete AMC & Security</li>
             </ul>
             <a href="https://wa.me/918298136441?text=Hello%20SHAKTIX,%20I%20want%20to%20book%20the%20Ecommerce%20Power%20Package%20(Rs%2021,999)." target="_blank" class="btn btn-outline btn-block">Launch Store</a>
           </div>
@@ -894,8 +1112,15 @@
     <div class="container footer-container">
       <div class="footer-col">
         <a href="#" class="brand-logo" aria-label="SHAKTIX WEB Home">
+          <div class="logo-icon-wrap">
+            <svg width="30" height="30" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="36" height="36" rx="10" fill="url(#logoGrad)"/>
+              <path d="M11 11L18 25L25 11" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="18" cy="14" r="2.5" fill="#FFFFFF"/>
+            </svg>
+          </div>
           <span class="logo-text">SHAKTI<span class="highlight-x">X</span></span>
-          <span class="logo-badge">WEB</span>
+          <span class="logo-badge">STUDIO</span>
         </a>
         <p class="footer-tagline">Powering ambitious brands with high-converting websites, scalable web applications, and intelligent digital infrastructure.</p>
       </div>
@@ -936,7 +1161,7 @@
         <p>&copy; 2026 SHAKTIX WEB Studio. All rights reserved.</p>
         <div style="display:flex; align-items:center; gap:16px;">
           <p class="ceo-credit">Engineered by CEO & SHAKTIX AI Foundry</p>
-          <a href="admin/index.html" class="ceo-discreet-lock" title="CEO Executive Access" style="color:#52525b; font-size:12px; text-decoration:none; display:inline-flex; align-items:center; gap:5px; transition:color 0.2s;" onmouseover="this.style.color='#FF6B00'" onmouseout="this.style.color='#52525b'">
+          <a href="admin/index.html" class="ceo-discreet-lock" title="CEO Executive Access" style="color:#64748B; font-size:12px; text-decoration:none; display:inline-flex; align-items:center; gap:5px; transition:color 0.2s;" onmouseover="this.style.color='#4F46E5'" onmouseout="this.style.color='#64748B'">
             <i class="fa-solid fa-lock" style="font-size:11px;"></i> Staff Portal
           </a>
         </div>
@@ -945,8 +1170,8 @@
   </footer>
 
   <!-- Scripts -->
-  <script defer src="supabase-connector.js"></script>
-  <script defer src="script.js"></script>
-  <script defer src="shaktix-ai-widget.js"></script>
+  <script defer src="supabase-connector.js?v=20261030_v5"></script>
+  <script defer src="script.js?v=20261030_v5"></script>
+  <script defer src="shaktix-ai-widget.js?v=20261030_v5"></script>
 </body>
 </html>
