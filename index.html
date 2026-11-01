@@ -178,8 +178,8 @@
   <link rel="apple-touch-icon" href="favicon.svg">
 
   <!-- Master Stylesheet & Floating AI Widget Styles (Versioned Cache-Bust) -->
-  <link rel="stylesheet" href="style.css?v=20261030_v9">
-  <link rel="stylesheet" href="shaktix-ai-widget.css?v=20261030_v9">
+  <link rel="stylesheet" href="style.css?v=20261101_mobile_v1">
+  <link rel="stylesheet" href="shaktix-ai-widget.css?v=20261101_mobile_v1">
 </head>
 <body>
   <!-- Accessible Skip Link -->
@@ -231,8 +231,8 @@
       </nav>
 
       <div class="nav-actions">
-        <a href="https://wa.me/918298136441?text=Hello%20SHAKTIX!%20I%20want%20a%20website%20consultation." target="_blank" class="btn btn-outline nav-btn" id="nav-whatsapp-btn">
-          <i class="fa-brands fa-whatsapp color-wa"></i> Chat
+        <a href="https://wa.me/918298136441?text=Hello%20SHAKTIX!%20I%20want%20a%20website%20consultation." target="_blank" class="btn btn-outline nav-btn" id="nav-whatsapp-btn" aria-label="Direct WhatsApp Consultation">
+          <i class="fa-brands fa-whatsapp color-wa"></i> <span class="nav-btn-text">Chat</span>
         </a>
         <a href="#contact" class="btn btn-primary nav-btn-primary" id="nav-quote-btn">Start Project</a>
         <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation" aria-expanded="false" aria-controls="nav-menu">
@@ -1333,9 +1333,33 @@
     </div>
   </footer>
 
+  <!-- Mobile Quick Action Bottom Bar (Native Mobile Experience) -->
+  <nav class="mobile-bottom-bar" aria-label="Mobile Quick Actions">
+    <a href="tel:+918825208568" class="mobile-bar-item" aria-label="Call Founder Direct">
+      <i class="fa-solid fa-phone"></i>
+      <span>Call</span>
+    </a>
+    <a href="https://wa.me/918298136441?text=Namaste%20SHAKTIX!%20I%20want%20to%20discuss%20a%20website%20project." target="_blank" class="mobile-bar-item mobile-bar-highlight" aria-label="WhatsApp Us">
+      <i class="fa-brands fa-whatsapp"></i>
+      <span>WhatsApp</span>
+    </a>
+    <a href="#calculator" class="mobile-bar-item" aria-label="Calculate Price">
+      <i class="fa-solid fa-calculator"></i>
+      <span>Estimator</span>
+    </a>
+    <a href="#portfolio" class="mobile-bar-item" aria-label="Explore Projects">
+      <i class="fa-solid fa-layer-group"></i>
+      <span>Demos</span>
+    </a>
+    <a href="#contact" class="mobile-bar-item" aria-label="Get Free Consultation">
+      <i class="fa-solid fa-bolt"></i>
+      <span>Quote</span>
+    </a>
+  </nav>
+
   <!-- Scripts -->
-  <script defer src="supabase-connector.js?v=20261030_v9"></script>
-  <script defer src="script.js?v=20261030_v9"></script>
-  <script defer src="shaktix-ai-widget.js?v=20261030_v9"></script>
+  <script defer src="supabase-connector.js?v=20261101_mobile_v1"></script>
+  <script defer src="script.js?v=20261101_mobile_v1"></script>
+  <script defer src="shaktix-ai-widget.js?v=20261101_mobile_v1"></script>
 </body>
 </html>
