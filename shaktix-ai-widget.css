@@ -559,12 +559,12 @@
 /* -------------------------------------------------------------
    Mobile Responsiveness for Floating AI Engine & Modals
    ------------------------------------------------------------- */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .shaktix-floating-dock {
-    bottom: 14px;
+    bottom: 72px;
     right: 14px;
     gap: 8px;
-    z-index: 9999;
+    z-index: 99990;
   }
 
   .shaktix-dock-btn {
