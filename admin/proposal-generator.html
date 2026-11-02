@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SHAKTIX Proposal &amp; Invoice Generator — CEO Fast Desk</title>
+  <meta name="description" content="1-Tap Zero Typing Proposal & Invoice Generator for SHAKTIX Web Studio. Create client contracts, WhatsApp quotes, and printable invoices in 5 seconds.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .font-brand { font-family: 'Outfit', sans-serif; }
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
+    @media print {
+      body { background: white !important; color: black !important; }
+      .no-print { display: none !important; }
+      .print-only { display: block !important; }
+      .invoice-sheet { box-shadow: none !important; border: none !important; width: 100% !important; margin: 0 !important; padding: 0 !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen antialiased selection:bg-amber-500 selection:text-black">
+
+  <!-- Top App Bar -->
+  <header class="no-print bg-slate-900/90 backdrop-blur-md border-b border-slate-800 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="w-9 h-9 rounded-xl bg-gradient-to-tr from-amber-500 to-orange-500 flex items-center justify-center text-slate-950 font-black text-lg shadow-md shadow-amber-500/20">
+          ⚡
+        </a>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-base sm:text-lg font-brand font-black text-white tracking-wide">SHAKTI<span class="text-amber-400">X</span></span>
+            <span class="text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30 px-2 py-0.5 rounded-full uppercase">Fast Proposal Desk</span>
+          </div>
+          <span class="text-[11px] text-slate-400">Zero-Typing Client Quote &amp; Agreement Generator</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2 sm:gap-3">
+        <a href="index.html" class="text-xs text-slate-300 hover:text-white bg-slate-800 hover:bg-slate-700 px-3 py-2 rounded-xl transition border border-slate-700 flex items-center gap-1.5">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span class="hidden sm:inline">Back to HQ</span>
+        </a>
+        <button onclick="window.print()" class="text-xs bg-slate-800 hover:bg-slate-700 text-white font-bold px-3 py-2 rounded-xl border border-slate-700 transition flex items-center gap-1.5">
+          <i class="fa-solid fa-print text-amber-400"></i>
+          <span>Print / PDF</span>
+        </button>
+        <button onclick="openWhatsAppModal()" class="text-xs bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-3.5 py-2 rounded-xl shadow-md shadow-emerald-600/20 transition flex items-center gap-1.5">
+          <i class="fa-brands fa-whatsapp text-sm"></i>
+          <span>Send Proposal</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      
+      <!-- LEFT COLUMN: CONTROLS & 1-TAP PRESETS (Zero Typing) -->
+      <div class="no-print lg:col-span-5 space-y-6">
+        
+        <!-- Injury Assistance Callout -->
+        <div class="bg-amber-500/10 border border-amber-500/30 rounded-2xl p-4 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-amber-500 text-slate-950 flex items-center justify-center font-bold text-lg flex-shrink-0">
+            🖐️
+          </div>
+          <div class="text-xs">
+            <span class="font-bold text-amber-300 block">Fast 1-Tap Mode Active</span>
+            <span class="text-slate-300">Har section me 1-click preset chips hain. Bina typing ke direct quote ready karke client ko WhatsApp karein.</span>
+          </div>
+        </div>
+
+        <!-- 1. Client Quick Setup -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
+              <i class="fa-solid fa-user-tie"></i> 1. Client Information
+            </span>
+            <span class="text-[11px] text-slate-400">Tap to auto-fill</span>
+          </div>
+
+          <!-- Niche Chips -->
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-2">Client Business Niche:</label>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2" id="nicheChips">
+              <button onclick="selectNiche('Clinic & Healthcare', 'Dr. Rajesh Sharma (CarePoint Clinic)', 'demos/clinic/index.html')" class="niche-chip text-left p-2.5 rounded-xl border border-slate-700 bg-slate-800/80 hover:border-amber-400 transition text-xs font-semibold text-slate-200">
+                🏥 Clinic / Doctor
+              </button>
+              <button onclick="selectNiche('Fitness & Gym', 'Vikram Singh (IronPulse Fitness Arena)', 'demos/gym/index.html')" class="niche-chip text-left p-2.5 rounded-xl border border-slate-700 bg-slate-800/80 hover:border-amber-400 transition text-xs font-semibold text-slate-200">
+                💪 Gym / Fitness
+              </button>
+              <button onclick="selectNiche('E-Commerce & Retail', 'Pooja Verma (Aura Luxe Store)', 'demos/ecommerce/index.html')" class="niche-chip text-left p-2.5 rounded-xl border border-slate-700 bg-slate-800/80 hover:border-amber-400 transition text-xs font-semibold text-slate-200">
+                🛍️ E-Commerce
+              </button>
+              <button onclick="selectNiche('Real Estate / Corporate', 'Aura Prime Realty Developers', 'demos/corporate/index.html')" class="niche-chip text-left p-2.5 rounded-xl border border-slate-700 bg-slate-800/80 hover:border-amber-400 transition text-xs font-semibold text-slate-200">
+                🏢 Real Estate / Corp
+              </button>
+              <button onclick="selectNiche('Restaurant & Cafe', 'Royal Spice Bistro & Cafe', 'index.html#portfolio')" class="niche-chip text-left p-2.5 rounded-xl border border-slate-700 bg-slate-800/80 hover:border-amber-400 transition text-xs font-semibold text-slate-200">
+                🍽️ Restaurant
+              </button>
+              <button onclick="selectNiche('Salon & Luxury Spa', 'Luxe Glow Hair & Skin Studio', 'index.html#portfolio')" class="niche-chip text-left p-2.5 rounded-xl border border-slate-700 bg-slate-800/80 hover:border-amber-400 transition text-xs font-semibold text-slate-200">
+                ✂️ Salon / Spa
+              </button>
+            </div>
+          </div>
+
+          <!-- Client Name & Mobile Inputs -->
+          <div class="space-y-3">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Client Name / Business Name</label>
+              <input type="text" id="clientNameInput" value="Dr. Rajesh Sharma (CarePoint Clinic)" oninput="updateProposal()" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400">
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-semibold text-slate-300 mb-1">Client WhatsApp</label>
+                <input type="tel" id="clientPhoneInput" placeholder="+91 98765 43210" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-300 mb-1">Delivery SLA</label>
+                <select id="slaSelect" onchange="updateProposal()" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400">
+                  <option value="48 Hours Guaranteed">⚡ 48 Hours Express</option>
+                  <option value="4 to 5 Business Days">⏱️ 4-5 Days Standard</option>
+                  <option value="7 to 10 Business Days">🚀 7-10 Days Enterprise</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Package Selector (1-Tap Buttons) -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
+              <i class="fa-solid fa-box-open"></i> 2. Choose Package Tier
+            </span>
+            <span class="text-xs text-amber-300 font-mono font-bold" id="selectedPriceTag">₹6,999</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="packageCards">
+            <!-- P1: Express -->
+            <button onclick="selectPackage('Express Business Portal', 6999, '5 Custom High-Conversion Pages, 1-Click WhatsApp Lead Routing, 1-Yr Free Cloud NVMe Hosting + Free SSL, Mobile Optimized & Fast 60fps UI', '48 Hours')" class="pkg-card text-left p-3.5 rounded-xl border border-amber-400 bg-amber-500/10 hover:border-amber-300 transition" id="pkg-6999">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-white">Starter Express</span>
+                <span class="text-xs font-extrabold text-amber-400">₹6,999</span>
+              </div>
+              <p class="text-[11px] text-slate-400 mt-1">5 Pages &bull; WhatsApp Leads &bull; 48H SLA</p>
+            </button>
+
+            <!-- P2: Pro -->
+            <button onclick="selectPackage('Growth Pro Business Suite', 12999, '10 Custom Pages, Advanced SEO + Google Search Console Setup, Interactive Lead Capture Engine, 1-Yr High-Speed Hosting + Free Domain, Priority Support', '48-72 Hours')" class="pkg-card text-left p-3.5 rounded-xl border border-slate-700 bg-slate-800/80 hover:border-amber-400 transition" id="pkg-12999">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-white">Growth Pro Suite</span>
+                <span class="text-xs font-extrabold text-amber-400">₹12,999</span>
+              </div>
+              <p class="text-[11px] text-slate-400 mt-1">10 Pages &bull; SEO Pro &bull; Free Domain</p>
+            </button>
+
+            <!-- P3: E-Commerce -->
+            <button onclick="selectPackage('Full E-Commerce & Retail Store', 21999, 'Unlimited Catalog, Slide-Out Cart Drawer, UPI QR + Razorpay Payment Gateway, Direct WhatsApp Order Dispatch, Admin Inventory Dashboard, 1-Yr Cloud Hosting', '5-7 Days')" class="pkg-card text-left p-3.5 rounded-xl border border-slate-700 bg-slate-800/80 hover:border-amber-400 transition" id="pkg-21999">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-white">E-Commerce Store</span>
+                <span class="text-xs font-extrabold text-amber-400">₹21,999</span>
+              </div>
+              <p class="text-[11px] text-slate-400 mt-1">Full Store &bull; UPI Checkout &bull; Inventory</p>
+            </button>
+
+            <!-- P4: Enterprise -->
+            <button onclick="selectPackage('Enterprise Custom Web & AI Suite', 120000, 'Custom Web Application Architecture, Dedicated AI Assistant Agent integration, Multi-Role Staff Portal, Real-Time Analytics DB, 1-Yr Dedicated VIP SLA', '14-21 Days')" class="pkg-card text-left p-3.5 rounded-xl border border-slate-700 bg-slate-800/80 hover:border-amber-400 transition" id="pkg-120000">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-white">Enterprise Studio</span>
+                <span class="text-xs font-extrabold text-amber-400">₹1,20,000</span>
+              </div>
+              <p class="text-[11px] text-slate-400 mt-1">Full Web App &bull; AI Agent &bull; Custom CRM</p>
+            </button>
+          </div>
+        </div>
+
+        <!-- 3. Add-ons & Milestones (1-Tap Checks) -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
+              <i class="fa-solid fa-plus-circle"></i> 3. Add-ons &amp; Deposit
+            </span>
+            <span class="text-[11px] text-slate-400">1-Tap toggles</span>
+          </div>
+
+          <!-- Addons -->
+          <div class="space-y-2.5">
+            <label class="flex items-center justify-between p-2.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-slate-700 cursor-pointer">
+              <div class="flex items-center gap-2.5">
+                <input type="checkbox" id="addon-domain" value="1000" onchange="calculateTotal()" class="w-4 h-4 accent-amber-400 rounded">
+                <span class="text-xs text-slate-200">Custom Domain (.com / .in) 1-Yr Registration</span>
+              </div>
+              <span class="text-xs font-bold text-amber-400">+₹1,000</span>
+            </label>
+
+            <label class="flex items-center justify-between p-2.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-slate-700 cursor-pointer">
+              <div class="flex items-center gap-2.5">
+                <input type="checkbox" id="addon-seo" value="2500" onchange="calculateTotal()" class="w-4 h-4 accent-amber-400 rounded">
+                <span class="text-xs text-slate-200">Google Search Console + Schema SEO Suite</span>
+              </div>
+              <span class="text-xs font-bold text-amber-400">+₹2,500</span>
+            </label>
+
+            <label class="flex items-center justify-between p-2.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-slate-700 cursor-pointer">
+              <div class="flex items-center gap-2.5">
+                <input type="checkbox" id="addon-amc" value="3000" onchange="calculateTotal()" class="w-4 h-4 accent-amber-400 rounded">
+                <span class="text-xs text-slate-200">1-Year Annual Maintenance (AMC) &amp; Backups</span>
+              </div>
+              <span class="text-xs font-bold text-amber-400">+₹3,000</span>
+            </label>
+          </div>
+
+          <!-- Advance Split Ratio -->
+          <div class="pt-2 border-t border-slate-800">
+            <label class="block text-xs font-semibold text-slate-300 mb-2">Deposit Terms:</label>
+            <div class="grid grid-cols-3 gap-2">
+              <button onclick="setDepositRatio(0.5)" class="deposit-chip active py-2 rounded-xl border border-amber-400 bg-amber-500/10 text-xs font-bold text-amber-300" id="dep-50">
+                50% Advance
+              </button>
+              <button onclick="setDepositRatio(0.3)" class="deposit-chip py-2 rounded-xl border border-slate-700 bg-slate-800/80 text-xs font-bold text-slate-300" id="dep-30">
+                30% Token
+              </button>
+              <button onclick="setDepositRatio(1.0)" class="deposit-chip py-2 rounded-xl border border-slate-700 bg-slate-800/80 text-xs font-bold text-slate-300" id="dep-100">
+                100% Full Paid
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Quick Action Buttons for Injured Hand -->
+        <div class="space-y-3">
+          <button onclick="openWhatsAppModal()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 rounded-xl transition shadow-lg shadow-emerald-600/25 flex items-center justify-center gap-2 text-sm">
+            <i class="fa-brands fa-whatsapp text-lg"></i>
+            <span>Send Proposal to Client on WhatsApp</span>
+          </button>
+          <button onclick="copyFormattedText()" class="w-full bg-slate-800 hover:bg-slate-700 text-white font-bold py-3 rounded-xl border border-slate-700 transition flex items-center justify-center gap-2 text-sm">
+            <i class="fa-solid fa-copy text-amber-400"></i>
+            <span>Copy WhatsApp Quote Text</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN: OFFICIAL A4 INVOICE & PROPOSAL DOCUMENT SHEET (Printable) -->
+      <div class="lg:col-span-7">
+        <div class="invoice-sheet bg-white text-slate-900 rounded-3xl p-6 sm:p-10 shadow-2xl border border-slate-200 relative overflow-hidden" id="printableInvoice">
+          
+          <!-- Top Accent Ribbon -->
+          <div class="h-2 w-full bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 absolute top-0 left-0"></div>
+
+          <!-- Document Header -->
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-200 pb-6 mb-6 gap-4">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-2xl font-brand font-black text-slate-900 tracking-wider">SHAKTI<span class="text-amber-500">X</span></span>
+                <span class="text-[10px] font-extrabold uppercase bg-slate-100 text-slate-700 px-2.5 py-0.5 rounded tracking-widest">WEB STUDIO</span>
+              </div>
+              <p class="text-xs text-slate-500 mt-1">High-Performance Web Platforms &bull; Guaranteed 48-Hour SLA</p>
+              <p class="text-xs text-slate-500">Founder &amp; Tech Lead: <strong>Shubham Kumar</strong> &bull; +91 8825208568</p>
+              <p class="text-xs text-slate-500">Official Portal: <strong>https://shaktix-studio.vercel.app</strong></p>
+            </div>
+
+            <div class="text-left sm:text-right">
+              <span class="inline-block text-xs font-bold uppercase tracking-widest bg-amber-50 text-amber-800 border border-amber-200 px-3 py-1 rounded-full mb-1">
+                Official Proposal &amp; Invoice
+              </span>
+              <div class="text-xs text-slate-500 mt-1">Reference: <span class="font-mono font-bold text-slate-900" id="docReference">STX-2026-1102</span></div>
+              <div class="text-xs text-slate-500">Date: <span class="font-bold text-slate-900" id="docDate">2 Nov 2026</span></div>
+              <div class="text-xs text-slate-500">Validity: <span class="font-semibold text-emerald-700">7 Days</span></div>
+            </div>
+          </div>
+
+          <!-- Client Details Box -->
+          <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 sm:p-5 mb-6 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+            <div>
+              <span class="text-slate-400 font-bold uppercase tracking-wider block mb-1">PREPARED FOR:</span>
+              <h4 class="text-base font-bold text-slate-900" id="invClientName">Dr. Rajesh Sharma (CarePoint Clinic)</h4>
+              <p class="text-slate-600 mt-0.5" id="invClientNiche">Niche: Clinic &amp; Healthcare</p>
+              <p class="text-slate-600" id="invClientPhone">Contact: Available on WhatsApp</p>
+            </div>
+            <div>
+              <span class="text-slate-400 font-bold uppercase tracking-wider block mb-1">PROJECT PARAMETERS:</span>
+              <p class="text-slate-700"><strong class="text-slate-900">Guaranteed SLA:</strong> <span id="invSla">48 Hours Express</span></p>
+              <p class="text-slate-700"><strong class="text-slate-900">Live Interactive Prototype:</strong> <span class="text-indigo-600 underline" id="invPrototypeLink">demos/clinic/index.html</span></p>
+              <p class="text-slate-700"><strong class="text-slate-900">Deployment:</strong> Vercel Global Edge &bull; 99.9% Uptime</p>
+            </div>
+          </div>
+
+          <!-- Itemized Scope of Work Table -->
+          <div class="mb-6">
+            <h5 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Itemized Scope &amp; Deliverables</h5>
+            <div class="border border-slate-200 rounded-xl overflow-hidden">
+              <table class="w-full text-xs text-left">
+                <thead class="bg-slate-100 text-slate-700 border-b border-slate-200 font-bold">
+                  <tr>
+                    <th class="py-2.5 px-3">Description</th>
+                    <th class="py-2.5 px-3 w-28 text-center">Timeline</th>
+                    <th class="py-2.5 px-3 w-28 text-right">Amount</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100 text-slate-700" id="invoiceTableBody">
+                  <!-- Dynamic rows inserted by JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Financial Summary & Calculation Box -->
+          <div class="flex flex-col sm:flex-row justify-between items-start gap-6 border-t border-slate-200 pt-6 mb-6">
+            <!-- Payment QR & Bank Details -->
+            <div class="flex items-center gap-4 bg-slate-50 border border-slate-200 p-4 rounded-2xl w-full sm:w-auto">
+              <div class="w-20 h-20 bg-white border border-slate-300 rounded-xl p-1 flex items-center justify-center flex-shrink-0 shadow-sm">
+                <!-- SVG UPI QR Simulation -->
+                <svg viewBox="0 0 100 100" class="w-full h-full">
+                  <rect width="100" height="100" fill="#ffffff" />
+                  <rect x="10" y="10" width="25" height="25" fill="#0f172a" />
+                  <rect x="15" y="15" width="15" height="15" fill="#ffffff" />
+                  <rect x="18" y="18" width="9" height="9" fill="#0f172a" />
+                  <rect x="65" y="10" width="25" height="25" fill="#0f172a" />
+                  <rect x="70" y="15" width="15" height="15" fill="#ffffff" />
+                  <rect x="73" y="18" width="9" height="9" fill="#0f172a" />
+                  <rect x="10" y="65" width="25" height="25" fill="#0f172a" />
+                  <rect x="15" y="70" width="15" height="15" fill="#ffffff" />
+                  <rect x="18" y="73" width="9" height="9" fill="#0f172a" />
+                  <rect x="42" y="12" width="16" height="6" fill="#0f172a" />
+                  <rect x="45" y="24" width="10" height="15" fill="#0f172a" />
+                  <rect x="40" y="45" width="20" height="10" fill="#f59e0b" />
+                  <rect x="65" y="45" width="12" height="12" fill="#0f172a" />
+                  <rect x="45" y="65" width="15" height="20" fill="#0f172a" />
+                  <rect x="70" y="70" width="18" height="15" fill="#0f172a" />
+                </svg>
+              </div>
+              <div class="text-[11px] space-y-0.5">
+                <span class="font-bold text-slate-900 block">Instant UPI Payment QR</span>
+                <span class="text-slate-500">UPI ID: <strong>shubham14032010kumar-1@okaxis</strong></span>
+                <span class="text-slate-500 block">Name: <strong>Shubham Kumar (SHAKTIX)</strong></span>
+                <span class="text-emerald-700 font-bold block">GPay &bull; PhonePe &bull; Paytm &bull; BHIM</span>
+              </div>
+            </div>
+
+            <!-- Totals Column -->
+            <div class="w-full sm:w-64 space-y-2 text-xs">
+              <div class="flex justify-between text-slate-600">
+                <span>Subtotal:</span>
+                <span class="font-mono font-semibold" id="invSubtotal">₹6,999</span>
+              </div>
+              <div class="flex justify-between text-slate-600">
+                <span>Add-ons:</span>
+                <span class="font-mono font-semibold" id="invAddonsTotal">₹0</span>
+              </div>
+              <div class="flex justify-between text-base font-bold text-slate-900 pt-2 border-t border-slate-200">
+                <span>Total Project Value:</span>
+                <span class="font-mono text-amber-600" id="invGrandTotal">₹6,999</span>
+              </div>
+              <div class="flex justify-between text-xs bg-amber-50 text-amber-900 p-2 rounded-lg font-bold">
+                <span>Deposit Payable Now (<span id="invDepositPercent">50%</span>):</span>
+                <span class="font-mono" id="invDepositAmount">₹3,500</span>
+              </div>
+              <div class="flex justify-between text-[11px] text-slate-500 px-1">
+                <span>Balance on Final Delivery:</span>
+                <span class="font-mono font-semibold" id="invBalanceAmount">₹3,499</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Terms & Sign-off -->
+          <div class="border-t border-slate-200 pt-4 text-[11px] text-slate-500 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4">
+            <div class="space-y-0.5 max-w-sm">
+              <span class="font-bold text-slate-700 block">Terms &amp; Commitments:</span>
+              <p>&bull; 48-Hour clock begins immediately upon receipt of initial deposit and assets.</p>
+              <p>&bull; Includes 1-year complimentary high-speed hosting and automated SSL renewal.</p>
+              <p>&bull; 100% Satisfaction Guarantee: 2 rounds of rapid revisions included.</p>
+            </div>
+
+            <div class="text-center sm:text-right">
+              <div class="font-brand font-bold text-slate-900 text-sm tracking-wide">SHUBHAM KUMAR</div>
+              <span class="text-[10px] text-slate-400 uppercase tracking-widest block">Founder &amp; Lead Architect &bull; SHAKTIX</span>
+              <div class="inline-block mt-1 px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 text-[10px] font-bold border border-emerald-200">
+                ✓ Digitally Authorized
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- WhatsApp Send Modal -->
+  <div id="waModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4 no-print">
+    <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 max-w-lg w-full relative">
+      <button onclick="closeWhatsAppModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 rounded-xl bg-emerald-500 text-slate-950 flex items-center justify-center text-xl font-bold">
+          <i class="fa-brands fa-whatsapp"></i>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-white">Direct WhatsApp Dispatch</h3>
+          <p class="text-xs text-slate-400">Pre-formatted proposal ready to send to client</p>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-xs font-semibold text-slate-300 mb-1">Send to Mobile Number (optional)</label>
+        <input type="tel" id="modalTargetPhone" placeholder="91XXXXXXXXXX" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400">
+        <span class="text-[11px] text-slate-500 mt-1 block">Leave blank to open WhatsApp chat picker.</span>
+      </div>
+
+      <div class="mb-5">
+        <label class="block text-xs font-semibold text-slate-300 mb-1">Message Preview</label>
+        <textarea id="modalMsgPreview" rows="8" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-xs text-slate-200 font-mono leading-relaxed focus:outline-none focus:border-amber-400" readonly></textarea>
+      </div>
+
+      <div class="grid grid-cols-2 gap-3">
+        <button onclick="copyModalMessage()" class="bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold py-3 rounded-xl border border-slate-700 transition flex items-center justify-center gap-1.5">
+          <i class="fa-solid fa-copy text-amber-400"></i>
+          <span>Copy Message</span>
+        </button>
+        <button onclick="launchWhatsAppNow()" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold py-3 rounded-xl transition flex items-center justify-center gap-1.5 shadow-md shadow-emerald-600/20">
+          <i class="fa-brands fa-whatsapp text-base"></i>
+          <span>Open WhatsApp Now</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 bg-amber-400 text-slate-950 font-bold px-4 py-2.5 rounded-xl shadow-xl border border-amber-300 transform translate-y-20 opacity-0 transition duration-300 pointer-events-none text-xs flex items-center gap-2">
+    <i class="fa-solid fa-check"></i>
+    <span id="toastMsg">Copied!</span>
+  </div>
+
+  <script>
+    // State
+    let activePackage = {
+      name: 'Express Business Portal',
+      price: 6999,
+      desc: '5 Custom High-Conversion Pages, 1-Click WhatsApp Lead Routing, 1-Yr Free Cloud NVMe Hosting + Free SSL, Mobile Optimized & Fast 60fps UI',
+      timeline: '48 Hours'
+    };
+    let activeNiche = 'Clinic & Healthcare';
+    let activePrototype = 'demos/clinic/index.html';
+    let depositRatio = 0.5;
+
+    function showToast(text) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toastMsg').textContent = text;
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      setTimeout(() => {
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 2500);
+    }
+
+    function selectNiche(niche, defaultName, demoUrl) {
+      activeNiche = niche;
+      activePrototype = demoUrl;
+      document.getElementById('clientNameInput').value = defaultName;
+      updateProposal();
+      showToast(`Selected: ${niche}`);
+    }
+
+    function selectPackage(name, price, desc, timeline) {
+      activePackage = { name, price, desc, timeline };
+      document.querySelectorAll('.pkg-card').forEach(c => {
+        c.classList.remove('border-amber-400', 'bg-amber-500/10');
+        c.classList.add('border-slate-700', 'bg-slate-800/80');
+      });
+      const selectedBtn = document.getElementById(`pkg-${price}`);
+      if (selectedBtn) {
+        selectedBtn.classList.remove('border-slate-700', 'bg-slate-800/80');
+        selectedBtn.classList.add('border-amber-400', 'bg-amber-500/10');
+      }
+      document.getElementById('selectedPriceTag').textContent = `₹${price.toLocaleString('en-IN')}`;
+      updateProposal();
+    }
+
+    function setDepositRatio(ratio) {
+      depositRatio = ratio;
+      document.querySelectorAll('.deposit-chip').forEach(c => {
+        c.classList.remove('border-amber-400', 'bg-amber-500/10', 'text-amber-300');
+        c.classList.add('border-slate-700', 'bg-slate-800/80', 'text-slate-300');
+      });
+      const targetId = ratio === 0.5 ? 'dep-50' : (ratio === 0.3 ? 'dep-30' : 'dep-100');
+      const target = document.getElementById(targetId);
+      if (target) {
+        target.classList.remove('border-slate-700', 'bg-slate-800/80', 'text-slate-300');
+        target.classList.add('border-amber-400', 'bg-amber-500/10', 'text-amber-300');
+      }
+      updateProposal();
+    }
+
+    function calculateTotal() {
+      let addons = 0;
+      const domainCb = document.getElementById('addon-domain');
+      const seoCb = document.getElementById('addon-seo');
+      const amcCb = document.getElementById('addon-amc');
+
+      if (domainCb && domainCb.checked) addons += parseInt(domainCb.value);
+      if (seoCb && seoCb.checked) addons += parseInt(seoCb.value);
+      if (amcCb && amcCb.checked) addons += parseInt(amcCb.value);
+
+      const total = activePackage.price + addons;
+      const deposit = Math.round(total * depositRatio);
+      const balance = total - deposit;
+
+      return {
+        pkgPrice: activePackage.price,
+        addons,
+        total,
+        deposit,
+        balance,
+        hasDomain: domainCb ? domainCb.checked : false,
+        hasSeo: seoCb ? seoCb.checked : false,
+        hasAmc: amcCb ? amcCb.checked : false
+      };
+    }
+
+    function updateProposal() {
+      const clientName = document.getElementById('clientNameInput').value.trim() || 'Valued Client';
+      const clientPhone = document.getElementById('clientPhoneInput').value.trim() || 'Available on WhatsApp';
+      const sla = document.getElementById('slaSelect').value;
+      const totals = calculateTotal();
+
+      // Update A4 Sheet
+      document.getElementById('invClientName').textContent = clientName;
+      document.getElementById('invClientNiche').textContent = `Niche: ${activeNiche}`;
+      document.getElementById('invClientPhone').textContent = `Contact: ${clientPhone}`;
+      document.getElementById('invSla').textContent = sla;
+      document.getElementById('invPrototypeLink').textContent = activePrototype;
+
+      // Update Table Rows
+      const tbody = document.getElementById('invoiceTableBody');
+      let rowsHtml = `
+        <tr>
+          <td class="py-3 px-3">
+            <span class="font-bold text-slate-900 block">${activePackage.name}</span>
+            <p class="text-[11px] text-slate-500 leading-relaxed mt-0.5">${activePackage.desc}</p>
+          </td>
+          <td class="py-3 px-3 text-center font-semibold text-slate-600">${sla}</td>
+          <td class="py-3 px-3 text-right font-mono font-bold text-slate-900">₹${totals.pkgPrice.toLocaleString('en-IN')}</td>
+        </tr>
+      `;
+
+      if (totals.hasDomain) {
+        rowsHtml += `
+          <tr>
+            <td class="py-2.5 px-3">
+              <span class="font-bold text-slate-900">Custom Domain Name (.com / .in)</span>
+              <p class="text-[11px] text-slate-500">1-Year DNS Configuration &amp; Cloudflare Linking</p>
+            </td>
+            <td class="py-2.5 px-3 text-center text-slate-600">Day 1</td>
+            <td class="py-2.5 px-3 text-right font-mono font-bold text-slate-900">₹1,000</td>
+          </tr>
+        `;
+      }
+
+      if (totals.hasSeo) {
+        rowsHtml += `
+          <tr>
+            <td class="py-2.5 px-3">
+              <span class="font-bold text-slate-900">Google Search Console + Schema SEO</span>
+              <p class="text-[11px] text-slate-500">XML Sitemap, JSON-LD Schema, Google Search indexing</p>
+            </td>
+            <td class="py-2.5 px-3 text-center text-slate-600">On Deploy</td>
+            <td class="py-2.5 px-3 text-right font-mono font-bold text-slate-900">₹2,500</td>
+          </tr>
+        `;
+      }
+
+      if (totals.hasAmc) {
+        rowsHtml += `
+          <tr>
+            <td class="py-2.5 px-3">
+              <span class="font-bold text-slate-900">1-Year AMC Maintenance &amp; Daily Backups</span>
+              <p class="text-[11px] text-slate-500">24/7 Security patches, priority bug fixes, text revisions</p>
+            </td>
+            <td class="py-2.5 px-3 text-center text-slate-600">12 Months</td>
+            <td class="py-2.5 px-3 text-right font-mono font-bold text-slate-900">₹3,000</td>
+          </tr>
+        `;
+      }
+
+      tbody.innerHTML = rowsHtml;
+
+      // Update Financials
+      document.getElementById('invSubtotal').textContent = `₹${totals.pkgPrice.toLocaleString('en-IN')}`;
+      document.getElementById('invAddonsTotal').textContent = `₹${totals.addons.toLocaleString('en-IN')}`;
+      document.getElementById('invGrandTotal').textContent = `₹${totals.total.toLocaleString('en-IN')}`;
+      document.getElementById('invDepositPercent').textContent = `${Math.round(depositRatio * 100)}%`;
+      document.getElementById('invDepositAmount').textContent = `₹${totals.deposit.toLocaleString('en-IN')}`;
+      document.getElementById('invBalanceAmount').textContent = `₹${totals.balance.toLocaleString('en-IN')}`;
+
+      // Build WhatsApp Text
+      buildWhatsAppMessage(clientName, totals, sla);
+    }
+
+    let generatedWhatsAppText = '';
+
+    function buildWhatsAppMessage(clientName, totals, sla) {
+      generatedWhatsAppText = `🚀 *OFFICIAL WEBSITE PROPOSAL — SHAKTIX WEB STUDIO*\n` +
+        `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
+        `👤 *Client:* ${clientName}\n` +
+        `📌 *Package:* ${activePackage.name}\n` +
+        `⚡ *Guaranteed Delivery:* ${sla}\n` +
+        `🌐 *Live Prototype:* https://shaktix-studio.vercel.app/${activePrototype}\n\n` +
+        `📦 *Key Deliverables:*\n` +
+        `• ${activePackage.desc}\n` +
+        `• 100% Mobile Responsive & Ultra-Fast Loading\n` +
+        `• Direct 1-Click WhatsApp Booking / Order Engine\n` +
+        `• 1-Year Free High-Speed Cloud NVMe Hosting + Free SSL\n` +
+        (totals.hasDomain ? `• Custom Domain (.com / .in) Included\n` : '') +
+        (totals.hasSeo ? `• Google Search Console & Local SEO Schema Setup\n` : '') +
+        (totals.hasAmc ? `• 1-Year AMC Priority Maintenance Retainer\n` : '') +
+        `\n💰 *Commercials:*\n` +
+        `• Total Project Value: *₹${totals.total.toLocaleString('en-IN')}*\n` +
+        `• Initial Deposit (${Math.round(depositRatio * 100)}%): *₹${totals.deposit.toLocaleString('en-IN')}* (To start work)\n` +
+        `• Balance on Delivery: *₹${totals.balance.toLocaleString('en-IN')}*\n\n` +
+        `💳 *Instant Payment Options:*\n` +
+        `• UPI ID: *shubham14032010kumar-1@okaxis*\n` +
+        `• GooglePay / PhonePe: *+91 8825208568*\n\n` +
+        `Aap initial deposit transfer karke screenshot share karein, hum turant development start kar denge! 🙏\n` +
+        `— *Shubham Kumar*, Founder @ SHAKTIX Studio\n` +
+        `🌐 https://shaktix-studio.vercel.app`;
+
+      const previewBox = document.getElementById('modalMsgPreview');
+      if (previewBox) previewBox.value = generatedWhatsAppText;
+    }
+
+    function openWhatsAppModal() {
+      updateProposal();
+      const clientPhone = document.getElementById('clientPhoneInput').value.trim();
+      if (clientPhone) {
+        document.getElementById('modalTargetPhone').value = clientPhone.replace(/\D/g, '');
+      }
+      const modal = document.getElementById('waModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeWhatsAppModal() {
+      const modal = document.getElementById('waModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function copyModalMessage() {
+      navigator.clipboard.writeText(generatedWhatsAppText).then(() => {
+        showToast('WhatsApp Proposal copied to clipboard!');
+      });
+    }
+
+    function copyFormattedText() {
+      updateProposal();
+      navigator.clipboard.writeText(generatedWhatsAppText).then(() => {
+        showToast('Proposal copied! Paste directly in WhatsApp.');
+      });
+    }
+
+    function launchWhatsAppNow() {
+      const phone = document.getElementById('modalTargetPhone').value.trim().replace(/\D/g, '');
+      const encoded = encodeURIComponent(generatedWhatsAppText);
+      const url = phone ? `https://wa.me/${phone}?text=${encoded}` : `https://wa.me/?text=${encoded}`;
+      window.open(url, '_blank');
+      closeWhatsAppModal();
+    }
+
+    // Auto-generate doc reference with current date
+    const today = new Date();
+    const dateStr = today.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+    document.getElementById('docDate').textContent = dateStr;
+    const refNum = `STX-${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}${String(today.getDate()).padStart(2,'0')}`;
+    document.getElementById('docReference').textContent = refNum;
+
+    // Initial calculation
+    updateProposal();
+  </script>
+</body>
+</html>
