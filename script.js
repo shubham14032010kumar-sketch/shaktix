@@ -319,6 +319,26 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       `,
       waText: 'Hello SHAKTIX, I need a corporate/real estate website like Aura Prime Realty.'
+    },
+    ecommerce: {
+      title: 'Aura Luxe Next-Gen Store Demo',
+      badge: 'E-COMMERCE & RETAIL',
+      price: 'Starting at ₹21,999 (Complete Store)',
+      url: 'demos/ecommerce/index.html',
+      html: `
+        <div class="demo-preview-card">
+          <p style="color:#6366F1; font-weight:700; margin-bottom:0.6rem;"><i class="fa-solid fa-bag-shopping"></i> High-Conversion D2C Storefront</p>
+          <p style="font-size:0.92rem; color:#A1A1AA; line-height:1.6;">
+            Convert social media traffic into instant revenue. Features responsive slide-out cart drawer, dynamic discount coupons (SHAKTIX20), UPI QR checkout, and WhatsApp order routing.
+          </p>
+          <div style="display:flex; flex-wrap:wrap; gap:8px; margin: 16px 0;">
+            <span style="background:rgba(99,102,241,0.1); border:1px solid rgba(99,102,241,0.25); color:#818CF8; font-size:12px; padding:4px 10px; border-radius:20px;"><i class="fa-solid fa-check"></i> Slide Cart Drawer</span>
+            <span style="background:rgba(99,102,241,0.1); border:1px solid rgba(99,102,241,0.25); color:#818CF8; font-size:12px; padding:4px 10px; border-radius:20px;"><i class="fa-solid fa-check"></i> UPI QR Direct Payment</span>
+            <span style="background:rgba(99,102,241,0.1); border:1px solid rgba(99,102,241,0.25); color:#818CF8; font-size:12px; padding:4px 10px; border-radius:20px;"><i class="fa-solid fa-check"></i> 1-Click WhatsApp Checkout</span>
+          </div>
+        </div>
+      `,
+      waText: 'Hello SHAKTIX, I need an e-commerce website with UPI and WhatsApp checkout like Aura Luxe.'
     }
   };
 
