@@ -1,177 +1,258 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IronPulse Elite Fitness Studio — Demo Template | Built by SHAKTIX</title>
+  <title>IronPulse Elite Fitness &amp; CrossFit Arena | Demo by SHAKTIX</title>
+  <meta name="description" content="IronPulse Elite Fitness Arena live interactive web demo engineered by SHAKTIX Web Studio. 48-Hour delivery guarantee.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="../../shaktix-ai-widget.css">
+  <link href="https://fonts.googleapis.com/css2?family=Teko:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary: #ff4500;
-      --primary-glow: rgba(255, 69, 0, 0.4);
-      --bg: #0a0b0e;
-      --card-bg: #14171f;
-      --border: rgba(255, 255, 255, 0.08);
-      --text: #f1f5f9;
-      --muted: #94a3b8;
-    }
-    * { margin:0; padding:0; box-sizing:border-box; font-family:'Plus Jakarta Sans',sans-serif; }
-    body { background:var(--bg); color:var(--text); line-height:1.6; }
-    .demo-bar { background:#000; color:#fff; padding:8px 20px; font-size:13px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; border-bottom:1px solid #222; }
-    .demo-bar a { color:#ff4500; text-decoration:none; font-weight:700; }
-    .container { max-width:1150px; margin:0 auto; padding:0 20px; }
-    .nav { background:rgba(10, 11, 14, 0.95); padding:18px 0; border-bottom:1px solid var(--border); position:sticky; top:0; z-index:50; backdrop-filter:blur(10px); }
-    .nav-flex { display:flex; justify-content:space-between; align-items:center; }
-    .logo { font-size:24px; font-weight:800; color:#fff; text-decoration:none; font-family:'Syne',sans-serif; }
-    .logo span { color:var(--primary); }
-    .btn { display:inline-flex; align-items:center; gap:8px; padding:10px 22px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px; transition:0.3s; cursor:pointer; border:none; }
-    .btn-primary { background:var(--primary); color:#fff; box-shadow:0 0 15px var(--primary-glow); }
-    .btn-primary:hover { transform:translateY(-2px); box-shadow:0 0 25px rgba(255,69,0,0.6); }
-    .btn-wa { background:#25d366; color:#fff; }
-
-    /* Hero */
-    .hero { padding:80px 0; background:radial-gradient(circle at 70% 30%, rgba(255,69,0,0.15) 0%, transparent 60%); }
-    .hero-grid { display:grid; grid-template-columns:1.2fr 0.8fr; gap:40px; align-items:center; }
-    .hero-tag { display:inline-block; font-size:12px; font-weight:800; letter-spacing:2px; color:var(--primary); background:rgba(255,69,0,0.1); border:1px solid rgba(255,69,0,0.3); padding:4px 12px; border-radius:30px; margin-bottom:16px; }
-    .hero h1 { font-size:46px; font-weight:800; line-height:1.1; font-family:'Syne',sans-serif; margin-bottom:18px; }
-    .hero p { font-size:16px; color:var(--muted); margin-bottom:26px; }
-    .hero-form-box { background:var(--card-bg); border:1px solid rgba(255,69,0,0.3); border-radius:14px; padding:30px; box-shadow:0 15px 40px rgba(0,0,0,0.6); }
-    .form-group { margin-bottom:14px; }
-    .form-group label { display:block; font-size:13px; font-weight:600; margin-bottom:6px; color:var(--muted); }
-    .form-group input, .form-group select { width:100%; padding:11px 14px; background:#0b0d13; border:1px solid var(--border); border-radius:8px; color:#fff; font-size:14px; outline:none; }
-    .form-group input:focus { border-color:var(--primary); }
-
-    /* Section */
-    .section { padding:70px 0; }
-    .title { text-align:center; font-size:34px; font-weight:800; font-family:'Syne',sans-serif; margin-bottom:10px; }
-    .sub { text-align:center; color:var(--muted); margin-bottom:45px; }
-    .grid-3 { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px; }
-    
-    /* Pricing */
-    .price-card { background:var(--card-bg); border:1px solid var(--border); border-radius:14px; padding:32px 24px; text-align:center; transition:0.3s; position:relative; }
-    .price-card:hover { transform:translateY(-8px); border-color:rgba(255,69,0,0.4); }
-    .price-card.popular { border-color:var(--primary); box-shadow:0 0 30px rgba(255,69,0,0.2); }
-    .pop-badge { position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:var(--primary); font-size:11px; font-weight:800; padding:4px 12px; border-radius:20px; }
-    .price-name { font-size:20px; font-weight:700; margin-bottom:12px; font-family:'Syne',sans-serif; }
-    .price-amount { font-size:36px; font-weight:800; color:var(--primary); margin-bottom:16px; font-family:'Syne',sans-serif; }
-    .price-features { list-style:none; text-align:left; font-size:14px; color:var(--muted); margin-bottom:24px; display:flex; flex-direction:column; gap:10px; }
-    .price-features li i { color:var(--primary); margin-right:8px; }
-
-    footer { background:#050608; border-top:1px solid var(--border); padding:40px 0; text-align:center; font-size:14px; color:var(--muted); }
-    footer a { color:var(--primary); text-decoration:none; }
-    @media (max-width:768px) { .hero-grid { grid-template-columns:1fr; } .hero h1 { font-size:34px; } }
+    .font-beast { font-family: 'Teko', sans-serif; letter-spacing: 1px; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
   </style>
 </head>
-<body>
-  <div class="demo-bar">
-    <span>🔥 <strong>SHAKTIX Demo Template</strong> — Designed for Gyms, CrossFit & Fitness Centers</span>
-    <a href="../../index.html">← Back to SHAKTIX Agency</a>
-  </div>
+<body class="bg-zinc-950 text-zinc-100 antialiased selection:bg-rose-600 selection:text-white">
 
-  <nav class="nav">
-    <div class="container nav-flex">
-      <a href="#" class="logo">IRON<span>PULSE</span></a>
-      <a href="https://wa.me/918298136441?text=Hello%20IronPulse!%20I%20want%20to%20know%20gym%20fees." target="_blank" class="btn btn-wa">
-        <i class="fa-brands fa-whatsapp"></i> WhatsApp Inquiry
+  <!-- SHAKTIX Live Demo Top Ribbon -->
+  <div class="bg-gradient-to-r from-rose-600 to-orange-600 text-white text-xs py-2 px-4 flex flex-wrap items-center justify-between font-semibold shadow-md">
+    <div class="flex items-center gap-2">
+      <span class="inline-block w-2 h-2 rounded-full bg-yellow-300 animate-ping"></span>
+      <span>Live Client Prototype Demo by <strong>SHAKTIX Web Studio</strong></span>
+    </div>
+    <div class="flex items-center gap-3">
+      <span class="hidden sm:inline text-rose-100">Want this gym website for your brand?</span>
+      <a href="https://shaktix-studio.vercel.app/#contact" class="bg-white text-rose-700 hover:bg-rose-50 px-3 py-1 rounded-full text-xs font-bold transition shadow-sm">
+        Build in 48 Hours →
       </a>
     </div>
-  </nav>
+  </div>
 
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <span class="hero-tag">🔥 NO EXCUSES. REAL TRANSFORMATIONS.</span>
-        <h1>UNLEASH YOUR ULTIMATE POTENTIAL</h1>
-        <p>Premium Olympic equipment, certified transformation coaches, customized diet regimes, and high-energy workout beats.</p>
-        <div style="display:flex; gap:16px;">
-          <a href="#plans" class="btn btn-primary"><i class="fa-solid fa-fire"></i> View Membership Fees</a>
-        </div>
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-zinc-950/90 backdrop-blur-md border-b border-zinc-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="text-3xl font-beast text-rose-500 uppercase tracking-wider">IRONPULSE</span>
+        <span class="text-[10px] font-bold text-zinc-400 border border-zinc-700 px-2 py-0.5 rounded tracking-widest uppercase">ARENA</span>
       </div>
 
-      <div class="hero-form-box">
-        <h3 style="font-size:20px; font-weight:700; margin-bottom:6px; font-family:'Syne',sans-serif;">Claim FREE 1-Day Workout Pass</h3>
-        <p style="font-size:13px; color:var(--muted); margin-bottom:18px;">Experience the gym atmosphere before paying a single rupee.</p>
-        <form onsubmit="event.preventDefault(); alert('Pass Generated! In the real website, this alerts the gym owner instantly via WhatsApp lead notification.');">
-          <div class="form-group">
-            <label>Full Name</label>
-            <input type="text" placeholder="e.g. Aman Khurana" required>
-          </div>
-          <div class="form-group">
-            <label>WhatsApp Number</label>
-            <input type="tel" placeholder="e.g. 9876543210" required>
-          </div>
-          <div class="form-group">
-            <label>Preferred Workout Slot</label>
-            <select required>
-              <option value="">Select Timing</option>
-              <option>Morning (6:00 AM - 10:00 AM)</option>
-              <option>Evening (5:00 PM - 9:30 PM)</option>
-            </select>
-          </div>
-          <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; padding:12px;">
-            <i class="fa-solid fa-ticket"></i> Get Instant Free Pass
-          </button>
-        </form>
-      </div>
+      <nav class="hidden md:flex items-center gap-7 text-sm font-bold text-zinc-400">
+        <a href="#about" class="hover:text-rose-500 transition">About Arena</a>
+        <a href="#programs" class="hover:text-rose-500 transition">Workouts</a>
+        <a href="#bmi" class="hover:text-rose-500 transition">BMI Calculator</a>
+        <a href="#pricing" class="hover:text-rose-500 transition">Memberships</a>
+      </nav>
+
+      <a href="https://wa.me/918298136441?text=Hi%20IronPulse!%20I%20want%20to%20claim%20my%201-Day%20Free%20VIP%20Gym%20Pass." target="_blank"
+         class="bg-rose-600 hover:bg-rose-700 text-white text-xs sm:text-sm font-bold px-4 sm:px-5 py-2.5 rounded-full uppercase tracking-wider flex items-center gap-2 shadow-lg shadow-rose-600/30 transition">
+        <i class="fa-brands fa-whatsapp text-base"></i>
+        <span>Claim Free Pass</span>
+      </a>
     </div>
-  </section>
+  </header>
 
-  <section class="section" id="plans">
-    <div class="container">
-      <h2 class="title">Transparent Membership Packages</h2>
-      <p class="sub">Pick your goal and start your fitness revolution.</p>
-      
-      <div class="grid-3">
-        <div class="price-card">
-          <h3 class="price-name">Monthly Starter</h3>
-          <div class="price-amount">₹1,999 <span style="font-size:14px; color:var(--muted);">/mo</span></div>
-          <ul class="price-features">
-            <li><i class="fa-solid fa-check"></i> Full Cardio & Weight Gym Floor Access</li>
-            <li><i class="fa-solid fa-check"></i> Locker & Shower Facilities</li>
-            <li><i class="fa-solid fa-check"></i> Basic Machine Orientation</li>
-          </ul>
-          <a href="https://wa.me/918298136441?text=I%20want%20the%20Monthly%20Gym%20Plan" class="btn btn-primary" style="width:100%; justify-content:center;">Join Monthly</a>
+  <!-- Hero Section -->
+  <section class="relative py-20 sm:py-28 px-4 sm:px-6 text-center bg-gradient-to-b from-zinc-900 to-zinc-950 border-b border-zinc-800 overflow-hidden">
+    <div class="max-w-4xl mx-auto space-y-6">
+      <div class="inline-flex items-center gap-2 bg-rose-950/80 border border-rose-700/60 text-rose-400 text-xs px-4 py-1.5 rounded-full font-bold tracking-widest uppercase">
+        <i class="fa-solid fa-fire text-rose-500"></i> Premium Strength &amp; Conditioning Club
+      </div>
+      <h1 class="text-5xl sm:text-7xl lg:text-8xl font-beast uppercase tracking-wide leading-none text-white">
+        Transform Your Body. <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-orange-500">Unleash Your Beast.</span>
+      </h1>
+      <p class="text-zinc-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+        World-class imported biomechanical equipment, certified elite nutritionists, sauna, steam bath, and personalized strength coaching designed to build real muscle and burn fat fast.
+      </p>
+
+      <div class="pt-4 flex flex-col sm:flex-row justify-center gap-4">
+        <a href="#pricing" class="bg-rose-600 hover:bg-rose-700 text-white px-8 py-4 rounded-xl font-bold uppercase tracking-wider text-sm shadow-xl shadow-rose-600/30 transition">
+          View Membership Plans
+        </a>
+        <a href="#bmi" class="bg-zinc-800 hover:bg-zinc-700 px-8 py-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2 border border-zinc-700 transition">
+          <i class="fa-solid fa-calculator text-rose-500"></i>
+          <span>Check Your BMI</span>
+        </a>
+      </div>
+
+      <!-- Hero Badges -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-10 max-w-3xl mx-auto border-t border-zinc-800/80 text-left">
+        <div class="bg-zinc-900/60 p-4 rounded-xl border border-zinc-800">
+          <div class="text-2xl font-beast text-rose-500">12,000 SQ. FT.</div>
+          <div class="text-xs text-zinc-400">Mega Workout Floor</div>
         </div>
-
-        <div class="price-card popular">
-          <div class="pop-badge">BEST VALUE</div>
-          <h3 class="price-name">Quarterly Beast</h3>
-          <div class="price-amount">₹4,999 <span style="font-size:14px; color:var(--muted);">/3 mo</span></div>
-          <ul class="price-features">
-            <li><i class="fa-solid fa-check"></i> Unlimited Access to All Equipment</li>
-            <li><i class="fa-solid fa-check"></i> <strong>Free Personalized Diet & Meal Chart</strong></li>
-            <li><i class="fa-solid fa-check"></i> Bi-Weekly Body Composition & Fat Test</li>
-            <li><i class="fa-solid fa-check"></i> 2 Free Personal Training Sessions</li>
-          </ul>
-          <a href="https://wa.me/918298136441?text=I%20want%20the%20Quarterly%20Gym%20Plan" class="btn btn-primary" style="width:100%; justify-content:center;">Join Quarterly</a>
+        <div class="bg-zinc-900/60 p-4 rounded-xl border border-zinc-800">
+          <div class="text-2xl font-beast text-rose-500">100% IMPORTED</div>
+          <div class="text-xs text-zinc-400">Hammer Strength Gear</div>
         </div>
-
-        <div class="price-card">
-          <h3 class="price-name">Annual Warrior</h3>
-          <div class="price-amount">₹12,999 <span style="font-size:14px; color:var(--muted);">/year</span></div>
-          <ul class="price-features">
-            <li><i class="fa-solid fa-check"></i> Complete 365 Days Unrestricted Access</li>
-            <li><i class="fa-solid fa-check"></i> Free Gym Shaker, T-Shirt & Kit</li>
-            <li><i class="fa-solid fa-check"></i> 1-on-1 Monthly Coach Accountability</li>
-            <li><i class="fa-solid fa-check"></i> Steam Bath & Sauna Access</li>
-          </ul>
-          <a href="https://wa.me/918298136441?text=I%20want%20the%20Annual%20Gym%20Plan" class="btn btn-primary" style="width:100%; justify-content:center;">Join Annual</a>
+        <div class="bg-zinc-900/60 p-4 rounded-xl border border-zinc-800">
+          <div class="text-2xl font-beast text-rose-500">STEAM &amp; SAUNA</div>
+          <div class="text-xs text-zinc-400">Free Recovery Zone</div>
+        </div>
+        <div class="bg-zinc-900/60 p-4 rounded-xl border border-zinc-800">
+          <div class="text-2xl font-beast text-rose-500">OPEN 5AM - 11PM</div>
+          <div class="text-xs text-zinc-400">7 Days A Week</div>
         </div>
       </div>
     </div>
   </section>
 
-  <footer>
-    <div class="container">
-      <p>IronPulse Fitness Demo Template • Engineered by <a href="../../index.html"><strong>SHAKTIX Web Studio</strong></a></p>
-      <p style="margin-top:6px; font-size:12px;">Get this exact high-converting template branded for your Gym or Fitness Studio today.</p>
+  <!-- Interactive Live BMI Calculator -->
+  <section id="bmi" class="py-16 px-4 sm:px-6 bg-zinc-900/50 border-b border-zinc-800">
+    <div class="max-w-3xl mx-auto bg-zinc-900 border border-zinc-800 rounded-3xl p-6 sm:p-10 shadow-2xl">
+      <div class="text-center space-y-2 mb-8">
+        <span class="text-xs font-bold text-rose-500 uppercase tracking-widest bg-rose-950/60 border border-rose-800/50 px-3 py-1 rounded-full">Interactive Fitness Tool</span>
+        <h2 class="text-3xl sm:text-4xl font-beast uppercase text-white tracking-wide">Calculate Your Body Mass Index (BMI)</h2>
+        <p class="text-zinc-400 text-xs sm:text-sm">Find your current body fitness category and get a personalized training roadmap.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+        <div>
+          <label class="block text-xs font-bold text-zinc-400 uppercase mb-2">Your Weight (in KG)</label>
+          <input type="number" id="bmi-weight" placeholder="e.g. 70" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-rose-500">
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-zinc-400 uppercase mb-2">Your Height (in CM)</label>
+          <input type="number" id="bmi-height" placeholder="e.g. 175" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-rose-500">
+        </div>
+      </div>
+
+      <button onclick="calculateBmi()" class="w-full bg-rose-600 hover:bg-rose-700 text-white font-bold py-3.5 rounded-xl uppercase tracking-wider text-sm transition shadow-lg shadow-rose-600/30">
+        Calculate BMI &amp; Get Workout Advice
+      </button>
+
+      <!-- BMI Result Box -->
+      <div id="bmi-result-box" class="hidden mt-6 p-5 rounded-2xl bg-zinc-950 border border-rose-600/40 text-center space-y-2">
+        <div class="text-xs uppercase font-bold text-zinc-400">Your Calculated Score:</div>
+        <div id="bmi-score" class="text-4xl font-beast text-rose-500">--</div>
+        <div id="bmi-status" class="text-base font-bold text-white">--</div>
+        <p id="bmi-advice" class="text-xs text-zinc-400 max-w-lg mx-auto">--</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Membership Pricing Section -->
+  <section id="pricing" class="py-16 px-4 sm:px-6 bg-zinc-950">
+    <div class="max-w-7xl mx-auto space-y-12">
+      <div class="text-center max-w-xl mx-auto space-y-3">
+        <span class="text-xs font-bold text-rose-500 uppercase tracking-widest bg-rose-950/60 border border-rose-800/50 px-3 py-1 rounded-full">Transparent Pricing</span>
+        <h2 class="text-4xl sm:text-5xl font-beast uppercase text-white tracking-wide">Select Your Membership Plan</h2>
+        <p class="text-zinc-400 text-xs sm:text-sm">No hidden charges. Free initial body assessment with personal coach.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Monthly -->
+        <div class="bg-zinc-900 p-8 rounded-3xl border border-zinc-800 flex flex-col justify-between hover:border-zinc-700 transition">
+          <div class="space-y-4">
+            <span class="text-xs font-bold text-zinc-400 uppercase tracking-widest">Monthly Pass</span>
+            <div class="text-4xl font-beast text-white">₹1,499 <span class="text-sm font-sans font-normal text-zinc-500">/ month</span></div>
+            <p class="text-xs text-zinc-400">Perfect for workout travelers or testing out our facility.</p>
+            <ul class="space-y-2 text-xs text-zinc-300 pt-4 border-t border-zinc-800">
+              <li><i class="fa-solid fa-check text-rose-500 mr-2"></i> All Gym Equipment Access</li>
+              <li><i class="fa-solid fa-check text-rose-500 mr-2"></i> General Trainer Support</li>
+              <li><i class="fa-solid fa-check text-rose-500 mr-2"></i> Locker Room &amp; Showers</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/918298136441?text=Hi%20IronPulse!%20I%20want%20to%20join%20Monthly%20Plan%20at%201499." target="_blank"
+             class="mt-8 block text-center bg-zinc-800 hover:bg-zinc-700 text-white font-bold py-3 rounded-xl uppercase tracking-wider text-xs transition">
+            Join Monthly
+          </a>
+        </div>
+
+        <!-- Quarterly (Popular) -->
+        <div class="bg-zinc-900 p-8 rounded-3xl border-2 border-rose-600 relative flex flex-col justify-between shadow-2xl shadow-rose-900/20">
+          <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-rose-600 text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full tracking-wider">
+            Most Popular
+          </span>
+          <div class="space-y-4">
+            <span class="text-xs font-bold text-rose-400 uppercase tracking-widest">Quarterly Transformation</span>
+            <div class="text-4xl font-beast text-white">₹3,999 <span class="text-sm font-sans font-normal text-zinc-500">/ 3 months</span></div>
+            <p class="text-xs text-zinc-400">Save 15% with customized workout split &amp; diet guidance.</p>
+            <ul class="space-y-2 text-xs text-zinc-300 pt-4 border-t border-zinc-800">
+              <li><i class="fa-solid fa-check text-rose-500 mr-2"></i> All Gym Equipment Access</li>
+              <li><i class="fa-solid fa-check text-rose-500 mr-2"></i> Free Steam Bath (Weekly)</li>
+              <li><i class="fa-solid fa-check text-rose-500 mr-2"></i> 1-on-1 Diet Chart Consultation</li>
+              <li><i class="fa-solid fa-check text-rose-500 mr-2"></i> Body Composition Analysis</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/918298136441?text=Hi%20IronPulse!%20I%20want%20to%20join%20Quarterly%20Plan%20at%203999." target="_blank"
+             class="mt-8 block text-center bg-rose-600 hover:bg-rose-700 text-white font-bold py-3.5 rounded-xl uppercase tracking-wider text-xs transition shadow-lg shadow-rose-600/30">
+            Join Quarterly (Best Value)
+          </a>
+        </div>
+
+        <!-- Annual Elite -->
+        <div class="bg-zinc-900 p-8 rounded-3xl border border-zinc-800 flex flex-col justify-between hover:border-zinc-700 transition">
+          <div class="space-y-4">
+            <span class="text-xs font-bold text-zinc-400 uppercase tracking-widest">Annual VIP Athlete</span>
+            <div class="text-4xl font-beast text-white">₹11,999 <span class="text-sm font-sans font-normal text-zinc-500">/ 12 months</span></div>
+            <p class="text-xs text-zinc-400">Unrestricted full-year VIP access with priority perks.</p>
+            <ul class="space-y-2 text-xs text-zinc-300 pt-4 border-t border-zinc-800">
+              <li><i class="fa-solid fa-check text-rose-500 mr-2"></i> 365 Days Unrestricted Access</li>
+              <li><i class="fa-solid fa-check text-rose-500 mr-2"></i> Unlimited Steam &amp; Sauna</li>
+              <li><i class="fa-solid fa-check text-rose-500 mr-2"></i> Free IronPulse Gym Kit &amp; Shaker</li>
+              <li><i class="fa-solid fa-check text-rose-500 mr-2"></i> 1 Month Membership Freeze Option</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/918298136441?text=Hi%20IronPulse!%20I%20want%20to%20join%20Annual%20Plan%20at%2011999." target="_blank"
+             class="mt-8 block text-center bg-zinc-800 hover:bg-zinc-700 text-white font-bold py-3 rounded-xl uppercase tracking-wider text-xs transition">
+            Join VIP Annual
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-zinc-950 border-t border-zinc-800 py-10 px-4 sm:px-6">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
+      <p>© 2026 IronPulse Fitness Arena Demo. Powered by <strong>SHAKTIX Web Studio</strong>.</p>
+      <div class="flex items-center gap-4">
+        <a href="https://shaktix-studio.vercel.app/" class="hover:text-rose-400 font-bold transition">← Return to SHAKTIX Home</a>
+        <a href="https://shaktix-studio.vercel.app/#contact" class="hover:text-rose-400 font-bold transition">Order Gym Website</a>
+      </div>
     </div>
   </footer>
-  <script src="../../supabase-connector.js"></script>
-  <script src="../../shaktix-ai-widget.js"></script>
+
+  <script>
+    function calculateBmi() {
+      const w = parseFloat(document.getElementById('bmi-weight').value);
+      const h = parseFloat(document.getElementById('bmi-height').value) / 100;
+
+      if (!w || !h || w <= 0 || h <= 0) {
+        alert('Please enter valid weight (kg) and height (cm)');
+        return;
+      }
+
+      const bmi = (w / (h * h)).toFixed(1);
+      const resBox = document.getElementById('bmi-result-box');
+      const scoreEl = document.getElementById('bmi-score');
+      const statusEl = document.getElementById('bmi-status');
+      const adviceEl = document.getElementById('bmi-advice');
+
+      scoreEl.innerText = bmi;
+      resBox.classList.remove('hidden');
+
+      if (bmi < 18.5) {
+        statusEl.innerText = 'Underweight (Muscle Building Recommended)';
+        statusEl.className = 'text-base font-bold text-amber-400';
+        adviceEl.innerText = 'Focus on progressive overload strength training and a high-calorie protein diet to build lean muscle mass at IronPulse.';
+      } else if (bmi >= 18.5 && bmi < 24.9) {
+        statusEl.innerText = 'Normal Healthy Weight (Peak Athletic Range)';
+        statusEl.className = 'text-base font-bold text-emerald-400';
+        adviceEl.innerText = 'Outstanding! Maintain your physique with our hypertrophy and functional CrossFit conditioning programs.';
+      } else if (bmi >= 25 && bmi < 29.9) {
+        statusEl.innerText = 'Overweight (HIIT & Fat Shred Recommended)';
+        statusEl.className = 'text-base font-bold text-orange-400';
+        adviceEl.innerText = 'We recommend our signature 45-minute HIIT metabolic conditioning combined with weight training to torch fat fast.';
+      } else {
+        statusEl.innerText = 'Obesity Range (Guided Medical Fitness)';
+        statusEl.className = 'text-base font-bold text-rose-500';
+        adviceEl.innerText = 'Start with low-impact cardio, personal coach supervision, and our certified nutritionist diet plan for sustainable transformation.';
+      }
+    }
+  </script>
 </body>
 </html>
