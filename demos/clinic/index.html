@@ -1,207 +1,271 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CarePoint Multispeciality Clinic — Demo Template | Built by SHAKTIX</title>
+  <title>CarePoint Multispeciality Clinic &amp; Diagnostics | Demo by SHAKTIX</title>
+  <meta name="description" content="CarePoint Multispeciality Clinic live interactive web demo engineered by SHAKTIX Web Studio. 48-Hour delivery guarantee.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="../../shaktix-ai-widget.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary: #0284c7;
-      --primary-dark: #0369a1;
-      --secondary: #10b981;
-      --dark: #0f172a;
-      --light: #f8fafc;
-      --gray: #64748b;
-      --border: #e2e8f0;
-      --radius: 12px;
-    }
-    * { margin:0; padding:0; box-sizing:border-box; font-family:'Plus Jakarta Sans',sans-serif; }
-    body { background-color:#f8fafc; color:#1e293b; line-height:1.6; }
-    .demo-bar { background:#0f172a; color:#fff; padding:8px 20px; font-size:13px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; }
-    .demo-bar a { color:#38bdf8; text-decoration:none; font-weight:600; }
-    .container { max-width:1150px; margin:0 auto; padding:0 20px; }
-    .nav { background:#fff; padding:18px 0; border-bottom:1px solid var(--border); position:sticky; top:0; z-index:50; }
-    .nav-flex { display:flex; justify-content:space-between; align-items:center; }
-    .logo { font-size:22px; font-weight:800; color:var(--dark); text-decoration:none; display:flex; align-items:center; gap:8px; }
-    .logo span { color:var(--primary); }
-    .btn { display:inline-flex; align-items:center; gap:8px; padding:10px 22px; border-radius:8px; font-weight:600; text-decoration:none; font-size:14px; transition:0.3s; cursor:pointer; border:none; }
-    .btn-primary { background:var(--primary); color:#fff; }
-    .btn-primary:hover { background:var(--primary-dark); }
-    .btn-wa { background:#25d366; color:#fff; }
-    .btn-wa:hover { background:#22bf5b; }
-    
-    /* Hero */
-    .hero { padding:70px 0; background:linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); }
-    .hero-grid { display:grid; grid-template-columns:1.2fr 0.8fr; gap:40px; align-items:center; }
-    .badge { display:inline-block; background:#e0f2fe; color:var(--primary); padding:6px 14px; border-radius:50px; font-size:12px; font-weight:700; margin-bottom:16px; border:1px solid #bae6fd; }
-    .hero h1 { font-size:42px; font-weight:800; line-height:1.2; color:var(--dark); margin-bottom:16px; font-family:'Syne',sans-serif; }
-    .hero p { font-size:16px; color:var(--gray); margin-bottom:24px; }
-    .hero-box { background:#fff; padding:30px; border-radius:var(--radius); box-shadow:0 15px 35px rgba(0,0,0,0.06); border:1px solid var(--border); }
-    .form-group { margin-bottom:14px; }
-    .form-group label { display:block; font-size:13px; font-weight:600; margin-bottom:6px; }
-    .form-group input, .form-group select { width:100%; padding:10px 14px; border:1px solid var(--border); border-radius:8px; font-size:14px; outline:none; }
-    .form-group input:focus, .form-group select:focus { border-color:var(--primary); }
-
-    /* Features */
-    .section { padding:70px 0; }
-    .section-title { text-align:center; font-size:32px; font-weight:800; color:var(--dark); margin-bottom:12px; font-family:'Syne',sans-serif; }
-    .section-sub { text-align:center; color:var(--gray); margin-bottom:45px; }
-    .grid-3 { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px; }
-    .card { background:#fff; padding:28px; border-radius:var(--radius); border:1px solid var(--border); transition:0.3s; }
-    .card:hover { transform:translateY(-6px); box-shadow:0 12px 30px rgba(0,0,0,0.06); }
-    .card-icon { width:52px; height:52px; border-radius:10px; background:#e0f2fe; color:var(--primary); display:flex; align-items:center; justify-content:center; font-size:22px; margin-bottom:16px; }
-    .card h3 { font-size:18px; margin-bottom:10px; color:var(--dark); }
-    .card p { font-size:14px; color:var(--gray); }
-
-    /* Doctors */
-    .doc-card { text-align:center; background:#fff; padding:24px; border-radius:var(--radius); border:1px solid var(--border); }
-    .doc-avatar { width:90px; height:90px; border-radius:50%; background:#e2e8f0; margin:0 auto 16px; display:flex; align-items:center; justify-content:center; font-size:36px; color:var(--primary); }
-    .doc-card h4 { font-size:18px; color:var(--dark); }
-    .doc-card .spec { color:var(--primary); font-size:13px; font-weight:600; margin-bottom:8px; }
-    .doc-card p { font-size:13px; color:var(--gray); margin-bottom:16px; }
-
-    /* Footer */
-    footer { background:var(--dark); color:#94a3b8; padding:40px 0; text-align:center; font-size:14px; }
-    footer a { color:#38bdf8; text-decoration:none; }
-
-    @media (max-width:768px) {
-      .hero-grid { grid-template-columns:1fr; }
-      .hero h1 { font-size:32px; }
-    }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .font-heading { font-family: 'Outfit', sans-serif; }
   </style>
 </head>
-<body>
-  <div class="demo-bar">
-    <span>⚡ <strong>SHAKTIX Demo Template</strong> — Designed for Clinics, Dentists & Doctors</span>
-    <a href="../../index.html">← Back to SHAKTIX Agency</a>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-teal-500 selection:text-white">
+
+  <!-- SHAKTIX Live Demo Top Ribbon -->
+  <div class="bg-indigo-600 text-white text-xs py-2 px-4 flex flex-wrap items-center justify-between font-semibold shadow-md">
+    <div class="flex items-center gap-2">
+      <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+      <span>Live Client Prototype Demo by <strong>SHAKTIX Web Studio</strong></span>
+    </div>
+    <div class="flex items-center gap-3">
+      <span class="hidden sm:inline text-indigo-200">Want this exact clinic website?</span>
+      <a href="https://shaktix-studio.vercel.app/#contact" class="bg-white text-indigo-700 hover:bg-indigo-50 px-3 py-1 rounded-full text-xs font-bold transition shadow-sm">
+        Deliver in 48 Hours →
+      </a>
+    </div>
   </div>
 
-  <nav class="nav">
-    <div class="container nav-flex">
-      <a href="#" class="logo">
-        <i class="fa-solid fa-heart-pulse" style="color:#0284c7;"></i>
-        CarePoint <span>Clinic</span>
-      </a>
-      <a href="https://wa.me/918298136441?text=Namaste%20Doctor!%20I%20want%20to%20book%20an%20appointment." target="_blank" class="btn btn-wa">
-        <i class="fa-brands fa-whatsapp"></i> Instant WhatsApp Booking
-      </a>
-    </div>
-  </nav>
-
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <span class="badge"><i class="fa-solid fa-award"></i> Rated 4.9/5 by 3,500+ Patients</span>
-        <h1>Comprehensive Healthcare You Can Trust</h1>
-        <p>Book expert consultations with senior specialists in minutes. Zero waiting line with digital priority appointments.</p>
-        <div style="display:flex; gap:16px; align-items:center;">
-          <a href="#book" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Book OPD Consultation</a>
-          <span style="font-size:13px; color:var(--gray);"><i class="fa-solid fa-phone" style="color:var(--secondary)"></i> Call Emergency: +91 98765 43210</span>
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-teal-500 to-cyan-500 flex items-center justify-center text-white text-xl shadow-md shadow-teal-500/20">
+          <i class="fa-solid fa-staff-snake"></i>
+        </div>
+        <div>
+          <span class="text-xl font-heading font-extrabold text-slate-900 tracking-tight">CarePoint</span>
+          <span class="block text-[11px] font-bold text-teal-600 tracking-wider uppercase">Multispeciality Clinic</span>
         </div>
       </div>
 
-      <div class="hero-box" id="book">
-        <h3 style="font-size:20px; font-weight:700; margin-bottom:6px;">Quick Patient Appointment</h3>
-        <p style="font-size:13px; color:var(--gray); margin-bottom:18px;">Guaranteed confirmation within 15 minutes.</p>
-        <form onsubmit="event.preventDefault(); alert('Appointment confirmed! In a live website, this automatically alerts the Doctor via WhatsApp.');">
-          <div class="form-group">
-            <label>Patient Full Name</label>
-            <input type="text" placeholder="e.g. Ramesh Verma" required>
+      <nav class="hidden md:flex items-center gap-7 text-sm font-semibold text-slate-600">
+        <a href="#services" class="hover:text-teal-600 transition">Specialities</a>
+        <a href="#doctors" class="hover:text-teal-600 transition">Doctors</a>
+        <a href="#packages" class="hover:text-teal-600 transition">Health Packages</a>
+        <a href="#appointment" class="hover:text-teal-600 transition">Book OPD</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="tel:+918825208568" class="hidden sm:flex items-center gap-2 text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 px-3.5 py-2 rounded-xl transition">
+          <i class="fa-solid fa-phone text-teal-600"></i>
+          <span>Emergency OPD</span>
+        </a>
+        <a href="#appointment" class="bg-teal-600 hover:bg-teal-700 text-white text-xs sm:text-sm font-bold px-4 sm:px-5 py-2.5 rounded-xl transition shadow-md shadow-teal-600/25 flex items-center gap-2">
+          <i class="fa-brands fa-whatsapp text-base"></i>
+          <span>Book Appointment</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative pt-12 pb-20 px-4 sm:px-6 bg-gradient-to-b from-teal-50/70 via-white to-slate-50 overflow-hidden">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-7 space-y-6">
+        <div class="inline-flex items-center gap-2 bg-teal-100/80 border border-teal-200 text-teal-800 text-xs font-bold px-3.5 py-1.5 rounded-full">
+          <i class="fa-solid fa-certificate text-teal-600"></i>
+          <span>NABH Accredited &amp; 15+ Super Specialists</span>
+        </div>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold text-slate-900 leading-[1.15] tracking-tight">
+          Compassionate Healthcare, <br>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-cyan-600">Advanced Medicine.</span>
+        </h1>
+        <p class="text-slate-600 text-base sm:text-lg leading-relaxed max-w-xl">
+          CarePoint combines veteran medical expertise with modern diagnostic technology to provide prompt, reliable care for your entire family. Instant online OPD booking via WhatsApp.
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row gap-3 pt-2">
+          <a href="#appointment" class="bg-teal-600 hover:bg-teal-700 text-white font-bold px-7 py-3.5 rounded-xl text-center shadow-lg shadow-teal-600/30 transition flex items-center justify-center gap-2">
+            <span>Instant OPD Appointment</span>
+            <i class="fa-solid fa-arrow-right text-sm"></i>
+          </a>
+          <a href="#doctors" class="bg-white hover:bg-slate-100 text-slate-700 font-bold px-6 py-3.5 rounded-xl border border-slate-300 text-center transition flex items-center justify-center gap-2">
+            <i class="fa-solid fa-user-doctor text-teal-600"></i>
+            <span>Meet Our Specialists</span>
+          </a>
+        </div>
+
+        <!-- Trust Stats -->
+        <div class="grid grid-cols-3 gap-4 pt-6 border-t border-slate-200">
+          <div>
+            <div class="text-2xl sm:text-3xl font-heading font-extrabold text-slate-900">45,000+</div>
+            <div class="text-xs text-slate-500 font-medium">Patients Treated</div>
           </div>
-          <div class="form-group">
-            <label>Phone Number</label>
-            <input type="tel" placeholder="e.g. 9876543210" required>
+          <div>
+            <div class="text-2xl sm:text-3xl font-heading font-extrabold text-teal-600">18+</div>
+            <div class="text-xs text-slate-500 font-medium">Clinical Departments</div>
           </div>
-          <div class="form-group">
-            <label>Select Department</label>
-            <select required>
-              <option value="">Choose Specialist</option>
-              <option>General Medicine</option>
-              <option>Dentistry & Orthodontics</option>
-              <option>Orthopedics & Joint Care</option>
-              <option>Pediatrics (Child Specialist)</option>
+          <div>
+            <div class="text-2xl sm:text-3xl font-heading font-extrabold text-slate-900">4.9 ★</div>
+            <div class="text-xs text-slate-500 font-medium">Google Rating</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Visual Card -->
+      <div class="lg:col-span-5">
+        <div class="relative bg-white p-4 sm:p-6 rounded-3xl border border-slate-200 shadow-xl shadow-slate-200/50">
+          <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80" alt="Doctor Consultation" class="w-full h-64 sm:h-72 object-cover rounded-2xl mb-5 shadow-sm">
+          
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-teal-700 bg-teal-50 border border-teal-200 px-2.5 py-1 rounded-lg">OPD Schedule Open Today</span>
+              <span class="text-xs font-semibold text-emerald-600 flex items-center gap-1">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Doctor Available Now
+              </span>
+            </div>
+            <h3 class="font-heading font-bold text-slate-900 text-lg">Dr. Rajesh K. Sharma, MD</h3>
+            <p class="text-xs text-slate-500">Senior Consultant Physician &amp; Cardiologist (18+ Yrs Experience)</p>
+            <div class="pt-2 flex items-center justify-between border-t border-slate-100 text-xs">
+              <span class="text-slate-500">OPD Consultation Fee:</span>
+              <span class="font-bold text-slate-900 text-sm">₹600</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Specialities Section -->
+  <section id="services" class="py-16 px-4 sm:px-6 bg-white border-y border-slate-200">
+    <div class="max-w-7xl mx-auto space-y-12">
+      <div class="text-center max-w-2xl mx-auto space-y-3">
+        <span class="text-xs font-bold text-teal-600 uppercase tracking-widest bg-teal-50 px-3 py-1 rounded-full border border-teal-200">Clinical Excellence</span>
+        <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-slate-900 tracking-tight">Our Core Medical Specialities</h2>
+        <p class="text-slate-600 text-sm sm:text-base">Comprehensive multi-disciplinary care under one roof with in-house diagnostic pathology and pharmacy.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Cardiology -->
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-teal-400 hover:shadow-lg transition group">
+          <div class="w-12 h-12 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">
+            <i class="fa-solid fa-heart-pulse"></i>
+          </div>
+          <h3 class="font-heading font-bold text-lg text-slate-900 mb-2">Cardiology</h3>
+          <p class="text-xs text-slate-500 leading-relaxed mb-4">ECG, 2D Echo, blood pressure management, and post-angioplasty wellness monitoring.</p>
+          <span class="text-xs font-bold text-teal-600 flex items-center gap-1">Available Mon-Sat →</span>
+        </div>
+
+        <!-- Pediatrics -->
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-teal-400 hover:shadow-lg transition group">
+          <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">
+            <i class="fa-solid fa-baby"></i>
+          </div>
+          <h3 class="font-heading font-bold text-lg text-slate-900 mb-2">Pediatrics &amp; Child Care</h3>
+          <p class="text-xs text-slate-500 leading-relaxed mb-4">Complete newborn screening, WHO immunization schedule, growth and nutritional counseling.</p>
+          <span class="text-xs font-bold text-teal-600 flex items-center gap-1">Daily OPD 10AM-6PM →</span>
+        </div>
+
+        <!-- Orthopedics -->
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-teal-400 hover:shadow-lg transition group">
+          <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">
+            <i class="fa-solid fa-bone"></i>
+          </div>
+          <h3 class="font-heading font-bold text-lg text-slate-900 mb-2">Orthopedics &amp; Joints</h3>
+          <p class="text-xs text-slate-500 leading-relaxed mb-4">Arthritis management, sports injuries, fracture rehabilitation, and physiotherapy clinic.</p>
+          <span class="text-xs font-bold text-teal-600 flex items-center gap-1">Mon, Wed, Fri →</span>
+        </div>
+
+        <!-- Dental & Oral Care -->
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-teal-400 hover:shadow-lg transition group">
+          <div class="w-12 h-12 rounded-xl bg-teal-100 text-teal-600 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">
+            <i class="fa-solid fa-tooth"></i>
+          </div>
+          <h3 class="font-heading font-bold text-lg text-slate-900 mb-2">Advanced Dental Care</h3>
+          <p class="text-xs text-slate-500 leading-relaxed mb-4">Painless root canals, dental implants, teeth whitening, aligners, and cosmetic veneers.</p>
+          <span class="text-xs font-bold text-teal-600 flex items-center gap-1">Daily By Appointment →</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Doctor Appointment Engine (WhatsApp Connected) -->
+  <section id="appointment" class="py-16 px-4 sm:px-6 bg-slate-50">
+    <div class="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-xl p-6 sm:p-10">
+      <div class="text-center max-w-xl mx-auto mb-8 space-y-2">
+        <span class="text-xs font-bold text-teal-600 uppercase tracking-wider bg-teal-50 px-3 py-1 rounded-full border border-teal-200">
+          Smart OPD Booking Engine
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-heading font-extrabold text-slate-900">Book Your OPD Doctor Appointment</h2>
+        <p class="text-slate-500 text-xs sm:text-sm">Instant confirmation sent to your WhatsApp without waiting in clinic queues.</p>
+      </div>
+
+      <form id="clinic-form" class="space-y-5" onsubmit="event.preventDefault(); bookClinicAppointment();">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Patient Full Name</label>
+            <input type="text" id="patient-name" required placeholder="e.g. Ramesh Verma" class="w-full px-4 py-3 text-sm bg-slate-50 border border-slate-300 rounded-xl focus:outline-none focus:border-teal-500 focus:bg-white transition">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Mobile Number</label>
+            <input type="tel" id="patient-phone" required placeholder="e.g. 9876543210" class="w-full px-4 py-3 text-sm bg-slate-50 border border-slate-300 rounded-xl focus:outline-none focus:border-teal-500 focus:bg-white transition">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Select Doctor / Speciality</label>
+            <select id="patient-doctor" required class="w-full px-4 py-3 text-sm bg-slate-50 border border-slate-300 rounded-xl focus:outline-none focus:border-teal-500 focus:bg-white transition">
+              <option value="Dr. Rajesh Sharma (General Medicine &amp; Cardiology)">Dr. Rajesh Sharma (General Medicine &amp; Cardiology)</option>
+              <option value="Dr. Priya Kapoor (Pediatrics &amp; Child Health)">Dr. Priya Kapoor (Pediatrics &amp; Child Health)</option>
+              <option value="Dr. Arun K. Verma (Orthopedics &amp; Joint Pain)">Dr. Arun K. Verma (Orthopedics &amp; Joint Pain)</option>
+              <option value="Dr. Sneha Roy (Dental Surgeon &amp; Implants)">Dr. Sneha Roy (Dental Surgeon &amp; Implants)</option>
             </select>
           </div>
-          <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; padding:12px;">
-            <i class="fa-solid fa-check"></i> Confirm Appointment
-          </button>
-        </form>
-      </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Preferred Date</label>
+            <input type="date" id="patient-date" required class="w-full px-4 py-3 text-sm bg-slate-50 border border-slate-300 rounded-xl focus:outline-none focus:border-teal-500 focus:bg-white transition">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Chief Medical Complaint / Notes (Optional)</label>
+          <textarea id="patient-notes" rows="2" placeholder="e.g. Fever since 2 days, back pain, or routine checkup" class="w-full px-4 py-3 text-sm bg-slate-50 border border-slate-300 rounded-xl focus:outline-none focus:border-teal-500 focus:bg-white transition"></textarea>
+        </div>
+
+        <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-6 rounded-xl transition shadow-lg shadow-emerald-600/30 flex items-center justify-center gap-2 text-sm sm:text-base">
+          <i class="fa-brands fa-whatsapp text-xl"></i>
+          <span>Confirm &amp; Send Booking to WhatsApp</span>
+        </button>
+        <p class="text-[11px] text-center text-slate-400">Zero booking fee. Payment directly at clinic reception.</p>
+      </form>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <h2 class="section-title">Specialized Clinical Services</h2>
-      <p class="section-sub">State of the art technology combined with experienced physicians.</p>
-      <div class="grid-3">
-        <div class="card">
-          <div class="card-icon"><i class="fa-solid fa-stethoscope"></i></div>
-          <h3>General Physician</h3>
-          <p>Complete family medical checkups, fever diagnoses, seasonal illnesses and chronic health management.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon"><i class="fa-solid fa-tooth"></i></div>
-          <h3>Dental & Oral Care</h3>
-          <p>Root canal, laser teeth whitening, braces, invisible aligners and painless tooth extractions.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon"><i class="fa-solid fa-flask"></i></div>
-          <h3>In-House Pathology Lab</h3>
-          <p>Instant blood tests, digital X-Rays, ultrasound reports delivered directly to your WhatsApp.</p>
-        </div>
+  <!-- Footer -->
+  <footer class="bg-slate-900 text-white py-10 px-4 sm:px-6">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+      <p>© 2026 CarePoint Multispeciality Clinic Demo. Powered by <strong>SHAKTIX Web Studio</strong>.</p>
+      <div class="flex items-center gap-4">
+        <a href="https://shaktix-studio.vercel.app/" class="hover:text-teal-400 font-bold transition">← Return to SHAKTIX Home</a>
+        <a href="https://shaktix-studio.vercel.app/#contact" class="hover:text-teal-400 font-bold transition">Order Clinic Website</a>
       </div>
-    </div>
-  </section>
-
-  <section class="section" style="background:#fff; border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
-    <div class="container">
-      <h2 class="section-title">Meet Our Lead Specialists</h2>
-      <p class="section-sub">Over 20+ years of cumulative clinical excellence.</p>
-      <div class="grid-3">
-        <div class="doc-card">
-          <div class="doc-avatar"><i class="fa-solid fa-user-doctor"></i></div>
-          <h4>Dr. Rajesh Sharma</h4>
-          <p class="spec">MD, General Medicine</p>
-          <p>15+ years experience at AIIMS & Apollo. Specialist in diabetes and cardiovascular health.</p>
-          <a href="https://wa.me/918298136441?text=I%20want%20to%20consult%20Dr.%20Rajesh%20Sharma" class="btn btn-wa" style="width:100%; justify-content:center; font-size:13px;">
-            <i class="fa-brands fa-whatsapp"></i> Chat with Doctor
-          </a>
-        </div>
-        <div class="doc-card">
-          <div class="doc-avatar"><i class="fa-solid fa-user-doctor"></i></div>
-          <h4>Dr. Priya Malhotra</h4>
-          <p class="spec">BDS, MDS Orthodontics</p>
-          <p>Certified cosmetic dentist specializing in painless aligners and smile restorations.</p>
-          <a href="https://wa.me/918298136441?text=I%20want%20to%20consult%20Dr.%20Priya%20Malhotra" class="btn btn-wa" style="width:100%; justify-content:center; font-size:13px;">
-            <i class="fa-brands fa-whatsapp"></i> Chat with Doctor
-          </a>
-        </div>
-        <div class="doc-card">
-          <div class="doc-avatar"><i class="fa-solid fa-user-doctor"></i></div>
-          <h4>Dr. Amit Sengupta</h4>
-          <p class="spec">MS Orthopedics</p>
-          <p>Joint replacement and sports injury rehabilitation specialist with 12+ years experience.</p>
-          <a href="https://wa.me/918298136441?text=I%20want%20to%20consult%20Dr.%20Amit%20Sengupta" class="btn btn-wa" style="width:100%; justify-content:center; font-size:13px;">
-            <i class="fa-brands fa-whatsapp"></i> Chat with Doctor
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">
-      <p>CarePoint Clinic Demo Template • Crafted with high-converting precision by <a href="../../index.html"><strong>SHAKTIX Web Studio</strong></a></p>
-      <p style="margin-top:6px; font-size:12px;">To purchase this exact template for your clinic, message SHAKTIX leadership on WhatsApp.</p>
     </div>
   </footer>
-  <script src="../../supabase-connector.js"></script>
-  <script src="../../shaktix-ai-widget.js"></script>
+
+  <script>
+    // Set default date to today
+    document.getElementById('patient-date').valueAsDate = new Date();
+
+    function bookClinicAppointment() {
+      const name = document.getElementById('patient-name').value.trim();
+      const phone = document.getElementById('patient-phone').value.trim();
+      const doctor = document.getElementById('patient-doctor').value;
+      const date = document.getElementById('patient-date').value;
+      const notes = document.getElementById('patient-notes').value.trim() || 'General Consultation';
+
+      const msg = `Namaste CarePoint Clinic!\nI would like to book an OPD appointment:\n- Patient: ${name}\n- Contact: ${phone}\n- Doctor: ${doctor}\n- Date: ${date}\n- Issue: ${notes}\n\nPlease confirm my appointment slot. Thank you!`;
+
+      const encoded = encodeURIComponent(msg);
+      window.open(`https://wa.me/918298136441?text=${encoded}`, '_blank');
+    }
+  </script>
 </body>
 </html>
