@@ -4,4 +4,12 @@ Disallow: /admin/
 Disallow: /antigravity-engine/
 Disallow: /api/
 
+User-agent: Googlebot
+Allow: /
+Allow: /demos/
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.svg$
+
 Sitemap: https://shaktix-studio.vercel.app/sitemap.xml
+Host: https://shaktix-studio.vercel.app
