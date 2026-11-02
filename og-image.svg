@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="50%" stop-color="#1E1B4B"/>
+      <stop offset="100%" stop-color="#311042"/>
+    </linearGradient>
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4F46E5"/>
+      <stop offset="50%" stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#EC4899"/>
+    </linearGradient>
+    <linearGradient id="badgeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF5722"/>
+      <stop offset="100%" stop-color="#FF8A00"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+
+  <!-- Subtle Ambient Glows -->
+  <circle cx="200" cy="150" r="280" fill="#4F46E5" opacity="0.25" filter="blur(60px)"/>
+  <circle cx="1000" cy="480" r="320" fill="#EC4899" opacity="0.2" filter="blur(70px)"/>
+
+  <!-- Brand Card Container -->
+  <rect x="80" y="70" width="1040" height="490" rx="32" fill="#FFFFFF" fill-opacity="0.05" stroke="#FFFFFF" stroke-opacity="0.15" stroke-width="2"/>
+
+  <!-- Top Badge -->
+  <rect x="140" y="130" width="340" height="44" rx="22" fill="#4F46E5" fill-opacity="0.25" stroke="#818CF8" stroke-width="1.5"/>
+  <circle cx="164" cy="152" r="6" fill="#10B981"/>
+  <text x="182" y="157" fill="#E0E7FF" font-family="'Outfit', sans-serif, system-ui" font-size="16" font-weight="700" letter-spacing="1.5">HIGH-PERFORMANCE WEB STUDIO</text>
+
+  <!-- Main Headline -->
+  <text x="140" y="245" fill="#FFFFFF" font-family="'Outfit', sans-serif, system-ui" font-size="64" font-weight="900" letter-spacing="-1">
+    SHAKTI<tspan fill="#FF5722">X</tspan> WEB STUDIO
+  </text>
+  <text x="140" y="315" fill="#94A3B8" font-family="'Plus Jakarta Sans', sans-serif, system-ui" font-size="28" font-weight="500">
+    High-Converting Business Websites &amp; AI Automation in 48 Hours
+  </text>
+
+  <!-- Feature Pills -->
+  <g transform="translate(140, 360)">
+    <!-- Pill 1: 48H SLA -->
+    <rect x="0" y="0" width="220" height="52" rx="14" fill="#FFFFFF" fill-opacity="0.08" stroke="#FFFFFF" stroke-opacity="0.2"/>
+    <text x="24" y="32" fill="#F8FAFC" font-family="'Plus Jakarta Sans', sans-serif" font-size="17" font-weight="700">⚡ 48-Hour Delivery</text>
+
+    <!-- Pill 2: 99+ Speed -->
+    <rect x="240" y="0" width="230" height="52" rx="14" fill="#FFFFFF" fill-opacity="0.08" stroke="#FFFFFF" stroke-opacity="0.2"/>
+    <text x="264" y="32" fill="#10B981" font-family="'Plus Jakarta Sans', sans-serif" font-size="17" font-weight="700">🚀 99+ Google Speed</text>
+
+    <!-- Pill 3: 1-Year Free Hosting -->
+    <rect x="490" y="0" width="240" height="52" rx="14" fill="#FFFFFF" fill-opacity="0.08" stroke="#FFFFFF" stroke-opacity="0.2"/>
+    <text x="514" y="32" fill="#F8FAFC" font-family="'Plus Jakarta Sans', sans-serif" font-size="17" font-weight="700">🛡️ 1-Year Free Hosting</text>
+  </g>
+
+  <!-- Bottom Details -->
+  <g transform="translate(140, 465)">
+    <text x="0" y="28" fill="#CBD5E1" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="600">
+      Founded by <tspan fill="#FFFFFF" font-weight="800">Shubham Kumar</tspan> | WhatsApp: +91 8298136441
+    </text>
+    <text x="920" y="28" fill="#818CF8" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="800" text-anchor="end">
+      shaktix-studio.vercel.app
+    </text>
+  </g>
+</svg>
