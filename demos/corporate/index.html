@@ -1,189 +1,684 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aura Prime Living & Realty — Demo Template | Built by SHAKTIX</title>
+  <title>Aura Prime Realty &amp; Advisory | Demo by SHAKTIX Web Studio</title>
+  <meta name="description" content="Aura Prime Realty & Consultants luxury corporate real estate demo engineered by SHAKTIX Web Studio. 48-Hour delivery guarantee.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="../../shaktix-ai-widget.css">
-  <style>
-    :root {
-      --primary: #c59b27;
-      --primary-hover: #b0881d;
-      --bg-dark: #0a0c10;
-      --card-bg: #12151d;
-      --border: rgba(255, 255, 255, 0.08);
-      --text: #f8fafc;
-      --muted: #94a3b8;
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cinzel:wght@600;700;800;900&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            heading: ['"Outfit"', 'sans-serif'],
+            luxury: ['"Cinzel"', 'serif'],
+          },
+          colors: {
+            brand: {
+              gold: '#D4AF37',
+              goldLight: '#F3E5AB',
+              navy: '#0A1128',
+              slate: '#1E293B',
+              accent: '#6366F1'
+            }
+          }
+        }
+      }
     }
-    * { margin:0; padding:0; box-sizing:border-box; font-family:'Plus Jakarta Sans',sans-serif; }
-    body { background:var(--bg-dark); color:var(--text); line-height:1.6; }
-    .demo-bar { background:#000; color:#fff; padding:8px 20px; font-size:13px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; border-bottom:1px solid #1f2430; }
-    .demo-bar a { color:#c59b27; text-decoration:none; font-weight:700; }
-    .container { max-width:1150px; margin:0 auto; padding:0 20px; }
-    
-    .nav { background:rgba(10, 12, 16, 0.95); padding:18px 0; border-bottom:1px solid var(--border); position:sticky; top:0; z-index:50; backdrop-filter:blur(10px); }
-    .nav-flex { display:flex; justify-content:space-between; align-items:center; }
-    .logo { font-size:24px; font-weight:800; color:#fff; text-decoration:none; font-family:'Playfair Display',serif; letter-spacing:1px; }
-    .logo span { color:var(--primary); }
-    .btn { display:inline-flex; align-items:center; gap:8px; padding:10px 22px; border-radius:6px; font-weight:600; text-decoration:none; font-size:14px; transition:0.3s; cursor:pointer; border:none; }
-    .btn-gold { background:var(--primary); color:#000; font-weight:700; }
-    .btn-gold:hover { background:var(--primary-hover); }
-    .btn-outline { background:transparent; border:1px solid var(--border); color:#fff; }
-    .btn-outline:hover { background:rgba(255,255,255,0.05); }
-
-    /* Hero */
-    .hero { padding:90px 0; background:linear-gradient(180deg, rgba(197,155,39,0.08) 0%, transparent 100%); text-align:center; }
-    .hero-badge { display:inline-block; font-size:12px; letter-spacing:2px; color:var(--primary); border:1px solid rgba(197,155,39,0.3); padding:4px 14px; border-radius:30px; margin-bottom:18px; text-transform:uppercase; }
-    .hero h1 { font-size:52px; font-weight:700; font-family:'Playfair Display',serif; margin-bottom:18px; line-height:1.2; }
-    .hero p { font-size:17px; color:var(--muted); max-width:680px; margin:0 auto 30px; }
-
-    /* Showcase */
-    .section { padding:70px 0; }
-    .section-title { text-align:center; font-size:36px; font-family:'Playfair Display',serif; margin-bottom:12px; }
-    .section-sub { text-align:center; color:var(--muted); margin-bottom:45px; }
-    .grid-3 { display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:26px; }
-
-    .property-card { background:var(--card-bg); border:1px solid var(--border); border-radius:12px; overflow:hidden; transition:0.3s; }
-    .property-card:hover { transform:translateY(-6px); border-color:rgba(197,155,39,0.4); }
-    .property-img { height:200px; background:linear-gradient(135deg, #1e2638, #101522); display:flex; align-items:center; justify-content:center; color:var(--primary); font-size:42px; position:relative; }
-    .prop-status { position:absolute; top:12px; right:12px; background:#000; color:var(--primary); font-size:11px; font-weight:800; padding:4px 10px; border-radius:4px; border:1px solid rgba(197,155,39,0.3); }
-    .property-body { padding:24px; }
-    .property-body h3 { font-size:20px; font-weight:700; font-family:'Playfair Display',serif; margin-bottom:6px; }
-    .prop-loc { font-size:13px; color:var(--muted); margin-bottom:14px; }
-    .prop-specs { display:flex; justify-content:space-between; border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:10px 0; margin-bottom:18px; font-size:13px; color:var(--muted); }
-    .prop-specs span { display:flex; align-items:center; gap:6px; }
-    .prop-price { font-size:22px; font-weight:800; color:var(--primary); }
-    .prop-footer { display:flex; justify-content:space-between; align-items:center; }
-
-    /* Form */
-    .inquiry-box { background:linear-gradient(135deg, #141824 0%, #0d1017 100%); border:1px solid rgba(197,155,39,0.25); border-radius:14px; padding:40px; margin-top:50px; text-align:center; }
-    .inquiry-box h3 { font-size:28px; font-family:'Playfair Display',serif; margin-bottom:10px; }
-    .inquiry-box p { color:var(--muted); margin-bottom:24px; }
-    .inquiry-form { display:flex; gap:12px; max-width:600px; margin:0 auto; flex-wrap:wrap; }
-    .inquiry-form input { flex:1; min-width:220px; padding:12px 16px; background:#07090d; border:1px solid var(--border); border-radius:6px; color:#fff; outline:none; }
-    .inquiry-form input:focus { border-color:var(--primary); }
-
-    footer { background:#05070a; border-top:1px solid var(--border); padding:40px 0; text-align:center; font-size:14px; color:var(--muted); }
-    footer a { color:var(--primary); text-decoration:none; }
+  </script>
+  <style>
+    .gold-gradient {
+      background: linear-gradient(135deg, #DFBA54 0%, #C49726 50%, #E8D08D 100%);
+    }
+    .text-gold {
+      background: linear-gradient(135deg, #E5C365 0%, #C8992B 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
   </style>
 </head>
-<body>
-  <div class="demo-bar">
-    <span>🏛️ <strong>SHAKTIX Demo Template</strong> — Designed for Real Estate, Builders & Corporate Firms</span>
-    <a href="../../index.html">← Back to SHAKTIX Agency</a>
-  </div>
+<body class="bg-[#0B0F19] text-slate-200 antialiased selection:bg-[#D4AF37] selection:text-black">
 
-  <nav class="nav">
-    <div class="container nav-flex">
-      <a href="#" class="logo">AURA <span>PRIME</span></a>
-      <a href="https://wa.me/918298136441?text=Hello%20Aura%20Prime,%20I%20want%20to%20inquire%20about%20properties." target="_blank" class="btn btn-gold">
-        <i class="fa-brands fa-whatsapp"></i> Speak With Property Advisor
+  <!-- SHAKTIX Live Demo Top Ribbon -->
+  <div class="bg-gradient-to-r from-amber-600 via-amber-500 to-amber-700 text-white text-xs py-2 px-4 flex flex-wrap items-center justify-between font-semibold shadow-lg">
+    <div class="flex items-center gap-2">
+      <span class="inline-block w-2.5 h-2.5 rounded-full bg-white animate-pulse"></span>
+      <span>Live Client Corporate Prototype by <strong>SHAKTIX Web Studio</strong></span>
+    </div>
+    <div class="flex items-center gap-3">
+      <span class="hidden sm:inline text-amber-100">Need a high-ticket corporate or realty portal?</span>
+      <a href="https://shaktix-studio.vercel.app/#contact" class="bg-slate-900 text-amber-300 hover:bg-black px-3.5 py-1 rounded-full text-xs font-bold transition shadow-sm border border-amber-400/30">
+        Deliver in 48 Hours →
       </a>
     </div>
-  </nav>
+  </div>
 
-  <section class="hero">
-    <div class="container">
-      <span class="hero-badge">Curated Ultra-Luxury Residences</span>
-      <h1>Architecting Spaces Where Legacies Flourish</h1>
-      <p>Explore exclusive high-rise penthouses, gated golf villa communities, and prime commercial investments in prime metropolitan hubs.</p>
-      <div style="display:flex; justify-content:center; gap:16px;">
-        <a href="#projects" class="btn btn-gold">Explore Active Listings</a>
-        <a href="#brochure" class="btn btn-outline"><i class="fa-solid fa-download"></i> Download Master Brochure</a>
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-[#0B0F19]/90 backdrop-blur-md border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-amber-200 flex items-center justify-center text-slate-950 font-luxury font-black text-xl shadow-lg shadow-amber-500/20">
+          A
+        </div>
+        <div>
+          <span class="text-xl font-luxury font-bold tracking-wider text-white">AURA PRIME</span>
+          <span class="block text-[10px] font-bold tracking-[0.25em] text-amber-400 uppercase">Realty &amp; Advisory</span>
+        </div>
+      </div>
+
+      <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-300">
+        <a href="#properties" class="hover:text-amber-400 transition">Developments</a>
+        <a href="#calculator" class="hover:text-amber-400 transition">EMI Calculator</a>
+        <a href="#services" class="hover:text-amber-400 transition">Corporate Advisory</a>
+        <a href="#insights" class="hover:text-amber-400 transition">Market Insights</a>
+        <a href="#contact" class="hover:text-amber-400 transition">VIP Lounge</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="tel:+918825208568" class="hidden sm:flex items-center gap-2 text-xs font-bold text-slate-300 bg-slate-800/80 hover:bg-slate-800 px-3.5 py-2.5 rounded-xl border border-slate-700 transition">
+          <i class="fa-solid fa-phone text-amber-400"></i>
+          <span>+91 8825208568</span>
+        </a>
+        <a href="#contact" class="gold-gradient text-slate-950 text-xs sm:text-sm font-bold px-4 sm:px-5 py-2.5 rounded-xl transition hover:opacity-95 shadow-md shadow-amber-500/20 flex items-center gap-2">
+          <i class="fa-solid fa-calendar-check"></i>
+          <span>Schedule Site Visit</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative pt-16 pb-24 px-4 sm:px-6 overflow-hidden">
+    <!-- Atmospheric glows -->
+    <div class="absolute -top-32 -left-32 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-1/2 -right-32 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-7 space-y-6">
+        <div class="inline-flex items-center gap-2 bg-slate-800/80 border border-amber-500/30 text-amber-300 text-xs font-semibold px-4 py-1.5 rounded-full">
+          <i class="fa-solid fa-award text-amber-400"></i>
+          <span>Premium Tier-1 Real Estate Portfolio &bull; 2026 Edition</span>
+        </div>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-luxury font-extrabold text-white leading-[1.18] tracking-tight">
+          Architectural Mastery. <br>
+          <span class="text-gold">Exceptional Living.</span>
+        </h1>
+        <p class="text-slate-400 text-base sm:text-lg leading-relaxed max-w-xl">
+          Curated luxury penthouses, waterfront villas, and prime Grade-A commercial spaces engineered for discerning homeowners and visionary institutional investors.
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-wrap items-center gap-4 pt-2">
+          <a href="#properties" class="gold-gradient text-slate-950 font-bold px-6 py-3.5 rounded-xl shadow-lg shadow-amber-500/20 hover:scale-[1.02] active:scale-[0.98] transition flex items-center gap-2">
+            <span>Explore Properties</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="#calculator" class="bg-slate-800/80 hover:bg-slate-800 text-white border border-slate-700 font-semibold px-6 py-3.5 rounded-xl transition flex items-center gap-2">
+            <i class="fa-solid fa-calculator text-amber-400"></i>
+            <span>Investment EMI Calculator</span>
+          </a>
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="pt-6 border-t border-slate-800 grid grid-cols-3 gap-4">
+          <div>
+            <div class="text-2xl sm:text-3xl font-heading font-black text-white">₹450 Cr+</div>
+            <div class="text-xs text-slate-400 mt-0.5">Asset Value Delivered</div>
+          </div>
+          <div>
+            <div class="text-2xl sm:text-3xl font-heading font-black text-amber-400">120+</div>
+            <div class="text-xs text-slate-400 mt-0.5">Prime Developments</div>
+          </div>
+          <div>
+            <div class="text-2xl sm:text-3xl font-heading font-black text-emerald-400">99.4%</div>
+            <div class="text-xs text-slate-400 mt-0.5">Investor Retention</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual Card -->
+      <div class="lg:col-span-5 relative">
+        <div class="relative rounded-3xl overflow-hidden border border-slate-700/80 shadow-2xl shadow-black/80 group">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80" alt="The Grand Belvedere Penthouse" class="w-full h-[460px] object-cover group-hover:scale-105 transition duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+          
+          <!-- Floating Feature Badge -->
+          <div class="absolute top-4 left-4 bg-slate-900/90 backdrop-blur-md border border-amber-500/40 px-3.5 py-1.5 rounded-full text-xs font-bold text-amber-300 flex items-center gap-2">
+            <i class="fa-solid fa-star text-amber-400"></i>
+            <span>Featured Penthouse of the Month</span>
+          </div>
+
+          <!-- Bottom Card Info -->
+          <div class="absolute bottom-5 left-5 right-5 bg-slate-900/90 backdrop-blur-md p-5 rounded-2xl border border-slate-700">
+            <div class="flex items-center justify-between">
+              <div>
+                <h3 class="text-lg font-bold text-white">The Grand Belvedere</h3>
+                <p class="text-xs text-slate-400 flex items-center gap-1.5 mt-0.5">
+                  <i class="fa-solid fa-location-dot text-amber-400"></i>
+                  <span>Golf Course Ext. Road, Sector 65</span>
+                </p>
+              </div>
+              <div class="text-right">
+                <span class="text-xs text-amber-400 uppercase tracking-widest font-semibold block">Starting at</span>
+                <span class="text-lg font-heading font-extrabold text-white">₹6.85 Cr</span>
+              </div>
+            </div>
+            <div class="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-slate-800 text-center text-xs text-slate-300">
+              <div><span class="font-bold text-white block">4 BHK</span> 4,200 sq.ft</div>
+              <div><span class="font-bold text-white block">Private</span> Sky Terrace</div>
+              <div><span class="font-bold text-white block">Possession</span> Ready 2026</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="projects">
-    <div class="container">
-      <h2 class="section-title">Featured Luxury Developments</h2>
-      <p class="section-sub">Handcrafted architecture designed for modern discernment.</p>
-
-      <div class="grid-3">
-        <div class="property-card">
-          <div class="property-img">
-            <i class="fa-solid fa-building"></i>
-            <span class="prop-status">READY TO MOVE</span>
-          </div>
-          <div class="property-body">
-            <h3>The Grand Solitaire Towers</h3>
-            <p class="prop-loc"><i class="fa-solid fa-location-dot"></i> Golf Course Extension Road, Sector 65</p>
-            <div class="prop-specs">
-              <span><i class="fa-solid fa-bed"></i> 4 BHK Penthouse</span>
-              <span><i class="fa-solid fa-ruler-combined"></i> 3,850 Sq.Ft</span>
-              <span><i class="fa-solid fa-shield"></i> 3-Tier Security</span>
-            </div>
-            <div class="prop-footer">
-              <div class="prop-price">₹4.25 Cr*</div>
-              <a href="https://wa.me/918298136441?text=Inquiring%20about%20Grand%20Solitaire%20Towers" target="_blank" class="btn btn-gold" style="padding:8px 14px; font-size:12px;">Inquire</a>
-            </div>
-          </div>
+  <!-- Filterable Property Showcase -->
+  <section class="py-20 px-4 sm:px-6 bg-slate-900/50 border-y border-slate-800/80" id="properties">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div>
+          <span class="text-xs font-bold tracking-[0.2em] text-amber-400 uppercase">EXCLUSIVE PORTFOLIO</span>
+          <h2 class="text-3xl sm:text-4xl font-luxury font-bold text-white mt-1">Prime Architectural Developments</h2>
+          <p class="text-slate-400 text-sm sm:text-base mt-2 max-w-xl">Carefully inspected, 100% clear titles, RERA verified projects with guaranteed milestone delivery.</p>
         </div>
-
-        <div class="property-card">
-          <div class="property-img">
-            <i class="fa-solid fa-tree-city"></i>
-            <span class="prop-status">UNDER CONSTRUCTION</span>
-          </div>
-          <div class="property-body">
-            <h3>Emerald Meadow Estate</h3>
-            <p class="prop-loc"><i class="fa-solid fa-location-dot"></i> Express Highway, Green Belt Enclave</p>
-            <div class="prop-specs">
-              <span><i class="fa-solid fa-house"></i> 5 BHK Luxury Villa</span>
-              <span><i class="fa-solid fa-ruler-combined"></i> 5,200 Sq.Ft</span>
-              <span><i class="fa-solid fa-water-ladder"></i> Private Pool</span>
-            </div>
-            <div class="prop-footer">
-              <div class="prop-price">₹6.80 Cr*</div>
-              <a href="https://wa.me/918298136441?text=Inquiring%20about%20Emerald%20Meadow%20Estate" target="_blank" class="btn btn-gold" style="padding:8px 14px; font-size:12px;">Inquire</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="property-card">
-          <div class="property-img">
-            <i class="fa-solid fa-city"></i>
-            <span class="prop-status">NEW LAUNCH</span>
-          </div>
-          <div class="property-body">
-            <h3>Aura Signature Suites</h3>
-            <p class="prop-loc"><i class="fa-solid fa-location-dot"></i> Central Business District (CBD)</p>
-            <div class="prop-specs">
-              <span><i class="fa-solid fa-briefcase"></i> Grade-A Office</span>
-              <span><i class="fa-solid fa-ruler-combined"></i> 1,600 Sq.Ft</span>
-              <span><i class="fa-solid fa-chart-line"></i> 8.5% ROI</span>
-            </div>
-            <div class="prop-footer">
-              <div class="prop-price">₹2.10 Cr*</div>
-              <a href="https://wa.me/918298136441?text=Inquiring%20about%20Aura%20Signature%20Suites" target="_blank" class="btn btn-gold" style="padding:8px 14px; font-size:12px;">Inquire</a>
-            </div>
-          </div>
+        
+        <!-- Filter Tabs -->
+        <div class="flex flex-wrap gap-2 bg-slate-900 p-1.5 rounded-2xl border border-slate-800" id="propertyFilters">
+          <button class="prop-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition bg-amber-400 text-slate-950" data-category="all">All Properties</button>
+          <button class="prop-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition text-slate-400 hover:text-white" data-category="villa">Villas</button>
+          <button class="prop-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition text-slate-400 hover:text-white" data-category="penthouse">Penthouses</button>
+          <button class="prop-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition text-slate-400 hover:text-white" data-category="commercial">Commercial</button>
         </div>
       </div>
 
-      <div class="inquiry-box" id="brochure">
-        <h3>Request Project Floor Plans & Pricing Sheet</h3>
-        <p>Receive complete architectural blueprints, legal approvals and cost sheets directly on WhatsApp.</p>
-        <form class="inquiry-form" onsubmit="event.preventDefault(); alert('Brochure request received! Live website forwards this lead directly to the sales director.');">
-          <input type="text" placeholder="Your Name" required>
-          <input type="tel" placeholder="WhatsApp Number" required>
-          <button type="submit" class="btn btn-gold"><i class="fa-solid fa-file-pdf"></i> Download Brochure</button>
-        </form>
+      <!-- Properties Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="propertyGrid">
+        
+        <!-- Property 1 -->
+        <div class="property-card bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 hover:border-amber-500/40 transition duration-300 flex flex-col group" data-category="villa">
+          <div class="relative h-64 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=80" alt="Villa Serenia" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <span class="absolute top-4 left-4 bg-emerald-500/90 text-slate-950 text-[11px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Ready to Move</span>
+            <span class="absolute top-4 right-4 bg-slate-900/80 backdrop-blur-md text-amber-300 text-xs font-bold px-3 py-1 rounded-full border border-slate-700">RERA Approved</span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-baseline justify-between mb-2">
+                <span class="text-xs font-semibold text-amber-400 uppercase tracking-wider">Ultra Luxury Villa</span>
+                <span class="text-2xl font-heading font-extrabold text-white">₹8.50 Cr</span>
+              </div>
+              <h3 class="text-xl font-bold text-white">Villa Serenia Estate</h3>
+              <p class="text-slate-400 text-xs mt-1 flex items-center gap-1.5">
+                <i class="fa-solid fa-location-dot text-slate-500"></i>
+                <span>Southern Peripheral Road, Sector 70</span>
+              </p>
+              
+              <div class="grid grid-cols-3 gap-2 py-4 my-4 border-y border-slate-800 text-center text-xs text-slate-300">
+                <div><i class="fa-solid fa-bed text-amber-400 block mb-1"></i> 5 BHK</div>
+                <div><i class="fa-solid fa-ruler-combined text-amber-400 block mb-1"></i> 6,800 sq.ft</div>
+                <div><i class="fa-solid fa-water-ladder text-amber-400 block mb-1"></i> Private Pool</div>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3 pt-2">
+              <button onclick="openBrochureModal('Villa Serenia Estate', '₹8.50 Cr')" class="flex-1 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold py-2.5 rounded-xl border border-slate-700 transition flex items-center justify-center gap-2">
+                <i class="fa-solid fa-file-pdf text-amber-400"></i>
+                <span>Brochure</span>
+              </button>
+              <button onclick="scheduleVisit('Villa Serenia Estate')" class="flex-1 gold-gradient text-slate-950 text-xs font-bold py-2.5 rounded-xl hover:opacity-95 transition flex items-center justify-center gap-2">
+                <i class="fa-brands fa-whatsapp text-sm"></i>
+                <span>Book Visit</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Property 2 -->
+        <div class="property-card bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 hover:border-amber-500/40 transition duration-300 flex flex-col group" data-category="penthouse">
+          <div class="relative h-64 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80" alt="The Horizon Sky Penthouse" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <span class="absolute top-4 left-4 bg-amber-500 text-slate-950 text-[11px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">New Launch</span>
+            <span class="absolute top-4 right-4 bg-slate-900/80 backdrop-blur-md text-amber-300 text-xs font-bold px-3 py-1 rounded-full border border-slate-700">Golf Facing</span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-baseline justify-between mb-2">
+                <span class="text-xs font-semibold text-amber-400 uppercase tracking-wider">Duplex Sky Penthouse</span>
+                <span class="text-2xl font-heading font-extrabold text-white">₹5.20 Cr</span>
+              </div>
+              <h3 class="text-xl font-bold text-white">The Horizon Sky Suites</h3>
+              <p class="text-slate-400 text-xs mt-1 flex items-center gap-1.5">
+                <i class="fa-solid fa-location-dot text-slate-500"></i>
+                <span>Cyber City Corridor, Sector 42</span>
+              </p>
+              
+              <div class="grid grid-cols-3 gap-2 py-4 my-4 border-y border-slate-800 text-center text-xs text-slate-300">
+                <div><i class="fa-solid fa-bed text-amber-400 block mb-1"></i> 4 BHK Duplex</div>
+                <div><i class="fa-solid fa-ruler-combined text-amber-400 block mb-1"></i> 4,500 sq.ft</div>
+                <div><i class="fa-solid fa-elevator text-amber-400 block mb-1"></i> Private Lift</div>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3 pt-2">
+              <button onclick="openBrochureModal('The Horizon Sky Suites', '₹5.20 Cr')" class="flex-1 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold py-2.5 rounded-xl border border-slate-700 transition flex items-center justify-center gap-2">
+                <i class="fa-solid fa-file-pdf text-amber-400"></i>
+                <span>Brochure</span>
+              </button>
+              <button onclick="scheduleVisit('The Horizon Sky Suites')" class="flex-1 gold-gradient text-slate-950 text-xs font-bold py-2.5 rounded-xl hover:opacity-95 transition flex items-center justify-center gap-2">
+                <i class="fa-brands fa-whatsapp text-sm"></i>
+                <span>Book Visit</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Property 3 -->
+        <div class="property-card bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 hover:border-amber-500/40 transition duration-300 flex flex-col group" data-category="commercial">
+          <div class="relative h-64 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="Aura Apex Commercial Tower" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <span class="absolute top-4 left-4 bg-indigo-500 text-white text-[11px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Grade-A Commercial</span>
+            <span class="absolute top-4 right-4 bg-slate-900/80 backdrop-blur-md text-emerald-400 text-xs font-bold px-3 py-1 rounded-full border border-slate-700">9% Pre-Leased ROI</span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-baseline justify-between mb-2">
+                <span class="text-xs font-semibold text-indigo-400 uppercase tracking-wider">Corporate Hub Office</span>
+                <span class="text-2xl font-heading font-extrabold text-white">₹3.10 Cr</span>
+              </div>
+              <h3 class="text-xl font-bold text-white">Aura Apex Corporate Tower</h3>
+              <p class="text-slate-400 text-xs mt-1 flex items-center gap-1.5">
+                <i class="fa-solid fa-location-dot text-slate-500"></i>
+                <span>Institutional Tech Zone, Sector 58</span>
+              </p>
+              
+              <div class="grid grid-cols-3 gap-2 py-4 my-4 border-y border-slate-800 text-center text-xs text-slate-300">
+                <div><i class="fa-solid fa-briefcase text-amber-400 block mb-1"></i> Furnished</div>
+                <div><i class="fa-solid fa-ruler-combined text-amber-400 block mb-1"></i> 2,800 sq.ft</div>
+                <div><i class="fa-solid fa-chart-line text-emerald-400 block mb-1"></i> High Rental</div>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3 pt-2">
+              <button onclick="openBrochureModal('Aura Apex Corporate Tower', '₹3.10 Cr')" class="flex-1 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold py-2.5 rounded-xl border border-slate-700 transition flex items-center justify-center gap-2">
+                <i class="fa-solid fa-file-pdf text-amber-400"></i>
+                <span>Brochure</span>
+              </button>
+              <button onclick="scheduleVisit('Aura Apex Corporate Tower')" class="flex-1 gold-gradient text-slate-950 text-xs font-bold py-2.5 rounded-xl hover:opacity-95 transition flex items-center justify-center gap-2">
+                <i class="fa-brands fa-whatsapp text-sm"></i>
+                <span>Book Visit</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <footer>
-    <div class="container">
-      <p>Aura Prime Living Demo Template • Precision Engineered by <a href="../../index.html"><strong>SHAKTIX Web Studio</strong></a></p>
-      <p style="margin-top:6px; font-size:12px;">Equip your real estate agency or firm with an authority-building digital portal.</p>
+  <!-- Interactive Real Estate EMI & Investment Calculator -->
+  <section class="py-20 px-4 sm:px-6 bg-[#0B0F19]" id="calculator">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12">
+        <span class="text-xs font-bold tracking-[0.2em] text-amber-400 uppercase">SMART FINANCIAL TOOLS</span>
+        <h2 class="text-3xl sm:text-4xl font-luxury font-bold text-white mt-1">Real Estate Investment &amp; EMI Calculator</h2>
+        <p class="text-slate-400 text-sm sm:text-base mt-2">Plan your home loan and calculate exact monthly outflow with real-time banking amortisation.</p>
+      </div>
+
+      <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          
+          <!-- Slider Controls -->
+          <div class="lg:col-span-7 space-y-6">
+            <!-- Loan Amount Slider -->
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <label class="text-sm font-semibold text-slate-300">Property Loan Amount</label>
+                <span class="text-lg font-heading font-extrabold text-amber-400" id="loanAmountDisplay">₹1.50 Crore</span>
+              </div>
+              <input type="range" id="loanAmount" min="2000000" max="100000000" step="500000" value="15000000" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-amber-400">
+              <div class="flex justify-between text-[11px] text-slate-500 mt-1">
+                <span>₹20 Lakhs</span>
+                <span>₹5 Crores</span>
+                <span>₹10 Crores</span>
+              </div>
+            </div>
+
+            <!-- Tenure Slider -->
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <label class="text-sm font-semibold text-slate-300">Loan Tenure</label>
+                <span class="text-lg font-heading font-extrabold text-amber-400" id="tenureDisplay">20 Years</span>
+              </div>
+              <input type="range" id="tenure" min="5" max="30" step="1" value="20" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-amber-400">
+              <div class="flex justify-between text-[11px] text-slate-500 mt-1">
+                <span>5 Yrs</span>
+                <span>15 Yrs</span>
+                <span>30 Yrs</span>
+              </div>
+            </div>
+
+            <!-- Interest Rate Slider -->
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <label class="text-sm font-semibold text-slate-300">Interest Rate (p.a.)</label>
+                <span class="text-lg font-heading font-extrabold text-amber-400" id="rateDisplay">8.5%</span>
+              </div>
+              <input type="range" id="interestRate" min="7.0" max="13.0" step="0.1" value="8.5" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-amber-400">
+              <div class="flex justify-between text-[11px] text-slate-500 mt-1">
+                <span>7.0% (Prime)</span>
+                <span>9.5%</span>
+                <span>13.0%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Calculated Results Card -->
+          <div class="lg:col-span-5 bg-slate-950/80 border border-slate-800 p-6 sm:p-8 rounded-2xl flex flex-col justify-between text-center relative overflow-hidden">
+            <div class="absolute -top-16 -right-16 w-32 h-32 bg-amber-500/10 rounded-full blur-2xl pointer-events-none"></div>
+            
+            <div>
+              <span class="text-xs font-bold text-slate-400 uppercase tracking-widest block mb-1">Estimated Monthly EMI</span>
+              <div class="text-3xl sm:text-4xl font-heading font-black text-amber-400" id="monthlyEmiDisplay">₹1,30,172</div>
+              <span class="text-[11px] text-slate-500 block mt-1">Principal + Interest per month</span>
+            </div>
+
+            <div class="my-6 py-5 border-y border-slate-800/80 space-y-3 text-left text-xs">
+              <div class="flex justify-between text-slate-400">
+                <span>Principal Amount:</span>
+                <span class="font-bold text-white" id="principalDisplay">₹1,50,00,000</span>
+              </div>
+              <div class="flex justify-between text-slate-400">
+                <span>Total Interest Payable:</span>
+                <span class="font-bold text-amber-300" id="totalInterestDisplay">₹1,62,41,280</span>
+              </div>
+              <div class="flex justify-between text-slate-400 pt-2 border-t border-slate-800">
+                <span>Total Payment:</span>
+                <span class="font-bold text-white" id="totalAmountDisplay">₹3,12,41,280</span>
+              </div>
+            </div>
+
+            <button onclick="enquireLoanConsultation()" class="w-full gold-gradient text-slate-950 text-xs sm:text-sm font-bold py-3 rounded-xl transition hover:opacity-95 flex items-center justify-center gap-2 shadow-lg shadow-amber-500/20">
+              <i class="fa-brands fa-whatsapp text-base"></i>
+              <span>Get Bank Pre-Approval Consultation</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Corporate Advisory Services -->
+  <section class="py-20 px-4 sm:px-6 bg-slate-900/30" id="services">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-14">
+        <span class="text-xs font-bold tracking-[0.2em] text-amber-400 uppercase">INSTITUTIONAL EXPERTISE</span>
+        <h2 class="text-3xl sm:text-4xl font-luxury font-bold text-white mt-1">End-to-End Real Estate Advisory</h2>
+        <p class="text-slate-400 text-sm sm:text-base mt-2 max-w-xl mx-auto">From strategic asset allocation to legal due diligence, our corporate advisory desk serves family offices and private equity.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 hover:border-slate-700 transition">
+          <div class="w-12 h-12 rounded-xl bg-amber-400/10 border border-amber-500/20 text-amber-400 flex items-center justify-center text-xl mb-4">
+            <i class="fa-solid fa-scale-balanced"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Legal Due Diligence</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">Comprehensive 30-year title deed search, registry verifications, and compliance audits by senior legal counsels.</p>
+        </div>
+
+        <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 hover:border-slate-700 transition">
+          <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 flex items-center justify-center text-xl mb-4">
+            <i class="fa-solid fa-chart-pie"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Portfolio Management</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">Active yield optimization, rental lease management, and timed capital appreciation exits for high-net-worth investors.</p>
+        </div>
+
+        <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 hover:border-slate-700 transition">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center text-xl mb-4">
+            <i class="fa-solid fa-plane-departure"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">NRI Investment Desk</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">Specialized FEMA-compliant banking guidance, digital power of attorney, and virtual 4K walkthroughs for overseas buyers.</p>
+        </div>
+
+        <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 hover:border-slate-700 transition">
+          <div class="w-12 h-12 rounded-xl bg-amber-400/10 border border-amber-500/20 text-amber-400 flex items-center justify-center text-xl mb-4">
+            <i class="fa-solid fa-building-wheat"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Commercial Pre-Leasing</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">Grade-A retail spaces and IT office floor plates pre-committed to Fortune 500 tenants offering steady 8-10% rental yields.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIP Site Visit Scheduling Section -->
+  <section class="py-20 px-4 sm:px-6 bg-[#0B0F19] border-t border-slate-800" id="contact">
+    <div class="max-w-4xl mx-auto bg-gradient-to-b from-slate-900 to-slate-950 p-8 sm:p-12 rounded-3xl border border-amber-500/30 shadow-2xl relative overflow-hidden">
+      <div class="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="text-center mb-8">
+        <span class="text-xs font-bold tracking-[0.2em] text-amber-400 uppercase">EXCLUSIVE CONCIERGE</span>
+        <h2 class="text-3xl sm:text-4xl font-luxury font-bold text-white mt-1">Book a Private VIP Site Visit</h2>
+        <p class="text-slate-400 text-sm mt-2">Chauffeured site inspection, architect discussions, and complete project documentation kits.</p>
+      </div>
+
+      <form id="siteVisitForm" onsubmit="handleVisitSubmit(event)" class="space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1.5">Your Full Name</label>
+            <input type="text" id="visitName" required placeholder="e.g. Rajesh Singhania" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-400">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1.5">Contact Phone Number</label>
+            <input type="tel" id="visitPhone" required placeholder="+91 98765 43210" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-400">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1.5">Select Preferred Property</label>
+            <select id="visitProperty" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-400">
+              <option value="Villa Serenia Estate (₹8.50 Cr)">Villa Serenia Estate (₹8.50 Cr)</option>
+              <option value="The Horizon Sky Suites (₹5.20 Cr)">The Horizon Sky Suites (₹5.20 Cr)</option>
+              <option value="Aura Apex Corporate Tower (₹3.10 Cr)">Aura Apex Corporate Tower (₹3.10 Cr)</option>
+              <option value="General Luxury Portfolio Discussion">General Luxury Portfolio Discussion</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1.5">Preferred Date of Visit</label>
+            <input type="date" id="visitDate" required class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-400">
+          </div>
+        </div>
+
+        <button type="submit" class="w-full gold-gradient text-slate-950 text-base font-bold py-3.5 rounded-xl hover:opacity-95 transition shadow-lg shadow-amber-500/25 flex items-center justify-center gap-2 mt-2">
+          <i class="fa-brands fa-whatsapp text-lg"></i>
+          <span>Confirm Private Visit via WhatsApp Concierge</span>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black py-12 px-4 sm:px-6 border-t border-slate-900 text-slate-500 text-xs">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <div class="w-7 h-7 rounded-lg bg-gradient-to-tr from-amber-500 to-amber-200 flex items-center justify-center text-slate-950 font-luxury font-black text-xs">
+          A
+        </div>
+        <span class="text-white font-luxury font-bold tracking-wider">AURA PRIME REALTY</span>
+      </div>
+
+      <div class="text-center sm:text-right">
+        <p class="text-slate-400">Live Client Showcase Prototype engineered by <a href="https://shaktix-studio.vercel.app" class="text-amber-400 hover:underline font-semibold">SHAKTIX Web Studio</a>.</p>
+        <p class="text-[11px] text-slate-600 mt-1">&copy; 2026 SHAKTIX Studio &bull; Founder Shubham Kumar &bull; 48-Hour Rapid Web Delivery</p>
+      </div>
     </div>
   </footer>
-  <script src="../../supabase-connector.js"></script>
-  <script src="../../shaktix-ai-widget.js"></script>
+
+  <!-- Modal: Download Brochure -->
+  <div id="brochureModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 max-w-md w-full relative">
+      <button onclick="closeBrochureModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="text-center mb-6">
+        <div class="w-12 h-12 rounded-full bg-amber-400/10 border border-amber-500/20 text-amber-400 flex items-center justify-center text-xl mx-auto mb-3">
+          <i class="fa-solid fa-file-pdf"></i>
+        </div>
+        <h3 class="text-xl font-bold text-white" id="modalPropTitle">Download Brochure</h3>
+        <p class="text-xs text-slate-400 mt-1">Receive complete floor plans, payment schedules, and high-res master layouts instantly on WhatsApp.</p>
+      </div>
+
+      <div class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Your Mobile / WhatsApp Number</label>
+          <input type="tel" id="brochurePhone" placeholder="+91 98765 43210" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-400">
+        </div>
+        <button onclick="sendBrochureWhatsApp()" class="w-full gold-gradient text-slate-950 text-sm font-bold py-3 rounded-xl hover:opacity-95 transition flex items-center justify-center gap-2">
+          <i class="fa-brands fa-whatsapp text-base"></i>
+          <span>Send PDF Brochure via WhatsApp</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Property Filtering
+    const filterBtns = document.querySelectorAll('.prop-filter-btn');
+    const propCards = document.querySelectorAll('.property-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => {
+          b.classList.remove('bg-amber-400', 'text-slate-950');
+          b.classList.add('text-slate-400');
+        });
+        btn.classList.add('bg-amber-400', 'text-slate-950');
+        btn.classList.remove('text-slate-400');
+
+        const filter = btn.getAttribute('data-category');
+        propCards.forEach(card => {
+          if (filter === 'all' || card.getAttribute('data-category') === filter) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // EMI Calculator Logic
+    const loanAmountInput = document.getElementById('loanAmount');
+    const tenureInput = document.getElementById('tenure');
+    const interestRateInput = document.getElementById('interestRate');
+
+    const loanAmountDisplay = document.getElementById('loanAmountDisplay');
+    const tenureDisplay = document.getElementById('tenureDisplay');
+    const rateDisplay = document.getElementById('rateDisplay');
+    const monthlyEmiDisplay = document.getElementById('monthlyEmiDisplay');
+    const principalDisplay = document.getElementById('principalDisplay');
+    const totalInterestDisplay = document.getElementById('totalInterestDisplay');
+    const totalAmountDisplay = document.getElementById('totalAmountDisplay');
+
+    function formatINR(number) {
+      return new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(number);
+    }
+
+    function calculateEMI() {
+      const P = parseFloat(loanAmountInput.value);
+      const years = parseInt(tenureInput.value);
+      const N = years * 12;
+      const annualRate = parseFloat(interestRateInput.value);
+      const R = (annualRate / 12) / 100;
+
+      // Update Slider Displays
+      if (P >= 10000000) {
+        loanAmountDisplay.textContent = '₹' + (P / 10000000).toFixed(2) + ' Crore';
+      } else {
+        loanAmountDisplay.textContent = '₹' + (P / 100000).toFixed(0) + ' Lakhs';
+      }
+      tenureDisplay.textContent = years + ' Years';
+      rateDisplay.textContent = annualRate.toFixed(1) + '%';
+
+      // EMI Formula: [P x R x (1+R)^N]/[(1+R)^N-1]
+      const emi = (P * R * Math.pow(1 + R, N)) / (Math.pow(1 + R, N) - 1);
+      const totalPayment = emi * N;
+      const totalInterest = totalPayment - P;
+
+      monthlyEmiDisplay.textContent = formatINR(Math.round(emi));
+      principalDisplay.textContent = formatINR(P);
+      totalInterestDisplay.textContent = formatINR(Math.round(totalInterest));
+      totalAmountDisplay.textContent = formatINR(Math.round(totalPayment));
+    }
+
+    loanAmountInput.addEventListener('input', calculateEMI);
+    tenureInput.addEventListener('input', calculateEMI);
+    interestRateInput.addEventListener('input', calculateEMI);
+    calculateEMI();
+
+    // Modal Handling
+    let activeModalProp = '';
+    function openBrochureModal(title, price) {
+      activeModalProp = `${title} (${price})`;
+      document.getElementById('modalPropTitle').textContent = `Download Brochure: ${title}`;
+      const modal = document.getElementById('brochureModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeBrochureModal() {
+      const modal = document.getElementById('brochureModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function sendBrochureWhatsApp() {
+      const phone = document.getElementById('brochurePhone').value.trim();
+      const msg = encodeURIComponent(`Hello Aura Prime Realty, please send me the complete digital PDF brochure and floor plan for: ${activeModalProp}. My mobile number is: ${phone || 'Self'}.`);
+      window.open(`https://wa.me/918825208568?text=${msg}`, '_blank');
+      closeBrochureModal();
+    }
+
+    function scheduleVisit(propTitle) {
+      document.getElementById('visitProperty').value = `${propTitle} (₹8.50 Cr)`;
+      const msg = encodeURIComponent(`Hello Aura Prime Realty, I want to book a private VIP site visit for ${propTitle}. Please contact me.`);
+      window.open(`https://wa.me/918825208568?text=${msg}`, '_blank');
+    }
+
+    function handleVisitSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('visitName').value;
+      const phone = document.getElementById('visitPhone').value;
+      const prop = document.getElementById('visitProperty').value;
+      const date = document.getElementById('visitDate').value;
+
+      const text = encodeURIComponent(`*VIP Site Visit Booking Request*\nName: ${name}\nPhone: ${phone}\nProperty: ${prop}\nDate: ${date}\nPlatform: Aura Prime Realty Demo`);
+      window.open(`https://wa.me/918825208568?text=${text}`, '_blank');
+    }
+
+    function enquireLoanConsultation() {
+      const P = loanAmountDisplay.textContent;
+      const years = tenureDisplay.textContent;
+      const emi = monthlyEmiDisplay.textContent;
+      const msg = encodeURIComponent(`Hello Aura Prime Realty Financial Desk, I am interested in Home Loan consultation for ${P} over ${years} (Estimated EMI: ${emi}/mo). Please assist me with pre-approval.`);
+      window.open(`https://wa.me/918825208568?text=${msg}`, '_blank');
+    }
+
+    // Set default visit date to tomorrow
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    document.getElementById('visitDate').value = tomorrow.toISOString().split('T')[0];
+  </script>
 </body>
 </html>
