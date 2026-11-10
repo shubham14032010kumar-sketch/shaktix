@@ -1150,6 +1150,39 @@ body {
   z-index: 2;
 }
 
+.video-preview-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 11px;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 5;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+.video-preview-badge:hover {
+  background: #FF5722;
+  border-color: #FF5722;
+  transform: scale(1.05);
+}
+.video-preview-badge i {
+  color: #FF5722;
+  transition: color 0.2s;
+}
+.video-preview-badge:hover i {
+  color: #FFFFFF;
+}
+
 .brand-chip {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(8px);
