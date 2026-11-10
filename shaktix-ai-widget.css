@@ -638,3 +638,141 @@
     border-radius: 16px !important;
   }
 }
+
+/* -------------------------------------------------------------
+   Rich Visual AI Cards (Competitor Benchmark Upgrade)
+   ------------------------------------------------------------- */
+.ai-rich-card {
+  margin-top: 12px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.ai-rich-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(79, 70, 229, 0.12);
+  border-color: #C7D2FE;
+}
+.ai-rich-media {
+  position: relative;
+  width: 100%;
+  height: 125px;
+  overflow: hidden;
+  background: #0F172A;
+}
+.ai-rich-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s;
+}
+.ai-rich-card:hover .ai-rich-media img {
+  transform: scale(1.05);
+}
+.ai-rich-pill {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(4px);
+  color: #38BDF8;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 20px;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.ai-rich-sla {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #10B981;
+  color: #FFFFFF;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 20px;
+}
+.ai-rich-body {
+  padding: 12px 14px;
+}
+.ai-rich-title {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: #0F172A;
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+.ai-rich-points {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-bottom: 10px;
+}
+.ai-rich-point {
+  font-size: 11px;
+  color: #64748B;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.ai-rich-point i {
+  color: #10B981;
+  font-size: 9px;
+}
+.ai-rich-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 8px;
+  border-top: 1px solid #F1F5F9;
+  gap: 8px;
+}
+.ai-rich-price-tag {
+  font-size: 11px;
+  color: #64748B;
+}
+.ai-rich-price-tag strong {
+  font-size: 13.5px;
+  color: #4F46E5;
+  font-weight: 800;
+  display: block;
+}
+.ai-rich-actions {
+  display: flex;
+  gap: 6px;
+}
+.ai-card-btn {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s;
+  cursor: pointer;
+  border: none;
+}
+.ai-card-btn.demo-btn {
+  background: #EEF2FF;
+  color: #4F46E5;
+  border: 1px solid #C7D2FE;
+}
+.ai-card-btn.demo-btn:hover {
+  background: #4F46E5;
+  color: #FFFFFF;
+}
+.ai-card-btn.wa-btn {
+  background: #10B981;
+  color: #FFFFFF;
+}
+.ai-card-btn.wa-btn:hover {
+  background: #059669;
+}
