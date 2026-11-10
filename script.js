@@ -181,6 +181,115 @@ document.addEventListener('DOMContentLoaded', () => {
         window.open(`https://wa.me/${CEO_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
         showToast('Connecting with our team on WhatsApp... 🚀');
       };
+
+      const pdfBtn = document.getElementById('download-calc-pdf');
+      if (pdfBtn) {
+        pdfBtn.onclick = (e) => {
+          e.preventDefault();
+          const clientName = document.getElementById('calc-client-name')?.value.trim() || 'Valued Client';
+          const advance = Math.round(total * 0.5);
+          const balance = total - advance;
+          const dateStr = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+          const refNo = 'STX-Q-' + Math.floor(1000 + Math.random() * 9000);
+          
+          const printWin = window.open('', '_blank', 'width=850,height=950');
+          if (!printWin) {
+            showToast('Please allow popups to download official PDF quote.');
+            return;
+          }
+          printWin.document.write(`
+            <!DOCTYPE html>
+            <html>
+            <head>
+              <title>Official Quotation - ${clientName} | SHAKTIX Web Studio</title>
+              <style>
+                body { font-family: 'Segoe UI', Arial, sans-serif; padding: 40px; color: #0f172a; line-height: 1.5; max-width: 780px; margin: 0 auto; }
+                .header { display: flex; justify-content: space-between; border-bottom: 3px solid #f59e0b; padding-bottom: 20px; margin-bottom: 25px; }
+                .brand { font-size: 28px; font-weight: 900; letter-spacing: 1px; }
+                .brand span { color: #f59e0b; }
+                .meta { text-align: right; font-size: 13px; color: #475569; }
+                .box { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 18px; margin-bottom: 25px; }
+                table { width: 100%; border-collapse: collapse; margin-bottom: 25px; }
+                th { background: #0f172a; color: #fff; text-align: left; padding: 12px; font-size: 13px; }
+                td { padding: 12px; border-bottom: 1px solid #e2e8f0; font-size: 14px; }
+                .totals { width: 300px; margin-left: auto; background: #fffbeb; border: 1px solid #fde68a; padding: 16px; border-radius: 10px; }
+                .row { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px; }
+                .grand { font-size: 18px; font-weight: 800; color: #b45309; border-top: 1px solid #fcd34d; padding-top: 8px; margin-top: 8px; }
+                .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #cbd5e1; font-size: 12px; color: #64748b; display: flex; justify-content: space-between; }
+                @media print { body { padding: 10px; } }
+              </style>
+            </head>
+            <body>
+              <div class="header">
+                <div>
+                  <div class="brand">SHAKTI<span>X</span> STUDIO</div>
+                  <div style="font-size:12px; color:#64748b;">High-Performance Web Architecture &amp; AI Automation</div>
+                  <div style="font-size:12px; color:#64748b;">Founder: Shubham Kumar | +91 8825208568</div>
+                </div>
+                <div class="meta">
+                  <div style="font-weight:800; color:#f59e0b; font-size:16px;">OFFICIAL QUOTATION</div>
+                  <div>Quote ID: <strong>${refNo}</strong></div>
+                  <div>Date: <strong>${dateStr}</strong></div>
+                  <div>Validity: <strong>7 Days</strong></div>
+                </div>
+              </div>
+              <div class="box">
+                <div style="font-size:11px; color:#64748b; text-transform:uppercase; font-weight:700;">Prepared Exclusively For:</div>
+                <div style="font-size:18px; font-weight:800; margin-top:4px;">${clientName}</div>
+                <div style="font-size:13px; color:#334155; margin-top:4px;">Estimated Delivery: <strong>48 to 72 Hours Guaranteed SLA</strong></div>
+              </div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Scope of Work / Package</th>
+                    <th style="text-align:right;">Investment</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <strong>${selectedTypeName} Package</strong><br>
+                      <span style="font-size:12px; color:#475569;">100% Mobile Responsive Design, 1-Yr Free Cloud NVMe Hosting, SSL &amp; Support</span>
+                    </td>
+                    <td style="text-align:right; font-weight:700;">₹${baseCost.toLocaleString('en-IN')}</td>
+                  </tr>
+                  ${selectedFeatures.length > 0 ? `
+                  <tr>
+                    <td>
+                      <strong>Power Features &amp; Add-ons Selected:</strong><br>
+                      <span style="font-size:12px; color:#475569;">${selectedFeatures.join(' • ')}</span>
+                    </td>
+                    <td style="text-align:right; font-weight:700;">₹${(total - baseCost).toLocaleString('en-IN')}</td>
+                  </tr>` : ''}
+                </tbody>
+              </table>
+              <div class="totals">
+                <div class="row"><span>Package Base:</span><span>₹${baseCost.toLocaleString('en-IN')}</span></div>
+                <div class="row"><span>Add-ons:</span><span>₹${(total - baseCost).toLocaleString('en-IN')}</span></div>
+                <div class="row grand"><span>Total Investment:</span><span>₹${total.toLocaleString('en-IN')}</span></div>
+                <div class="row" style="margin-top:10px; font-weight:700;"><span>50% Advance to Start:</span><span>₹${advance.toLocaleString('en-IN')}</span></div>
+                <div class="row"><span>50% On Final Delivery:</span><span>₹${balance.toLocaleString('en-IN')}</span></div>
+              </div>
+              <div class="footer">
+                <div>
+                  <strong>Instant UPI Payment Option:</strong><br>
+                  UPI ID: shubham14032010kumar-1@okaxis<br>
+                  Portal: https://shaktix-studio.vercel.app
+                </div>
+                <div style="text-align:right;">
+                  <strong>SHUBHAM KUMAR</strong><br>
+                  Founder &amp; Tech Lead<br>
+                  <em>Digitally Verified Quote</em>
+                </div>
+              </div>
+              <script>setTimeout(() => { window.print(); }, 400);</script>
+            </body>
+            </html>
+          `);
+          printWin.document.close();
+          showToast('Official PDF Quote ready to download! 📄');
+        };
+      }
     }
   };
 
