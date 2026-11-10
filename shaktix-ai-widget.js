@@ -256,6 +256,14 @@
           } else {
             window.open('demos/corporate/index.html', '_blank');
           }
+        } else if (action === 'demo-ecommerce') {
+          const trigger = document.querySelector('.preview-trigger[data-demo="ecommerce"]');
+          if (trigger) {
+            chatModal.classList.remove('active');
+            trigger.click();
+          } else {
+            window.open('demos/ecommerce/index.html', '_blank');
+          }
         } else if (action === 'wa-ceo') {
           const waMsg = encodeURIComponent('Namaste Shubham! I was talking with Vikram AI on SHAKTIX website and want to discuss my website project.');
           window.open(`https://wa.me/918298136441?text=${waMsg}`, '_blank');
@@ -315,8 +323,11 @@
     box.appendChild(msgElem);
     box.scrollTop = box.scrollHeight;
 
-    // Stream word-by-word with 18ms interval for fluid Gemini typing
-    const words = rawMarkdown.split(' ');
+    // Clean out [CARD:...] tags for visible text stream
+    const cleanText = rawMarkdown.replace(/\[CARD:[^\]]+\]/g, '').trim();
+
+    // Stream word-by-word with 16ms interval for fluid Gemini typing
+    const words = cleanText.split(' ');
     let currentIdx = 0;
     let accumulated = '';
 
@@ -330,36 +341,153 @@
         clearInterval(streamTimer);
         cursor.remove();
         if (typeof onComplete === 'function') {
-          onComplete(msgElem);
+          onComplete(msgElem, rawMarkdown);
           box.scrollTop = box.scrollHeight;
         }
       }
-    }, 18);
+    }, 16);
   }
 
-  // 4. ATTACH SMART CONTEXTUAL CHIPS & 1-TAP WHATSAPP CARD
+  // 4. ATTACH RICH VISUAL CARDS & SMART CONTEXTUAL CHIPS
   function attachSmartChips(msgElem, userQuery, botReply) {
-    const lower = (userQuery + ' ' + botReply).toLowerCase();
+    const fullText = (userQuery + ' ' + botReply).toLowerCase();
+
+    // Check for Rich Visual Card Triggers
+    let cardHtml = '';
+    if (botReply.includes('[CARD:clinic]') || fullText.includes('clinic') || fullText.includes('doctor') || fullText.includes('hospital')) {
+      cardHtml = `
+        <div class="ai-rich-card">
+          <div class="ai-rich-media">
+            <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=600&q=80" alt="CarePoint Clinic Portal">
+            <span class="ai-rich-pill">Healthcare Portal</span>
+            <span class="ai-rich-sla"><i class="fa-solid fa-bolt"></i> 48H SLA</span>
+          </div>
+          <div class="ai-rich-body">
+            <div class="ai-rich-title">CarePoint Multispeciality Clinic Demo</div>
+            <div class="ai-rich-points">
+              <span class="ai-rich-point"><i class="fa-solid fa-check"></i> 1-Click WhatsApp OPD Appointment Engine</span>
+              <span class="ai-rich-point"><i class="fa-solid fa-check"></i> Specialist Doctors Schedule & OPD Matrix</span>
+              <span class="ai-rich-point"><i class="fa-solid fa-check"></i> 1-Year Free NVMe Hosting + Free SSL</span>
+            </div>
+            <div class="ai-rich-footer">
+              <div class="ai-rich-price-tag">Express Package<strong>₹6,999</strong></div>
+              <div class="ai-rich-actions">
+                <a href="demos/clinic/index.html" target="_blank" class="ai-card-btn demo-btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Test Live</a>
+                <a href="https://wa.me/918298136441?text=${encodeURIComponent('Hello Shubham! I want to book the CarePoint Clinic Website package.')}" target="_blank" class="ai-card-btn wa-btn"><i class="fa-brands fa-whatsapp"></i> Order</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    } else if (botReply.includes('[CARD:gym]') || fullText.includes('gym') || fullText.includes('fitness') || fullText.includes('crossfit') || fullText.includes('workout')) {
+      cardHtml = `
+        <div class="ai-rich-card">
+          <div class="ai-rich-media">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=600&q=80" alt="IronPulse Fitness Arena">
+            <span class="ai-rich-pill">Fitness Arena</span>
+            <span class="ai-rich-sla"><i class="fa-solid fa-bolt"></i> 48H SLA</span>
+          </div>
+          <div class="ai-rich-body">
+            <div class="ai-rich-title">IronPulse Elite Fitness Arena Demo</div>
+            <div class="ai-rich-points">
+              <span class="ai-rich-point"><i class="fa-solid fa-check"></i> 1-Day Free Trial Pass Lead Capture Form</span>
+              <span class="ai-rich-point"><i class="fa-solid fa-check"></i> Interactive Real-Time BMI Health Calculator</span>
+              <span class="ai-rich-point"><i class="fa-solid fa-check"></i> Membership Tier Matrix & Trainer Showcase</span>
+            </div>
+            <div class="ai-rich-footer">
+              <div class="ai-rich-price-tag">Fitness Tier<strong>₹6,999</strong></div>
+              <div class="ai-rich-actions">
+                <a href="demos/gym/index.html" target="_blank" class="ai-card-btn demo-btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Test Live</a>
+                <a href="https://wa.me/918298136441?text=${encodeURIComponent('Hello Shubham! I want to launch the IronPulse Gym Website package.')}" target="_blank" class="ai-card-btn wa-btn"><i class="fa-brands fa-whatsapp"></i> Order</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    } else if (botReply.includes('[CARD:corporate]') || fullText.includes('corporate') || fullText.includes('realty') || fullText.includes('real estate') || fullText.includes('property') || fullText.includes('villa')) {
+      cardHtml = `
+        <div class="ai-rich-card">
+          <div class="ai-rich-media">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" alt="Aura Prime Realty">
+            <span class="ai-rich-pill">Realty & Corporate</span>
+            <span class="ai-rich-sla"><i class="fa-solid fa-bolt"></i> 48H SLA</span>
+          </div>
+          <div class="ai-rich-body">
+            <div class="ai-rich-title">Aura Prime Realty & Consultants Demo</div>
+            <div class="ai-rich-points">
+              <span class="ai-rich-point"><i class="fa-solid fa-check"></i> Dynamic Home Loan & Investment EMI Calculator</span>
+              <span class="ai-rich-point"><i class="fa-solid fa-check"></i> VIP Site Visit Scheduler & PDF Brochure Modal</span>
+              <span class="ai-rich-point"><i class="fa-solid fa-check"></i> Luxury Dark Aesthetics & High-Ticket Trust</span>
+            </div>
+            <div class="ai-rich-footer">
+              <div class="ai-rich-price-tag">Growth Suite<strong>₹12,999</strong></div>
+              <div class="ai-rich-actions">
+                <a href="demos/corporate/index.html" target="_blank" class="ai-card-btn demo-btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Test Live</a>
+                <a href="https://wa.me/918298136441?text=${encodeURIComponent('Hello Shubham! I want to book the Aura Prime Corporate Website package.')}" target="_blank" class="ai-card-btn wa-btn"><i class="fa-brands fa-whatsapp"></i> Order</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    } else if (botReply.includes('[CARD:ecommerce]') || fullText.includes('ecommerce') || fullText.includes('e-commerce') || fullText.includes('store') || fullText.includes('shop') || fullText.includes('clothing') || fullText.includes('retail')) {
+      cardHtml = `
+        <div class="ai-rich-card">
+          <div class="ai-rich-media">
+            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=600&q=80" alt="Aura Luxe Store">
+            <span class="ai-rich-pill">D2C Storefront</span>
+            <span class="ai-rich-sla"><i class="fa-solid fa-bolt"></i> 48H SLA</span>
+          </div>
+          <div class="ai-rich-body">
+            <div class="ai-rich-title">Aura Luxe Streetwear & Smart Store</div>
+            <div class="ai-rich-points">
+              <span class="ai-rich-point"><i class="fa-solid fa-check"></i> Slide-Out Cart Drawer & Coupon Discount Codes</span>
+              <span class="ai-rich-point"><i class="fa-solid fa-check"></i> Instant UPI QR Modal & Direct WhatsApp Checkout</span>
+              <span class="ai-rich-point"><i class="fa-solid fa-check"></i> Complete Admin Inventory & Product Catalog</span>
+            </div>
+            <div class="ai-rich-footer">
+              <div class="ai-rich-price-tag">Store Package<strong>₹21,999</strong></div>
+              <div class="ai-rich-actions">
+                <a href="demos/ecommerce/index.html" target="_blank" class="ai-card-btn demo-btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Test Live</a>
+                <a href="https://wa.me/918298136441?text=${encodeURIComponent('Hello Shubham! I want to launch the Aura Luxe E-Commerce Store package.')}" target="_blank" class="ai-card-btn wa-btn"><i class="fa-brands fa-whatsapp"></i> Order</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    if (cardHtml) {
+      const cardContainer = document.createElement('div');
+      cardContainer.innerHTML = cardHtml;
+      msgElem.appendChild(cardContainer.firstElementChild);
+    }
+
+    // Chips
     const chipsContainer = document.createElement('div');
     chipsContainer.className = 'ai-chips';
 
     const chips = [];
-    if (lower.includes('clinic') || lower.includes('doctor') || lower.includes('patient') || lower.includes('hospital')) {
+    if (fullText.includes('clinic') || fullText.includes('doctor')) {
       chips.push({ text: '🏥 View Clinic Live Demo', action: 'demo-clinic' });
       chips.push({ text: '💰 Clinic Packages & Cost', query: 'Clinic website ke packages aur pricing kya hain?' });
       chips.push({ text: '📲 Talk to CEO Shubham', action: 'wa-ceo' });
-    } else if (lower.includes('gym') || lower.includes('fitness') || lower.includes('trainer') || lower.includes('crossfit')) {
+    } else if (fullText.includes('gym') || fullText.includes('fitness')) {
       chips.push({ text: '💪 View Gym Live Demo', action: 'demo-gym' });
       chips.push({ text: '💰 Gym Pricing & Plans', query: 'Gym website package aur pricing details batao' });
       chips.push({ text: '📲 Talk to CEO Shubham', action: 'wa-ceo' });
-    } else if (lower.includes('corporate') || lower.includes('realty') || lower.includes('company') || lower.includes('b2b')) {
+    } else if (fullText.includes('corporate') || fullText.includes('realty')) {
       chips.push({ text: '🏢 View Corporate Demo', action: 'demo-corporate' });
       chips.push({ text: '⚡ 48-Hour Delivery SLA', query: '48 ghante me delivery kaise hoti hai?' });
+      chips.push({ text: '📲 Talk to CEO Shubham', action: 'wa-ceo' });
+    } else if (fullText.includes('store') || fullText.includes('ecommerce')) {
+      chips.push({ text: '🛍️ View E-Commerce Demo', action: 'demo-ecommerce' });
+      chips.push({ text: '💳 UPI & WhatsApp Checkout', query: 'E-commerce website me UPI checkout kaise kaam karta hai?' });
       chips.push({ text: '📲 Talk to CEO Shubham', action: 'wa-ceo' });
     } else {
       chips.push({ text: '🏥 Clinic Demo', action: 'demo-clinic' });
       chips.push({ text: '💪 Gym Demo', action: 'demo-gym' });
-      chips.push({ text: '🧮 Estimate Cost', action: 'calc' });
+      chips.push({ text: '🛍️ E-Commerce Demo', action: 'demo-ecommerce' });
+      chips.push({ text: '🏢 Corporate Demo', action: 'demo-corporate' });
       chips.push({ text: '📲 Direct WhatsApp', action: 'wa-ceo' });
     }
 
