@@ -3175,3 +3175,368 @@ html, body {
     font-size: 1.95rem;
   }
 }
+
+/* --------------------------------------------------------------------------
+   E. Google Reviews Trust Banner & Social Proof
+   -------------------------------------------------------------------------- */
+.google-trust-banner {
+  background: rgba(18, 22, 33, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+  padding: 20px 28px;
+  margin: 0 auto 40px auto;
+  max-width: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.google-trust-badge {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.google-g-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.score-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 2px;
+}
+
+.score-num {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+}
+
+.google-rating-score .stars {
+  color: #fbbf24;
+  font-size: 14px;
+  display: flex;
+  gap: 3px;
+}
+
+.google-rating-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.google-rating-meta strong {
+  font-size: 0.95rem;
+  color: #fff;
+}
+
+.google-rating-meta span {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.trust-guarantees {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.guarantee-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+/* --------------------------------------------------------------------------
+   F. 3-Step Interactive Onboarding Wizard
+   -------------------------------------------------------------------------- */
+.onboarding-wizard {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.onboarding-wizard h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.wizard-steps-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 24px 0 28px 0;
+}
+
+.step-indicator-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.step-indicator-item.active {
+  opacity: 1;
+}
+
+.step-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.step-indicator-item.active .step-num {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 12px rgba(99, 102, 241, 0.5);
+}
+
+.step-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.step-bar {
+  width: 32px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.wizard-label {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin-bottom: 16px;
+}
+
+.niche-selector-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.niche-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  color: #94a3b8;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.niche-btn i {
+  font-size: 24px;
+  color: var(--text-muted);
+  transition: all 0.25s ease;
+}
+
+.niche-btn span {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.niche-btn:hover {
+  background: rgba(99, 102, 241, 0.08);
+  border-color: rgba(99, 102, 241, 0.35);
+  color: #fff;
+}
+
+.niche-btn:hover i {
+  color: var(--primary-color);
+  transform: scale(1.1);
+}
+
+.niche-btn.active {
+  background: rgba(99, 102, 241, 0.15);
+  border-color: var(--primary-color);
+  color: #fff;
+  box-shadow: 0 0 16px rgba(99, 102, 241, 0.25);
+}
+
+.niche-btn.active i {
+  color: var(--primary-color);
+}
+
+.feature-selector-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.feature-check-card {
+  position: relative;
+  display: block;
+  cursor: pointer;
+}
+
+.feature-check-card input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.feat-card-inner {
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.feat-card-inner i {
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.feat-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.feat-desc {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.feature-check-card input:checked + .feat-card-inner,
+.feature-check-card.selected .feat-card-inner {
+  background: rgba(34, 197, 94, 0.08);
+  border-color: rgba(34, 197, 94, 0.4);
+  box-shadow: 0 0 12px rgba(34, 197, 94, 0.15);
+}
+
+.wizard-nav-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.wizard-nav-actions.flex-between {
+  justify-content: space-between;
+}
+
+/* --------------------------------------------------------------------------
+   G. Dynamic Social Proof Activity Toast
+   -------------------------------------------------------------------------- */
+.social-proof-toast {
+  position: fixed;
+  bottom: 84px;
+  left: 24px;
+  background: rgba(18, 22, 33, 0.95);
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  border-radius: var(--radius-md);
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  z-index: 998;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(12px);
+  max-width: 380px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.social-proof-toast.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.sp-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(99, 102, 241, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: var(--primary-color);
+  flex-shrink: 0;
+}
+
+.sp-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.sp-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.3;
+}
+
+.sp-time {
+  font-size: 0.75rem;
+  color: var(--accent-color);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 2px;
+}
+
+@media (max-width: 768px) {
+  .social-proof-toast {
+    bottom: 80px;
+    left: 14px;
+    right: 14px;
+    max-width: none;
+  }
+}
+
