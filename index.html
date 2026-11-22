@@ -921,6 +921,32 @@
           <p class="section-subtitle">Read how our high-converting websites help businesses generate consistent customer appointments.</p>
         </div>
 
+        <!-- Google Reviews Verified Trust Banner -->
+        <div class="google-trust-banner">
+          <div class="google-trust-badge">
+            <div class="google-g-logo">
+              <i class="fa-brands fa-google color-primary"></i>
+            </div>
+            <div class="google-rating-score">
+              <div class="score-header">
+                <span class="score-num">4.9</span>
+                <div class="stars">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+              <div class="google-rating-meta">
+                <strong>Google Verified Agency Reviews</strong>
+                <span>48+ Verified 5-Star Reviews across India</span>
+              </div>
+            </div>
+          </div>
+          <div class="trust-guarantees">
+            <span class="guarantee-tag"><i class="fa-solid fa-shield-halved color-accent"></i> 100% Satisfaction Guarantee</span>
+            <span class="guarantee-tag"><i class="fa-solid fa-bolt color-wa"></i> 48-Hour Rapid SLA</span>
+            <span class="guarantee-tag"><i class="fa-solid fa-lock color-primary"></i> Free NVMe Hosting & SSL</span>
+          </div>
+        </div>
+
         <div class="testimonials-grid">
           <!-- Testimonial 1 -->
           <div class="testimonial-card">
@@ -1329,45 +1355,161 @@
           </div>
 
           <div class="contact-form-container">
-            <form id="lead-form" class="shaktix-form">
-              <h3>Start Your Project</h3>
-              <p class="form-sub">Fill out this 30-second inquiry form:</p>
-
-              <div class="form-group">
-                <label for="client-name">Your Full Name / Brand Name *</label>
-                <input type="text" id="client-name" required placeholder="e.g. Dr. Rajesh Sharma / FitGym Club" aria-required="true">
-              </div>
-
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="client-phone">WhatsApp Number *</label>
-                  <input type="tel" id="client-phone" required placeholder="e.g. 98765 43210" aria-required="true">
-                </div>
-                <div class="form-group">
-                  <label for="client-business-type">Industry / Niche *</label>
-                  <select id="client-business-type" required aria-required="true">
-                    <option value="" disabled selected>Select Industry</option>
-                    <option value="Clinic/Doctor">Healthcare / Clinic</option>
-                    <option value="Gym/Fitness">Gym / Fitness Studio</option>
-                    <option value="Restaurant/Cafe">Restaurant / Food / Cafe</option>
-                    <option value="Real Estate">Real Estate / Architect</option>
-                    <option value="Coaching/Education">Coaching / Education</option>
-                    <option value="Ecommerce/Store">Online Retail / Store</option>
-                    <option value="Other">Other Custom Business</option>
-                  </select>
+            <!-- 3-Step Interactive Onboarding Wizard -->
+            <div class="onboarding-wizard" id="onboarding-wizard">
+              <div class="wizard-header">
+                <h3>Launch Your Project in 48 Hours</h3>
+                <p class="form-sub">3-step fast kickoff &mdash; get instant custom quote & demo</p>
+                <div class="wizard-steps-indicator">
+                  <div class="step-indicator-item active" data-step="1">
+                    <span class="step-num">1</span>
+                    <span class="step-label">Niche</span>
+                  </div>
+                  <div class="step-bar"></div>
+                  <div class="step-indicator-item" data-step="2">
+                    <span class="step-num">2</span>
+                    <span class="step-label">Features</span>
+                  </div>
+                  <div class="step-bar"></div>
+                  <div class="step-indicator-item" data-step="3">
+                    <span class="step-num">3</span>
+                    <span class="step-label">Launch</span>
+                  </div>
                 </div>
               </div>
 
-              <div class="form-group">
-                <label for="client-notes">Project Requirements (Optional)</label>
-                <textarea id="client-notes" rows="3" placeholder="Describe features you want (e.g. appointment booking, online store, fast delivery)..."></textarea>
-              </div>
+              <form id="lead-form" class="shaktix-form">
+                <!-- STEP 1: Select Industry/Niche -->
+                <div class="wizard-step active" id="wizard-step-1">
+                  <label class="wizard-label">1. Choose Your Industry / Business Type:</label>
+                  <div class="niche-selector-grid">
+                    <button type="button" class="niche-btn active" data-niche="Clinic/Healthcare">
+                      <i class="fa-solid fa-stethoscope"></i>
+                      <span>Clinic / Doctor</span>
+                    </button>
+                    <button type="button" class="niche-btn" data-niche="Gym/Fitness">
+                      <i class="fa-solid fa-dumbbell"></i>
+                      <span>Gym / Fitness</span>
+                    </button>
+                    <button type="button" class="niche-btn" data-niche="Ecommerce/Store">
+                      <i class="fa-solid fa-cart-shopping"></i>
+                      <span>E-Commerce</span>
+                    </button>
+                    <button type="button" class="niche-btn" data-niche="Corporate/Realty">
+                      <i class="fa-solid fa-building"></i>
+                      <span>Corporate / Realty</span>
+                    </button>
+                    <button type="button" class="niche-btn" data-niche="Restaurant/Cafe">
+                      <i class="fa-solid fa-utensils"></i>
+                      <span>Restaurant / Food</span>
+                    </button>
+                    <button type="button" class="niche-btn" data-niche="Custom Business">
+                      <i class="fa-solid fa-rocket"></i>
+                      <span>Custom Business</span>
+                    </button>
+                  </div>
+                  <input type="hidden" id="client-business-type" value="Clinic/Healthcare">
+                  <div class="wizard-nav-actions">
+                    <button type="button" class="btn btn-primary btn-block" id="wizard-to-step-2">
+                      <span>Continue to Features</span>
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
 
-              <button type="submit" class="btn btn-primary btn-block" id="form-submit-btn">
-                <span>Send Inquiry & Connect on WhatsApp</span>
-                <i class="fa-solid fa-paper-plane"></i>
-              </button>
-            </form>
+                <!-- STEP 2: Choose Features -->
+                <div class="wizard-step" id="wizard-step-2" style="display: none;">
+                  <label class="wizard-label">2. Select Desired Features (Included in 48H SLA):</label>
+                  <div class="feature-selector-grid">
+                    <label class="feature-check-card selected">
+                      <input type="checkbox" name="wizard-feature" value="WhatsApp Booking Engine" checked>
+                      <div class="feat-card-inner">
+                        <i class="fa-brands fa-whatsapp color-wa"></i>
+                        <span class="feat-title">WhatsApp Booking</span>
+                        <span class="feat-desc">Instant customer leads</span>
+                      </div>
+                    </label>
+                    <label class="feature-check-card selected">
+                      <input type="checkbox" name="wizard-feature" value="Online Payments / UPI QR" checked>
+                      <div class="feat-card-inner">
+                        <i class="fa-solid fa-qrcode color-primary"></i>
+                        <span class="feat-title">UPI QR & Gateway</span>
+                        <span class="feat-desc">Instant zero-fee payouts</span>
+                      </div>
+                    </label>
+                    <label class="feature-check-card selected">
+                      <input type="checkbox" name="wizard-feature" value="Sub-Second NVMe Cloud Hosting" checked>
+                      <div class="feat-card-inner">
+                        <i class="fa-solid fa-bolt color-accent"></i>
+                        <span class="feat-title">NVMe Fast Hosting</span>
+                        <span class="feat-desc">Sub-second CDN + SSL</span>
+                      </div>
+                    </label>
+                    <label class="feature-check-card">
+                      <input type="checkbox" name="wizard-feature" value="Google Maps & Local SEO">
+                      <div class="feat-card-inner">
+                        <i class="fa-solid fa-location-dot color-wa"></i>
+                        <span class="feat-title">Google Maps & SEO</span>
+                        <span class="feat-desc">Rank #1 in local city</span>
+                      </div>
+                    </label>
+                    <label class="feature-check-card">
+                      <input type="checkbox" name="wizard-feature" value="AI Chatbot Assistant">
+                      <div class="feat-card-inner">
+                        <i class="fa-solid fa-robot color-primary"></i>
+                        <span class="feat-title">AI Chatbot</span>
+                        <span class="feat-desc">24/7 autonomous replies</span>
+                      </div>
+                    </label>
+                    <label class="feature-check-card selected">
+                      <input type="checkbox" name="wizard-feature" value="48-Hour Express Delivery SLA" checked>
+                      <div class="feat-card-inner">
+                        <i class="fa-solid fa-gauge-high color-accent"></i>
+                        <span class="feat-title">48-Hour SLA</span>
+                        <span class="feat-desc">Live in 48 hours</span>
+                      </div>
+                    </label>
+                  </div>
+                  <div class="wizard-nav-actions flex-between">
+                    <button type="button" class="btn btn-outline" id="wizard-back-to-step-1">
+                      <i class="fa-solid fa-arrow-left"></i>
+                      <span>Back</span>
+                    </button>
+                    <button type="button" class="btn btn-primary" id="wizard-to-step-3">
+                      <span>Continue to Contact</span>
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- STEP 3: Contact & Launch -->
+                <div class="wizard-step" id="wizard-step-3" style="display: none;">
+                  <label class="wizard-label">3. Confirm Details & Lock 48-Hour SLA:</label>
+                  <div class="form-group">
+                    <label for="client-name">Your Full Name / Business Brand *</label>
+                    <input type="text" id="client-name" required placeholder="e.g. Dr. Rajesh Sharma / FitGym Club" aria-required="true">
+                  </div>
+                  <div class="form-group">
+                    <label for="client-phone">WhatsApp Number *</label>
+                    <input type="tel" id="client-phone" required placeholder="e.g. 98765 43210" aria-required="true">
+                  </div>
+                  <div class="form-group">
+                    <label for="client-notes">Special Requirements / Custom Notes</label>
+                    <textarea id="client-notes" rows="2" placeholder="e.g. need online appointment calendar, domain already purchased..."></textarea>
+                  </div>
+                  <div class="wizard-nav-actions flex-between">
+                    <button type="button" class="btn btn-outline" id="wizard-back-to-step-2">
+                      <i class="fa-solid fa-arrow-left"></i>
+                      <span>Back</span>
+                    </button>
+                    <button type="submit" class="btn btn-primary" id="form-submit-btn">
+                      <span>Launch Project & Connect on WhatsApp</span>
+                      <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
