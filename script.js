@@ -528,8 +528,70 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* -------------------------------------------------------------------------
-   * 8. Client Lead Capture Form
+   * 8. Interactive 3-Step Onboarding Wizard & Lead Handler
    * ------------------------------------------------------------------------- */
+  window.nextWizardStep = function(step) {
+    if (step === 2) {
+      const activeNicheBtn = document.querySelector('.niche-btn.active');
+      if (activeNicheBtn) {
+        const nicheInput = document.getElementById('client-business-type');
+        if (nicheInput) nicheInput.value = activeNicheBtn.dataset.niche;
+      }
+    }
+
+    document.querySelectorAll('.wizard-step').forEach(el => el.style.display = 'none');
+    const targetStep = document.getElementById(`wizard-step-${step}`);
+    if (targetStep) targetStep.style.display = 'block';
+
+    document.querySelectorAll('.step-indicator-item').forEach(ind => {
+      const s = parseInt(ind.dataset.step);
+      if (s <= step) {
+        ind.classList.add('active');
+      } else {
+        ind.classList.remove('active');
+      }
+    });
+  };
+
+  // Niche button selection
+  const nicheBtns = document.querySelectorAll('.niche-btn');
+  nicheBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      nicheBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const hiddenInput = document.getElementById('client-business-type');
+      if (hiddenInput) hiddenInput.value = btn.dataset.niche;
+    });
+  });
+
+  // Feature cards check styling
+  const featureCards = document.querySelectorAll('.feature-check-card');
+  featureCards.forEach(card => {
+    const input = card.querySelector('input[type="checkbox"]');
+    if (input) {
+      input.addEventListener('change', () => {
+        if (input.checked) {
+          card.classList.add('selected');
+        } else {
+          card.classList.remove('selected');
+        }
+      });
+    }
+  });
+
+  // Step button bindings
+  const btnToStep2 = document.getElementById('wizard-to-step-2');
+  if (btnToStep2) btnToStep2.addEventListener('click', () => window.nextWizardStep(2));
+  
+  const btnBackToStep1 = document.getElementById('wizard-back-to-step-1');
+  if (btnBackToStep1) btnBackToStep1.addEventListener('click', () => window.nextWizardStep(1));
+
+  const btnToStep3 = document.getElementById('wizard-to-step-3');
+  if (btnToStep3) btnToStep3.addEventListener('click', () => window.nextWizardStep(3));
+
+  const btnBackToStep2 = document.getElementById('wizard-back-to-step-2');
+  if (btnBackToStep2) btnBackToStep2.addEventListener('click', () => window.nextWizardStep(2));
+
   const leadForm = document.getElementById('lead-form');
   if (leadForm) {
     leadForm.addEventListener('submit', (e) => {
@@ -537,20 +599,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const name = document.getElementById('client-name').value.trim();
       const phone = document.getElementById('client-phone').value.trim();
-      const industry = document.getElementById('client-business-type').value;
+      const industryInput = document.getElementById('client-business-type');
+      const industry = industryInput ? industryInput.value : 'Custom Business';
       const notes = document.getElementById('client-notes').value.trim();
 
-      if (!name || !phone || !industry) {
-        alert('Please fill out all required fields.');
+      const selectedFeatures = Array.from(document.querySelectorAll('input[name="wizard-feature"]:checked'))
+        .map(el => el.value)
+        .join(', ');
+
+      if (!name || !phone) {
+        alert('Please fill out your name and WhatsApp number.');
         return;
       }
 
-      const waMessage = `🚀 *NEW CLIENT INQUIRY FOR SHAKTIX WEB*\n\n` +
+      const waMessage = `🚀 *NEW CLIENT ONBOARDING INQUIRY (SHAKTIX)*\n\n` +
         `👤 *Client / Brand:* ${name}\n` +
         `📱 *WhatsApp:* ${phone}\n` +
-        `🏢 *Industry:* ${industry}\n` +
-        `📝 *Requirement Notes:* ${notes ? notes : 'Standard Website Consultation'}\n\n` +
-        `Please share demo preview link and quotation!`;
+        `🏢 *Industry / Niche:* ${industry}\n` +
+        `⚡ *Chosen Modules:* ${selectedFeatures || 'Standard Express Pack'}\n` +
+        `📝 *Client Notes:* ${notes ? notes : '48-Hour Rapid SLA Kickoff'}\n\n` +
+        `Please confirm project slot and lock delivery time!`;
 
       // Sync lead with Supabase & Local DB
       if (window.SHAKTIX_SUPABASE) {
@@ -558,8 +626,8 @@ document.addEventListener('DOMContentLoaded', () => {
           name: name,
           phone: phone,
           category: industry,
-          notes: notes,
-          source: 'Website Lead Form'
+          notes: `Features: ${selectedFeatures} | Notes: ${notes}`,
+          source: 'Interactive Onboarding Wizard'
         });
       }
 
@@ -568,6 +636,7 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
         window.open(`https://wa.me/${CEO_WHATSAPP_NUMBER}?text=${encodeURIComponent(waMessage)}`, '_blank');
         leadForm.reset();
+        window.nextWizardStep(1);
       }, 1000);
     });
   }
@@ -607,4 +676,47 @@ document.addEventListener('DOMContentLoaded', () => {
       window.location.href = 'admin/index.html';
     }
   });
+
+  /* -------------------------------------------------------------------------
+   * 11. Dynamic Social Proof Live Activity Toast
+   * ------------------------------------------------------------------------- */
+  function initSocialProofLiveToasts() {
+    const liveActivities = [
+      { name: "Dr. Rajesh Sharma (Patna)", action: "locked a 48H Clinic Portal", time: "2 min ago", icon: "fa-stethoscope" },
+      { name: "FitPulse Gym (Ranchi)", action: "received their live demo link", time: "5 min ago", icon: "fa-dumbbell" },
+      { name: "Apex Realty Group (Delhi)", action: "downloaded official PDF quotation", time: "9 min ago", icon: "fa-file-invoice" },
+      { name: "Krishna Sweets & Bakery", action: "launched online WhatsApp store", time: "14 min ago", icon: "fa-cart-shopping" },
+      { name: "Advocate Verma (Lucknow)", action: "booked Express Web Consultation", time: "21 min ago", icon: "fa-scale-balanced" },
+      { name: "GreenLeaf Organics", action: "activated 1-Year Free NVMe Hosting", time: "28 min ago", icon: "fa-bolt" }
+    ];
+
+    let currentIdx = 0;
+    const toastEl = document.createElement('div');
+    toastEl.className = 'social-proof-toast';
+    document.body.appendChild(toastEl);
+
+    function triggerSocialProof() {
+      const act = liveActivities[currentIdx];
+      currentIdx = (currentIdx + 1) % liveActivities.length;
+
+      toastEl.innerHTML = `
+        <div class="sp-avatar"><i class="fa-solid ${act.icon}"></i></div>
+        <div class="sp-content">
+          <div class="sp-title"><strong>${act.name}</strong> ${act.action}</div>
+          <div class="sp-time"><i class="fa-solid fa-circle-check"></i> ${act.time} &bull; Verified</div>
+        </div>
+      `;
+
+      toastEl.classList.add('show');
+
+      setTimeout(() => {
+        toastEl.classList.remove('show');
+      }, 5500);
+    }
+
+    setTimeout(triggerSocialProof, 3500);
+    setInterval(triggerSocialProof, 24000);
+  }
+
+  initSocialProofLiveToasts();
 });
