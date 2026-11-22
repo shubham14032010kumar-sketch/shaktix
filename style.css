@@ -3540,3 +3540,150 @@ html, body {
   }
 }
 
+/* --------------------------------------------------------------------------
+   H. Global Currency Switcher
+   -------------------------------------------------------------------------- */
+.currency-toggle {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-full);
+  padding: 3px;
+  gap: 2px;
+}
+
+.curr-btn {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.curr-btn:hover {
+  color: #fff;
+}
+
+.curr-btn.active {
+  background: var(--primary-color);
+  color: #fff;
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.4);
+}
+
+/* --------------------------------------------------------------------------
+   I. "SHAKTIX vs Traditional Agencies" Comparison Matrix
+   -------------------------------------------------------------------------- */
+.comparison-matrix-wrapper {
+  margin-top: 50px;
+  background: rgba(18, 22, 33, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+  padding: 40px 30px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.matrix-header {
+  margin-bottom: 30px;
+}
+
+.matrix-title {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 10px 0 6px 0;
+}
+
+.matrix-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 10px;
+  font-size: 0.92rem;
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 16px 20px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.comparison-table th {
+  background: rgba(15, 23, 42, 0.85);
+  color: #94a3b8;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.comparison-table th.col-shaktix {
+  background: rgba(99, 102, 241, 0.15);
+  color: #818cf8;
+  border-top-left-radius: var(--radius-md);
+  border-top-right-radius: var(--radius-md);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-bottom: none;
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+.comparison-table td.val-highlight {
+  background: rgba(99, 102, 241, 0.08);
+  border-left: 1px solid rgba(99, 102, 241, 0.25);
+  border-right: 1px solid rgba(99, 102, 241, 0.25);
+  color: #fff;
+}
+
+.comparison-table tr:last-child td.val-highlight {
+  border-bottom: 1px solid rgba(99, 102, 241, 0.25);
+  border-bottom-left-radius: var(--radius-md);
+  border-bottom-right-radius: var(--radius-md);
+}
+
+.comparison-table td.val-highlight i {
+  color: #22c55e;
+  margin-right: 6px;
+}
+
+.val-bad {
+  color: #94a3b8;
+}
+
+.feature-name {
+  color: #f1f5f9;
+}
+
+@media (max-width: 768px) {
+  .comparison-matrix-wrapper {
+    padding: 24px 16px;
+  }
+  .comparison-table th,
+  .comparison-table td {
+    padding: 12px 14px;
+    font-size: 0.82rem;
+  }
+  .matrix-title {
+    font-size: 1.3rem;
+  }
+}
+
+
