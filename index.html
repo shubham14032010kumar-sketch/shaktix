@@ -302,6 +302,11 @@
       </nav>
 
       <div class="nav-actions">
+        <!-- Global Currency Switcher (INR / USD) -->
+        <div class="currency-toggle" id="currency-toggle" role="group" aria-label="Select Currency">
+          <button type="button" class="curr-btn active" data-curr="INR" title="Indian Rupee">₹ INR</button>
+          <button type="button" class="curr-btn" data-curr="USD" title="US Dollar / International">$ USD</button>
+        </div>
         <a href="https://wa.me/918298136441?text=Hello%20SHAKTIX!%20I%20want%20a%20website%20consultation." target="_blank" class="btn btn-outline nav-btn" id="nav-whatsapp-btn" aria-label="Direct WhatsApp Consultation">
           <i class="fa-brands fa-whatsapp color-wa"></i> <span class="nav-btn-text">Chat</span>
         </a>
@@ -806,6 +811,66 @@
             <span class="adv-tag">₹15,000 Annual Value</span>
           </div>
         </div>
+
+        <!-- Head-to-Head Comparison Matrix: SHAKTIX vs Traditional Agencies -->
+        <div class="comparison-matrix-wrapper">
+          <div class="matrix-header text-center">
+            <span class="section-tag"><i class="fa-solid fa-code-compare"></i> HEAD-TO-HEAD MATRIX</span>
+            <h3 class="matrix-title">SHAKTIX Studio vs. Traditional Agencies & Freelancers</h3>
+            <p class="matrix-subtitle">Compare features directly. See why ambitious businesses choose our 48-hour model over legacy agencies.</p>
+          </div>
+
+          <div class="table-responsive">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th class="col-metric">Comparison Feature</th>
+                  <th class="col-traditional"><i class="fa-solid fa-hourglass-half"></i> Traditional Agencies</th>
+                  <th class="col-freelancer"><i class="fa-solid fa-user-xmark"></i> Freelancers / Fiverr</th>
+                  <th class="col-shaktix"><i class="fa-solid fa-bolt"></i> SHAKTIX Web Studio</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="feature-name"><strong>Delivery Turnaround</strong></td>
+                  <td class="val-bad">3 &ndash; 6 Weeks (delays common)</td>
+                  <td class="val-bad">Unpredictable (1&ndash;2 months)</td>
+                  <td class="val-highlight"><i class="fa-solid fa-circle-check"></i> <strong>48 to 72 Hours Guaranteed</strong></td>
+                </tr>
+                <tr>
+                  <td class="feature-name"><strong>Interactive Prototypes</strong></td>
+                  <td class="val-bad">Static Figma images / wireframes</td>
+                  <td class="val-bad">Generic templates</td>
+                  <td class="val-highlight"><i class="fa-solid fa-circle-check"></i> <strong>4 Working Live Demos (Clinic, Gym, Corporate, Store)</strong></td>
+                </tr>
+                <tr>
+                  <td class="feature-name"><strong>Page Speed & Technology</strong></td>
+                  <td class="val-bad">3.5s &ndash; 6.0s (heavy WordPress bloat)</td>
+                  <td class="val-bad">Slow shared hosting</td>
+                  <td class="val-highlight"><i class="fa-solid fa-circle-check"></i> <strong>Sub-Second &lt;650ms (Edge NVMe CDN)</strong></td>
+                </tr>
+                <tr>
+                  <td class="feature-name"><strong>AI Assistant & WhatsApp Engine</strong></td>
+                  <td class="val-bad">₹20,000+ extra add-on charge</td>
+                  <td class="val-bad">Not supported</td>
+                  <td class="val-highlight"><i class="fa-solid fa-circle-check"></i> <strong>Native Gemini AI + 1-Tap WhatsApp Alerts</strong></td>
+                </tr>
+                <tr>
+                  <td class="feature-name"><strong>Hosting & Maintenance (AMC)</strong></td>
+                  <td class="val-bad">₹12,000 / year recurring charges</td>
+                  <td class="val-bad">Client handles server & setup</td>
+                  <td class="val-highlight"><i class="fa-solid fa-circle-check"></i> <strong>1 Full Year FREE NVMe Hosting & Support</strong></td>
+                </tr>
+                <tr>
+                  <td class="feature-name"><strong>Pricing & Payment Terms</strong></td>
+                  <td class="val-bad">₹45,000 &ndash; ₹1,20,000 (rigid)</td>
+                  <td class="val-bad">Hidden charges & scope creep</td>
+                  <td class="val-highlight"><i class="fa-solid fa-circle-check"></i> <strong>₹6,999 / $99 with 50% Milestone Pay</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1164,7 +1229,7 @@
               <p class="plan-subtitle">Ideal for Doctors, Local Shops & Personal Brands.</p>
               <div class="plan-price">
                 <span class="currency">₹</span>
-                <span class="amount">6,999</span>
+                <span class="amount" data-inr="6,999" data-usd="99">6,999</span>
                 <span class="term">One-time</span>
               </div>
             </div>
@@ -1176,7 +1241,7 @@
               <li><i class="fa-solid fa-circle-check color-wa"></i> <strong>Delivery in 48 Hours</strong></li>
               <li><i class="fa-solid fa-circle-check color-wa"></i> 6 Months Free Maintenance</li>
             </ul>
-            <a href="https://wa.me/918298136441?text=Hello%20SHAKTIX,%20I%20want%20to%20book%20the%20Express%20Launch%20Package%20(Rs%206,999)." target="_blank" class="btn btn-outline btn-block">Get Started</a>
+            <a href="https://wa.me/918298136441?text=Hello%20SHAKTIX,%20I%20want%20to%20book%20the%20Express%20Launch%20Package." target="_blank" class="btn btn-outline btn-block plan-cta-btn" data-base-text="Hello SHAKTIX, I want to book the Express Launch Package">Get Started</a>
           </div>
 
           <!-- Growth Plan (Featured) -->
@@ -1187,7 +1252,7 @@
               <p class="plan-subtitle">Complete package for Clinics, Gyms, Institutes & Agencies.</p>
               <div class="plan-price">
                 <span class="currency">₹</span>
-                <span class="amount">12,999</span>
+                <span class="amount" data-inr="12,999" data-usd="179">12,999</span>
                 <span class="term">One-time</span>
               </div>
             </div>
@@ -1199,7 +1264,7 @@
               <li><i class="fa-solid fa-circle-check color-wa"></i> Professional Business Email</li>
               <li><i class="fa-solid fa-circle-check color-wa"></i> <strong>1 Full Year Complete AMC Support</strong></li>
             </ul>
-            <a href="https://wa.me/918298136441?text=Hello%20SHAKTIX,%20I%20want%20to%20book%20the%20Business%20Growth%20Package%20(Rs%2012,999)." target="_blank" class="btn btn-primary btn-block">Choose Business Growth</a>
+            <a href="https://wa.me/918298136441?text=Hello%20SHAKTIX,%20I%20want%20to%20book%20the%20Business%20Growth%20Package." target="_blank" class="btn btn-primary btn-block plan-cta-btn" data-base-text="Hello SHAKTIX, I want to book the Business Growth Package">Choose Business Growth</a>
           </div>
 
           <!-- E-Commerce Plan -->
@@ -1209,7 +1274,7 @@
               <p class="plan-subtitle">For retail brands, clothing lines & online stores.</p>
               <div class="plan-price">
                 <span class="currency">₹</span>
-                <span class="amount">21,999</span>
+                <span class="amount" data-inr="21,999" data-usd="299">21,999</span>
                 <span class="term">One-time</span>
               </div>
             </div>
@@ -1221,7 +1286,7 @@
               <li><i class="fa-solid fa-circle-check color-wa"></i> Free High-Performance Cloud Hosting</li>
               <li><i class="fa-solid fa-circle-check color-wa"></i> 1 Full Year Complete AMC & Security</li>
             </ul>
-            <a href="https://wa.me/918298136441?text=Hello%20SHAKTIX,%20I%20want%20to%20book%20the%20Ecommerce%20Power%20Package%20(Rs%2021,999)." target="_blank" class="btn btn-outline btn-block">Launch Store</a>
+            <a href="https://wa.me/918298136441?text=Hello%20SHAKTIX,%20I%20want%20to%20book%20the%20Ecommerce%20Power%20Package." target="_blank" class="btn btn-outline btn-block plan-cta-btn" data-base-text="Hello SHAKTIX, I want to book the Ecommerce Power Package">Launch Store</a>
           </div>
         </div>
       </div>
