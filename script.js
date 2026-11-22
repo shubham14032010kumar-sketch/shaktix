@@ -140,6 +140,70 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* -------------------------------------------------------------------------
+   * 4.5 Global Currency Switcher (INR / USD)
+   * ------------------------------------------------------------------------- */
+  let currentCurrency = localStorage.getItem('shaktix_currency') || 'INR';
+
+  const usdRates = {
+    '6999': 99,
+    '12999': 179,
+    '21999': 299,
+    '1500': 20,
+    '2500': 35,
+    '2000': 30,
+    '3000': 45
+  };
+
+  function updateCurrencyUI(curr) {
+    currentCurrency = curr;
+    localStorage.setItem('shaktix_currency', curr);
+
+    document.querySelectorAll('.curr-btn').forEach(btn => {
+      if (btn.dataset.curr === curr) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+
+    document.querySelectorAll('.currency').forEach(el => {
+      el.textContent = curr === 'USD' ? '$' : '₹';
+    });
+
+    document.querySelectorAll('.pricing-card .amount').forEach(el => {
+      const inrVal = el.getAttribute('data-inr');
+      const usdVal = el.getAttribute('data-usd');
+      if (curr === 'USD' && usdVal) {
+        el.textContent = usdVal;
+      } else if (inrVal) {
+        el.textContent = inrVal;
+      }
+    });
+
+    document.querySelectorAll('.plan-cta-btn').forEach(btn => {
+      const baseText = btn.getAttribute('data-base-text');
+      const card = btn.closest('.pricing-card');
+      const amountEl = card ? card.querySelector('.amount') : null;
+      const amount = amountEl ? amountEl.textContent : '';
+      const currSymbol = curr === 'USD' ? '$' : 'Rs ';
+      if (baseText) {
+        btn.href = `https://wa.me/${CEO_WHATSAPP_NUMBER}?text=${encodeURIComponent(baseText + ' (' + currSymbol + amount + ').')}`;
+      }
+    });
+
+    calculateTotal();
+  }
+
+  document.querySelectorAll('.curr-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      updateCurrencyUI(btn.dataset.curr);
+    });
+  });
+
+  // Initialize selected currency on page load
+  updateCurrencyUI(currentCurrency);
+
+  /* -------------------------------------------------------------------------
    * 5. Interactive Cost Estimator Calculator
    * ------------------------------------------------------------------------- */
   const typeBtns = document.querySelectorAll('#site-type-options .opt-btn');
@@ -161,8 +225,29 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
+    const isUSD = currentCurrency === 'USD';
+    let displayTotal = total;
+    let currSymbol = '₹';
+
+    if (isUSD) {
+      currSymbol = '$';
+      let baseUSD = usdRates[baseCost.toString()] || Math.round(baseCost / 75);
+      let addUSD = 0;
+      featureChecks.forEach(check => {
+        if (check.checked) {
+          addUSD += usdRates[check.value] || Math.round(parseInt(check.value, 10) / 75);
+        }
+      });
+      displayTotal = baseUSD + addUSD;
+    }
+
     if (totalDisplay) {
-      totalDisplay.textContent = total.toLocaleString('en-IN');
+      totalDisplay.textContent = displayTotal.toLocaleString(isUSD ? 'en-US' : 'en-IN');
+    }
+
+    const summaryCurrency = document.querySelector('.summary-price .currency');
+    if (summaryCurrency) {
+      summaryCurrency.textContent = currSymbol;
     }
 
     if (claimEstimateBtn) {
@@ -173,7 +258,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const message = `Namaste SHAKTIX Team! I used your Website Cost Estimator.\n\n` +
         `📦 Plan: ${selectedTypeName}\n` +
         `⚡ Features: ${featureListText}\n` +
-        `💰 Estimated Investment: ₹${total.toLocaleString('en-IN')}\n\n` +
+        `💰 Estimated Investment: ${currSymbol}${displayTotal.toLocaleString(isUSD ? 'en-US' : 'en-IN')}\n\n` +
         `I would like to discuss and book this package for my business.`;
 
       claimEstimateBtn.onclick = (e) => {
