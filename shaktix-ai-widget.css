@@ -561,15 +561,13 @@
    ------------------------------------------------------------- */
 @media (max-width: 768px) {
   .shaktix-floating-dock {
-    bottom: 72px;
+    bottom: 74px;
     right: 14px;
     gap: 8px;
-    z-index: 99990;
+    z-index: 99980;
   }
 
   .shaktix-dock-btn {
-    padding: 9px 14px;
-    font-size: 12px;
     box-shadow: 0 4px 15px rgba(15, 23, 42, 0.1);
   }
 
@@ -578,17 +576,30 @@
   }
 
   .shaktix-dock-btn.chat-btn {
-    padding: 9px 14px;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border-radius: 50%;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 4px 18px rgba(79, 70, 229, 0.45);
   }
 
-  .shaktix-dock-btn .btn-text {
-    font-size: 12px;
+  .shaktix-dock-btn.chat-btn > span:not(.btn-icon):not(.pulse-badge) {
+    display: none;
   }
 
-  .shaktix-dock-btn .btn-icon {
+  .shaktix-dock-btn.chat-btn .btn-icon {
     width: 24px;
     height: 24px;
-    font-size: 12px;
+    font-size: 16px;
+    margin: 0;
+  }
+
+  .shaktix-dock-btn.chat-btn .pulse-badge {
+    position: absolute;
+    top: 5px;
+    right: 5px;
   }
 
   .shaktix-ai-modal {
