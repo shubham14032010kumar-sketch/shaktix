@@ -80,8 +80,13 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
   font-size: 16px;
   background-color: var(--bg-main);
+}
+
+section[id], div[id] {
+  scroll-margin-top: 80px;
 }
 
 body {
@@ -2760,8 +2765,16 @@ html, body {
   }
 
   /* Section Spacing & Headings */
+  html {
+    scroll-padding-top: 72px;
+  }
+
+  section[id], div[id] {
+    scroll-margin-top: 72px;
+  }
+
   section {
-    padding: 48px 0 36px !important;
+    padding: 68px 0 42px !important;
   }
 
   .section-tag {
@@ -2868,8 +2881,6 @@ html, body {
   .metric-suffix {
     font-size: 1.15rem;
     color: #EC4899;
-  }
-    font-size: 1.1rem;
   }
 
   .metric-label {
